@@ -29,7 +29,16 @@ namespace vaalrusGUIPrototype
         /// </summary>
         private void InitializeComponent()
         {
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(421, 30);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(231, 225);
+            this.listBox1.TabIndex = 0;
             // 
             // newBooking
             // 
@@ -37,6 +46,7 @@ namespace vaalrusGUIPrototype
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(219)))), ((int)(((byte)(168)))));
             this.ClientSize = new System.Drawing.Size(745, 467);
+            this.Controls.Add(this.listBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "newBooking";
             this.Text = "newBooking";
@@ -45,5 +55,7 @@ namespace vaalrusGUIPrototype
         }
 
         #endregion
+
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
