@@ -13,7 +13,7 @@ namespace vaalrusGUIPrototype
 {
     public partial class viewAllBookings : Form
     {
-        private Font font = new Font("Microsoft Sans Serif", 10);
+       
         public viewAllBookings()
         {
             InitializeComponent();           
@@ -29,7 +29,7 @@ namespace vaalrusGUIPrototype
                     //btn.Parent = pictureBox1;//If using a picture box as background please set parent
                     btn.BackColor = ThemeColor.PrimaryColor;
                     btn.ForeColor = Color.White;
-                    btn.Font = font;
+                    btn.Font = ThemeColor.font;
                     //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                     btn.FlatAppearance.BorderColor = Color.White;
                     btn.FlatAppearance.BorderSize = 2;
@@ -40,7 +40,7 @@ namespace vaalrusGUIPrototype
                 if (lbls.GetType() == typeof(Label))
                 {
                     Label lbl = (Label)lbls;
-                    lbl.Font = font;
+                    lbl.Font = ThemeColor.font;
                     //lbl.Parent = pictureBox1;//If using a picture box as background please set parent
                     lbl.ForeColor = ThemeColor.SecondaryColor;
                     lbl.Parent = pictureBoxViewAllBookingsBackground;
@@ -96,7 +96,7 @@ namespace vaalrusGUIPrototype
                         //btn.Parent = pictureBox1;
                         btn.BackColor = ThemeColor.PrimaryColor;
                         btn.ForeColor = Color.White;
-                        btn.Font = font;
+                        btn.Font = ThemeColor.font;
                         //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                         btn.FlatAppearance.BorderColor = Color.White;
                         btn.FlatAppearance.BorderSize = 2;
@@ -108,7 +108,7 @@ namespace vaalrusGUIPrototype
                     if (lbls.GetType() == typeof(Label))
                     {
                         Label lbl = (Label)lbls;
-                        lbl.Font = font;
+                        lbl.Font = ThemeColor.font;
                         //lbl.Parent = pictureBox1;
                         lbl.ForeColor = ThemeColor.SecondaryColor;                       
                         lbl.BackColor = Color.Transparent;

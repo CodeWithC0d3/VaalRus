@@ -100,6 +100,7 @@ namespace vaalrusGUIPrototype
             ThemeColor.PrimaryColor = color;
             ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
             ThemeColor.thirdColor = ThemeColor.ChangeColorBrightness(color, -0.5);
-        }
+            ThemeColor.font = new Font("Microsoft Sans Serif", 15);
+    }
     }
 }
