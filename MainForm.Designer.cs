@@ -1,7 +1,7 @@
 ﻿
 namespace vaalrusGUIPrototype
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,12 @@ namespace vaalrusGUIPrototype
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.panel1 = new System.Windows.Forms.Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.panelSideBar = new System.Windows.Forms.Panel();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnQoutation = new System.Windows.Forms.Button();
             this.panelSubMenuAccommodation = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDeleteAccommodation = new System.Windows.Forms.Button();
             this.btnUpdateAccommodation = new System.Windows.Forms.Button();
             this.btnAddAccommodation = new System.Windows.Forms.Button();
             this.btnViewAccommodations = new System.Windows.Forms.Button();
@@ -52,39 +52,39 @@ namespace vaalrusGUIPrototype
             this.btnCreateBooking = new System.Windows.Forms.Button();
             this.btnViewBookings = new System.Windows.Forms.Button();
             this.btnBookings = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelMain = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelChildForm = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.pictureBoxMainFormBackground = new System.Windows.Forms.PictureBox();
+            this.panelSideBar.SuspendLayout();
             this.panelSubMenuAccommodation.SuspendLayout();
             this.panelSubMenuCustomer.SuspendLayout();
             this.panelSubMenuBooking.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panelMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panelChildForm.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainFormBackground)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelSideBar
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(70)))));
-            this.panel1.Controls.Add(this.btnReports);
-            this.panel1.Controls.Add(this.btnQoutation);
-            this.panel1.Controls.Add(this.panelSubMenuAccommodation);
-            this.panel1.Controls.Add(this.btnAccomodations);
-            this.panel1.Controls.Add(this.panelSubMenuCustomer);
-            this.panel1.Controls.Add(this.btnCustomers);
-            this.panel1.Controls.Add(this.panelSubMenuBooking);
-            this.panel1.Controls.Add(this.btnBookings);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(186, 467);
-            this.panel1.TabIndex = 0;
+            this.panelSideBar.AutoScroll = true;
+            this.panelSideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(70)))));
+            this.panelSideBar.Controls.Add(this.btnReports);
+            this.panelSideBar.Controls.Add(this.btnQoutation);
+            this.panelSideBar.Controls.Add(this.panelSubMenuAccommodation);
+            this.panelSideBar.Controls.Add(this.btnAccomodations);
+            this.panelSideBar.Controls.Add(this.panelSubMenuCustomer);
+            this.panelSideBar.Controls.Add(this.btnCustomers);
+            this.panelSideBar.Controls.Add(this.panelSubMenuBooking);
+            this.panelSideBar.Controls.Add(this.btnBookings);
+            this.panelSideBar.Controls.Add(this.panelMain);
+            this.panelSideBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelSideBar.Location = new System.Drawing.Point(0, 0);
+            this.panelSideBar.Name = "panelSideBar";
+            this.panelSideBar.Size = new System.Drawing.Size(186, 467);
+            this.panelSideBar.TabIndex = 0;
             // 
             // btnReports
             // 
@@ -117,7 +117,7 @@ namespace vaalrusGUIPrototype
             // panelSubMenuAccommodation
             // 
             this.panelSubMenuAccommodation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(194)))), ((int)(((byte)(214)))));
-            this.panelSubMenuAccommodation.Controls.Add(this.button1);
+            this.panelSubMenuAccommodation.Controls.Add(this.btnDeleteAccommodation);
             this.panelSubMenuAccommodation.Controls.Add(this.btnUpdateAccommodation);
             this.panelSubMenuAccommodation.Controls.Add(this.btnAddAccommodation);
             this.panelSubMenuAccommodation.Controls.Add(this.btnViewAccommodations);
@@ -127,20 +127,20 @@ namespace vaalrusGUIPrototype
             this.panelSubMenuAccommodation.Size = new System.Drawing.Size(169, 143);
             this.panelSubMenuAccommodation.TabIndex = 6;
             // 
-            // button1
+            // btnDeleteAccommodation
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(0, 105);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(169, 35);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Delete Accommodation";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDeleteAccommodation.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDeleteAccommodation.FlatAppearance.BorderSize = 0;
+            this.btnDeleteAccommodation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteAccommodation.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDeleteAccommodation.Location = new System.Drawing.Point(0, 105);
+            this.btnDeleteAccommodation.Name = "btnDeleteAccommodation";
+            this.btnDeleteAccommodation.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnDeleteAccommodation.Size = new System.Drawing.Size(169, 35);
+            this.btnDeleteAccommodation.TabIndex = 3;
+            this.btnDeleteAccommodation.Text = "Delete Accommodation";
+            this.btnDeleteAccommodation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteAccommodation.UseVisualStyleBackColor = true;
             // 
             // btnUpdateAccommodation
             // 
@@ -397,16 +397,16 @@ namespace vaalrusGUIPrototype
             this.btnBookings.UseVisualStyleBackColor = false;
             this.btnBookings.Click += new System.EventHandler(this.btnBookings_Click);
             // 
-            // panel2
+            // panelMain
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(70)))));
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(169, 80);
-            this.panel2.TabIndex = 0;
+            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(70)))));
+            this.panelMain.Controls.Add(this.label1);
+            this.panelMain.Controls.Add(this.pictureBoxLogo);
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMain.Location = new System.Drawing.Point(0, 0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(169, 80);
+            this.panelMain.TabIndex = 0;
             // 
             // label1
             // 
@@ -420,21 +420,21 @@ namespace vaalrusGUIPrototype
             this.label1.TabIndex = 1;
             this.label1.Text = "LOGO";
             // 
-            // pictureBox2
+            // pictureBoxLogo
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(70)))));
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(169, 80);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.pictureBoxLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(70)))));
+            this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(169, 80);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxLogo.TabIndex = 0;
+            this.pictureBoxLogo.TabStop = false;
             // 
             // panelChildForm
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(219)))), ((int)(((byte)(168)))));
-            this.panelChildForm.Controls.Add(this.pictureBox1);
+            this.panelChildForm.Controls.Add(this.pictureBoxMainFormBackground);
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(186, 0);
             this.panelChildForm.Name = "panelChildForm";
@@ -442,50 +442,50 @@ namespace vaalrusGUIPrototype
             this.panelChildForm.TabIndex = 1;
             this.panelChildForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelChildForm_Paint);
             // 
-            // pictureBox1
+            // pictureBoxMainFormBackground
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(745, 467);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxMainFormBackground.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxMainFormBackground.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMainFormBackground.Image")));
+            this.pictureBoxMainFormBackground.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxMainFormBackground.Name = "pictureBoxMainFormBackground";
+            this.pictureBoxMainFormBackground.Size = new System.Drawing.Size(745, 467);
+            this.pictureBoxMainFormBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMainFormBackground.TabIndex = 0;
+            this.pictureBoxMainFormBackground.TabStop = false;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(931, 467);
             this.Controls.Add(this.panelChildForm);
-            this.Controls.Add(this.panel1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Controls.Add(this.panelSideBar);
+            this.Name = "MainForm";
+            this.Text = "Vaalrus Booking System";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
+            this.panelSideBar.ResumeLayout(false);
             this.panelSubMenuAccommodation.ResumeLayout(false);
             this.panelSubMenuCustomer.ResumeLayout(false);
             this.panelSubMenuBooking.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panelMain.ResumeLayout(false);
+            this.panelMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panelChildForm.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainFormBackground)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelSideBar;
         private System.Windows.Forms.Panel panelSubMenuBooking;
         private System.Windows.Forms.Button btnCheckOut;
         private System.Windows.Forms.Button btnCheckIn;
         private System.Windows.Forms.Button btnCreateBooking;
         private System.Windows.Forms.Button btnViewBookings;
         private System.Windows.Forms.Button btnBookings;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Button btnAccomodations;
         private System.Windows.Forms.Panel panelSubMenuCustomer;
         private System.Windows.Forms.Button btnDeleteCustomer;
@@ -495,15 +495,15 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Button btnCustomers;
         private System.Windows.Forms.Button btnDeleteBooking;
         private System.Windows.Forms.Panel panelSubMenuAccommodation;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDeleteAccommodation;
         private System.Windows.Forms.Button btnUpdateAccommodation;
         private System.Windows.Forms.Button btnAddAccommodation;
         private System.Windows.Forms.Button btnViewAccommodations;
         private System.Windows.Forms.Button btnReports;
         private System.Windows.Forms.Button btnQoutation;
         private System.Windows.Forms.Panel panelChildForm;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxLogo;
+        private System.Windows.Forms.PictureBox pictureBoxMainFormBackground;
         private System.Windows.Forms.Label label1;
     }
 }

@@ -43,7 +43,7 @@ namespace vaalrusGUIPrototype
                     lbl.Font = font;
                     //lbl.Parent = pictureBox1;//If using a picture box as background please set parent
                     lbl.ForeColor = ThemeColor.SecondaryColor;
-                    lbl.Parent = pictureBox1;
+                    lbl.Parent = pictureBoxViewAllBookingsBackground;
                     lbl.BackColor = Color.Transparent;
 
                 }
@@ -64,7 +64,7 @@ namespace vaalrusGUIPrototype
             {
                 if (pnl.GetType() == typeof(Panel))
                 {
-                    pnl.Parent = pictureBox1;
+                    pnl.Parent = pictureBoxViewAllBookingsBackground;
                     pnl.BackColor = Color.Transparent;
                 }
             }
@@ -168,6 +168,11 @@ namespace vaalrusGUIPrototype
         {
             //Button btn = (Button)sender;
             //btn.Size = new Size(btn.Size.Width - 20, btn.Size.Height - 20);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
