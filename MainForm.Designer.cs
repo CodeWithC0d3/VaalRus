@@ -462,7 +462,7 @@ namespace vaalrusGUIPrototype
             this.Controls.Add(this.panelSideBar);
             this.Name = "MainForm";
             this.Text = "Vaalrus Booking System";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelSideBar.ResumeLayout(false);
             this.panelSubMenuAccommodation.ResumeLayout(false);
             this.panelSubMenuCustomer.ResumeLayout(false);

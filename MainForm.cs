@@ -94,7 +94,7 @@ namespace vaalrusGUIPrototype
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             Color color = Color.FromArgb(54, 77, 91);
             ThemeColor.PrimaryColor = color;
