@@ -15,6 +15,18 @@ namespace vaalrusGUIPrototype
         public viewAllBookings()
         {
             InitializeComponent();
+            label1.Parent = pictureBox1;
+            label1.BackColor = Color.Transparent;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

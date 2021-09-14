@@ -83,5 +83,15 @@ namespace vaalrusGUIPrototype
             openChildForm(new newBooking());
             hideSubMenu();
         }
+
+        private void panelChildForm_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
