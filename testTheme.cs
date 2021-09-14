@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace vaalrusGUIPrototype
 {
-    public partial class viewAllBookings : Form
+    public partial class testTheme : Form
     {
        
-        public viewAllBookings()
+        public testTheme()
         {
             InitializeComponent();           
         }
@@ -22,44 +22,6 @@ namespace vaalrusGUIPrototype
         {
             foreach (Control btns in this.Controls)
             {
-                if (btns.GetType() == typeof(Button))
-                {
-                    Button btn = (Button)btns;
-                    btn.FlatStyle = FlatStyle.Flat;
-                    //btn.Parent = pictureBox1;//If using a picture box as background please set parent
-                    btn.BackColor = ThemeColor.PrimaryColor;
-                    btn.ForeColor = Color.White;
-                    btn.Font = ThemeColor.font;
-                    //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
-                    btn.FlatAppearance.BorderColor = Color.White;
-                    btn.FlatAppearance.BorderSize = 2;
-                }
-            }
-            foreach (Control lbls in this.Controls)
-            {
-                if (lbls.GetType() == typeof(Label))
-                {
-                    Label lbl = (Label)lbls;
-                    lbl.Font = ThemeColor.font;
-                    //lbl.Parent = pictureBox1;//If using a picture box as background please set parent
-                    lbl.ForeColor = ThemeColor.SecondaryColor;
-                    lbl.Parent = pictureBoxViewAllBookingsBackground;
-                    lbl.BackColor = Color.Transparent;
-
-                }
-            }                          
-            foreach (Control dtg in this.Controls)
-            {
-                if (dtg.GetType() == typeof(DataGridView))
-                {
-                    DataGridView dtgg = (DataGridView)dtg;
-                    dtgg.ForeColor = Color.White;
-                    dtgg.BackgroundColor = SystemColors.Control;
-                    dtgg.DefaultCellStyle.BackColor = ThemeColor.PrimaryColor;
-                    dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
-
-                }
-            }
             foreach (Control pnl in this.Controls)
             {
                 if (pnl.GetType() == typeof(Panel))
@@ -68,14 +30,54 @@ namespace vaalrusGUIPrototype
                     pnl.BackColor = Color.Transparent;
                 }
             }
-            foreach (Control chk in this.Controls)
-            {
-                if (chk.GetType() == typeof(CheckBox))
-                {
-                    CheckBox chkk = (CheckBox)chk;
-                    chkk.ForeColor = ThemeColor.SecondaryColor;
-
+                /*
+                    if (btns.GetType() == typeof(Button))
+                    {
+                        Button btn = (Button)btns;
+                        btn.FlatStyle = FlatStyle.Flat;
+                        //btn.Parent = pictureBox1;//If using a picture box as background please set parent
+                        btn.BackColor = ThemeColor.PrimaryColor;
+                        btn.ForeColor = Color.White;
+                        btn.Font = ThemeColor.font;
+                        //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                        btn.FlatAppearance.BorderColor = Color.White;
+                        btn.FlatAppearance.BorderSize = 2;
+                    }
                 }
+                foreach (Control lbls in this.Controls)
+                {
+                    if (lbls.GetType() == typeof(Label))
+                    {
+                        Label lbl = (Label)lbls;
+                        lbl.Font = ThemeColor.font;
+                        //lbl.Parent = pictureBox1;//If using a picture box as background please set parent
+                        lbl.ForeColor = ThemeColor.SecondaryColor;
+                        lbl.Parent = pictureBoxViewAllBookingsBackground;
+                        lbl.BackColor = Color.Transparent;
+
+                    }
+                }                          
+                foreach (Control dtg in this.Controls)
+                {
+                    if (dtg.GetType() == typeof(DataGridView))
+                    {
+                        DataGridView dtgg = (DataGridView)dtg;
+                        dtgg.ForeColor = Color.White;
+                        dtgg.BackgroundColor = SystemColors.Control;
+                        dtgg.DefaultCellStyle.BackColor = ThemeColor.PrimaryColor;
+                        dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
+
+                    }
+                }
+
+                foreach (Control chk in this.Controls)
+                {
+                    if (chk.GetType() == typeof(CheckBox))
+                    {
+                        CheckBox chkk = (CheckBox)chk;
+                        chkk.ForeColor = ThemeColor.SecondaryColor;
+
+                    }*/
             }
             aplytheme(panel1);
             //aplytheme(pnl_device);

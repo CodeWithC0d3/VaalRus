@@ -1,7 +1,7 @@
 ﻿
 namespace vaalrusGUIPrototype
 {
-    partial class viewAllBookings
+    partial class testTheme
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace vaalrusGUIPrototype
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(viewAllBookings));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(testTheme));
             this.pictureBoxViewAllBookingsBackground = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();

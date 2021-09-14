@@ -39,10 +39,9 @@ D:\NWU\CMPG223\VaalRus\VaalRus\bin\Debug\vaalrusGUIPrototype.exe
 D:\NWU\CMPG223\VaalRus\VaalRus\bin\Debug\vaalrusGUIPrototype.pdb
 D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.csprojAssemblyReference.cache
 D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.MainForm.resources
-D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.newBooking.resources
 D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.Properties.Resources.resources
-D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.viewAllBookings.resources
 D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.csproj.GenerateResource.cache
 D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.csproj.CoreCompileInputs.cache
 D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.exe
 D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.pdb
+D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.testTheme.resources

@@ -64,7 +64,7 @@ namespace vaalrusGUIPrototype
         private void btnViewBookings_Click(object sender, EventArgs e)
         {
             //code
-            openChildForm(new viewAllBookings());
+            openChildForm(new testTheme());
             hideSubMenu();
         }
 
@@ -80,8 +80,8 @@ namespace vaalrusGUIPrototype
 
         private void btnCreateBooking_Click(object sender, EventArgs e)
         {
-            openChildForm(new newBooking());
-            hideSubMenu();
+            //openChildForm(new Test());
+            //hideSubMenu();
         }
 
         private void panelChildForm_Paint(object sender, PaintEventArgs e)
