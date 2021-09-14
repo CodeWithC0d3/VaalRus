@@ -22,3 +22,15 @@ C:\Users\JMX\Desktop\githubVaalrus\VaalRus\obj\Debug\vaalrusGUIPrototype.csproj.
 C:\Users\JMX\Desktop\githubVaalrus\VaalRus\obj\Debug\vaalrusGUIPrototype.csproj.CoreCompileInputs.cache
 C:\Users\JMX\Desktop\githubVaalrus\VaalRus\obj\Debug\vaalrusGUIPrototype.exe
 C:\Users\JMX\Desktop\githubVaalrus\VaalRus\obj\Debug\vaalrusGUIPrototype.pdb
+C:\Xtime\Vaalrus_Project\bin\Debug\vaalrusGUIPrototype.exe.config
+C:\Xtime\Vaalrus_Project\bin\Debug\vaalrusGUIPrototype.exe
+C:\Xtime\Vaalrus_Project\bin\Debug\vaalrusGUIPrototype.pdb
+C:\Xtime\Vaalrus_Project\obj\Debug\vaalrusGUIPrototype.Form1.resources
+C:\Xtime\Vaalrus_Project\obj\Debug\vaalrusGUIPrototype.newBooking.resources
+C:\Xtime\Vaalrus_Project\obj\Debug\vaalrusGUIPrototype.Properties.Resources.resources
+C:\Xtime\Vaalrus_Project\obj\Debug\vaalrusGUIPrototype.viewAllBookings.resources
+C:\Xtime\Vaalrus_Project\obj\Debug\vaalrusGUIPrototype.csproj.GenerateResource.cache
+C:\Xtime\Vaalrus_Project\obj\Debug\vaalrusGUIPrototype.csproj.CoreCompileInputs.cache
+C:\Xtime\Vaalrus_Project\obj\Debug\vaalrusGUIPrototype.exe
+C:\Xtime\Vaalrus_Project\obj\Debug\vaalrusGUIPrototype.pdb
+C:\Xtime\Vaalrus_Project\obj\Debug\vaalrusGUIPrototype.csprojAssemblyReference.cache
