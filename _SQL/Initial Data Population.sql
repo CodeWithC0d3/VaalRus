@@ -9,7 +9,11 @@ VALUES
 
 
 
-
+INSERT INTO Quotationstatus
+VALUES 
+(0), -- pending
+(1), -- accepted
+(2);-- rejected
 
 
 

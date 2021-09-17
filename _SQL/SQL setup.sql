@@ -39,7 +39,7 @@ CREATE TABLE Booking (
 
 CREATE TABLE Quotationstatus (
     Status_ID int NOT NULL IDENTITY(1,1) PRIMARY KEY,
-    Status_Type bit DEFAULT 0
+    Status_Type tinyint DEFAULT 0 --- leave as tinint (3 values: 0 pending, 1 accepted, 2 rejected)
 
 );
 
