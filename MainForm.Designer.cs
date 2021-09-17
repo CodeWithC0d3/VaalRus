@@ -57,6 +57,7 @@ namespace vaalrusGUIPrototype
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBoxMainFormBackground = new System.Windows.Forms.PictureBox();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.panelSideBar.SuspendLayout();
             this.panelSubMenuAccommodation.SuspendLayout();
             this.panelSubMenuCustomer.SuspendLayout();
@@ -71,6 +72,7 @@ namespace vaalrusGUIPrototype
             // 
             this.panelSideBar.AutoScroll = true;
             this.panelSideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(70)))));
+            this.panelSideBar.Controls.Add(this.btnSettings);
             this.panelSideBar.Controls.Add(this.btnReports);
             this.panelSideBar.Controls.Add(this.btnQoutation);
             this.panelSideBar.Controls.Add(this.panelSubMenuAccommodation);
@@ -83,7 +85,7 @@ namespace vaalrusGUIPrototype
             this.panelSideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideBar.Location = new System.Drawing.Point(0, 0);
             this.panelSideBar.Name = "panelSideBar";
-            this.panelSideBar.Size = new System.Drawing.Size(186, 467);
+            this.panelSideBar.Size = new System.Drawing.Size(186, 502);
             this.panelSideBar.TabIndex = 0;
             // 
             // btnReports
@@ -438,7 +440,7 @@ namespace vaalrusGUIPrototype
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(186, 0);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(745, 467);
+            this.panelChildForm.Size = new System.Drawing.Size(745, 502);
             this.panelChildForm.TabIndex = 1;
             this.panelChildForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelChildForm_Paint);
             // 
@@ -448,16 +450,29 @@ namespace vaalrusGUIPrototype
             this.pictureBoxMainFormBackground.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMainFormBackground.Image")));
             this.pictureBoxMainFormBackground.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxMainFormBackground.Name = "pictureBoxMainFormBackground";
-            this.pictureBoxMainFormBackground.Size = new System.Drawing.Size(745, 467);
+            this.pictureBoxMainFormBackground.Size = new System.Drawing.Size(745, 502);
             this.pictureBoxMainFormBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMainFormBackground.TabIndex = 0;
             this.pictureBoxMainFormBackground.TabStop = false;
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSettings.Location = new System.Drawing.Point(0, 727);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(169, 35);
+            this.btnSettings.TabIndex = 9;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(931, 467);
+            this.ClientSize = new System.Drawing.Size(931, 502);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelSideBar);
             this.Name = "MainForm";
@@ -505,6 +520,7 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.PictureBox pictureBoxMainFormBackground;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSettings;
     }
 }
 
