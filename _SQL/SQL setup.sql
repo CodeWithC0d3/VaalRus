@@ -42,7 +42,7 @@ CREATE TABLE Customer (
     Customer_ID int NOT NULL IDENTITY(1,1) PRIMARY KEY,
     Customer_FirstName varchar(50),
     Customer_LastName varchar(50),
-	Customner_IDNumber tinyint,
+	Customner_IDNumber int,
 	Customer_Email varchar(50),
 	Customner_Cell int,
     PhysicalAddress varchar(50) -- Address seems to be a key word in SQL
