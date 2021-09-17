@@ -44,7 +44,7 @@ CREATE TABLE Customer (
     Customer_LastName varchar(50),
 	Customner_IDNumber tinyint,
 	Customer_Email varchar(50),
-	Customner_Cell tinyint,
+	Customner_Cell int,
     PhysicalAddress varchar(50) -- Address seems to be a key word in SQL
 
 );
@@ -52,14 +52,14 @@ CREATE TABLE Customer (
 CREATE TABLE Accommodationset (
     Quotation_ID int NOT NULL IDENTITY(1,1) PRIMARY KEY, --FK also
     Accommodation_ID int NOT NULL, --FK
-	Number_Of_occupants tinyint
+	Number_Of_occupants int
 
 );
 
 CREATE TABLE Accommodation (
     Accommodation_ID int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	Accommodation_TypeID int NOT NULL, -- FK
-	Number_Of_occupants tinyint,
+	Number_Of_occupants int,
 	Accommodation_Price Decimal
 
 );
