@@ -39,7 +39,7 @@ CREATE TABLE Payment (
 );
 
 CREATE TABLE Customer (
-    Qutotation_ID int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    Customer_ID int NOT NULL IDENTITY(1,1) PRIMARY KEY,
     Customer_FirstName varchar(50),
     Customer_LastName varchar(50),
 	Customner_IDNumber tinyint,
