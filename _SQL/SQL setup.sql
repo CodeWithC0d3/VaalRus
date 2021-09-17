@@ -32,7 +32,7 @@ CREATE TABLE Quotationstatus (
 
 CREATE TABLE Payment (
     Payment_ID int NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	Qutotation_ID int, -- FK
+	Qutotation_ID int NOT NULL, -- FK
     ReceivedAmount decimal,
     Payment_Date date,
 	Payment_Status bit
@@ -51,14 +51,14 @@ CREATE TABLE Customer (
 
 CREATE TABLE Accommodationset (
     Quotation_ID int NOT NULL IDENTITY(1,1) PRIMARY KEY, --FK also
-    Accommodation_ID int, --FK
+    Accommodation_ID int NOT NULL, --FK
 	Number_Of_occupants tinyint
 
 );
 
 CREATE TABLE Accommodation (
     Accommodation_ID int NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	Accommodation_TypeID int, -- FK
+	Accommodation_TypeID int NOT NULL, -- FK
 	Number_Of_occupants tinyint,
 	Accommodation_Price Decimal
 
