@@ -1,5 +1,4 @@
 --CREATE DATABASE Vaalrus; 
--- First Create a database in the explorer then run the script below
 
 -- CANT DROP TABLES LIKE THIS BECUASE OF FOREIGN KEYs
 -- DROP TABLE IF EXISTS Customer;
