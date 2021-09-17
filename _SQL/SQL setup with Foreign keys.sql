@@ -1,5 +1,4 @@
 --CREATE DATABASE Vaalrus; 
--- First Create a database in the explorer then run the script below
 
 -- CANT DROP TABLES LIKE THIS BECUASE OF FOREIGN KEYs
 -- DROP TABLE IF EXISTS Customer;
@@ -80,7 +79,7 @@ CREATE TABLE Accommodation (
 CREATE TABLE Accommodationset (
     Quotation_ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY, --FK also
     Accommodation_ID INT NOT NULL REFERENCES Accommodation(Accommodation_ID), --FK
-	Number_Of_occupants INT
+	Number_Of_Occupants INT
 
 );
 
