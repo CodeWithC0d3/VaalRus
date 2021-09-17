@@ -67,6 +67,7 @@ CREATE TABLE Accommodationtype (
 );
 
 CREATE TABLE Accommodation (
+--what about a name of each place???
     Accommodation_ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	Accommodation_TypeID INT NOT NULL REFERENCES Accommodationtype(Accommodation_TypeID), -- FK
 	Number_Of_occupants INT,
