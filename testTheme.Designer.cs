@@ -70,7 +70,7 @@ namespace vaalrusGUIPrototype
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(183, 35);
             this.button1.TabIndex = 2;
-            this.button1.Text = "View All";
+            this.button1.Text = "View Nothing";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
@@ -126,7 +126,7 @@ namespace vaalrusGUIPrototype
             this.panel1.Size = new System.Drawing.Size(278, 206);
             this.panel1.TabIndex = 7;
             // 
-            // viewAllBookings
+            // testTheme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -136,7 +136,7 @@ namespace vaalrusGUIPrototype
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBoxViewAllBookingsBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "viewAllBookings";
+            this.Name = "testTheme";
             this.Text = "viewAllBookings";
             this.Load += new System.EventHandler(this.viewAllBookings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxViewAllBookingsBackground)).EndInit();
