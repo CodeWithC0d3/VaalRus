@@ -71,7 +71,7 @@ CREATE TABLE Accommodationtype (
 CREATE TABLE Accommodationset (
     Quotation_ID int NOT NULL IDENTITY(1,1) PRIMARY KEY, --FK also
     Accommodation_ID int NOT NULL, --FK
-	Number_Of_occupants int
+	Number_Of_Occupants int
 
 );
 
