@@ -45,8 +45,8 @@ namespace vaalrusGUIPrototype
 
             aplytheme(pnlConnetionControls);
             aplytheme(pnlGroupBoxDetails);
-            aplytheme2(pnlGroupBoxSearch);
-            aplytheme2(pnlGroupBoxDetails2);
+            aplytheme(pnlGroupBoxSearch);
+            aplytheme(pnlGroupBoxDetails2);
             //aplytheme(pnl_device);
             //aplytheme(pnl_main);
 
