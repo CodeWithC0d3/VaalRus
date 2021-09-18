@@ -119,5 +119,10 @@ namespace vaalrusGUIPrototype
         {
             openChildForm(new frmUpdateAccommodations());
         }
+
+        private void pictureBoxMainFormBackground_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
