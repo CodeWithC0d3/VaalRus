@@ -36,10 +36,10 @@ namespace vaalrusGUIPrototype
                         Button btn = (Button)btns;
                         btn.FlatStyle = FlatStyle.Flat;
                         //btn.Parent = pictureBox1;//If using a picture box as background please set parent
-                        btn.BackColor = ThemeColor.PrimaryColor;
+                        btn.BackColor = GlobalSettings.PrimaryColor;
                         btn.ForeColor = Color.White;
-                        btn.Font = ThemeColor.font;
-                        //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                        btn.Font = GlobalSettings.font;
+                        //btn.FlatAppearance.BorderColor = GlobalSettings.SecondaryColor;
                         btn.FlatAppearance.BorderColor = Color.White;
                         btn.FlatAppearance.BorderSize = 2;
                     }
@@ -49,9 +49,9 @@ namespace vaalrusGUIPrototype
                     if (lbls.GetType() == typeof(Label))
                     {
                         Label lbl = (Label)lbls;
-                        lbl.Font = ThemeColor.font;
+                        lbl.Font = GlobalSettings.font;
                         //lbl.Parent = pictureBox1;//If using a picture box as background please set parent
-                        lbl.ForeColor = ThemeColor.SecondaryColor;
+                        lbl.ForeColor = GlobalSettings.SecondaryColor;
                         lbl.Parent = pictureBoxViewAllBookingsBackground;
                         lbl.BackColor = Color.Transparent;
 
@@ -64,7 +64,7 @@ namespace vaalrusGUIPrototype
                         DataGridView dtgg = (DataGridView)dtg;
                         dtgg.ForeColor = Color.White;
                         dtgg.BackgroundColor = SystemColors.Control;
-                        dtgg.DefaultCellStyle.BackColor = ThemeColor.PrimaryColor;
+                        dtgg.DefaultCellStyle.BackColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
 
                     }
@@ -75,7 +75,7 @@ namespace vaalrusGUIPrototype
                     if (chk.GetType() == typeof(CheckBox))
                     {
                         CheckBox chkk = (CheckBox)chk;
-                        chkk.ForeColor = ThemeColor.SecondaryColor;
+                        chkk.ForeColor = GlobalSettings.SecondaryColor;
 
                     }*/
             }
@@ -96,9 +96,9 @@ namespace vaalrusGUIPrototype
                         Button btn = (Button)btns;
                         btn.FlatStyle = FlatStyle.Flat;
                         //btn.Parent = pictureBox1;
-                        btn.BackColor = ThemeColor.PrimaryColor;
+                        btn.BackColor = GlobalSettings.PrimaryColor;
                         btn.ForeColor = Color.White;
-                        btn.Font = ThemeColor.font;
+                        btn.Font = GlobalSettings.font;
                         //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                         btn.FlatAppearance.BorderColor = Color.White;
                         btn.FlatAppearance.BorderSize = 2;
@@ -110,9 +110,9 @@ namespace vaalrusGUIPrototype
                     if (lbls.GetType() == typeof(Label))
                     {
                         Label lbl = (Label)lbls;
-                        lbl.Font = ThemeColor.font;
+                        lbl.Font = GlobalSettings.font;
                         //lbl.Parent = pictureBox1;
-                        lbl.ForeColor = ThemeColor.SecondaryColor;                       
+                        lbl.ForeColor = GlobalSettings.SecondaryColor;                       
                         lbl.BackColor = Color.Transparent;
 
                     }
@@ -124,7 +124,7 @@ namespace vaalrusGUIPrototype
                         DataGridView dtgg = (DataGridView)dtg;
                         dtgg.ForeColor = Color.White;
                         dtgg.BackgroundColor = SystemColors.Control;
-                        dtgg.DefaultCellStyle.BackColor = ThemeColor.PrimaryColor;
+                        dtgg.DefaultCellStyle.BackColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
 
                     }
@@ -134,7 +134,7 @@ namespace vaalrusGUIPrototype
                     if (chk.GetType() == typeof(CheckBox))
                     {
                         CheckBox chkk = (CheckBox)chk;
-                        chkk.ForeColor = ThemeColor.SecondaryColor;                        
+                        chkk.ForeColor = GlobalSettings.SecondaryColor;                        
 
                     }
                 }

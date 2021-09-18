@@ -97,10 +97,10 @@ namespace vaalrusGUIPrototype
         private void MainForm_Load(object sender, EventArgs e)
         {
             Color color = Color.FromArgb(54, 77, 91);
-            ThemeColor.PrimaryColor = color;
-            ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
-            ThemeColor.thirdColor = ThemeColor.ChangeColorBrightness(color, -0.5);
-            ThemeColor.font = new Font("Microsoft Sans Serif", 15);
+            GlobalSettings.PrimaryColor = color;
+            GlobalSettings.SecondaryColor = GlobalSettings.ChangeColorBrightness(color, -0.3);
+            GlobalSettings.thirdColor = GlobalSettings.ChangeColorBrightness(color, -0.5);
+            GlobalSettings.font = new Font("Microsoft Sans Serif", 15);
     }
     }
 }
