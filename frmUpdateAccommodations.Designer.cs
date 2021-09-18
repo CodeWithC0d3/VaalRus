@@ -29,8 +29,8 @@ namespace vaalrusGUIPrototype
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdateAccommodations));
             this.pnlConnetionControls = new System.Windows.Forms.Panel();
+            this.pnlGroupBoxDetails2 = new System.Windows.Forms.Panel();
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
             this.pnlGroupBoxSearch = new System.Windows.Forms.Panel();
             this.lblSearchPrice = new System.Windows.Forms.Label();
@@ -57,15 +57,14 @@ namespace vaalrusGUIPrototype
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridViewAccom = new System.Windows.Forms.DataGridView();
             this.picBackground = new System.Windows.Forms.PictureBox();
-            this.pnlGroupBoxDetails2 = new System.Windows.Forms.Panel();
             this.pnlConnetionControls.SuspendLayout();
+            this.pnlGroupBoxDetails2.SuspendLayout();
             this.groupBoxSearch.SuspendLayout();
             this.pnlGroupBoxSearch.SuspendLayout();
             this.gBoxAccom.SuspendLayout();
             this.pnlGroupBoxDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).BeginInit();
-            this.pnlGroupBoxDetails2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlConnetionControls
@@ -80,6 +79,14 @@ namespace vaalrusGUIPrototype
             this.pnlConnetionControls.Name = "pnlConnetionControls";
             this.pnlConnetionControls.Size = new System.Drawing.Size(752, 511);
             this.pnlConnetionControls.TabIndex = 1;
+            // 
+            // pnlGroupBoxDetails2
+            // 
+            this.pnlGroupBoxDetails2.Controls.Add(this.groupBoxSearch);
+            this.pnlGroupBoxDetails2.Location = new System.Drawing.Point(3, 308);
+            this.pnlGroupBoxDetails2.Name = "pnlGroupBoxDetails2";
+            this.pnlGroupBoxDetails2.Size = new System.Drawing.Size(746, 200);
+            this.pnlGroupBoxDetails2.TabIndex = 8;
             // 
             // groupBoxSearch
             // 
@@ -307,21 +314,13 @@ namespace vaalrusGUIPrototype
             // picBackground
             // 
             this.picBackground.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picBackground.Image = ((System.Drawing.Image)(resources.GetObject("picBackground.Image")));
+            this.picBackground.Image = global::vaalrusGUIPrototype.Properties.Resources.WallpaperDog_20455774;
             this.picBackground.Location = new System.Drawing.Point(0, 0);
             this.picBackground.Name = "picBackground";
             this.picBackground.Size = new System.Drawing.Size(800, 533);
             this.picBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBackground.TabIndex = 3;
             this.picBackground.TabStop = false;
-            // 
-            // pnlGroupBoxDetails2
-            // 
-            this.pnlGroupBoxDetails2.Controls.Add(this.groupBoxSearch);
-            this.pnlGroupBoxDetails2.Location = new System.Drawing.Point(3, 308);
-            this.pnlGroupBoxDetails2.Name = "pnlGroupBoxDetails2";
-            this.pnlGroupBoxDetails2.Size = new System.Drawing.Size(746, 200);
-            this.pnlGroupBoxDetails2.TabIndex = 8;
             // 
             // frmUpdateAccommodations
             // 
@@ -335,6 +334,7 @@ namespace vaalrusGUIPrototype
             this.Text = "frmUpdateAccommodations";
             this.Load += new System.EventHandler(this.frmUpdateAccommodations_Load);
             this.pnlConnetionControls.ResumeLayout(false);
+            this.pnlGroupBoxDetails2.ResumeLayout(false);
             this.groupBoxSearch.ResumeLayout(false);
             this.pnlGroupBoxSearch.ResumeLayout(false);
             this.pnlGroupBoxSearch.PerformLayout();
@@ -343,7 +343,6 @@ namespace vaalrusGUIPrototype
             this.pnlGroupBoxDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).EndInit();
-            this.pnlGroupBoxDetails2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

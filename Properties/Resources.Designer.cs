@@ -79,5 +79,15 @@ namespace vaalrusGUIPrototype.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WallpaperDog_20455774 {
+            get {
+                object obj = ResourceManager.GetObject("WallpaperDog-20455774", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
