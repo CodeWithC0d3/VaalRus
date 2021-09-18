@@ -45,3 +45,7 @@ D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.csproj.CoreCompileI
 D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.exe
 D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.pdb
 D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.testTheme.resources
+D:\NWU\CMPG223\VaalRus\VaalRus\bin\Debug\Microsoft.Data.ConnectionUI.Dialog.dll
+D:\NWU\CMPG223\VaalRus\VaalRus\bin\Debug\Microsoft.Data.ConnectionUI.dll
+D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.frmSettings.resources
+D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.csproj.CopyComplete
