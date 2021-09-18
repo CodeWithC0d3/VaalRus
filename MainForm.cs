@@ -112,6 +112,11 @@ namespace vaalrusGUIPrototype
 
         private void btnUpdateCustomer_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnUpdateAccommodation_Click(object sender, EventArgs e)
+        {
             openChildForm(new frmUpdateAccommodations());
         }
     }

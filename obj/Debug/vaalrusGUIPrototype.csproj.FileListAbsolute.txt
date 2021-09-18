@@ -14,10 +14,7 @@ C:\Users\JMX\Desktop\githubVaalrus\VaalRus\bin\Debug\vaalrusGUIPrototype.exe.con
 C:\Users\JMX\Desktop\githubVaalrus\VaalRus\bin\Debug\vaalrusGUIPrototype.exe
 C:\Users\JMX\Desktop\githubVaalrus\VaalRus\bin\Debug\vaalrusGUIPrototype.pdb
 C:\Users\JMX\Desktop\githubVaalrus\VaalRus\obj\Debug\vaalrusGUIPrototype.csprojAssemblyReference.cache
-C:\Users\JMX\Desktop\githubVaalrus\VaalRus\obj\Debug\vaalrusGUIPrototype.Form1.resources
-C:\Users\JMX\Desktop\githubVaalrus\VaalRus\obj\Debug\vaalrusGUIPrototype.newBooking.resources
 C:\Users\JMX\Desktop\githubVaalrus\VaalRus\obj\Debug\vaalrusGUIPrototype.Properties.Resources.resources
-C:\Users\JMX\Desktop\githubVaalrus\VaalRus\obj\Debug\vaalrusGUIPrototype.viewAllBookings.resources
 C:\Users\JMX\Desktop\githubVaalrus\VaalRus\obj\Debug\vaalrusGUIPrototype.csproj.GenerateResource.cache
 C:\Users\JMX\Desktop\githubVaalrus\VaalRus\obj\Debug\vaalrusGUIPrototype.csproj.CoreCompileInputs.cache
 C:\Users\JMX\Desktop\githubVaalrus\VaalRus\obj\Debug\vaalrusGUIPrototype.exe
@@ -50,3 +47,10 @@ D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.frmSettings.resourc
 D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.csproj.CopyComplete
 D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.frmUpdateAccommodations.resources
 D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.csprojAssemblyReference.cache
+C:\Users\JMX\Desktop\githubVaalrus\VaalRus\bin\Debug\Microsoft.Data.ConnectionUI.Dialog.dll
+C:\Users\JMX\Desktop\githubVaalrus\VaalRus\bin\Debug\Microsoft.Data.ConnectionUI.dll
+C:\Users\JMX\Desktop\githubVaalrus\VaalRus\obj\Debug\vaalrusGUIPrototype.frmSettings.resources
+C:\Users\JMX\Desktop\githubVaalrus\VaalRus\obj\Debug\vaalrusGUIPrototype.frmUpdateAccommodations.resources
+C:\Users\JMX\Desktop\githubVaalrus\VaalRus\obj\Debug\vaalrusGUIPrototype.MainForm.resources
+C:\Users\JMX\Desktop\githubVaalrus\VaalRus\obj\Debug\vaalrusGUIPrototype.testTheme.resources
+C:\Users\JMX\Desktop\githubVaalrus\VaalRus\obj\Debug\vaalrusGUIPrototype.csproj.CopyComplete
