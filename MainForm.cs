@@ -114,5 +114,11 @@ namespace vaalrusGUIPrototype
         {
             openChildForm(new frmUpdateAccommodations());
         }
+
+        private void btnAddCustomer_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmAddNewCustomer());
+            
+        }
     }
 }

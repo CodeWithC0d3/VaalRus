@@ -276,6 +276,7 @@ namespace vaalrusGUIPrototype
             this.btnAddCustomer.Text = "Add New Customer";
             this.btnAddCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddCustomer.UseVisualStyleBackColor = true;
+            this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
             // btnViewCustomers
             // 
