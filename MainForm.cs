@@ -107,5 +107,11 @@ namespace vaalrusGUIPrototype
         {
             openChildForm(new frmSettings());
         }
+
+        private void btnUpdateAccommodation_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmUpdateAccommodations());
+            hideSubMenu();
+        }
     }
 }
