@@ -99,13 +99,20 @@ namespace vaalrusGUIPrototype
             Color color = Color.FromArgb(54, 77, 91);
             GlobalSettings.PrimaryColor = color;
             GlobalSettings.SecondaryColor = GlobalSettings.ChangeColorBrightness(color, -0.3);
-            GlobalSettings.thirdColor = GlobalSettings.ChangeColorBrightness(color, -0.5);
+            //GlobalSettings.thirdColor = GlobalSettings.ChangeColorBrightness(color, -0.9);
+            //GlobalSettings.thirdColor = Color.FromArgb(236, 236, 225);
+            GlobalSettings.thirdColor = GlobalSettings.ChangeColorBrightness(Color.FromArgb(236, 236, 225), -0.2);
             GlobalSettings.font = new Font("Microsoft Sans Serif", 15);
     }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
             openChildForm(new frmSettings());
+        }
+
+        private void btnUpdateCustomer_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmUpdateAccommodations());
         }
     }
 }
