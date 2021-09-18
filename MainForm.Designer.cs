@@ -31,6 +31,7 @@ namespace vaalrusGUIPrototype
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelSideBar = new System.Windows.Forms.Panel();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnQoutation = new System.Windows.Forms.Button();
             this.panelSubMenuAccommodation = new System.Windows.Forms.Panel();
@@ -57,7 +58,6 @@ namespace vaalrusGUIPrototype
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBoxMainFormBackground = new System.Windows.Forms.PictureBox();
-            this.btnSettings = new System.Windows.Forms.Button();
             this.panelSideBar.SuspendLayout();
             this.panelSubMenuAccommodation.SuspendLayout();
             this.panelSubMenuCustomer.SuspendLayout();
@@ -87,6 +87,20 @@ namespace vaalrusGUIPrototype
             this.panelSideBar.Name = "panelSideBar";
             this.panelSideBar.Size = new System.Drawing.Size(186, 502);
             this.panelSideBar.TabIndex = 0;
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSettings.Location = new System.Drawing.Point(0, 727);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(169, 35);
+            this.btnSettings.TabIndex = 9;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnReports
             // 
@@ -454,19 +468,6 @@ namespace vaalrusGUIPrototype
             this.pictureBoxMainFormBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMainFormBackground.TabIndex = 0;
             this.pictureBoxMainFormBackground.TabStop = false;
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSettings.FlatAppearance.BorderSize = 0;
-            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSettings.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSettings.Location = new System.Drawing.Point(0, 727);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(169, 35);
-            this.btnSettings.TabIndex = 9;
-            this.btnSettings.Text = "Settings";
-            this.btnSettings.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 

@@ -102,5 +102,10 @@ namespace vaalrusGUIPrototype
             GlobalSettings.thirdColor = GlobalSettings.ChangeColorBrightness(color, -0.5);
             GlobalSettings.font = new Font("Microsoft Sans Serif", 15);
     }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmSettings());
+        }
     }
 }
