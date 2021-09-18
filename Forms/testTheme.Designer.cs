@@ -49,8 +49,9 @@ namespace vaalrusGUIPrototype
             this.pictureBoxViewAllBookingsBackground.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBoxViewAllBookingsBackground.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxViewAllBookingsBackground.Image")));
             this.pictureBoxViewAllBookingsBackground.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxViewAllBookingsBackground.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBoxViewAllBookingsBackground.Name = "pictureBoxViewAllBookingsBackground";
-            this.pictureBoxViewAllBookingsBackground.Size = new System.Drawing.Size(960, 610);
+            this.pictureBoxViewAllBookingsBackground.Size = new System.Drawing.Size(1280, 751);
             this.pictureBoxViewAllBookingsBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxViewAllBookingsBackground.TabIndex = 0;
             this.pictureBoxViewAllBookingsBackground.TabStop = false;
@@ -59,16 +60,19 @@ namespace vaalrusGUIPrototype
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(35, 28);
+            this.dataGridView1.Location = new System.Drawing.Point(47, 34);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(452, 271);
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(603, 334);
             this.dataGridView1.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(53, 9);
+            this.button1.Location = new System.Drawing.Point(71, 11);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(183, 35);
+            this.button1.Size = new System.Drawing.Size(244, 43);
             this.button1.TabIndex = 2;
             this.button1.Text = "View Nothing";
             this.button1.UseVisualStyleBackColor = true;
@@ -78,9 +82,10 @@ namespace vaalrusGUIPrototype
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(21, 82);
+            this.textBox1.Location = new System.Drawing.Point(28, 101);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(252, 20);
+            this.textBox1.Size = new System.Drawing.Size(335, 22);
             this.textBox1.TabIndex = 3;
             // 
             // label1
@@ -89,9 +94,10 @@ namespace vaalrusGUIPrototype
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(30)))), ((int)(((byte)(84)))));
-            this.label1.Location = new System.Drawing.Point(92, 56);
+            this.label1.Location = new System.Drawing.Point(123, 69);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 13);
+            this.label1.Size = new System.Drawing.Size(161, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Search by Customer ID: ";
             // 
@@ -99,17 +105,19 @@ namespace vaalrusGUIPrototype
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(119, 115);
+            this.label2.Location = new System.Drawing.Point(195, 144);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.Size = new System.Drawing.Size(89, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "This is test - ";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(53, 148);
+            this.button2.Location = new System.Drawing.Point(71, 182);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(183, 46);
+            this.button2.Size = new System.Drawing.Size(164, 37);
             this.button2.TabIndex = 6;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
@@ -121,21 +129,23 @@ namespace vaalrusGUIPrototype
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(493, 28);
+            this.panel1.Location = new System.Drawing.Point(657, 34);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(278, 206);
+            this.panel1.Size = new System.Drawing.Size(371, 254);
             this.panel1.TabIndex = 7;
             // 
             // testTheme
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(960, 610);
+            this.ClientSize = new System.Drawing.Size(1280, 751);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBoxViewAllBookingsBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "testTheme";
             this.Text = "viewAllBookings";
             this.Load += new System.EventHandler(this.viewAllBookings_Load);
