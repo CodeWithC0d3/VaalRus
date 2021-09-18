@@ -24,8 +24,11 @@ namespace vaalrusGUIPrototype
                 {
                     if (pnl.GetType() == typeof(Panel))
                     {
-                        pnl.Parent = picBackground;
-                        pnl.BackColor = Color.Transparent;
+                        if (pnl.Name != "pnlLabelHeading")
+                        {
+                            pnl.Parent = picBackground;
+                            pnl.BackColor = Color.Transparent;
+                        }
                     }
                 }
                 foreach (Control lbls in this.Controls)
@@ -46,7 +49,8 @@ namespace vaalrusGUIPrototype
             aplytheme(pnlConnetionControls);
             aplytheme(pnlGroupBoxDetails);
             aplytheme(pnlGroupBoxSearch);
-            aplytheme(pnlGroupBoxDetails2);
+            //aplytheme(pnlGroupBoxDetails2);
+            aplytheme2(pnlLabelHeading);
             //aplytheme(pnl_device);
             //aplytheme(pnl_main);
 
@@ -128,6 +132,7 @@ namespace vaalrusGUIPrototype
         {
             if (co.GetType() == typeof(Panel))
             {
+
                 foreach (Control btns in co.Controls)
                 {
                     if (btns.GetType() == typeof(Button))
@@ -152,7 +157,9 @@ namespace vaalrusGUIPrototype
                         lbl.Font = GlobalSettings.font;
                         //lbl.Parent = picBackground;
                         //lbl.ForeColor = GlobalSettings.SecondaryColor;
-                        lbl.ForeColor = GlobalSettings.thirdColor;
+                        //lbl.ForeColor = GlobalSettings.thirdColor;
+                        lbl.ForeColor = Color.White;
+                        lbl.Font = new Font("Microsoft Sans Serif", 18);
                         lbl.BackColor = Color.Transparent;
 
                     }
@@ -194,6 +201,15 @@ namespace vaalrusGUIPrototype
                         GroupBox txtC = (GroupBox)grb;
                         txtC.ForeColor = GlobalSettings.thirdColor;
                         txtC.Font = GlobalSettings.font;
+                    }
+                }
+                foreach (Control pnl in this.Controls)
+                {
+                    if (pnl.GetType() == typeof(Panel))
+                    {
+                        //pnl.Parent = picBackground;
+                        pnl.BackColor = Color.FromArgb(3, 19, 70);
+                        
                     }
                 }
             }

@@ -472,6 +472,7 @@ namespace vaalrusGUIPrototype
             this.pictureBoxMainFormBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMainFormBackground.TabIndex = 0;
             this.pictureBoxMainFormBackground.TabStop = false;
+            this.pictureBoxMainFormBackground.Click += new System.EventHandler(this.pictureBoxMainFormBackground_Click);
             // 
             // MainForm
             // 
