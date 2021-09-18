@@ -32,11 +32,11 @@ namespace vaalrusGUIPrototype
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
             this.btnConString = new System.Windows.Forms.Button();
             this.pnlConnetionControls = new System.Windows.Forms.Panel();
+            this.txtConString = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.picBackground = new System.Windows.Forms.PictureBox();
-            this.txtConString = new System.Windows.Forms.TextBox();
             this.pnlConnetionControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +47,7 @@ namespace vaalrusGUIPrototype
             this.btnConString.Name = "btnConString";
             this.btnConString.Size = new System.Drawing.Size(165, 35);
             this.btnConString.TabIndex = 1;
-            this.btnConString.Text = "Build Connection String";
+            this.btnConString.Text = "Build";
             this.btnConString.UseVisualStyleBackColor = true;
             this.btnConString.Click += new System.EventHandler(this.btnConString_Click);
             // 
@@ -60,6 +60,16 @@ namespace vaalrusGUIPrototype
             this.pnlConnetionControls.Name = "pnlConnetionControls";
             this.pnlConnetionControls.Size = new System.Drawing.Size(794, 221);
             this.pnlConnetionControls.TabIndex = 2;
+            // 
+            // txtConString
+            // 
+            this.txtConString.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtConString.Location = new System.Drawing.Point(6, 83);
+            this.txtConString.Multiline = true;
+            this.txtConString.Name = "txtConString";
+            this.txtConString.Size = new System.Drawing.Size(725, 135);
+            this.txtConString.TabIndex = 3;
             // 
             // label1
             // 
@@ -102,16 +112,6 @@ namespace vaalrusGUIPrototype
             this.picBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBackground.TabIndex = 5;
             this.picBackground.TabStop = false;
-            // 
-            // txtConString
-            // 
-            this.txtConString.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtConString.Location = new System.Drawing.Point(6, 83);
-            this.txtConString.Multiline = true;
-            this.txtConString.Name = "txtConString";
-            this.txtConString.Size = new System.Drawing.Size(725, 135);
-            this.txtConString.TabIndex = 3;
             // 
             // frmSettings
             // 
