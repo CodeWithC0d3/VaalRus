@@ -172,6 +172,7 @@ namespace vaalrusGUIPrototype
             this.btnUpdateAccommodation.Text = "Update Existing Accommodation";
             this.btnUpdateAccommodation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdateAccommodation.UseVisualStyleBackColor = true;
+            this.btnUpdateAccommodation.Click += new System.EventHandler(this.btnUpdateAccommodation_Click);
             // 
             // btnAddAccommodation
             // 
