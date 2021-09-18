@@ -102,7 +102,7 @@ namespace vaalrusGUIPrototype
             //GlobalSettings.thirdColor = GlobalSettings.ChangeColorBrightness(color, -0.9);
             //GlobalSettings.thirdColor = Color.FromArgb(236, 236, 225);
             GlobalSettings.thirdColor = GlobalSettings.ChangeColorBrightness(Color.FromArgb(236, 236, 225), -0.2);
-            GlobalSettings.font = new Font("Microsoft Sans Serif", 15);
+            GlobalSettings.font = new Font("Microsoft Sans Serif", 10);
     }
 
         private void btnSettings_Click(object sender, EventArgs e)
