@@ -21,17 +21,52 @@ namespace vaalrusGUIPrototype
         }
         private void changeButtonBrightness(object btn)
         {
-            if (currentButton != null)
+            Button cbtn = (Button)btn;
+            Color vara1 = new Color();
+            Color vara2 = new Color();
+            Color varb1 = new Color();
+            Color varb2 = new Color();
+            vara1 = Color.FromArgb(91, 194, 214);
+            vara2 = GlobalSettings.ChangeColorBrightness(Color.FromArgb(91, 194, 214), -0.2);
+            varb1 = Color.FromArgb(3, 19, 70);
+            varb2 = GlobalSettings.ChangeColorBrightness(Color.FromArgb(3, 19, 70), -0.2);
+            Color col = cbtn.BackColor;
+
+            if (currentButton == null)
             {
-                currentButton.BackColor = Color.FromArgb(91, 194, 214);
-                currentButton = (Button)btn;
-                currentButton.BackColor = GlobalSettings.ChangeColorBrightness(Color.FromArgb(91, 194, 214), -0.2);
+                if (col == vara1)
+                    cbtn.BackColor = vara2;
+                else if (col == vara2)
+                    cbtn.BackColor = vara1;
+                else if (col == varb1)
+                    cbtn.BackColor = varb2;
+                else if (col == varb2)
+                    cbtn.BackColor = varb1;
+
+                currentButton = cbtn;
             }
             else
             {
-                currentButton = (Button)btn;
-                currentButton.BackColor = GlobalSettings.ChangeColorBrightness(Color.FromArgb(91, 194, 214), -0.2);
+                if (currentButton.BackColor == vara1)
+                    currentButton.BackColor = vara2;
+                else if (currentButton.BackColor == vara2)
+                    currentButton.BackColor = vara1;
+                else if (currentButton.BackColor == varb2)
+                    currentButton.BackColor = varb1;
+                else if (currentButton.BackColor == varb2)
+                    currentButton.BackColor = varb1;
+
+                if (col == vara1)
+                    cbtn.BackColor = vara2;
+                else if (col == vara2)
+                    cbtn.BackColor = vara1;
+                else if (col == varb1)
+                    cbtn.BackColor = varb2;
+                else if (col == varb2)
+                    cbtn.BackColor = varb1;
+                currentButton = cbtn;
             }
+
         }
         private void customDesign()
         {
@@ -43,31 +78,16 @@ namespace vaalrusGUIPrototype
         {
             if (panelSubMenuBooking.Visible == true)
             {
-                if (currentButton != null)
-                {
-                    currentButton.BackColor = Color.FromArgb(91, 194, 214);
-                    currentButton = null;
-                }                
                 panelSubMenuBooking.Visible = false;
-            }                
+            }
             if (panelSubMenuCustomer.Visible == true)
             {
-                if (currentButton != null)
-                {
-                    currentButton.BackColor = Color.FromArgb(91, 194, 214);
-                    currentButton = null;
-                }                
                 panelSubMenuCustomer.Visible = false;
-            }               
+            }
             if (panelSubMenuAccommodation.Visible == true)
             {
-                if (currentButton != null)
-                {
-                    currentButton.BackColor = Color.FromArgb(91, 194, 214);
-                    currentButton = null;
-                }                
                 panelSubMenuAccommodation.Visible = false;
-            }               
+            }
         }
 
         private void showSubMenu(Panel subMenu)
