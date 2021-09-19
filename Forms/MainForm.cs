@@ -118,6 +118,7 @@ namespace vaalrusGUIPrototype
         private void btnUpdateAccommodation_Click(object sender, EventArgs e)
         {
             openChildForm(new frmUpdateAccommodations());
+            lblHeading.Text = "Update Existing Accommodations";
         }
 
         private void pictureBoxMainFormBackground_Click(object sender, EventArgs e)

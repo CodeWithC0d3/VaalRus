@@ -50,7 +50,7 @@ namespace vaalrusGUIPrototype
             aplytheme(pnlGroupBoxDetails);
             aplytheme(pnlGroupBoxSearch);
             //aplytheme(pnlGroupBoxDetails2);
-            aplytheme2(pnlLabelHeading);
+            //aplytheme2(pnlLabelHeading);
             //aplytheme(pnl_device);
             //aplytheme(pnl_main);
 

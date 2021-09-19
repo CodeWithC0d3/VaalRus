@@ -124,5 +124,8 @@
   <ItemGroup>
     <None Include="Resources\WallpaperDog-20455774.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgroundImage.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

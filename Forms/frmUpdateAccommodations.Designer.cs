@@ -30,11 +30,21 @@ namespace vaalrusGUIPrototype
         private void InitializeComponent()
         {
             this.pnlConnetionControls = new System.Windows.Forms.Panel();
+            this.groupBoxSearch = new System.Windows.Forms.GroupBox();
+            this.pnlGroupBoxSearch = new System.Windows.Forms.Panel();
+            this.lblSearchPrice = new System.Windows.Forms.Label();
+            this.txtsearchPrice = new System.Windows.Forms.TextBox();
+            this.lblSearchOccupants = new System.Windows.Forms.Label();
+            this.txtSearchOccupants = new System.Windows.Forms.TextBox();
+            this.lblSearchType = new System.Windows.Forms.Label();
+            this.txtSearchType = new System.Windows.Forms.TextBox();
+            this.lblsearchID = new System.Windows.Forms.Label();
+            this.txtSearchID = new System.Windows.Forms.TextBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.dataGridViewAccom = new System.Windows.Forms.DataGridView();
             this.btnPrev = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.gBoxAccom = new System.Windows.Forms.GroupBox();
             this.pnlGroupBoxDetails = new System.Windows.Forms.Panel();
             this.lblAccomPrice = new System.Windows.Forms.Label();
@@ -46,26 +56,13 @@ namespace vaalrusGUIPrototype
             this.lblAccomID = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.picBackground = new System.Windows.Forms.PictureBox();
-            this.pnlLabelHeading = new System.Windows.Forms.Panel();
-            this.lblHeading = new System.Windows.Forms.Label();
-            this.groupBoxSearch = new System.Windows.Forms.GroupBox();
-            this.pnlGroupBoxSearch = new System.Windows.Forms.Panel();
-            this.lblSearchPrice = new System.Windows.Forms.Label();
-            this.txtsearchPrice = new System.Windows.Forms.TextBox();
-            this.lblSearchOccupants = new System.Windows.Forms.Label();
-            this.txtSearchOccupants = new System.Windows.Forms.TextBox();
-            this.lblSearchType = new System.Windows.Forms.Label();
-            this.txtSearchType = new System.Windows.Forms.TextBox();
-            this.lblsearchID = new System.Windows.Forms.Label();
-            this.txtSearchID = new System.Windows.Forms.TextBox();
             this.pnlConnetionControls.SuspendLayout();
+            this.groupBoxSearch.SuspendLayout();
+            this.pnlGroupBoxSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).BeginInit();
             this.gBoxAccom.SuspendLayout();
             this.pnlGroupBoxDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).BeginInit();
-            this.pnlLabelHeading.SuspendLayout();
-            this.groupBoxSearch.SuspendLayout();
-            this.pnlGroupBoxSearch.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlConnetionControls
@@ -77,10 +74,108 @@ namespace vaalrusGUIPrototype
             this.pnlConnetionControls.Controls.Add(this.btnNext);
             this.pnlConnetionControls.Controls.Add(this.btnReset);
             this.pnlConnetionControls.Controls.Add(this.gBoxAccom);
-            this.pnlConnetionControls.Location = new System.Drawing.Point(12, 91);
+            this.pnlConnetionControls.Location = new System.Drawing.Point(12, 12);
             this.pnlConnetionControls.Name = "pnlConnetionControls";
             this.pnlConnetionControls.Size = new System.Drawing.Size(752, 432);
             this.pnlConnetionControls.TabIndex = 1;
+            // 
+            // groupBoxSearch
+            // 
+            this.groupBoxSearch.Controls.Add(this.pnlGroupBoxSearch);
+            this.groupBoxSearch.Location = new System.Drawing.Point(426, 3);
+            this.groupBoxSearch.Name = "groupBoxSearch";
+            this.groupBoxSearch.Size = new System.Drawing.Size(295, 213);
+            this.groupBoxSearch.TabIndex = 8;
+            this.groupBoxSearch.TabStop = false;
+            this.groupBoxSearch.Text = "Search:";
+            // 
+            // pnlGroupBoxSearch
+            // 
+            this.pnlGroupBoxSearch.Controls.Add(this.lblSearchPrice);
+            this.pnlGroupBoxSearch.Controls.Add(this.txtsearchPrice);
+            this.pnlGroupBoxSearch.Controls.Add(this.lblSearchOccupants);
+            this.pnlGroupBoxSearch.Controls.Add(this.txtSearchOccupants);
+            this.pnlGroupBoxSearch.Controls.Add(this.lblSearchType);
+            this.pnlGroupBoxSearch.Controls.Add(this.txtSearchType);
+            this.pnlGroupBoxSearch.Controls.Add(this.lblsearchID);
+            this.pnlGroupBoxSearch.Controls.Add(this.txtSearchID);
+            this.pnlGroupBoxSearch.Location = new System.Drawing.Point(29, 9);
+            this.pnlGroupBoxSearch.Name = "pnlGroupBoxSearch";
+            this.pnlGroupBoxSearch.Size = new System.Drawing.Size(235, 204);
+            this.pnlGroupBoxSearch.TabIndex = 0;
+            // 
+            // lblSearchPrice
+            // 
+            this.lblSearchPrice.AutoSize = true;
+            this.lblSearchPrice.Location = new System.Drawing.Point(11, 155);
+            this.lblSearchPrice.Name = "lblSearchPrice";
+            this.lblSearchPrice.Size = new System.Drawing.Size(113, 13);
+            this.lblSearchPrice.TabIndex = 22;
+            this.lblSearchPrice.Text = "Accommodation Price:";
+            // 
+            // txtsearchPrice
+            // 
+            this.txtsearchPrice.Location = new System.Drawing.Point(11, 177);
+            this.txtsearchPrice.Name = "txtsearchPrice";
+            this.txtsearchPrice.Size = new System.Drawing.Size(207, 20);
+            this.txtsearchPrice.TabIndex = 21;
+            // 
+            // lblSearchOccupants
+            // 
+            this.lblSearchOccupants.AutoSize = true;
+            this.lblSearchOccupants.Location = new System.Drawing.Point(35, 102);
+            this.lblSearchOccupants.Name = "lblSearchOccupants";
+            this.lblSearchOccupants.Size = new System.Drawing.Size(89, 13);
+            this.lblSearchOccupants.TabIndex = 20;
+            this.lblSearchOccupants.Text = "Total Occupants:";
+            // 
+            // txtSearchOccupants
+            // 
+            this.txtSearchOccupants.Location = new System.Drawing.Point(11, 122);
+            this.txtSearchOccupants.Name = "txtSearchOccupants";
+            this.txtSearchOccupants.Size = new System.Drawing.Size(207, 20);
+            this.txtSearchOccupants.TabIndex = 19;
+            // 
+            // lblSearchType
+            // 
+            this.lblSearchType.AutoSize = true;
+            this.lblSearchType.Location = new System.Drawing.Point(11, 50);
+            this.lblSearchType.Name = "lblSearchType";
+            this.lblSearchType.Size = new System.Drawing.Size(113, 13);
+            this.lblSearchType.TabIndex = 18;
+            this.lblSearchType.Text = "Accommodation Type:";
+            // 
+            // txtSearchType
+            // 
+            this.txtSearchType.Location = new System.Drawing.Point(11, 72);
+            this.txtSearchType.Name = "txtSearchType";
+            this.txtSearchType.Size = new System.Drawing.Size(207, 20);
+            this.txtSearchType.TabIndex = 17;
+            // 
+            // lblsearchID
+            // 
+            this.lblsearchID.AutoSize = true;
+            this.lblsearchID.Location = new System.Drawing.Point(24, 2);
+            this.lblsearchID.Name = "lblsearchID";
+            this.lblsearchID.Size = new System.Drawing.Size(100, 13);
+            this.lblsearchID.TabIndex = 16;
+            this.lblsearchID.Text = "Accommodation ID:";
+            // 
+            // txtSearchID
+            // 
+            this.txtSearchID.Location = new System.Drawing.Point(11, 23);
+            this.txtSearchID.Name = "txtSearchID";
+            this.txtSearchID.Size = new System.Drawing.Size(207, 20);
+            this.txtSearchID.TabIndex = 14;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(135, 180);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(151, 36);
+            this.btnUpdate.TabIndex = 2;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
             // 
             // dataGridViewAccom
             // 
@@ -117,15 +212,6 @@ namespace vaalrusGUIPrototype
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(135, 180);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(151, 36);
-            this.btnUpdate.TabIndex = 2;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
             // 
             // gBoxAccom
             // 
@@ -219,7 +305,7 @@ namespace vaalrusGUIPrototype
             // picBackground
             // 
             this.picBackground.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picBackground.Image = global::vaalrusGUIPrototype.Properties.Resources.WallpaperDog_20455774;
+            this.picBackground.Image = global::vaalrusGUIPrototype.Properties.Resources.backgroundImage;
             this.picBackground.Location = new System.Drawing.Point(0, 0);
             this.picBackground.Name = "picBackground";
             this.picBackground.Size = new System.Drawing.Size(800, 533);
@@ -227,137 +313,25 @@ namespace vaalrusGUIPrototype
             this.picBackground.TabIndex = 3;
             this.picBackground.TabStop = false;
             // 
-            // pnlLabelHeading
-            // 
-            this.pnlLabelHeading.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(70)))));
-            this.pnlLabelHeading.Controls.Add(this.lblHeading);
-            this.pnlLabelHeading.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLabelHeading.Location = new System.Drawing.Point(0, 0);
-            this.pnlLabelHeading.Name = "pnlLabelHeading";
-            this.pnlLabelHeading.Size = new System.Drawing.Size(800, 80);
-            this.pnlLabelHeading.TabIndex = 10;
-            // 
-            // lblHeading
-            // 
-            this.lblHeading.AutoSize = true;
-            this.lblHeading.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblHeading.Location = new System.Drawing.Point(238, 34);
-            this.lblHeading.Name = "lblHeading";
-            this.lblHeading.Size = new System.Drawing.Size(126, 13);
-            this.lblHeading.TabIndex = 0;
-            this.lblHeading.Text = "Update Accommodations";
-            // 
-            // groupBoxSearch
-            // 
-            this.groupBoxSearch.Controls.Add(this.pnlGroupBoxSearch);
-            this.groupBoxSearch.Location = new System.Drawing.Point(426, 3);
-            this.groupBoxSearch.Name = "groupBoxSearch";
-            this.groupBoxSearch.Size = new System.Drawing.Size(295, 213);
-            this.groupBoxSearch.TabIndex = 8;
-            this.groupBoxSearch.TabStop = false;
-            this.groupBoxSearch.Text = "Search:";
-            // 
-            // pnlGroupBoxSearch
-            // 
-            this.pnlGroupBoxSearch.Controls.Add(this.lblSearchPrice);
-            this.pnlGroupBoxSearch.Controls.Add(this.txtsearchPrice);
-            this.pnlGroupBoxSearch.Controls.Add(this.lblSearchOccupants);
-            this.pnlGroupBoxSearch.Controls.Add(this.txtSearchOccupants);
-            this.pnlGroupBoxSearch.Controls.Add(this.lblSearchType);
-            this.pnlGroupBoxSearch.Controls.Add(this.txtSearchType);
-            this.pnlGroupBoxSearch.Controls.Add(this.lblsearchID);
-            this.pnlGroupBoxSearch.Controls.Add(this.txtSearchID);
-            this.pnlGroupBoxSearch.Location = new System.Drawing.Point(29, 9);
-            this.pnlGroupBoxSearch.Name = "pnlGroupBoxSearch";
-            this.pnlGroupBoxSearch.Size = new System.Drawing.Size(235, 204);
-            this.pnlGroupBoxSearch.TabIndex = 0;
-            // 
-            // lblSearchPrice
-            // 
-            this.lblSearchPrice.AutoSize = true;
-            this.lblSearchPrice.Location = new System.Drawing.Point(11, 155);
-            this.lblSearchPrice.Name = "lblSearchPrice";
-            this.lblSearchPrice.Size = new System.Drawing.Size(113, 13);
-            this.lblSearchPrice.TabIndex = 22;
-            this.lblSearchPrice.Text = "Accommodation Price:";
-            // 
-            // txtsearchPrice
-            // 
-            this.txtsearchPrice.Location = new System.Drawing.Point(11, 177);
-            this.txtsearchPrice.Name = "txtsearchPrice";
-            this.txtsearchPrice.Size = new System.Drawing.Size(207, 20);
-            this.txtsearchPrice.TabIndex = 21;
-            // 
-            // lblSearchOccupants
-            // 
-            this.lblSearchOccupants.AutoSize = true;
-            this.lblSearchOccupants.Location = new System.Drawing.Point(35, 102);
-            this.lblSearchOccupants.Name = "lblSearchOccupants";
-            this.lblSearchOccupants.Size = new System.Drawing.Size(89, 13);
-            this.lblSearchOccupants.TabIndex = 20;
-            this.lblSearchOccupants.Text = "Total Occupants:";
-            // 
-            // txtSearchOccupants
-            // 
-            this.txtSearchOccupants.Location = new System.Drawing.Point(11, 122);
-            this.txtSearchOccupants.Name = "txtSearchOccupants";
-            this.txtSearchOccupants.Size = new System.Drawing.Size(207, 20);
-            this.txtSearchOccupants.TabIndex = 19;
-            // 
-            // lblSearchType
-            // 
-            this.lblSearchType.AutoSize = true;
-            this.lblSearchType.Location = new System.Drawing.Point(11, 50);
-            this.lblSearchType.Name = "lblSearchType";
-            this.lblSearchType.Size = new System.Drawing.Size(113, 13);
-            this.lblSearchType.TabIndex = 18;
-            this.lblSearchType.Text = "Accommodation Type:";
-            // 
-            // txtSearchType
-            // 
-            this.txtSearchType.Location = new System.Drawing.Point(11, 72);
-            this.txtSearchType.Name = "txtSearchType";
-            this.txtSearchType.Size = new System.Drawing.Size(207, 20);
-            this.txtSearchType.TabIndex = 17;
-            // 
-            // lblsearchID
-            // 
-            this.lblsearchID.AutoSize = true;
-            this.lblsearchID.Location = new System.Drawing.Point(24, 2);
-            this.lblsearchID.Name = "lblsearchID";
-            this.lblsearchID.Size = new System.Drawing.Size(100, 13);
-            this.lblsearchID.TabIndex = 16;
-            this.lblsearchID.Text = "Accommodation ID:";
-            // 
-            // txtSearchID
-            // 
-            this.txtSearchID.Location = new System.Drawing.Point(11, 23);
-            this.txtSearchID.Name = "txtSearchID";
-            this.txtSearchID.Size = new System.Drawing.Size(207, 20);
-            this.txtSearchID.TabIndex = 14;
-            // 
             // frmUpdateAccommodations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 533);
-            this.Controls.Add(this.pnlLabelHeading);
             this.Controls.Add(this.pnlConnetionControls);
             this.Controls.Add(this.picBackground);
             this.Name = "frmUpdateAccommodations";
             this.Text = "frmUpdateAccommodations";
             this.Load += new System.EventHandler(this.frmUpdateAccommodations_Load);
             this.pnlConnetionControls.ResumeLayout(false);
+            this.groupBoxSearch.ResumeLayout(false);
+            this.pnlGroupBoxSearch.ResumeLayout(false);
+            this.pnlGroupBoxSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).EndInit();
             this.gBoxAccom.ResumeLayout(false);
             this.pnlGroupBoxDetails.ResumeLayout(false);
             this.pnlGroupBoxDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).EndInit();
-            this.pnlLabelHeading.ResumeLayout(false);
-            this.pnlLabelHeading.PerformLayout();
-            this.groupBoxSearch.ResumeLayout(false);
-            this.pnlGroupBoxSearch.ResumeLayout(false);
-            this.pnlGroupBoxSearch.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -380,8 +354,6 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Label lblAccomID;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox picBackground;
-        private System.Windows.Forms.Panel pnlLabelHeading;
-        private System.Windows.Forms.Label lblHeading;
         private System.Windows.Forms.GroupBox groupBoxSearch;
         private System.Windows.Forms.Panel pnlGroupBoxSearch;
         private System.Windows.Forms.Label lblSearchPrice;
