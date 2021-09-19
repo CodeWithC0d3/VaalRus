@@ -22,6 +22,7 @@ namespace vaalrusGUIPrototype
         public string sqlCommand;
         public string dataFDB;
         public string connString = Properties.Settings.Default.conString;
+        public int dIndex;
         public frmUpdateAccommodations()
         {
             InitializeComponent();
@@ -248,8 +249,9 @@ namespace vaalrusGUIPrototype
                 MessageBox.Show("Connection unsuccesful");
             }
             Display("Select * from Accommodation");
-            readData("Select TOP 1 * from Accommodation");
-
+            //readData("Select TOP 1 * from Accommodation");
+            dIndex = 1;
+            readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
         }
         public void Display(string command)
         {
@@ -286,10 +288,10 @@ namespace vaalrusGUIPrototype
 
                     while (dReader.Read())
                     {
-                        txtAID.Text = dReader.GetValue(0).ToString();
-                        txtAType.Text = dReader.GetValue(1).ToString();
-                        txtAOccupants.Text = dReader.GetValue(2).ToString();
-                        txtAPrice.Text = dReader.GetValue(3).ToString();
+                        txtAID.Text = dReader.GetValue(1).ToString();
+                        txtAType.Text = dReader.GetValue(2).ToString();
+                        txtAOccupants.Text = dReader.GetValue(3).ToString();
+                        txtAPrice.Text = dReader.GetValue(4).ToString();
                     }
 
                     dReader.Close();
@@ -310,6 +312,20 @@ namespace vaalrusGUIPrototype
                 Display($"Select * from Accommodation where Accommodation_ID Like '%{txtSearchID.Text}%'");
             else
                 Display("Select * from Accommodation");
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            dIndex++;
+            readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '"+dIndex+"'");//'" + dIndex+"'");//'"+dIndex+"'");
+            
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            if(dIndex>1)
+                dIndex--;
+            readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
         }
     }
 }
