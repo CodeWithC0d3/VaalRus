@@ -181,6 +181,8 @@ namespace vaalrusGUIPrototype
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
+            openChildForm(new frmAddCustomer());
+            lblHeading.Text = "Add a new Customer";
             changeButtonBrightness(sender);
         }
 
