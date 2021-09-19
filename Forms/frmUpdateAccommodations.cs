@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,15 @@ namespace vaalrusGUIPrototype
 {
     public partial class frmUpdateAccommodations : Form
     {
+
+        public DataSet ds;
+        public SqlDataAdapter myAdapter;
+
+        public SqlConnection sqlConnection;
+        public SqlCommand sqlCmd;
+        public string sqlCommand;
+        public string dataFDB;
+        public string connString = Properties.Settings.Default.conString;
         public frmUpdateAccommodations()
         {
             InitializeComponent();
@@ -42,7 +52,7 @@ namespace vaalrusGUIPrototype
                         lbl.BackColor = Color.Transparent;
 
                     }
-                }               
+                }
 
             }
 
@@ -209,7 +219,7 @@ namespace vaalrusGUIPrototype
                     {
                         //pnl.Parent = picBackground;
                         pnl.BackColor = Color.FromArgb(3, 19, 70);
-                        
+
                     }
                 }
             }
@@ -227,6 +237,43 @@ namespace vaalrusGUIPrototype
         private void frmUpdateAccommodations_Load(object sender, EventArgs e)
         {
             LoadTheme();
+            sqlConnection = new SqlConnection(connString);
+            try
+            {
+                sqlConnection.Open();
+                MessageBox.Show("Connected to db");
+            }
+            catch (SqlException sqlx)
+            {
+                MessageBox.Show("Connection unsuccesful");
+            }
+            Display("Select * from Accommodation");
+            //myCmd = new SqlCommand("Select * from Accommodations", myConn);
+
+        }
+        public void Display(string command)
+        {
+            if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
+            sqlCommand = command;
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(sqlCommand, sqlConnection))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+
+                    DataSet ds = new DataSet();
+                    adapter.SelectCommand = cmd;
+                    adapter.Fill(ds, "Accommodation");
+
+                    dataGridViewAccom.DataSource = ds;
+                    dataGridViewAccom.DataMember = "Accommodation";
+                }
+            }
+            catch (SqlException sqle)
+            {
+                MessageBox.Show(sqle.Message.ToString());
+            }
+            sqlConnection.Close();
         }
     }
 }
