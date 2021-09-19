@@ -190,6 +190,7 @@ namespace vaalrusGUIPrototype
             this.btnAddAccommodation.Text = "Add New Accommodation";
             this.btnAddAccommodation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddAccommodation.UseVisualStyleBackColor = true;
+            this.btnAddAccommodation.Click += new System.EventHandler(this.btnAddAccommodation_Click);
             // 
             // btnViewAccommodations
             // 
@@ -279,6 +280,7 @@ namespace vaalrusGUIPrototype
             this.btnAddCustomer.Text = "Add New Customer";
             this.btnAddCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddCustomer.UseVisualStyleBackColor = true;
+            this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
             // btnViewCustomers
             // 

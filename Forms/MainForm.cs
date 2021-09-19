@@ -12,10 +12,25 @@ namespace vaalrusGUIPrototype
 {
     public partial class MainForm : Form
     {
+        Button currentButton;
         public MainForm()
         {
             InitializeComponent();
             customDesign();
+        }
+        private void changeButtonBrightness(object btn)
+        {
+            if (currentButton != null)
+            {
+                currentButton.BackColor = Color.FromArgb(91, 194, 214);
+                currentButton = (Button)btn;
+                currentButton.BackColor = GlobalSettings.ChangeColorBrightness(Color.FromArgb(91, 194, 214), -0.2);
+            }
+            else
+            {
+                currentButton = (Button)btn;
+                currentButton.BackColor = GlobalSettings.ChangeColorBrightness(Color.FromArgb(91, 194, 214), -0.2);
+            }
         }
         private void customDesign()
         {
@@ -26,11 +41,32 @@ namespace vaalrusGUIPrototype
         private void hideSubMenu()
         {
             if (panelSubMenuBooking.Visible == true)
+            {
+                if (currentButton != null)
+                {
+                    currentButton.BackColor = Color.FromArgb(91, 194, 214);
+                    currentButton = null;
+                }                
                 panelSubMenuBooking.Visible = false;
+            }                
             if (panelSubMenuCustomer.Visible == true)
+            {
+                if (currentButton != null)
+                {
+                    currentButton.BackColor = Color.FromArgb(91, 194, 214);
+                    currentButton = null;
+                }                
                 panelSubMenuCustomer.Visible = false;
+            }               
             if (panelSubMenuAccommodation.Visible == true)
+            {
+                if (currentButton != null)
+                {
+                    currentButton.BackColor = Color.FromArgb(91, 194, 214);
+                    currentButton = null;
+                }                
                 panelSubMenuAccommodation.Visible = false;
+            }               
         }
 
         private void showSubMenu(Panel subMenu)
@@ -75,13 +111,16 @@ namespace vaalrusGUIPrototype
 
         private void btnAccomodations_Click(object sender, EventArgs e)
         {
-            showSubMenu(panelSubMenuAccommodation);
+            showSubMenu(panelSubMenuAccommodation);          
+
+
         }
 
         private void btnCreateBooking_Click(object sender, EventArgs e)
         {
             //openChildForm(new Test());
             //hideSubMenu();
+            changeButtonBrightness(sender);
         }
 
         private void panelChildForm_Paint(object sender, PaintEventArgs e)
@@ -91,7 +130,7 @@ namespace vaalrusGUIPrototype
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
-
+            changeButtonBrightness(sender);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -108,6 +147,8 @@ namespace vaalrusGUIPrototype
         private void btnSettings_Click(object sender, EventArgs e)
         {
             openChildForm(new frmSettings());
+            hideSubMenu();
+
         }
 
         private void btnUpdateCustomer_Click(object sender, EventArgs e)
@@ -119,6 +160,7 @@ namespace vaalrusGUIPrototype
         {
             openChildForm(new frmUpdateAccommodations());
             lblHeading.Text = "Update Existing Accommodations";
+            changeButtonBrightness(sender);
         }
 
         private void pictureBoxMainFormBackground_Click(object sender, EventArgs e)
@@ -131,6 +173,16 @@ namespace vaalrusGUIPrototype
             if (activeForm != null)
                 activeForm.Close();
             lblHeading.Text = "Vaalrus Recreational Resort";
+        }
+
+        private void btnAddCustomer_Click(object sender, EventArgs e)
+        {
+            changeButtonBrightness(sender);
+        }
+
+        private void btnAddAccommodation_Click(object sender, EventArgs e)
+        {
+            changeButtonBrightness(sender);
         }
     }
 }
