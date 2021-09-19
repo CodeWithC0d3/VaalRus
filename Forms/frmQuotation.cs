@@ -45,6 +45,10 @@ namespace vaalrusGUIPrototype.Forms
 
             }            
             aplytheme(pnlMain);
+            aplytheme(pnlBookingDetails);
+            aplytheme(pnlavailibleAccommodation);
+            aplytheme(pnlAddRemove);
+            aplytheme(pnlSelectedAccommodation);
             //aplytheme(pnl_main);
 
         }
@@ -114,7 +118,7 @@ namespace vaalrusGUIPrototype.Forms
                 {
                     if (cmb.GetType() == typeof(ComboBox))
                     {
-                        TextBox cmbc = (TextBox)cmb;
+                        ComboBox cmbc = (ComboBox)cmb;
                         cmbc.ForeColor = GlobalSettings.SecondaryColor;
                         cmbc.Font = GlobalSettings.font;
 
@@ -124,9 +128,29 @@ namespace vaalrusGUIPrototype.Forms
                 {
                     if (dtp.GetType() == typeof(DateTimePicker))
                     {
-                        TextBox dtpc = (TextBox)dtp;
+                        DateTimePicker dtpc = (DateTimePicker)dtp;
                         dtpc.ForeColor = GlobalSettings.SecondaryColor;
                         dtpc.Font = GlobalSettings.font;
+
+                    }
+                }
+                foreach (Control gb in co.Controls)
+                {
+                    if (gb.GetType() == typeof(GroupBox))
+                    {
+                        GroupBox gpc = (GroupBox)gb;
+                        gpc.ForeColor = GlobalSettings.SecondaryColor;
+                        gpc.Font = GlobalSettings.font;
+
+                    }
+                }
+                foreach (Control ls in co.Controls)
+                {
+                    if (ls.GetType() == typeof(ListBox))
+                    {
+                        ListBox lsc = (ListBox)ls;
+                        lsc.ForeColor = GlobalSettings.SecondaryColor;
+                        lsc.Font = GlobalSettings.font;
 
                     }
                 }
@@ -135,7 +159,7 @@ namespace vaalrusGUIPrototype.Forms
 
         private void frmQuotation_Load(object sender, EventArgs e)
         {
-
+            LoadTheme();
         }
     }
 }
