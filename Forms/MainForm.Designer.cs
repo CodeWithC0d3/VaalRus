@@ -480,6 +480,7 @@ namespace vaalrusGUIPrototype
             this.pnlLabelHeading.Name = "pnlLabelHeading";
             this.pnlLabelHeading.Size = new System.Drawing.Size(803, 80);
             this.pnlLabelHeading.TabIndex = 11;
+            this.pnlLabelHeading.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlLabelHeading_MouseMove);
             // 
             // lblHeading
             // 
