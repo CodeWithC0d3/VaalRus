@@ -182,10 +182,10 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDeleteCustomer.cs">
+    <Compile Include="Forms\frmDeleteCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDeleteCustomer.Designer.cs">
+    <Compile Include="Forms\frmDeleteCustomer.Designer.cs">
       <DependentUpon>frmDeleteCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
