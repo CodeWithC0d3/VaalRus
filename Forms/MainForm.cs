@@ -188,6 +188,9 @@ namespace vaalrusGUIPrototype
 
         private void btnAddAccommodation_Click(object sender, EventArgs e)
         {
+
+            openChildForm(new frmAddAccommodation());
+            lblHeading.Text = "New Accommodation details";         
             changeButtonBrightness(sender);
         }
 
