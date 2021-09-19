@@ -173,6 +173,7 @@ namespace vaalrusGUIPrototype
             if (activeForm != null)
                 activeForm.Close();
             lblHeading.Text = "Vaalrus Recreational Resort";
+            hideSubMenu();
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
