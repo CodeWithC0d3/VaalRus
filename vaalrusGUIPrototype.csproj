@@ -158,6 +158,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\frmAddAccommodation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAddAccommodation.Designer.cs">
+      <DependentUpon>frmAddAccommodation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmAddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +215,9 @@
     <Compile Include="Forms\testTheme.Designer.cs">
       <DependentUpon>testTheme.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\frmAddAccommodation.resx">
+      <DependentUpon>frmAddAccommodation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmAddCustomer.resx">
       <DependentUpon>frmAddCustomer.cs</DependentUpon>
     </EmbeddedResource>
