@@ -149,6 +149,8 @@ namespace vaalrusGUIPrototype
         {
             openChildForm(new frmSettings());
             hideSubMenu();
+            lblHeading.Text = "Settings";
+            changeButtonBrightness(sender);
 
         }
 
@@ -198,6 +200,15 @@ namespace vaalrusGUIPrototype
         {
             openChildForm(new frmDeleteAccommodation());
             lblHeading.Text = "Delete Accommodation";
+
+            changeButtonBrightness(sender);
+        }
+
+        private void btnQoutation_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmQuotation());
+            lblHeading.Text = "Create Quotation";
+            hideSubMenu();
             changeButtonBrightness(sender);
         }
     }
