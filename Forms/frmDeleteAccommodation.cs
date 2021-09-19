@@ -28,56 +28,10 @@ namespace vaalrusGUIPrototype.Forms
                         pnl.BackColor = Color.Transparent;
                     }
                 }
-                /*
-                    if (btns.GetType() == typeof(Button))
-                    {
-                        Button btn = (Button)btns;
-                        btn.FlatStyle = FlatStyle.Flat;
-                        //btn.Parent = pictureBox1;//If using a picture box as background please set parent
-                        btn.BackColor = GlobalSettings.PrimaryColor;
-                        btn.ForeColor = Color.White;
-                        btn.Font = GlobalSettings.font;
-                        //btn.FlatAppearance.BorderColor = GlobalSettings.SecondaryColor;
-                        btn.FlatAppearance.BorderColor = Color.White;
-                        btn.FlatAppearance.BorderSize = 2;
-                    }
-                }
-                foreach (Control lbls in this.Controls)
-                {
-                    if (lbls.GetType() == typeof(Label))
-                    {
-                        Label lbl = (Label)lbls;
-                        lbl.Font = GlobalSettings.font;
-                        //lbl.Parent = pictureBox1;//If using a picture box as background please set parent
-                        lbl.ForeColor = GlobalSettings.SecondaryColor;
-                        lbl.Parent = pictureBoxViewAllBookingsBackground;
-                        lbl.BackColor = Color.Transparent;
-
-                    }
-                }                          
-                foreach (Control dtg in this.Controls)
-                {
-                    if (dtg.GetType() == typeof(DataGridView))
-                    {
-                        DataGridView dtgg = (DataGridView)dtg;
-                        dtgg.ForeColor = Color.White;
-                        dtgg.BackgroundColor = SystemColors.Control;
-                        dtgg.DefaultCellStyle.BackColor = GlobalSettings.PrimaryColor;
-                        dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
-
-                    }
-                }
-
-                foreach (Control chk in this.Controls)
-                {
-                    if (chk.GetType() == typeof(CheckBox))
-                    {
-                        CheckBox chkk = (CheckBox)chk;
-                        chkk.ForeColor = GlobalSettings.SecondaryColor;
-
-                    }*/
+                
             }
             aplytheme(panel1);
+            aplytheme(panel2);
             //aplytheme(pnl_device);
             //aplytheme(pnl_main);
 
@@ -141,8 +95,7 @@ namespace vaalrusGUIPrototype.Forms
         private void frmDeleteAccommodation_Load(object sender, EventArgs e)
         {
             LoadTheme();
-            aplytheme(panel1);
-            aplytheme(panel2);
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
