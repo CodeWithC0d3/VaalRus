@@ -241,23 +241,22 @@ namespace vaalrusGUIPrototype
             try
             {
                 sqlConnection.Open();
-                MessageBox.Show("Connected to db");
+                //MessageBox.Show("Connected to db");
             }
             catch (SqlException sqlx)
             {
                 MessageBox.Show("Connection unsuccesful");
             }
             Display("Select * from Accommodation");
-            //myCmd = new SqlCommand("Select * from Accommodations", myConn);
+            readData("Select TOP 1 * from Accommodation");
 
         }
         public void Display(string command)
         {
             if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
-            sqlCommand = command;
             try
             {
-                using (SqlCommand cmd = new SqlCommand(sqlCommand, sqlConnection))
+                using (SqlCommand cmd = new SqlCommand(command, sqlConnection))
                 {
                     SqlDataAdapter adapter = new SqlDataAdapter();
 
@@ -274,6 +273,43 @@ namespace vaalrusGUIPrototype
                 MessageBox.Show(sqle.Message.ToString());
             }
             sqlConnection.Close();
+        }
+        public void readData(string readstring)
+        {
+            try
+            {
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand(readstring, sqlConnection))
+                {
+
+                    SqlDataReader dReader = sqlCommand.ExecuteReader();
+
+                    while (dReader.Read())
+                    {
+                        txtAID.Text = dReader.GetValue(0).ToString();
+                        txtAType.Text = dReader.GetValue(1).ToString();
+                        txtAOccupants.Text = dReader.GetValue(2).ToString();
+                        txtAPrice.Text = dReader.GetValue(3).ToString();
+                    }
+
+                    dReader.Close();
+                    sqlCommand.Dispose();
+                }
+
+                sqlConnection.Close();
+            }
+            catch (SqlException sqle)
+            {
+                MessageBox.Show(sqle.Message.ToString());
+            }
+        }
+
+        private void txtSearchID_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearchID.Text.Length > 0)
+                Display($"Select * from Accommodation where Accommodation_ID Like '%{txtSearchID.Text}%'");
+            else
+                Display("Select * from Accommodation");
         }
     }
 }

@@ -49,12 +49,12 @@ namespace vaalrusGUIPrototype
             this.pnlGroupBoxDetails = new System.Windows.Forms.Panel();
             this.lblAccomPrice = new System.Windows.Forms.Label();
             this.lblTotalOccupants = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtAPrice = new System.Windows.Forms.TextBox();
+            this.txtAOccupants = new System.Windows.Forms.TextBox();
+            this.txtAType = new System.Windows.Forms.TextBox();
             this.lblAccomType = new System.Windows.Forms.Label();
             this.lblAccomID = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtAID = new System.Windows.Forms.TextBox();
             this.picBackground = new System.Windows.Forms.PictureBox();
             this.pnlConnetionControls.SuspendLayout();
             this.groupBoxSearch.SuspendLayout();
@@ -167,6 +167,7 @@ namespace vaalrusGUIPrototype
             this.txtSearchID.Name = "txtSearchID";
             this.txtSearchID.Size = new System.Drawing.Size(207, 20);
             this.txtSearchID.TabIndex = 14;
+            this.txtSearchID.TextChanged += new System.EventHandler(this.txtSearchID_TextChanged);
             // 
             // btnUpdate
             // 
@@ -228,12 +229,12 @@ namespace vaalrusGUIPrototype
             // 
             this.pnlGroupBoxDetails.Controls.Add(this.lblAccomPrice);
             this.pnlGroupBoxDetails.Controls.Add(this.lblTotalOccupants);
-            this.pnlGroupBoxDetails.Controls.Add(this.textBox4);
-            this.pnlGroupBoxDetails.Controls.Add(this.textBox3);
-            this.pnlGroupBoxDetails.Controls.Add(this.textBox2);
+            this.pnlGroupBoxDetails.Controls.Add(this.txtAPrice);
+            this.pnlGroupBoxDetails.Controls.Add(this.txtAOccupants);
+            this.pnlGroupBoxDetails.Controls.Add(this.txtAType);
             this.pnlGroupBoxDetails.Controls.Add(this.lblAccomType);
             this.pnlGroupBoxDetails.Controls.Add(this.lblAccomID);
-            this.pnlGroupBoxDetails.Controls.Add(this.textBox1);
+            this.pnlGroupBoxDetails.Controls.Add(this.txtAID);
             this.pnlGroupBoxDetails.Location = new System.Drawing.Point(3, 11);
             this.pnlGroupBoxDetails.Name = "pnlGroupBoxDetails";
             this.pnlGroupBoxDetails.Size = new System.Drawing.Size(386, 124);
@@ -257,26 +258,26 @@ namespace vaalrusGUIPrototype
             this.lblTotalOccupants.TabIndex = 14;
             this.lblTotalOccupants.Text = "Total Occupants:";
             // 
-            // textBox4
+            // txtAPrice
             // 
-            this.textBox4.Location = new System.Drawing.Point(196, 93);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(134, 20);
-            this.textBox4.TabIndex = 13;
+            this.txtAPrice.Location = new System.Drawing.Point(196, 93);
+            this.txtAPrice.Name = "txtAPrice";
+            this.txtAPrice.Size = new System.Drawing.Size(134, 20);
+            this.txtAPrice.TabIndex = 13;
             // 
-            // textBox3
+            // txtAOccupants
             // 
-            this.textBox3.Location = new System.Drawing.Point(196, 67);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(134, 20);
-            this.textBox3.TabIndex = 12;
+            this.txtAOccupants.Location = new System.Drawing.Point(196, 67);
+            this.txtAOccupants.Name = "txtAOccupants";
+            this.txtAOccupants.Size = new System.Drawing.Size(134, 20);
+            this.txtAOccupants.TabIndex = 12;
             // 
-            // textBox2
+            // txtAType
             // 
-            this.textBox2.Location = new System.Drawing.Point(196, 41);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(134, 20);
-            this.textBox2.TabIndex = 11;
+            this.txtAType.Location = new System.Drawing.Point(196, 41);
+            this.txtAType.Name = "txtAType";
+            this.txtAType.Size = new System.Drawing.Size(134, 20);
+            this.txtAType.TabIndex = 11;
             // 
             // lblAccomType
             // 
@@ -296,12 +297,12 @@ namespace vaalrusGUIPrototype
             this.lblAccomID.TabIndex = 9;
             this.lblAccomID.Text = "Accommodation ID:";
             // 
-            // textBox1
+            // txtAID
             // 
-            this.textBox1.Location = new System.Drawing.Point(196, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(134, 20);
-            this.textBox1.TabIndex = 8;
+            this.txtAID.Location = new System.Drawing.Point(196, 15);
+            this.txtAID.Name = "txtAID";
+            this.txtAID.Size = new System.Drawing.Size(134, 20);
+            this.txtAID.TabIndex = 8;
             // 
             // picBackground
             // 
@@ -348,12 +349,12 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Panel pnlGroupBoxDetails;
         private System.Windows.Forms.Label lblAccomPrice;
         private System.Windows.Forms.Label lblTotalOccupants;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtAPrice;
+        private System.Windows.Forms.TextBox txtAOccupants;
+        private System.Windows.Forms.TextBox txtAType;
         private System.Windows.Forms.Label lblAccomType;
         private System.Windows.Forms.Label lblAccomID;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAID;
         private System.Windows.Forms.PictureBox picBackground;
         private System.Windows.Forms.GroupBox groupBoxSearch;
         private System.Windows.Forms.Panel pnlGroupBoxSearch;
