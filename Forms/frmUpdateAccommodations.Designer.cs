@@ -179,6 +179,7 @@ namespace vaalrusGUIPrototype
             // 
             // dataGridViewAccom
             // 
+            this.dataGridViewAccom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewAccom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAccom.Location = new System.Drawing.Point(3, 222);
             this.dataGridViewAccom.Name = "dataGridViewAccom";
