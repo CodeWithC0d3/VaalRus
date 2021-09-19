@@ -56,9 +56,9 @@ namespace vaalrusGUIPrototype
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelChildForm = new System.Windows.Forms.Panel();
-            this.pictureBoxMainFormBackground = new System.Windows.Forms.PictureBox();
             this.pnlLabelHeading = new System.Windows.Forms.Panel();
             this.lblHeading = new System.Windows.Forms.Label();
+            this.pictureBoxMainFormBackground = new System.Windows.Forms.PictureBox();
             this.panelSideBar.SuspendLayout();
             this.panelSubMenuAccommodation.SuspendLayout();
             this.panelSubMenuCustomer.SuspendLayout();
@@ -66,8 +66,8 @@ namespace vaalrusGUIPrototype
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panelChildForm.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainFormBackground)).BeginInit();
             this.pnlLabelHeading.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainFormBackground)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSideBar
@@ -452,6 +452,7 @@ namespace vaalrusGUIPrototype
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
+            this.pictureBoxLogo.Click += new System.EventHandler(this.pictureBoxLogo_Click);
             // 
             // panelChildForm
             // 
@@ -464,18 +465,6 @@ namespace vaalrusGUIPrototype
             this.panelChildForm.Size = new System.Drawing.Size(803, 502);
             this.panelChildForm.TabIndex = 1;
             this.panelChildForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelChildForm_Paint);
-            // 
-            // pictureBoxMainFormBackground
-            // 
-            this.pictureBoxMainFormBackground.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxMainFormBackground.Image = global::vaalrusGUIPrototype.Properties.Resources.backgroundImage;
-            this.pictureBoxMainFormBackground.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxMainFormBackground.Name = "pictureBoxMainFormBackground";
-            this.pictureBoxMainFormBackground.Size = new System.Drawing.Size(803, 502);
-            this.pictureBoxMainFormBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxMainFormBackground.TabIndex = 0;
-            this.pictureBoxMainFormBackground.TabStop = false;
-            this.pictureBoxMainFormBackground.Click += new System.EventHandler(this.pictureBoxMainFormBackground_Click);
             // 
             // pnlLabelHeading
             // 
@@ -498,6 +487,18 @@ namespace vaalrusGUIPrototype
             this.lblHeading.TabIndex = 0;
             this.lblHeading.Text = "Vaalrus Recreational Resort";
             // 
+            // pictureBoxMainFormBackground
+            // 
+            this.pictureBoxMainFormBackground.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxMainFormBackground.Image = global::vaalrusGUIPrototype.Properties.Resources.backgroundImage;
+            this.pictureBoxMainFormBackground.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxMainFormBackground.Name = "pictureBoxMainFormBackground";
+            this.pictureBoxMainFormBackground.Size = new System.Drawing.Size(803, 502);
+            this.pictureBoxMainFormBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMainFormBackground.TabIndex = 0;
+            this.pictureBoxMainFormBackground.TabStop = false;
+            this.pictureBoxMainFormBackground.Click += new System.EventHandler(this.pictureBoxMainFormBackground_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -516,9 +517,9 @@ namespace vaalrusGUIPrototype
             this.panelMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panelChildForm.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainFormBackground)).EndInit();
             this.pnlLabelHeading.ResumeLayout(false);
             this.pnlLabelHeading.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainFormBackground)).EndInit();
             this.ResumeLayout(false);
 
         }

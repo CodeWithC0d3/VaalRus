@@ -125,5 +125,12 @@ namespace vaalrusGUIPrototype
         {
 
         }
+
+        private void pictureBoxLogo_Click(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            lblHeading.Text = "Vaalrus Recreational Resort";
+        }
     }
 }
