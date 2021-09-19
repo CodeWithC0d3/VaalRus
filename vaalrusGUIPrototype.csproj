@@ -52,6 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\frmDeleteAccommodation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDeleteAccommodation.Designer.cs">
+      <DependentUpon>frmDeleteAccommodation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDeleteCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDeleteCustomer.Designer.cs">
+      <DependentUpon>frmDeleteCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +91,12 @@
     <Compile Include="Forms\testTheme.Designer.cs">
       <DependentUpon>testTheme.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\frmDeleteAccommodation.resx">
+      <DependentUpon>frmDeleteAccommodation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDeleteCustomer.resx">
+      <DependentUpon>frmDeleteCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </EmbeddedResource>

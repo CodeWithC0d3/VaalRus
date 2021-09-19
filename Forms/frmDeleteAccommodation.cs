@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace vaalrusGUIPrototype
+namespace vaalrusGUIPrototype.Forms
 {
-    public partial class frmUpdateAccommodations : Form
+    public partial class frmDeleteAccommodation : Form
     {
-        public frmUpdateAccommodations()
+        public frmDeleteAccommodation()
         {
             InitializeComponent();
         }
@@ -24,11 +24,22 @@ namespace vaalrusGUIPrototype
                 {
                     if (pnl.GetType() == typeof(Panel))
                     {
-                        if (pnl.Name != "pnlLabelHeading")
-                        {
-                            pnl.Parent = picBackground;
-                            pnl.BackColor = Color.Transparent;
-                        }
+                        pnl.Parent = pictureBox1;
+                        pnl.BackColor = Color.Transparent;
+                    }
+                }
+                /*
+                    if (btns.GetType() == typeof(Button))
+                    {
+                        Button btn = (Button)btns;
+                        btn.FlatStyle = FlatStyle.Flat;
+                        //btn.Parent = pictureBox1;//If using a picture box as background please set parent
+                        btn.BackColor = GlobalSettings.PrimaryColor;
+                        btn.ForeColor = Color.White;
+                        btn.Font = GlobalSettings.font;
+                        //btn.FlatAppearance.BorderColor = GlobalSettings.SecondaryColor;
+                        btn.FlatAppearance.BorderColor = Color.White;
+                        btn.FlatAppearance.BorderSize = 2;
                     }
                 }
                 foreach (Control lbls in this.Controls)
@@ -36,21 +47,37 @@ namespace vaalrusGUIPrototype
                     if (lbls.GetType() == typeof(Label))
                     {
                         Label lbl = (Label)lbls;
-                        //lbl.Font = GlobalSettings.font;
-                        lbl.Parent = picBackground;
+                        lbl.Font = GlobalSettings.font;
+                        //lbl.Parent = pictureBox1;//If using a picture box as background please set parent
                         lbl.ForeColor = GlobalSettings.SecondaryColor;
+                        lbl.Parent = pictureBoxViewAllBookingsBackground;
                         lbl.BackColor = Color.Transparent;
 
                     }
-                }               
+                }                          
+                foreach (Control dtg in this.Controls)
+                {
+                    if (dtg.GetType() == typeof(DataGridView))
+                    {
+                        DataGridView dtgg = (DataGridView)dtg;
+                        dtgg.ForeColor = Color.White;
+                        dtgg.BackgroundColor = SystemColors.Control;
+                        dtgg.DefaultCellStyle.BackColor = GlobalSettings.PrimaryColor;
+                        dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
 
+                    }
+                }
+
+                foreach (Control chk in this.Controls)
+                {
+                    if (chk.GetType() == typeof(CheckBox))
+                    {
+                        CheckBox chkk = (CheckBox)chk;
+                        chkk.ForeColor = GlobalSettings.SecondaryColor;
+
+                    }*/
             }
-
-            aplytheme(pnlConnetionControls);
-            aplytheme(pnlGroupBoxDetails);
-            aplytheme(pnlGroupBoxSearch);
-            //aplytheme(pnlGroupBoxDetails2);
-            aplytheme2(pnlLabelHeading);
+            aplytheme(panel1);
             //aplytheme(pnl_device);
             //aplytheme(pnl_main);
 
@@ -81,7 +108,7 @@ namespace vaalrusGUIPrototype
                     {
                         Label lbl = (Label)lbls;
                         lbl.Font = GlobalSettings.font;
-                        //lbl.Parent = picBackground;
+                        //lbl.Parent = pictureBox1;
                         lbl.ForeColor = GlobalSettings.SecondaryColor;
                         lbl.BackColor = Color.Transparent;
 
@@ -108,134 +135,27 @@ namespace vaalrusGUIPrototype
 
                     }
                 }
-                foreach (Control txt in co.Controls)
-                {
-                    if (txt.GetType() == typeof(TextBox))
-                    {
-                        TextBox txtC = (TextBox)txt;
-                        txtC.ForeColor = GlobalSettings.SecondaryColor;
-
-                    }
-                }
-                foreach (Control grb in co.Controls)
-                {
-                    if (grb.GetType() == typeof(GroupBox))
-                    {
-                        GroupBox txtC = (GroupBox)grb;
-                        txtC.ForeColor = GlobalSettings.SecondaryColor;
-                        txtC.Font = GlobalSettings.font;
-                    }
-                }
             }
         }
-        private void aplytheme2(Control co)
-        {
-            if (co.GetType() == typeof(Panel))
-            {
 
-                foreach (Control btns in co.Controls)
-                {
-                    if (btns.GetType() == typeof(Button))
-                    {
-                        Button btn = (Button)btns;
-                        btn.FlatStyle = FlatStyle.Flat;
-                        //btn.Parent = pictureBox1;
-                        btn.BackColor = GlobalSettings.PrimaryColor;
-                        btn.ForeColor = Color.White;
-                        btn.Font = GlobalSettings.font;
-                        //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
-                        btn.FlatAppearance.BorderColor = Color.White;
-                        btn.FlatAppearance.BorderSize = 2;
-
-                    }
-                }
-                foreach (Control lbls in co.Controls)
-                {
-                    if (lbls.GetType() == typeof(Label))
-                    {
-                        Label lbl = (Label)lbls;
-                        lbl.Font = GlobalSettings.font;
-                        //lbl.Parent = picBackground;
-                        //lbl.ForeColor = GlobalSettings.SecondaryColor;
-                        //lbl.ForeColor = GlobalSettings.thirdColor;
-                        lbl.ForeColor = Color.White;
-                        lbl.Font = new Font("Microsoft Sans Serif", 18);
-                        lbl.BackColor = Color.Transparent;
-
-                    }
-                }
-                foreach (Control dtg in co.Controls)
-                {
-                    if (dtg.GetType() == typeof(DataGridView))
-                    {
-                        DataGridView dtgg = (DataGridView)dtg;
-                        dtgg.ForeColor = Color.White;
-                        dtgg.BackgroundColor = SystemColors.Control;
-                        dtgg.DefaultCellStyle.BackColor = GlobalSettings.PrimaryColor;
-                        dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
-
-                    }
-                }
-                foreach (Control chk in co.Controls)
-                {
-                    if (chk.GetType() == typeof(CheckBox))
-                    {
-                        CheckBox chkk = (CheckBox)chk;
-                        chkk.ForeColor = GlobalSettings.SecondaryColor;
-
-                    }
-                }
-                foreach (Control txt in co.Controls)
-                {
-                    if (txt.GetType() == typeof(TextBox))
-                    {
-                        TextBox txtC = (TextBox)txt;
-                        txtC.ForeColor = GlobalSettings.SecondaryColor;
-
-                    }
-                }
-                foreach (Control grb in co.Controls)
-                {
-                    if (grb.GetType() == typeof(GroupBox))
-                    {
-                        GroupBox txtC = (GroupBox)grb;
-                        txtC.ForeColor = GlobalSettings.thirdColor;
-                        txtC.Font = GlobalSettings.font;
-                    }
-                }
-                foreach (Control pnl in this.Controls)
-                {
-                    if (pnl.GetType() == typeof(Panel))
-                    {
-                        //pnl.Parent = picBackground;
-                        pnl.BackColor = Color.FromArgb(3, 19, 70);
-                        
-                    }
-                }
-            }
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmUpdateAccommodations_Load(object sender, EventArgs e)
+        private void frmDeleteAccommodation_Load(object sender, EventArgs e)
         {
             LoadTheme();
-            
-    }
+            aplytheme(panel1);
+            aplytheme(panel2);
+        }
 
-        private void dataGridViewAccom_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void pnlLabelHeading_Paint(object sender, PaintEventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

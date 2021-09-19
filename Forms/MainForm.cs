@@ -124,5 +124,20 @@ namespace vaalrusGUIPrototype
         {
 
         }
+
+        private void btnDeleteAccommodation_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.frmDeleteAccommodation());
+        }
+
+        private void btnDeleteBooking_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnViewCustomers_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
