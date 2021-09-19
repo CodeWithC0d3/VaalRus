@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using vaalrusGUIPrototype.Forms;
 
 namespace vaalrusGUIPrototype
 {
@@ -183,6 +184,20 @@ namespace vaalrusGUIPrototype
 
         private void btnAddAccommodation_Click(object sender, EventArgs e)
         {
+            changeButtonBrightness(sender);
+        }
+
+        private void btnDeleteCustomer_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmDeleteCustomer());
+            lblHeading.Text = "Delete Customer";
+            changeButtonBrightness(sender);
+        }
+
+        private void btnDeleteAccommodation_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmDeleteAccommodation());
+            lblHeading.Text = "Delete Accommodation";
             changeButtonBrightness(sender);
         }
     }
