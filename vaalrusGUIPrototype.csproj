@@ -164,6 +164,12 @@
     <Compile Include="Forms\frmDeleteAcommodation.Designer.cs">
       <DependentUpon>frmDeleteAcommodation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmQuotation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmQuotation.Designer.cs">
+      <DependentUpon>frmQuotation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\frmDeleteAcommodation.resx">
       <DependentUpon>frmDeleteAcommodation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmQuotation.resx">
+      <DependentUpon>frmQuotation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
@@ -257,6 +266,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="_SQL\Initial Data Population.sql" />
+    <Content Include="_SQL\InitialData.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="_SQL\older queries\INSERT Accommodationtype and accommodation.sql" />
     <Content Include="_SQL\older queries\INSERT Customer.sql" />
     <Content Include="_SQL\Script.txt">

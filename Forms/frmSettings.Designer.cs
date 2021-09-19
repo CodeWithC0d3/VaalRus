@@ -32,12 +32,13 @@ namespace vaalrusGUIPrototype
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
             this.btnConString = new System.Windows.Forms.Button();
             this.pnlConnetionControls = new System.Windows.Forms.Panel();
+            this.btnCreateDatabAse = new System.Windows.Forms.Button();
             this.txtConString = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.picBackground = new System.Windows.Forms.PictureBox();
-            this.btnCreateDatabAse = new System.Windows.Forms.Button();
+            this.btnTestData = new System.Windows.Forms.Button();
             this.pnlConnetionControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +55,7 @@ namespace vaalrusGUIPrototype
             // 
             // pnlConnetionControls
             // 
+            this.pnlConnetionControls.Controls.Add(this.btnTestData);
             this.pnlConnetionControls.Controls.Add(this.btnCreateDatabAse);
             this.pnlConnetionControls.Controls.Add(this.txtConString);
             this.pnlConnetionControls.Controls.Add(this.label1);
@@ -62,6 +64,16 @@ namespace vaalrusGUIPrototype
             this.pnlConnetionControls.Name = "pnlConnetionControls";
             this.pnlConnetionControls.Size = new System.Drawing.Size(794, 221);
             this.pnlConnetionControls.TabIndex = 2;
+            // 
+            // btnCreateDatabAse
+            // 
+            this.btnCreateDatabAse.Location = new System.Drawing.Point(114, 34);
+            this.btnCreateDatabAse.Name = "btnCreateDatabAse";
+            this.btnCreateDatabAse.Size = new System.Drawing.Size(129, 38);
+            this.btnCreateDatabAse.TabIndex = 4;
+            this.btnCreateDatabAse.Text = "Delete String";
+            this.btnCreateDatabAse.UseVisualStyleBackColor = true;
+            this.btnCreateDatabAse.Click += new System.EventHandler(this.btnCreateDatabAse_Click);
             // 
             // txtConString
             // 
@@ -115,15 +127,15 @@ namespace vaalrusGUIPrototype
             this.picBackground.TabIndex = 5;
             this.picBackground.TabStop = false;
             // 
-            // btnCreateDatabAse
+            // btnTestData
             // 
-            this.btnCreateDatabAse.Location = new System.Drawing.Point(119, 35);
-            this.btnCreateDatabAse.Name = "btnCreateDatabAse";
-            this.btnCreateDatabAse.Size = new System.Drawing.Size(75, 23);
-            this.btnCreateDatabAse.TabIndex = 4;
-            this.btnCreateDatabAse.Text = "Delete String";
-            this.btnCreateDatabAse.UseVisualStyleBackColor = true;
-            this.btnCreateDatabAse.Click += new System.EventHandler(this.btnCreateDatabAse_Click);
+            this.btnTestData.Location = new System.Drawing.Point(487, 34);
+            this.btnTestData.Name = "btnTestData";
+            this.btnTestData.Size = new System.Drawing.Size(139, 38);
+            this.btnTestData.TabIndex = 5;
+            this.btnTestData.Text = "Add Test Data";
+            this.btnTestData.UseVisualStyleBackColor = true;
+            this.btnTestData.Click += new System.EventHandler(this.btnTestData_Click);
             // 
             // frmSettings
             // 
@@ -154,5 +166,6 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.PictureBox picBackground;
         private System.Windows.Forms.TextBox txtConString;
         private System.Windows.Forms.Button btnCreateDatabAse;
+        private System.Windows.Forms.Button btnTestData;
     }
 }
