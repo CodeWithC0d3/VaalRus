@@ -200,6 +200,9 @@
     <EmbeddedResource Include="Forms\frmDeleteAcommodation.resx">
       <DependentUpon>frmDeleteAcommodation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDeleteCustomer.resx">
+      <DependentUpon>frmDeleteCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </EmbeddedResource>

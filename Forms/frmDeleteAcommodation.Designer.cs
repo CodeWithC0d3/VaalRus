@@ -37,6 +37,7 @@ namespace vaalrusGUIPrototype.Forms
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblDisplay = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -49,12 +50,13 @@ namespace vaalrusGUIPrototype.Forms
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(557, 512);
+            this.dataGridView1.Size = new System.Drawing.Size(557, 493);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblDisplay);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label1);
@@ -62,7 +64,7 @@ namespace vaalrusGUIPrototype.Forms
             this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(612, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(436, 386);
+            this.panel1.Size = new System.Drawing.Size(436, 474);
             this.panel1.TabIndex = 2;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -121,6 +123,14 @@ namespace vaalrusGUIPrototype.Forms
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // lblDisplay
+            // 
+            this.lblDisplay.AutoSize = true;
+            this.lblDisplay.Location = new System.Drawing.Point(45, 402);
+            this.lblDisplay.Name = "lblDisplay";
+            this.lblDisplay.Size = new System.Drawing.Size(0, 17);
+            this.lblDisplay.TabIndex = 5;
+            // 
             // frmDeleteAccommodation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -150,5 +160,6 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblDisplay;
     }
 }
