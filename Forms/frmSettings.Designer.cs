@@ -37,6 +37,7 @@ namespace vaalrusGUIPrototype
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.picBackground = new System.Windows.Forms.PictureBox();
+            this.btnCreateDatabAse = new System.Windows.Forms.Button();
             this.pnlConnetionControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +54,7 @@ namespace vaalrusGUIPrototype
             // 
             // pnlConnetionControls
             // 
+            this.pnlConnetionControls.Controls.Add(this.btnCreateDatabAse);
             this.pnlConnetionControls.Controls.Add(this.txtConString);
             this.pnlConnetionControls.Controls.Add(this.label1);
             this.pnlConnetionControls.Controls.Add(this.btnConString);
@@ -113,6 +115,16 @@ namespace vaalrusGUIPrototype
             this.picBackground.TabIndex = 5;
             this.picBackground.TabStop = false;
             // 
+            // btnCreateDatabAse
+            // 
+            this.btnCreateDatabAse.Location = new System.Drawing.Point(119, 35);
+            this.btnCreateDatabAse.Name = "btnCreateDatabAse";
+            this.btnCreateDatabAse.Size = new System.Drawing.Size(75, 23);
+            this.btnCreateDatabAse.TabIndex = 4;
+            this.btnCreateDatabAse.Text = "Delete String";
+            this.btnCreateDatabAse.UseVisualStyleBackColor = true;
+            this.btnCreateDatabAse.Click += new System.EventHandler(this.btnCreateDatabAse_Click);
+            // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -141,5 +153,6 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox picBackground;
         private System.Windows.Forms.TextBox txtConString;
+        private System.Windows.Forms.Button btnCreateDatabAse;
     }
 }

@@ -8,6 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.ConnectionUI;
+using System.Data.SqlClient;
+using Microsoft.SqlServer.Management.Common;
+using Microsoft.SqlServer.Management.Smo;
+using System.IO;
+
 
 
 namespace vaalrusGUIPrototype
@@ -119,19 +124,71 @@ namespace vaalrusGUIPrototype
         {
             LoadTheme();
             txtConString.Text = Properties.Settings.Default.conString;
+            
         }
 
         private void btnConString_Click(object sender, EventArgs e)
         {
-            DataConnectionDialog dc = new DataConnectionDialog();
-            DataSource.AddStandardDataSources(dc);
-            dc.Title = "DataBase Connection String";
-            if (DataConnectionDialog.Show(dc) == DialogResult.OK)
-            {
-                Properties.Settings.Default.conString = dc.DisplayConnectionString;
-            }
+            buildDatabse();
+        }
+
+        private void btnCreateDatabAse_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.conString = "";
             Properties.Settings.Default.Save();
-            txtConString.Text = Properties.Settings.Default.conString;
+            txtConString.Text = "";
+        
+        }
+        private void buildDatabse()
+        {
+            if (Properties.Settings.Default.conString == "")
+            {
+                MessageBox.Show("You will now select your DATABASE Source and Server");
+                DataConnectionDialog dc = new DataConnectionDialog();
+                DataSource.AddStandardDataSources(dc);
+                dc.Title = "DataBase Connection String";
+                if (DataConnectionDialog.Show(dc) == DialogResult.OK)
+                {
+                    Properties.Settings.Default.conString = dc.DisplayConnectionString;
+                }
+                Properties.Settings.Default.Save();
+                txtConString.Text = Properties.Settings.Default.conString;
+                if (!Properties.Settings.Default.conString.Contains("Vaalrus"))
+                {
+                    MessageBox.Show("DataBase Vaalrus Will now be Created");
+                    SqlConnection con = new SqlConnection(txtConString.Text);
+                    con.Open();
+                    Server server = new Server(new ServerConnection(con));
+                    string str = "CREATE DATABASE Vaalrus;";
+                    server.ConnectionContext.ExecuteNonQuery(str);
+                    str = File.ReadAllText(@"_SQL\Script.txt");
+                    server.ConnectionContext.ExecuteNonQuery(str);
+                    con.Close();
+
+                    string oldconstring = txtConString.Text;
+                    string first = oldconstring.Substring(0, oldconstring.IndexOf(";"));
+                    string second = ";Initial Catalog=Vaalrus";
+                    string third = oldconstring.Substring(oldconstring.IndexOf(";"));
+                    string necon = first + second + third;
+                    Properties.Settings.Default.conString = necon;
+                    Properties.Settings.Default.Save();
+                    txtConString.Text = Properties.Settings.Default.conString;
+                    MessageBox.Show("Vaalrus database is now created");
+                }
+            }
+            else if(!Properties.Settings.Default.conString.Contains("Vaalrus"))
+            {
+                MessageBox.Show("Please Select a databse");
+                DataConnectionDialog dc = new DataConnectionDialog();
+                DataSource.AddStandardDataSources(dc);
+                dc.Title = "DataBase Connection String";
+                if (DataConnectionDialog.Show(dc) == DialogResult.OK)
+                {
+                    Properties.Settings.Default.conString = dc.DisplayConnectionString;
+                }
+                Properties.Settings.Default.Save();
+                txtConString.Text = Properties.Settings.Default.conString;
+            }
         }
     }
 }
