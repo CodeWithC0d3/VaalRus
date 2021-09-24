@@ -309,7 +309,12 @@ namespace vaalrusGUIPrototype
         private void txtSearchID_TextChanged(object sender, EventArgs e)
         {
             if (txtSearchID.Text.Length > 0)
+            {
+                txtSearchOccupants.Clear();
+                txtsearchPrice.Clear();
+                txtSearchType.Clear();
                 Display($"Select * from Accommodation where Accommodation_ID Like '%{txtSearchID.Text}%'");
+            }
             else
                 Display("Select * from Accommodation");
         }
@@ -332,6 +337,60 @@ namespace vaalrusGUIPrototype
         {
             dIndex = e.RowIndex +1;
             readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
+        }
+
+        private void txtSearchType_TextChanged(object sender, EventArgs e)
+        {
+            if(txtSearchType.Text.Length >0)
+            {
+                txtSearchID.Clear();
+                if(txtSearchOccupants.Text.Length == 0 && txtsearchPrice.Text.Length == 0)
+                Display($"Select * from Accommodation where Accommodation_TypeID Like '%{txtSearchType.Text}%'");
+                else if(txtSearchOccupants.Text.Length > 0 && txtsearchPrice.Text.Length == 0)
+                    Display($"Select * from Accommodation where Accommodation_TypeID Like '%{txtSearchType.Text}%' AND Number_Of_Occupants Like '%{txtSearchOccupants.Text}%'");
+                else if (txtSearchOccupants.Text.Length == 0 && txtsearchPrice.Text.Length > 0)
+                    Display($"Select * from Accommodation where Accommodation_TypeID Like '%{txtSearchType.Text}%' AND Accommodation_Price Like '%{txtsearchPrice.Text}%'");
+                else if (txtSearchOccupants.Text.Length > 0 && txtsearchPrice.Text.Length > 0)
+                    Display($"Select * from Accommodation where Accommodation_TypeID Like '%{txtSearchType.Text}%'AND Number_Of_Occupants Like '%{txtSearchOccupants.Text}%' AND Accommodation_Price Like '%{txtsearchPrice.Text}%'");
+            }
+            else
+                Display("Select * from Accommodation");
+        }
+
+        private void txtSearchOccupants_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearchOccupants.Text.Length > 0)
+            {
+                txtSearchID.Clear();
+                if (txtSearchType.Text.Length == 0 && txtsearchPrice.Text.Length == 0)
+                    Display($"Select * from Accommodation where Number_Of_Occupants Like '%{txtSearchOccupants.Text}%'");
+                else if (txtSearchType.Text.Length > 0 && txtsearchPrice.Text.Length == 0)
+                    Display($"Select * from Accommodation where Number_Of_Occupants Like '%{txtSearchOccupants.Text}%' AND Accommodation_TypeID Like '%{txtSearchType.Text}%'");
+                else if (txtSearchType.Text.Length == 0 && txtsearchPrice.Text.Length > 0)
+                    Display($"Select * from Accommodation where Number_Of_Occupants Like '%{txtSearchOccupants.Text}%' AND Accommodation_Price Like '%{txtsearchPrice.Text}%'");
+                else if (txtSearchType.Text.Length > 0 && txtsearchPrice.Text.Length > 0)
+                    Display($"Select * from Accommodation where Number_Of_Occupants Like '%{txtSearchOccupants.Text}%'AND Accommodation_TypeID Like '%{txtSearchType.Text}%' AND Accommodation_Price Like '%{txtsearchPrice.Text}%'");
+            }
+            else
+                Display("Select * from Accommodation");
+        }
+
+        private void txtsearchPrice_TextChanged(object sender, EventArgs e)
+        {
+            if (txtsearchPrice.Text.Length > 0)
+            {
+                txtSearchID.Clear();
+                if (txtSearchType.Text.Length == 0 && txtSearchOccupants.Text.Length == 0)
+                    Display($"Select * from Accommodation where Accommodation_Price Like '%{txtsearchPrice.Text}%'");
+                else if (txtSearchType.Text.Length > 0 && txtSearchOccupants.Text.Length == 0)
+                    Display($"Select * from Accommodation where Accommodation_Price Like '%{txtsearchPrice.Text}%' AND Accommodation_TypeID Like '%{txtSearchType.Text}%'");
+                else if (txtSearchType.Text.Length == 0 && txtSearchOccupants.Text.Length > 0)
+                    Display($"Select * from Accommodation where Accommodation_Price Like '%{txtsearchPrice.Text}%' AND Number_Of_Occupants Like '%{txtSearchOccupants.Text}%'");
+                else if (txtSearchType.Text.Length > 0 && txtSearchOccupants.Text.Length > 0)
+                    Display($"Select * from Accommodation where Accommodation_Price Like '%{txtsearchPrice.Text}%'AND Accommodation_TypeID Like '%{txtSearchType.Text}%' AND Number_Of_Occupants Like '%{txtSearchOccupants.Text}%'");
+            }
+            else
+                Display("Select * from Accommodation");
         }
     }
 }

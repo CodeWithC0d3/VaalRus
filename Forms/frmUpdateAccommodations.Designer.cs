@@ -119,6 +119,7 @@ namespace vaalrusGUIPrototype
             this.txtsearchPrice.Name = "txtsearchPrice";
             this.txtsearchPrice.Size = new System.Drawing.Size(207, 20);
             this.txtsearchPrice.TabIndex = 21;
+            this.txtsearchPrice.TextChanged += new System.EventHandler(this.txtsearchPrice_TextChanged);
             // 
             // lblSearchOccupants
             // 
@@ -135,6 +136,7 @@ namespace vaalrusGUIPrototype
             this.txtSearchOccupants.Name = "txtSearchOccupants";
             this.txtSearchOccupants.Size = new System.Drawing.Size(207, 20);
             this.txtSearchOccupants.TabIndex = 19;
+            this.txtSearchOccupants.TextChanged += new System.EventHandler(this.txtSearchOccupants_TextChanged);
             // 
             // lblSearchType
             // 
@@ -151,6 +153,7 @@ namespace vaalrusGUIPrototype
             this.txtSearchType.Name = "txtSearchType";
             this.txtSearchType.Size = new System.Drawing.Size(207, 20);
             this.txtSearchType.TabIndex = 17;
+            this.txtSearchType.TextChanged += new System.EventHandler(this.txtSearchType_TextChanged);
             // 
             // lblsearchID
             // 
