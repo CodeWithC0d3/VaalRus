@@ -23,6 +23,7 @@ namespace vaalrusGUIPrototype
         public string dataFDB;
         public string connString = Properties.Settings.Default.conString;
         public int dIndex;
+        public string tempID, tempType, tempOccupants, tempPrice;
         public frmUpdateAccommodations()
         {
             InitializeComponent();
@@ -225,6 +226,14 @@ namespace vaalrusGUIPrototype
                 }
             }
         }
+        public void loadTemp()
+        {
+            tempID = txtAID.Text;
+            tempType = txtAType.Text;
+            tempOccupants = txtAOccupants.Text;
+            tempPrice = txtAPrice.Text;
+
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -232,7 +241,10 @@ namespace vaalrusGUIPrototype
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-
+            txtAID.Text = tempID;
+            txtAType.Text = tempType;
+            txtAOccupants.Text = tempOccupants;
+            txtAPrice.Text = tempPrice;
         }
 
         private void frmUpdateAccommodations_Load(object sender, EventArgs e)
@@ -252,6 +264,7 @@ namespace vaalrusGUIPrototype
             //readData("Select TOP 1 * from Accommodation");
             dIndex = 1;
             readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
+            //loadTemp();
         }
         public void Display(string command)
         {
@@ -304,6 +317,7 @@ namespace vaalrusGUIPrototype
             {
                 MessageBox.Show(sqle.Message.ToString());
             }
+            loadTemp();
         }
 
         private void txtSearchID_TextChanged(object sender, EventArgs e)
