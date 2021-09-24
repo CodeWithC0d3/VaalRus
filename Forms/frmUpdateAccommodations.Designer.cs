@@ -184,8 +184,10 @@ namespace vaalrusGUIPrototype
             this.dataGridViewAccom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAccom.Location = new System.Drawing.Point(3, 222);
             this.dataGridViewAccom.Name = "dataGridViewAccom";
+            this.dataGridViewAccom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewAccom.Size = new System.Drawing.Size(746, 207);
             this.dataGridViewAccom.TabIndex = 2;
+            this.dataGridViewAccom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAccom_CellClick);
             // 
             // btnPrev
             // 

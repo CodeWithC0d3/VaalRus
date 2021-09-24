@@ -327,5 +327,11 @@ namespace vaalrusGUIPrototype
                 dIndex--;
             readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
         }
+
+        private void dataGridViewAccom_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dIndex = e.RowIndex +1;
+            readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
+        }
     }
 }
