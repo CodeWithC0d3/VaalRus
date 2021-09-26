@@ -239,7 +239,7 @@ namespace vaalrusGUIPrototype.Forms
                     sqlConnection.Open();
                     sqlCmd = new SqlCommand($"Insert Into Accommodation (Accommodation_TypeID,Number_Of_Occupants,Accommodation_Price) Values (@type,@noo,@price)", sqlConnection);
                     sqlCmd.Parameters.AddWithValue("@type", cbAccomType.SelectedIndex + 1);
-                    sqlCmd.Parameters.AddWithValue("@noo", numOfOccupants);
+                    sqlCmd.Parameters.AddWithValue("@noo", numOfOccupants.Value);
                     sqlCmd.Parameters.AddWithValue("@price", Convert.ToInt32(txtAccomPrice.Text));
                     sqlCmd.ExecuteNonQuery();
                     sqlConnection.Close();
