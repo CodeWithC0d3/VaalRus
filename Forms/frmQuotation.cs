@@ -50,9 +50,9 @@ namespace vaalrusGUIPrototype.Forms
            
            aplytheme(pnlMain);
            aplytheme(pnlBookingDetails);
-           aplytheme(pnlavailibleAccommodation);           
+           aplytheme(pnlavailibleAccommodation);
             //aplytheme(pnl_main);
-
+            timer1.Start();
         }
         private void aplytheme(Control pn)
         {
@@ -139,9 +139,10 @@ namespace vaalrusGUIPrototype.Forms
         {
             pnlMain.Visible = true;
             LoadTheme();
-           
-            timer1.Start();
-            
+            loadCmbCustomers();
+            loadcmbFilter();
+            //timer1.Start();
+
         }
 
         private void pnlMain_Paint(object sender, PaintEventArgs e)
@@ -188,6 +189,10 @@ namespace vaalrusGUIPrototype.Forms
 
         private void cmbCustomer_Enter(object sender, EventArgs e)
         {
+           
+        }
+        private void loadCmbCustomers()
+        {
             if (conDB())
             {
                 sql = "SELECT 	Customer_FirstName + ' - ' +  Customer_LastName As Contact FROM Customer";
@@ -198,8 +203,83 @@ namespace vaalrusGUIPrototype.Forms
                 adapter.Fill(ds, "Contact");
                 cmbCustomer.DisplayMember = "Contact";
                 cmbCustomer.DataSource = ds.Tables[0];
+                con.Close();
 
             }
+        }
+        private void loadcmbFilter()
+        {
+            if (conDB())
+            {
+                sql = "select AccommodationType from Accommodationtype";
+                command = new SqlCommand(sql, con);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "AccommodationType");
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    cmbFilter.Items.Add(row.ItemArray[0]);
+                }
+               
+                con.Close();
+
+            }
+        }
+        private void loadCmbAcc()
+        {
+            if (conDB())
+            {
+                cmbAccommodation.Items.Clear();
+                DateTime startDT = dpFrom.Value;
+                DateTime endDT = dpTo.Value;
+                sql = "SELECT Accommodation.Accommodation_ID, Accommodationtype.AccommodationType FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID;";
+                command = new SqlCommand(sql,con);
+                adapter = new SqlDataAdapter();
+                DataSet ds1 = new DataSet();
+                adapter.SelectCommand = command;
+                adapter.Fill(ds1);
+
+                sql = $"SELECT 	Accommodation_ID, AccommodationType FROM accAvailibility WHERE StartDate >= '{startDT.Date.ToString("yyyy/MM/dd")}' and EndDate <= '{endDT.Date.ToString("yyyy/MM/dd")}'";
+                command = new SqlCommand(sql, con);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+                adapter.SelectCommand = command;
+                adapter.Fill(ds);
+
+                foreach (DataRow row1 in ds1.Tables[0].Rows) // save rows to array
+                {
+                    foreach (DataRow row2 in ds.Tables[0].Rows)
+                    {
+                        string st1 = row1.ItemArray[0].ToString();
+                        string st2 = row2.ItemArray[0].ToString();
+                        if (row1.ItemArray[0].ToString() == row2.ItemArray[0].ToString())
+                        {
+                            row1.Delete();                            
+                            break; // break inner loop
+                        }
+                    }
+                   // row1.AcceptChanges();
+                }
+                ds1.AcceptChanges();
+               foreach(DataRow row in ds1.Tables[0].Rows)
+                {
+                    cmbAccommodation.Items.Add(row.ItemArray[0].ToString() + " - " + row.ItemArray[1].ToString());
+                }
+                //cmbAccommodation.DataSource = ds1.Tables[0];
+                con.Close();
+
+            }
+        }
+
+        private void cmbAccommodation_Enter(object sender, EventArgs e)
+        {
+            loadCmbAcc();
+        }
+
+        private void cmbAccommodation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lstAccommodation.Items.Add(cmbAccommodation.SelectedItem);
         }
     }
 }
