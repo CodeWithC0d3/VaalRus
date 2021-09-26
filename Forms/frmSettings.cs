@@ -196,8 +196,11 @@ namespace vaalrusGUIPrototype
             SqlConnection con = new SqlConnection(txtConString.Text);
             con.Open();
             Server server = new Server(new ServerConnection(con));            
-            string str = File.ReadAllText(@"_SQL\InitialData.txt");
+            string str = File.ReadAllText(@"_SQL\InitialData.txt");          
             server.ConnectionContext.ExecuteNonQuery(str);
+            str = File.ReadAllText(@"_SQL\Views.txt");
+            server.ConnectionContext.ExecuteNonQuery(str);
+
             con.Close();
         }
     }
