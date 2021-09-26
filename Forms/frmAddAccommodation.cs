@@ -280,5 +280,53 @@ namespace vaalrusGUIPrototype.Forms
             }
             
         }
+
+        private void dataGridAccommodations_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowindex = dataGridAccommodations.CurrentCell.RowIndex;
+            int columnindex = dataGridAccommodations.CurrentCell.ColumnIndex;
+
+            string dindex2 = dataGridAccommodations.Rows[rowindex].Cells[columnindex].Value.ToString();
+            txtDelID.Text = dindex2;
+        }
+        public void clearDel()
+        {
+            txtDelID.Clear();
+            txtDelType.Clear();
+            txtDelNumO.Clear();
+            txtDelPrice.Clear();
+
+        }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete accommodation ID: '"+txtDelID.Text+"'?", "Delete Accommodation", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    int type = getAccomType(cbAccomType.Text);
+                    //if(cbAccomType.SelectedIndex==0)
+                    sqlConnection = new SqlConnection(connString);
+                    sqlConnection.Open();
+                    sqlCmd = new SqlCommand($"Delete from Accommodation where Accommodation_ID = '"+Convert.ToInt32(txtDelID.Text)+"'", sqlConnection);
+                    
+                    sqlCmd.ExecuteNonQuery();
+                    sqlConnection.Close();
+
+                    Display("Select * from Accommodation");
+                    clearDel();
+                    
+                }
+                catch (SqlException sqlx)
+                {
+                    //Could not update
+                    MessageBox.Show(sqlx.ToString());
+                }
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
+        }
     }
 }
