@@ -46,16 +46,16 @@ namespace vaalrusGUIPrototype.Forms
             this.btnDelete = new System.Windows.Forms.Button();
             this.groupBoxDelete = new System.Windows.Forms.GroupBox();
             this.pnlDeleteDetails = new System.Windows.Forms.Panel();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.lblOccupants = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblType = new System.Windows.Forms.Label();
             this.lblAccommID = new System.Windows.Forms.Label();
             this.pnlDGrid = new System.Windows.Forms.Panel();
             this.dataGridAccommodations = new System.Windows.Forms.DataGridView();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.lblOccupants = new System.Windows.Forms.Label();
-            this.lblPrice = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxViewAllBookingsBackground)).BeginInit();
             this.pnlNewAccom.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -228,6 +228,45 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlDeleteDetails.Size = new System.Drawing.Size(211, 179);
             this.pnlDeleteDetails.TabIndex = 3;
             // 
+            // lblPrice
+            // 
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Location = new System.Drawing.Point(47, 122);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(113, 13);
+            this.lblPrice.TabIndex = 17;
+            this.lblPrice.Text = "Accommodation Price:";
+            // 
+            // lblOccupants
+            // 
+            this.lblOccupants.AutoSize = true;
+            this.lblOccupants.Location = new System.Drawing.Point(44, 83);
+            this.lblOccupants.Name = "lblOccupants";
+            this.lblOccupants.Size = new System.Drawing.Size(116, 13);
+            this.lblOccupants.TabIndex = 16;
+            this.lblOccupants.Text = "Number Of Occupants:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(43, 138);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(122, 20);
+            this.textBox4.TabIndex = 15;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(43, 99);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(122, 20);
+            this.textBox3.TabIndex = 14;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(44, 60);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(122, 20);
+            this.textBox2.TabIndex = 13;
+            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(46, 21);
@@ -266,51 +305,15 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // dataGridAccommodations
             // 
+            this.dataGridAccommodations.AllowUserToResizeRows = false;
+            this.dataGridAccommodations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridAccommodations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridAccommodations.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridAccommodations.Location = new System.Drawing.Point(0, 0);
             this.dataGridAccommodations.Name = "dataGridAccommodations";
+            this.dataGridAccommodations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridAccommodations.Size = new System.Drawing.Size(492, 563);
             this.dataGridAccommodations.TabIndex = 0;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(44, 60);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(122, 20);
-            this.textBox2.TabIndex = 13;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(43, 99);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(122, 20);
-            this.textBox3.TabIndex = 14;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(43, 138);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(122, 20);
-            this.textBox4.TabIndex = 15;
-            // 
-            // lblOccupants
-            // 
-            this.lblOccupants.AutoSize = true;
-            this.lblOccupants.Location = new System.Drawing.Point(44, 83);
-            this.lblOccupants.Name = "lblOccupants";
-            this.lblOccupants.Size = new System.Drawing.Size(116, 13);
-            this.lblOccupants.TabIndex = 16;
-            this.lblOccupants.Text = "Number Of Occupants:";
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(47, 122);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(113, 13);
-            this.lblPrice.TabIndex = 17;
-            this.lblPrice.Text = "Accommodation Price:";
             // 
             // frmAddAccommodation
             // 
