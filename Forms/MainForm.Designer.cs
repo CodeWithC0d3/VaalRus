@@ -87,7 +87,7 @@ namespace vaalrusGUIPrototype
             this.panelSideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideBar.Location = new System.Drawing.Point(0, 0);
             this.panelSideBar.Name = "panelSideBar";
-            this.panelSideBar.Size = new System.Drawing.Size(186, 502);
+            this.panelSideBar.Size = new System.Drawing.Size(186, 553);
             this.panelSideBar.TabIndex = 0;
             // 
             // btnSettings
@@ -467,7 +467,7 @@ namespace vaalrusGUIPrototype
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(186, 0);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(803, 502);
+            this.panelChildForm.Size = new System.Drawing.Size(900, 553);
             this.panelChildForm.TabIndex = 1;
             this.panelChildForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelChildForm_Paint);
             // 
@@ -478,7 +478,7 @@ namespace vaalrusGUIPrototype
             this.pnlLabelHeading.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLabelHeading.Location = new System.Drawing.Point(0, 0);
             this.pnlLabelHeading.Name = "pnlLabelHeading";
-            this.pnlLabelHeading.Size = new System.Drawing.Size(803, 80);
+            this.pnlLabelHeading.Size = new System.Drawing.Size(900, 80);
             this.pnlLabelHeading.TabIndex = 11;
             this.pnlLabelHeading.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlLabelHeading_MouseMove);
             // 
@@ -499,7 +499,7 @@ namespace vaalrusGUIPrototype
             this.pictureBoxMainFormBackground.Image = global::vaalrusGUIPrototype.Properties.Resources.backgroundImage;
             this.pictureBoxMainFormBackground.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxMainFormBackground.Name = "pictureBoxMainFormBackground";
-            this.pictureBoxMainFormBackground.Size = new System.Drawing.Size(803, 502);
+            this.pictureBoxMainFormBackground.Size = new System.Drawing.Size(900, 553);
             this.pictureBoxMainFormBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMainFormBackground.TabIndex = 0;
             this.pictureBoxMainFormBackground.TabStop = false;
@@ -509,7 +509,7 @@ namespace vaalrusGUIPrototype
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 502);
+            this.ClientSize = new System.Drawing.Size(1086, 553);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelSideBar);
             this.Name = "MainForm";

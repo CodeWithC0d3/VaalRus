@@ -61,7 +61,7 @@ namespace vaalrusGUIPrototype
             aplytheme(pnlConnetionControls);
             aplytheme(pnlGroupBoxDetails);
             aplytheme(pnlGroupBoxSearch);
-            //aplytheme(pnlGroupBoxDetails2);
+            aplytheme(pnlDatagrid);
             //aplytheme2(pnlLabelHeading);
             //aplytheme(pnl_device);
             //aplytheme(pnl_main);
@@ -105,7 +105,7 @@ namespace vaalrusGUIPrototype
                     {
                         DataGridView dtgg = (DataGridView)dtg;
                         dtgg.ForeColor = Color.White;
-                        dtgg.BackgroundColor = SystemColors.Control;
+                        dtgg.BackgroundColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.BackColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
 
@@ -337,7 +337,8 @@ namespace vaalrusGUIPrototype
         {
             dIndex++;
             readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '"+dIndex+"'");//'" + dIndex+"'");//'"+dIndex+"'");
-            
+            dataGridViewAccom.ClearSelection();
+            dataGridViewAccom.Rows[dIndex].Selected = true;
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
@@ -345,12 +346,19 @@ namespace vaalrusGUIPrototype
             if(dIndex>1)
                 dIndex--;
             readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
+            dataGridViewAccom.ClearSelection();
+            dataGridViewAccom.Rows[dIndex].Selected = true;
         }
 
         private void dataGridViewAccom_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dIndex = e.RowIndex +1;
             readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
+        }
+
+        private void pnlGroupBoxSearch_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void txtSearchType_TextChanged(object sender, EventArgs e)
