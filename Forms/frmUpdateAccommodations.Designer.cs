@@ -41,7 +41,6 @@ namespace vaalrusGUIPrototype
             this.lblsearchID = new System.Windows.Forms.Label();
             this.txtSearchID = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.dataGridViewAccom = new System.Windows.Forms.DataGridView();
             this.btnPrev = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
@@ -55,14 +54,15 @@ namespace vaalrusGUIPrototype
             this.lblAccomType = new System.Windows.Forms.Label();
             this.lblAccomID = new System.Windows.Forms.Label();
             this.txtAID = new System.Windows.Forms.TextBox();
+            this.dataGridViewAccom = new System.Windows.Forms.DataGridView();
             this.picBackground = new System.Windows.Forms.PictureBox();
             this.pnlDatagrid = new System.Windows.Forms.Panel();
             this.pnlConnetionControls.SuspendLayout();
             this.groupBoxSearch.SuspendLayout();
             this.pnlGroupBoxSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).BeginInit();
             this.gBoxAccom.SuspendLayout();
             this.pnlGroupBoxDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).BeginInit();
             this.pnlDatagrid.SuspendLayout();
             this.SuspendLayout();
@@ -184,21 +184,7 @@ namespace vaalrusGUIPrototype
             this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewAccom
-            // 
-            this.dataGridViewAccom.AllowUserToResizeRows = false;
-            this.dataGridViewAccom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewAccom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAccom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewAccom.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewAccom.Name = "dataGridViewAccom";
-            this.dataGridViewAccom.ReadOnly = true;
-            this.dataGridViewAccom.RowHeadersVisible = false;
-            this.dataGridViewAccom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewAccom.Size = new System.Drawing.Size(624, 538);
-            this.dataGridViewAccom.TabIndex = 2;
-            this.dataGridViewAccom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAccom_CellClick);
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnPrev
             // 
@@ -319,6 +305,21 @@ namespace vaalrusGUIPrototype
             this.txtAID.Size = new System.Drawing.Size(134, 20);
             this.txtAID.TabIndex = 8;
             // 
+            // dataGridViewAccom
+            // 
+            this.dataGridViewAccom.AllowUserToResizeRows = false;
+            this.dataGridViewAccom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewAccom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAccom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewAccom.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewAccom.Name = "dataGridViewAccom";
+            this.dataGridViewAccom.ReadOnly = true;
+            this.dataGridViewAccom.RowHeadersVisible = false;
+            this.dataGridViewAccom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewAccom.Size = new System.Drawing.Size(624, 538);
+            this.dataGridViewAccom.TabIndex = 2;
+            this.dataGridViewAccom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAccom_CellClick);
+            // 
             // picBackground
             // 
             this.picBackground.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -356,10 +357,10 @@ namespace vaalrusGUIPrototype
             this.groupBoxSearch.ResumeLayout(false);
             this.pnlGroupBoxSearch.ResumeLayout(false);
             this.pnlGroupBoxSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).EndInit();
             this.gBoxAccom.ResumeLayout(false);
             this.pnlGroupBoxDetails.ResumeLayout(false);
             this.pnlGroupBoxDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).EndInit();
             this.pnlDatagrid.ResumeLayout(false);
             this.ResumeLayout(false);
