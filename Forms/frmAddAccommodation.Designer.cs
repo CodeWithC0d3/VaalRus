@@ -167,9 +167,6 @@ namespace vaalrusGUIPrototype.Forms
             // cbAccomType
             // 
             this.cbAccomType.FormattingEnabled = true;
-            this.cbAccomType.Items.AddRange(new object[] {
-            "Stand",
-            "Chalet"});
             this.cbAccomType.Location = new System.Drawing.Point(46, 25);
             this.cbAccomType.Name = "cbAccomType";
             this.cbAccomType.Size = new System.Drawing.Size(121, 21);
@@ -306,11 +303,13 @@ namespace vaalrusGUIPrototype.Forms
             // dataGridAccommodations
             // 
             this.dataGridAccommodations.AllowUserToResizeRows = false;
-            this.dataGridAccommodations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dataGridAccommodations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridAccommodations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridAccommodations.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridAccommodations.Location = new System.Drawing.Point(0, 0);
             this.dataGridAccommodations.Name = "dataGridAccommodations";
+            this.dataGridAccommodations.ReadOnly = true;
+            this.dataGridAccommodations.RowHeadersVisible = false;
             this.dataGridAccommodations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridAccommodations.Size = new System.Drawing.Size(492, 563);
             this.dataGridAccommodations.TabIndex = 0;

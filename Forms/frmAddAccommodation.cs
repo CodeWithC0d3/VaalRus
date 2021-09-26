@@ -64,15 +64,15 @@ namespace vaalrusGUIPrototype.Forms
             aplytheme(pnlDGrid);
 
         }
-        private void aplytheme(Control co)
+        private void aplytheme(Control pn)
         {
-            if (co.GetType() == typeof(Panel))
+            if (pn.GetType() == typeof(Panel))
             {
-                foreach (Control btns in co.Controls)
+                foreach (Control co in pn.Controls)
                 {
-                    if (btns.GetType() == typeof(Button))
+                    if (co.GetType() == typeof(Button))
                     {
-                        Button btn = (Button)btns;
+                        Button btn = (Button)co;
                         btn.FlatStyle = FlatStyle.Flat;
                         //btn.Parent = pictureBox1;
                         btn.BackColor = GlobalSettings.PrimaryColor;
@@ -81,61 +81,95 @@ namespace vaalrusGUIPrototype.Forms
                         //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                         btn.FlatAppearance.BorderColor = Color.White;
                         btn.FlatAppearance.BorderSize = 2;
-
                     }
-                }
-                foreach (Control lbls in co.Controls)
-                {
-                    if (lbls.GetType() == typeof(Label))
+                    if (co.GetType() == typeof(Label))
                     {
-                        Label lbl = (Label)lbls;
+                        Label lbl = (Label)co;
                         lbl.Font = GlobalSettings.font;
                         //lbl.Parent = picBackground;
                         lbl.ForeColor = GlobalSettings.SecondaryColor;
                         lbl.BackColor = Color.Transparent;
 
                     }
-                }
-                foreach (Control dtg in co.Controls)
-                {
-                    if (dtg.GetType() == typeof(DataGridView))
+                    if (co.GetType() == typeof(DataGridView))
                     {
-                        DataGridView dtgg = (DataGridView)dtg;
+                        DataGridView dtgg = (DataGridView)co;
                         dtgg.ForeColor = Color.White;
-                        dtgg.BackgroundColor = GlobalSettings.PrimaryColor;
+                        dtgg.BackgroundColor = SystemColors.Control;
                         dtgg.DefaultCellStyle.BackColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
 
                     }
-                }
-                foreach (Control chk in co.Controls)
-                {
-                    if (chk.GetType() == typeof(CheckBox))
+                    if (co.GetType() == typeof(CheckBox))
                     {
-                        CheckBox chkk = (CheckBox)chk;
+                        CheckBox chkk = (CheckBox)co;
                         chkk.ForeColor = GlobalSettings.SecondaryColor;
 
                     }
-                }
-                foreach (Control txt in co.Controls)
-                {
-                    if (txt.GetType() == typeof(TextBox))
+                    if (co.GetType() == typeof(TextBox))
                     {
-                        TextBox txtC = (TextBox)txt;
+                        TextBox txtC = (TextBox)co;
                         txtC.ForeColor = GlobalSettings.SecondaryColor;
 
                     }
-                }
-                foreach (Control grb in co.Controls)
-                {
-                    if (grb.GetType() == typeof(GroupBox))
+                    if (co.GetType() == typeof(ComboBox))
                     {
-                        GroupBox txtC = (GroupBox)grb;
-                        txtC.ForeColor = GlobalSettings.SecondaryColor;
-                        txtC.Font = GlobalSettings.font;
+                        ComboBox cmbc = (ComboBox)co;
+                        cmbc.ForeColor = GlobalSettings.SecondaryColor;
+                        cmbc.Font = GlobalSettings.font;
+
+                    }
+                    if (co.GetType() == typeof(DateTimePicker))
+                    {
+                        DateTimePicker dtpc = (DateTimePicker)co;
+                        dtpc.ForeColor = GlobalSettings.SecondaryColor;
+                        dtpc.Font = GlobalSettings.font;
+
+                    }
+                    if (co.GetType() == typeof(GroupBox))
+                    {
+                        GroupBox gpc = (GroupBox)co;
+                        gpc.ForeColor = GlobalSettings.SecondaryColor;
+                        gpc.Font = GlobalSettings.font;
+
+                    }
+                    if (co.GetType() == typeof(ListBox))
+                    {
+                        ListBox lsc = (ListBox)co;
+                        lsc.ForeColor = GlobalSettings.SecondaryColor;
+                        lsc.Font = GlobalSettings.font;
+
                     }
                 }
+
             }
+        }
+        public void setType()
+        {
+            try
+            {
+                if(sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand("Select AccommodationType from Accommodationtype", sqlConnection))
+                {
+
+                    SqlDataReader dReader = sqlCommand.ExecuteReader();
+
+                    while (dReader.Read())
+                    {
+                        cbAccomType.Items.Add(dReader.GetValue(0).ToString());
+                    }
+
+                    dReader.Close();
+                    sqlCommand.Dispose();
+                }
+
+                sqlConnection.Close();
+            }
+            catch (SqlException sqle)
+            {
+                MessageBox.Show(sqle.Message.ToString());
+            }
+            //loadTemp();
         }
         public void Display(string command)
         {
@@ -172,14 +206,18 @@ namespace vaalrusGUIPrototype.Forms
             {
                 sqlConnection.Open();
                 //MessageBox.Show("Connected to db");
+                setType();
+                Display("Select * from Accommodation");
+                cbAccomType.Items.Add("");
+                //readData("Select TOP 1 * from Accommodation");
+                dIndex = 1;
+                sqlConnection.Close();
             }
             catch (SqlException sqlx)
             {
                 MessageBox.Show("Connection unsuccesful");
             }
-            Display("Select * from Accommodation");
-            //readData("Select TOP 1 * from Accommodation");
-            dIndex = 1;
+            
         }
     }
 }
