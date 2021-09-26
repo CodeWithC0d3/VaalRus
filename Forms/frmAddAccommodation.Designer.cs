@@ -48,10 +48,10 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlDeleteDetails = new System.Windows.Forms.Panel();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblOccupants = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDelPrice = new System.Windows.Forms.TextBox();
+            this.txtDelNumO = new System.Windows.Forms.TextBox();
+            this.txtDelType = new System.Windows.Forms.TextBox();
+            this.txtDelID = new System.Windows.Forms.TextBox();
             this.lblType = new System.Windows.Forms.Label();
             this.lblAccommID = new System.Windows.Forms.Label();
             this.pnlDGrid = new System.Windows.Forms.Panel();
@@ -199,6 +199,7 @@ namespace vaalrusGUIPrototype.Forms
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // groupBoxDelete
             // 
@@ -214,10 +215,10 @@ namespace vaalrusGUIPrototype.Forms
             // 
             this.pnlDeleteDetails.Controls.Add(this.lblPrice);
             this.pnlDeleteDetails.Controls.Add(this.lblOccupants);
-            this.pnlDeleteDetails.Controls.Add(this.textBox4);
-            this.pnlDeleteDetails.Controls.Add(this.textBox3);
-            this.pnlDeleteDetails.Controls.Add(this.textBox2);
-            this.pnlDeleteDetails.Controls.Add(this.textBox1);
+            this.pnlDeleteDetails.Controls.Add(this.txtDelPrice);
+            this.pnlDeleteDetails.Controls.Add(this.txtDelNumO);
+            this.pnlDeleteDetails.Controls.Add(this.txtDelType);
+            this.pnlDeleteDetails.Controls.Add(this.txtDelID);
             this.pnlDeleteDetails.Controls.Add(this.lblType);
             this.pnlDeleteDetails.Controls.Add(this.lblAccommID);
             this.pnlDeleteDetails.Location = new System.Drawing.Point(6, 19);
@@ -243,33 +244,33 @@ namespace vaalrusGUIPrototype.Forms
             this.lblOccupants.TabIndex = 16;
             this.lblOccupants.Text = "Number Of Occupants:";
             // 
-            // textBox4
+            // txtDelPrice
             // 
-            this.textBox4.Location = new System.Drawing.Point(43, 138);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(122, 20);
-            this.textBox4.TabIndex = 15;
+            this.txtDelPrice.Location = new System.Drawing.Point(43, 138);
+            this.txtDelPrice.Name = "txtDelPrice";
+            this.txtDelPrice.Size = new System.Drawing.Size(122, 20);
+            this.txtDelPrice.TabIndex = 15;
             // 
-            // textBox3
+            // txtDelNumO
             // 
-            this.textBox3.Location = new System.Drawing.Point(43, 99);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(122, 20);
-            this.textBox3.TabIndex = 14;
+            this.txtDelNumO.Location = new System.Drawing.Point(43, 99);
+            this.txtDelNumO.Name = "txtDelNumO";
+            this.txtDelNumO.Size = new System.Drawing.Size(122, 20);
+            this.txtDelNumO.TabIndex = 14;
             // 
-            // textBox2
+            // txtDelType
             // 
-            this.textBox2.Location = new System.Drawing.Point(44, 60);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(122, 20);
-            this.textBox2.TabIndex = 13;
+            this.txtDelType.Location = new System.Drawing.Point(44, 60);
+            this.txtDelType.Name = "txtDelType";
+            this.txtDelType.Size = new System.Drawing.Size(122, 20);
+            this.txtDelType.TabIndex = 13;
             // 
-            // textBox1
+            // txtDelID
             // 
-            this.textBox1.Location = new System.Drawing.Point(46, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(122, 20);
-            this.textBox1.TabIndex = 12;
+            this.txtDelID.Location = new System.Drawing.Point(46, 21);
+            this.txtDelID.Name = "txtDelID";
+            this.txtDelID.Size = new System.Drawing.Size(122, 20);
+            this.txtDelID.TabIndex = 12;
             // 
             // lblType
             // 
@@ -313,6 +314,7 @@ namespace vaalrusGUIPrototype.Forms
             this.dataGridAccommodations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridAccommodations.Size = new System.Drawing.Size(492, 563);
             this.dataGridAccommodations.TabIndex = 0;
+            this.dataGridAccommodations.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridAccommodations_CellClick);
             // 
             // frmAddAccommodation
             // 
@@ -360,15 +362,15 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.GroupBox groupBoxDelete;
         private System.Windows.Forms.Panel pnlDeleteDetails;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDelID;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Label lblAccommID;
         private System.Windows.Forms.Panel pnlDGrid;
         private System.Windows.Forms.DataGridView dataGridAccommodations;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblOccupants;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtDelPrice;
+        private System.Windows.Forms.TextBox txtDelNumO;
+        private System.Windows.Forms.TextBox txtDelType;
     }
 }
