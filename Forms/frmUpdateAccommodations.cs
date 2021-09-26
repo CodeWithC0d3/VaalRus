@@ -406,34 +406,61 @@ namespace vaalrusGUIPrototype
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to update Accommodation ID: '"+txtAID.Text+"'?", "Update", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if (err == false)
             {
-                try
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to update Accommodation ID: '" + txtAID.Text + "'?", "Update", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    sqlConnection = new SqlConnection(connString);
-                    sqlConnection.Open();
-                    sqlCmd = new SqlCommand($"Update Accommodation Set Accommodation_TypeID = '" + Convert.ToInt32(txtAType.Text) + "', Number_Of_Occupants = '" + Convert.ToInt32(txtAOccupants.Text) + "', Accommodation_Price = '" + Convert.ToDouble(txtAPrice.Text) + "' where Accommodation_ID = '" + Convert.ToInt32(txtAID.Text) + "'", sqlConnection);
+                    try
+                    {
+                        sqlConnection = new SqlConnection(connString);
+                        sqlConnection.Open();
+                        sqlCmd = new SqlCommand($"Update Accommodation Set Accommodation_TypeID = '" + Convert.ToInt32(txtAType.Text) + "', Number_Of_Occupants = '" + Convert.ToInt32(txtAOccupants.Text) + "', Accommodation_Price = '" + Convert.ToDouble(txtAPrice.Text) + "' where Accommodation_ID = '" + Convert.ToInt32(txtAID.Text) + "'", sqlConnection);
 
-                    sqlCmd.ExecuteNonQuery();
-                    sqlConnection.Close();
+                        sqlCmd.ExecuteNonQuery();
+                        sqlConnection.Close();
 
-                    Display("Select * from Accommodation");
-                    dIndex = 1;
-                    readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
+                        Display("Select * from Accommodation");
+                        dIndex = 1;
+                        readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
+                    }
+                    catch (SqlException sqlx)
+                    {
+                        //Could not update
+                        MessageBox.Show(sqlx.ToString());
+                    }
                 }
-                catch (SqlException sqlx)
+                else if (dialogResult == DialogResult.No)
                 {
-                    //Could not update
-                    MessageBox.Show(sqlx.ToString());
+
                 }
             }
-            else if (dialogResult == DialogResult.No)
+            
+        }
+        public Boolean err = false;
+        private void txtAID_Validating(object sender, CancelEventArgs e)
+        {
+            int parsedValue;
+            if (string.IsNullOrWhiteSpace(txtAID.Text))
             {
-                
+                e.Cancel = true;
+                txtAID.Focus();
+                errorProviderID.SetError(txtAID, "ID can not be blank!");
+                err = true;
             }
-            
-            
+            else if(!int.TryParse(txtAID.Text, out parsedValue))
+            {
+                e.Cancel = true;
+                txtAID.Focus();
+                errorProviderID.SetError(txtAID, "Can not contain string!");
+                err = true;
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProviderID.SetError(txtAID, "");
+                err = false;
+            }
         }
 
         private void txtSearchType_TextChanged(object sender, EventArgs e)

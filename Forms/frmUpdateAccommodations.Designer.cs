@@ -29,6 +29,7 @@ namespace vaalrusGUIPrototype
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlConnetionControls = new System.Windows.Forms.Panel();
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
             this.pnlGroupBoxSearch = new System.Windows.Forms.Panel();
@@ -57,6 +58,7 @@ namespace vaalrusGUIPrototype
             this.dataGridViewAccom = new System.Windows.Forms.DataGridView();
             this.picBackground = new System.Windows.Forms.PictureBox();
             this.pnlDatagrid = new System.Windows.Forms.Panel();
+            this.errorProviderID = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlConnetionControls.SuspendLayout();
             this.groupBoxSearch.SuspendLayout();
             this.pnlGroupBoxSearch.SuspendLayout();
@@ -65,6 +67,7 @@ namespace vaalrusGUIPrototype
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).BeginInit();
             this.pnlDatagrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderID)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlConnetionControls
@@ -304,6 +307,7 @@ namespace vaalrusGUIPrototype
             this.txtAID.Name = "txtAID";
             this.txtAID.Size = new System.Drawing.Size(134, 20);
             this.txtAID.TabIndex = 8;
+            this.txtAID.Validating += new System.ComponentModel.CancelEventHandler(this.txtAID_Validating);
             // 
             // dataGridViewAccom
             // 
@@ -342,6 +346,10 @@ namespace vaalrusGUIPrototype
             this.pnlDatagrid.Size = new System.Drawing.Size(624, 538);
             this.pnlDatagrid.TabIndex = 4;
             // 
+            // errorProviderID
+            // 
+            this.errorProviderID.ContainerControl = this;
+            // 
             // frmUpdateAccommodations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -363,6 +371,7 @@ namespace vaalrusGUIPrototype
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).EndInit();
             this.pnlDatagrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderID)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -396,5 +405,6 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Label lblsearchID;
         private System.Windows.Forms.TextBox txtSearchID;
         private System.Windows.Forms.Panel pnlDatagrid;
+        private System.Windows.Forms.ErrorProvider errorProviderID;
     }
 }
