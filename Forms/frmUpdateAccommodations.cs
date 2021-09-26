@@ -319,6 +319,36 @@ namespace vaalrusGUIPrototype
             }
             loadTemp();
         }
+        public void readData2(string readstring)
+        {
+            try
+            {
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand(readstring, sqlConnection))
+                {
+
+                    SqlDataReader dReader = sqlCommand.ExecuteReader();
+
+                    while (dReader.Read())
+                    {
+                        txtAID.Text = dReader.GetValue(0).ToString();
+                        txtAType.Text = dReader.GetValue(1).ToString();
+                        txtAOccupants.Text = dReader.GetValue(2).ToString();
+                        txtAPrice.Text = dReader.GetValue(3).ToString();
+                    }
+
+                    dReader.Close();
+                    sqlCommand.Dispose();
+                }
+
+                sqlConnection.Close();
+            }
+            catch (SqlException sqle)
+            {
+                MessageBox.Show(sqle.Message.ToString());
+            }
+            loadTemp();
+        }
 
         private void txtSearchID_TextChanged(object sender, EventArgs e)
         {
@@ -336,14 +366,18 @@ namespace vaalrusGUIPrototype
         private void btnNext_Click(object sender, EventArgs e)
         {
             dIndex++;
-            readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '"+dIndex+"'");//'" + dIndex+"'");//'"+dIndex+"'");
-            dataGridViewAccom.ClearSelection();
-            dataGridViewAccom.Rows[dIndex].Selected = true;
+            if (dataGridViewAccom.RowCount > dIndex)
+            {
+                
+                readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");//'" + dIndex+"'");//'"+dIndex+"'");
+                dataGridViewAccom.ClearSelection();
+                dataGridViewAccom.Rows[dIndex].Selected = true;
+            }
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-            if(dIndex>1)
+            if(dIndex>=1)
                 dIndex--;
             readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
             dataGridViewAccom.ClearSelection();
@@ -352,13 +386,43 @@ namespace vaalrusGUIPrototype
 
         private void dataGridViewAccom_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            int rowindex = dataGridViewAccom.CurrentCell.RowIndex;
+            int columnindex = dataGridViewAccom.CurrentCell.ColumnIndex;
+
+            string dindex2 = dataGridViewAccom.Rows[rowindex].Cells[columnindex].Value.ToString();
             dIndex = e.RowIndex +1;
-            readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
+            int conv = Convert.ToInt32(dindex2);
+            //dIndex = dataGridViewAccom.Rows;
+            //dIndex = e.RowIndex;
+            //int accommID = dataGridViewAccom.Rows.
+            //readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
+            readData2("Select * from Accommodation where Accommodation_ID = '"+conv+"'");
         }
 
         private void pnlGroupBoxSearch_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                sqlConnection = new SqlConnection(connString);
+                sqlConnection.Open();
+                sqlCmd = new SqlCommand($"Update Accommodation Set Accommodation_ID = '" + Convert.ToInt32(txtAID) + "' Accommodation_Type = '" + Convert.ToInt32(txtAType) + "' Number_Of_Occupants = '" + Convert.ToInt32(txtAOccupants) + "' Accommodation_Price = '" + Convert.ToDouble(txtAPrice) + "' where Accommodation_ID = '" + Convert.ToInt32(txtAID) + "'", sqlConnection);
+
+                sqlCmd.ExecuteNonQuery();
+                sqlConnection.Close();
+                
+
+            }
+            catch (SqlException sqlx)
+            {
+                //Could not update
+                MessageBox.Show(sqlx.ToString());
+            }
+            //Display("Update Accommodations Set Accommodation_ID = '"+Convert.ToInt32(txtAID)+"' Accommodation_Type = '"+Convert.ToInt32(txtAType)+"' Number_Of_Occupants = '"+Convert.ToInt32(txtAOccupants)+"' Accommodation_Price = '"+Convert.ToDouble(txtAPrice)+"' where Accommodation_ID = '"+Convert.ToInt32(txtAID)+"'");
         }
 
         private void txtSearchType_TextChanged(object sender, EventArgs e)
