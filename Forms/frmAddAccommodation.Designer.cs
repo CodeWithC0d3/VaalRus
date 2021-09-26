@@ -38,7 +38,7 @@ namespace vaalrusGUIPrototype.Forms
             this.label4 = new System.Windows.Forms.Label();
             this.txtAccomPrice = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numOfOccupants = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.cbAccomType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,7 +60,7 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlNewAccom.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.pnlNewAccomDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numOfOccupants)).BeginInit();
             this.pnlDelete.SuspendLayout();
             this.groupBoxDelete.SuspendLayout();
             this.pnlDeleteDetails.SuspendLayout();
@@ -114,7 +114,7 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlNewAccomDetails.Controls.Add(this.label4);
             this.pnlNewAccomDetails.Controls.Add(this.txtAccomPrice);
             this.pnlNewAccomDetails.Controls.Add(this.label3);
-            this.pnlNewAccomDetails.Controls.Add(this.numericUpDown1);
+            this.pnlNewAccomDetails.Controls.Add(this.numOfOccupants);
             this.pnlNewAccomDetails.Controls.Add(this.label2);
             this.pnlNewAccomDetails.Controls.Add(this.cbAccomType);
             this.pnlNewAccomDetails.Controls.Add(this.label1);
@@ -148,12 +148,12 @@ namespace vaalrusGUIPrototype.Forms
             this.label3.TabIndex = 11;
             this.label3.Text = "Accommodation price:";
             // 
-            // numericUpDown1
+            // numOfOccupants
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(46, 77);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(47, 20);
-            this.numericUpDown1.TabIndex = 10;
+            this.numOfOccupants.Location = new System.Drawing.Point(46, 77);
+            this.numOfOccupants.Name = "numOfOccupants";
+            this.numOfOccupants.Size = new System.Drawing.Size(47, 20);
+            this.numOfOccupants.TabIndex = 10;
             // 
             // label2
             // 
@@ -331,7 +331,7 @@ namespace vaalrusGUIPrototype.Forms
             this.groupBox1.ResumeLayout(false);
             this.pnlNewAccomDetails.ResumeLayout(false);
             this.pnlNewAccomDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numOfOccupants)).EndInit();
             this.pnlDelete.ResumeLayout(false);
             this.groupBoxDelete.ResumeLayout(false);
             this.pnlDeleteDetails.ResumeLayout(false);
@@ -352,7 +352,7 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtAccomPrice;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numOfOccupants;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbAccomType;
         private System.Windows.Forms.Label label1;
