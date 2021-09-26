@@ -194,9 +194,70 @@ namespace vaalrusGUIPrototype.Forms
             }
             sqlConnection.Close();
         }
+        //public int typeInt;
+        public int getAccomType(string type)
+        {
+            int typeInt = 0;
+            try
+            {
+                
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand("Select Accommodation_TypeID from Accommodationtype where AccommodationType='"+type+"'", sqlConnection))
+                {
+
+                    SqlDataReader dReader = sqlCommand.ExecuteReader();
+
+                    while (dReader.Read())
+                    {
+                        typeInt = Convert.ToInt32(dReader.GetValue(0));
+                        
+                    }
+
+                    dReader.Close();
+                    sqlCommand.Dispose();
+                }
+
+                sqlConnection.Close();
+                return typeInt;
+            }
+            catch (SqlException sqle)
+            {
+                MessageBox.Show(sqle.Message.ToString());
+                return typeInt;
+            }
+        }
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to insert new accommodation?", "Add Accommodation", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    int type = getAccomType(cbAccomType.Text);
+                    //if(cbAccomType.SelectedIndex==0)
+                    sqlConnection = new SqlConnection(connString);
+                    sqlConnection.Open();
+                    sqlCmd = new SqlCommand($"Insert Into Accommodation (Accommodation_TypeID,Number_Of_Occupants,Accommodation_Price) Values (@type,@noo,@price)", sqlConnection);
+                    sqlCmd.Parameters.AddWithValue("@type", cbAccomType.SelectedIndex + 1);
+                    sqlCmd.Parameters.AddWithValue("@noo", numOfOccupants);
+                    sqlCmd.Parameters.AddWithValue("@price", Convert.ToInt32(txtAccomPrice.Text));
+                    sqlCmd.ExecuteNonQuery();
+                    sqlConnection.Close();
 
+                    Display("Select * from Accommodation");
+                    //dIndex = 1;
+                    //readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
+                }
+                catch (SqlException sqlx)
+                {
+                    //Could not update
+                    MessageBox.Show(sqlx.ToString());
+                }
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
         }
 
         private void frmAddAccommodation_Load(object sender, EventArgs e)
