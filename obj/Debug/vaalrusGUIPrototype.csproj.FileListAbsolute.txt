@@ -344,3 +344,4 @@ D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.Forms.frmAddAccommo
 D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.Forms.frmAddCustomer.resources
 D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.Forms.frmDeleteAccommodation.resources
 D:\NWU\CMPG223\VaalRus\VaalRus\obj\Debug\vaalrusGUIPrototype.Forms.frmQuotation.resources
+D:\NWU\CMPG223\VaalRus\VaalRus\bin\Debug\_SQL\Views.txt

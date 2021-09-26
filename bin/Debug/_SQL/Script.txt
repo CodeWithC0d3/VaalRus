@@ -81,13 +81,11 @@ CREATE TABLE Accommodationset (
 	--Quotation_ID INT NOT NULL REFERENCES Quotation(Quotation_ID), --FK also
     Accommodation_ID INT NOT NULL REFERENCES Accommodation(Accommodation_ID), --FK
 	Number_Of_Occupants INT,
+	startDate DATE NOT NULL,
+	endDate DATE NOT NULL,
 	--CONSTRAINT PK_QuoteID FOREIGN KEY (Quotation_ID) REFERENCES Quotation(Quotation_ID)
 
 );
-
-
-
-
 
 
 
