@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,15 @@ namespace vaalrusGUIPrototype.Forms
 {
     public partial class frmAddAccommodation : Form
     {
+        public DataSet ds;
+        public SqlDataAdapter myAdapter;
+
+        public SqlConnection sqlConnection;
+        public SqlCommand sqlCmd;
+        public string sqlCommand;
+        public string dataFDB;
+        public string connString = Properties.Settings.Default.conString;
+        public int dIndex;
         public frmAddAccommodation()
         {
             InitializeComponent();
@@ -127,6 +137,29 @@ namespace vaalrusGUIPrototype.Forms
                 }
             }
         }
+        public void Display(string command)
+        {
+            if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(command, sqlConnection))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+
+                    DataSet ds = new DataSet();
+                    adapter.SelectCommand = cmd;
+                    adapter.Fill(ds, "Accommodation");
+
+                    dataGridAccommodations.DataSource = ds;
+                    dataGridAccommodations.DataMember = "Accommodation";
+                }
+            }
+            catch (SqlException sqle)
+            {
+                MessageBox.Show(sqle.Message.ToString());
+            }
+            sqlConnection.Close();
+        }
         private void btnCreate_Click(object sender, EventArgs e)
         {
 
@@ -134,7 +167,19 @@ namespace vaalrusGUIPrototype.Forms
 
         private void frmAddAccommodation_Load(object sender, EventArgs e)
         {
-
+            sqlConnection = new SqlConnection(connString);
+            try
+            {
+                sqlConnection.Open();
+                //MessageBox.Show("Connected to db");
+            }
+            catch (SqlException sqlx)
+            {
+                MessageBox.Show("Connection unsuccesful");
+            }
+            Display("Select * from Accommodation");
+            //readData("Select TOP 1 * from Accommodation");
+            dIndex = 1;
         }
     }
 }
