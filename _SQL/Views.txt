@@ -1,0 +1,9 @@
+use Vaalrus
+GO
+CREATE VIEW accAvailibility
+AS
+SELECT        Accommodation.Accommodation_ID, Booking.StartDate, Booking.EndDate
+FROM            Accommodationset INNER JOIN
+                         Quotation ON Accommodationset.Quotation_ID = Quotation.Quotation_ID INNER JOIN
+                         Booking ON Quotation.Quotation_ID = Booking.Quotation_ID INNER JOIN
+                         Accommodation ON Accommodationset.Accommodation_ID = Accommodation.Accommodation_ID;

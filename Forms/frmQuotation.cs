@@ -7,16 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace vaalrusGUIPrototype.Forms
 {
     public partial class frmQuotation : Form
     {
+        string constr = Properties.Settings.Default.conString;
+        SqlConnection con;
+        SqlCommand command;
+        SqlDataAdapter adapter;
+        SqlDataReader dataReader;
+        DataSet ds;
+        string sql = "";
+
         public frmQuotation()
         {
             InitializeComponent();
         }
-
+        
         private void LoadTheme()
         {
             foreach (Control btns in this.Controls)
@@ -46,9 +55,7 @@ namespace vaalrusGUIPrototype.Forms
             }            
             aplytheme(pnlMain);
             aplytheme(pnlBookingDetails);
-            aplytheme(pnlavailibleAccommodation);
-            aplytheme(pnlAddRemove);
-            aplytheme(pnlSelectedAccommodation);
+            aplytheme(pnlavailibleAccommodation);           
             //aplytheme(pnl_main);
 
         }
@@ -160,6 +167,60 @@ namespace vaalrusGUIPrototype.Forms
         private void frmQuotation_Load(object sender, EventArgs e)
         {
             LoadTheme();
+            timer1.Start();
+            
+        }
+
+        private void pnlMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            pnlMain.Visible = true;
+            timer1.Stop();
+        }
+        private Boolean conDB()
+        {
+            try
+            {
+                con = new SqlConnection(constr);
+                con.Open();
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+        
+        private void cmbCustomer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void cmbCustomer_Click(object sender, EventArgs e)
+        {
+            if (conDB())
+            {
+                sql = "SELECT 	Customer_FirstName + ' - ' +  Customer_LastName As Contact FROM Customer";
+                command = new SqlCommand(sql, con);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+                adapter.SelectCommand = command;
+                adapter.Fill(ds,"Contact");
+                cmbCustomer.DisplayMember = "Contact";
+                cmbCustomer.DataSource = ds.Tables[0];
+
+            }
         }
     }
 }
