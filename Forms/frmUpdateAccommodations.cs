@@ -410,7 +410,7 @@ namespace vaalrusGUIPrototype
             {
                 sqlConnection = new SqlConnection(connString);
                 sqlConnection.Open();
-                sqlCmd = new SqlCommand($"Update Accommodation Set Accommodation_ID = '" + Convert.ToInt32(txtAID) + "' Accommodation_Type = '" + Convert.ToInt32(txtAType) + "' Number_Of_Occupants = '" + Convert.ToInt32(txtAOccupants) + "' Accommodation_Price = '" + Convert.ToDouble(txtAPrice) + "' where Accommodation_ID = '" + Convert.ToInt32(txtAID) + "'", sqlConnection);
+                sqlCmd = new SqlCommand($"Update Accommodation Set Accommodation_TypeID = '" + Convert.ToInt32(txtAType.Text) + "', Number_Of_Occupants = '" + Convert.ToInt32(txtAOccupants.Text) + "', Accommodation_Price = '" + Convert.ToDouble(txtAPrice.Text) + "' where Accommodation_ID = '" + Convert.ToInt32(txtAID.Text) + "'", sqlConnection);
 
                 sqlCmd.ExecuteNonQuery();
                 sqlConnection.Close();
