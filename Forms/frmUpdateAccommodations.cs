@@ -406,23 +406,34 @@ namespace vaalrusGUIPrototype
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to update Accommodation ID: '"+txtAID.Text+"'?", "Update", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                sqlConnection = new SqlConnection(connString);
-                sqlConnection.Open();
-                sqlCmd = new SqlCommand($"Update Accommodation Set Accommodation_ID = '" + Convert.ToInt32(txtAID) + "' Accommodation_Type = '" + Convert.ToInt32(txtAType) + "' Number_Of_Occupants = '" + Convert.ToInt32(txtAOccupants) + "' Accommodation_Price = '" + Convert.ToDouble(txtAPrice) + "' where Accommodation_ID = '" + Convert.ToInt32(txtAID) + "'", sqlConnection);
+                try
+                {
+                    sqlConnection = new SqlConnection(connString);
+                    sqlConnection.Open();
+                    sqlCmd = new SqlCommand($"Update Accommodation Set Accommodation_TypeID = '" + Convert.ToInt32(txtAType.Text) + "', Number_Of_Occupants = '" + Convert.ToInt32(txtAOccupants.Text) + "', Accommodation_Price = '" + Convert.ToDouble(txtAPrice.Text) + "' where Accommodation_ID = '" + Convert.ToInt32(txtAID.Text) + "'", sqlConnection);
 
-                sqlCmd.ExecuteNonQuery();
-                sqlConnection.Close();
+                    sqlCmd.ExecuteNonQuery();
+                    sqlConnection.Close();
+
+                    Display("Select * from Accommodation");
+                    dIndex = 1;
+                    readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
+                }
+                catch (SqlException sqlx)
+                {
+                    //Could not update
+                    MessageBox.Show(sqlx.ToString());
+                }
+            }
+            else if (dialogResult == DialogResult.No)
+            {
                 
-
             }
-            catch (SqlException sqlx)
-            {
-                //Could not update
-                MessageBox.Show(sqlx.ToString());
-            }
-            //Display("Update Accommodations Set Accommodation_ID = '"+Convert.ToInt32(txtAID)+"' Accommodation_Type = '"+Convert.ToInt32(txtAType)+"' Number_Of_Occupants = '"+Convert.ToInt32(txtAOccupants)+"' Accommodation_Price = '"+Convert.ToDouble(txtAPrice)+"' where Accommodation_ID = '"+Convert.ToInt32(txtAID)+"'");
+            
+            
         }
 
         private void txtSearchType_TextChanged(object sender, EventArgs e)

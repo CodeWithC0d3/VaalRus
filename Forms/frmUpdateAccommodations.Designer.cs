@@ -102,7 +102,7 @@ namespace vaalrusGUIPrototype
             this.pnlGroupBoxSearch.Controls.Add(this.txtSearchType);
             this.pnlGroupBoxSearch.Controls.Add(this.lblsearchID);
             this.pnlGroupBoxSearch.Controls.Add(this.txtSearchID);
-            this.pnlGroupBoxSearch.Location = new System.Drawing.Point(29, 9);
+            this.pnlGroupBoxSearch.Location = new System.Drawing.Point(29, 19);
             this.pnlGroupBoxSearch.Name = "pnlGroupBoxSearch";
             this.pnlGroupBoxSearch.Size = new System.Drawing.Size(316, 132);
             this.pnlGroupBoxSearch.TabIndex = 0;
