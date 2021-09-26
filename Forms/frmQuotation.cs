@@ -28,46 +28,41 @@ namespace vaalrusGUIPrototype.Forms
         
         private void LoadTheme()
         {
-            foreach (Control btns in this.Controls)
+            foreach (Control co in this.Controls)
             {
-                foreach (Control pnl in this.Controls)
-                {
-                    if (pnl.GetType() == typeof(Panel))
+               
+                    if (co.GetType() == typeof(Panel))
                     {
-                        pnl.Parent = picBackground;
-                        pnl.BackColor = Color.Transparent;
+                        co.Parent = this;
+                        co.BackColor = Color.Transparent;
                     }
-                }
-                foreach (Control lbls in this.Controls)
-                {
-                    if (lbls.GetType() == typeof(Label))
+                    if (co.GetType() == typeof(Label))
                     {
-                        Label lbl = (Label)lbls;
+                        Label lbl = (Label)co;
                         //lbl.Font = GlobalSettings.font;
-                        lbl.Parent = picBackground;
+                        lbl.Parent = this;
                         lbl.ForeColor = GlobalSettings.SecondaryColor;
                         lbl.BackColor = Color.Transparent;
 
-                    }                   
-                }
-
-
-            }            
-            aplytheme(pnlMain);
-            aplytheme(pnlBookingDetails);
-            aplytheme(pnlavailibleAccommodation);           
+                    }            
+            } 
+            //pnlMain.BackColor = Color.Transparent;
+           
+           aplytheme(pnlMain);
+           aplytheme(pnlBookingDetails);
+           aplytheme(pnlavailibleAccommodation);           
             //aplytheme(pnl_main);
 
         }
-        private void aplytheme(Control co)
+        private void aplytheme(Control pn)
         {
-            if (co.GetType() == typeof(Panel))
+            if (pn.GetType() == typeof(Panel))
             {
-                foreach (Control btns in co.Controls)
+                foreach (Control co in pn.Controls)
                 {
-                    if (btns.GetType() == typeof(Button))
+                    if (co.GetType() == typeof(Button))
                     {
-                        Button btn = (Button)btns;
+                        Button btn = (Button)co;
                         btn.FlatStyle = FlatStyle.Flat;
                         //btn.Parent = pictureBox1;
                         btn.BackColor = GlobalSettings.PrimaryColor;
@@ -76,97 +71,75 @@ namespace vaalrusGUIPrototype.Forms
                         //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                         btn.FlatAppearance.BorderColor = Color.White;
                         btn.FlatAppearance.BorderSize = 2;
-
                     }
-                }
-                foreach (Control lbls in co.Controls)
-                {
-                    if (lbls.GetType() == typeof(Label))
+                    if (co.GetType() == typeof(Label))
                     {
-                        Label lbl = (Label)lbls;
+                        Label lbl = (Label)co;
                         lbl.Font = GlobalSettings.font;
                         //lbl.Parent = picBackground;
                         lbl.ForeColor = GlobalSettings.SecondaryColor;
                         lbl.BackColor = Color.Transparent;
 
                     }
-                }
-                foreach (Control dtg in co.Controls)
-                {
-                    if (dtg.GetType() == typeof(DataGridView))
+                    if (co.GetType() == typeof(DataGridView))
                     {
-                        DataGridView dtgg = (DataGridView)dtg;
+                        DataGridView dtgg = (DataGridView)co;
                         dtgg.ForeColor = Color.White;
                         dtgg.BackgroundColor = SystemColors.Control;
                         dtgg.DefaultCellStyle.BackColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
 
                     }
-                }
-                foreach (Control chk in co.Controls)
-                {
-                    if (chk.GetType() == typeof(CheckBox))
+                    if (co.GetType() == typeof(CheckBox))
                     {
-                        CheckBox chkk = (CheckBox)chk;
+                        CheckBox chkk = (CheckBox)co;
                         chkk.ForeColor = GlobalSettings.SecondaryColor;
 
                     }
-                }
-                foreach (Control txt in co.Controls)
-                {
-                    if (txt.GetType() == typeof(TextBox))
+                    if (co.GetType() == typeof(TextBox))
                     {
-                        TextBox txtC = (TextBox)txt;
+                        TextBox txtC = (TextBox)co;
                         txtC.ForeColor = GlobalSettings.SecondaryColor;
 
                     }
-                }
-                foreach (Control cmb in co.Controls)
-                {
-                    if (cmb.GetType() == typeof(ComboBox))
+                    if (co.GetType() == typeof(ComboBox))
                     {
-                        ComboBox cmbc = (ComboBox)cmb;
+                        ComboBox cmbc = (ComboBox)co;
                         cmbc.ForeColor = GlobalSettings.SecondaryColor;
                         cmbc.Font = GlobalSettings.font;
 
                     }
-                }
-                foreach (Control dtp in co.Controls)
-                {
-                    if (dtp.GetType() == typeof(DateTimePicker))
+                    if (co.GetType() == typeof(DateTimePicker))
                     {
-                        DateTimePicker dtpc = (DateTimePicker)dtp;
+                        DateTimePicker dtpc = (DateTimePicker)co;
                         dtpc.ForeColor = GlobalSettings.SecondaryColor;
                         dtpc.Font = GlobalSettings.font;
 
                     }
-                }
-                foreach (Control gb in co.Controls)
-                {
-                    if (gb.GetType() == typeof(GroupBox))
+                    if (co.GetType() == typeof(GroupBox))
                     {
-                        GroupBox gpc = (GroupBox)gb;
+                        GroupBox gpc = (GroupBox)co;
                         gpc.ForeColor = GlobalSettings.SecondaryColor;
                         gpc.Font = GlobalSettings.font;
 
                     }
-                }
-                foreach (Control ls in co.Controls)
-                {
-                    if (ls.GetType() == typeof(ListBox))
+                    if (co.GetType() == typeof(ListBox))
                     {
-                        ListBox lsc = (ListBox)ls;
+                        ListBox lsc = (ListBox)co;
                         lsc.ForeColor = GlobalSettings.SecondaryColor;
                         lsc.Font = GlobalSettings.font;
 
                     }
-                }
+                }           
+ 
             }
         }
 
         private void frmQuotation_Load(object sender, EventArgs e)
         {
+            pnlMain.Visible = true;
             LoadTheme();
+           
             timer1.Start();
             
         }
@@ -176,15 +149,11 @@ namespace vaalrusGUIPrototype.Forms
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-          
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
-            pnlMain.Visible = true;
-            timer1.Stop();
+            // pnlMain.Visible = true;
+            pictureBox1.Visible = false;
+           timer1.Stop();
         }
         private Boolean conDB()
         {
@@ -209,6 +178,16 @@ namespace vaalrusGUIPrototype.Forms
 
         private void cmbCustomer_Click(object sender, EventArgs e)
         {
+           
+        }
+
+        private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("test");
+        }
+
+        private void cmbCustomer_Enter(object sender, EventArgs e)
+        {
             if (conDB())
             {
                 sql = "SELECT 	Customer_FirstName + ' - ' +  Customer_LastName As Contact FROM Customer";
@@ -216,7 +195,7 @@ namespace vaalrusGUIPrototype.Forms
                 adapter = new SqlDataAdapter();
                 ds = new DataSet();
                 adapter.SelectCommand = command;
-                adapter.Fill(ds,"Contact");
+                adapter.Fill(ds, "Contact");
                 cmbCustomer.DisplayMember = "Contact";
                 cmbCustomer.DataSource = ds.Tables[0];
 
