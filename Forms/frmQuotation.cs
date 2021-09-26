@@ -20,6 +20,12 @@ namespace vaalrusGUIPrototype.Forms
         SqlDataReader dataReader;
         DataSet ds;
         string sql = "";
+        private int customerID;
+        private List<int> accList = new List<int>();
+        private decimal totalPrice;
+        private string createdDate;
+        private String createdBy;
+        private Boolean selectFirst = false;
 
         public frmQuotation()
         {
@@ -139,6 +145,7 @@ namespace vaalrusGUIPrototype.Forms
         {
             pnlMain.Visible = true;
             LoadTheme();
+            cmbFilter.SelectedIndex = -1;
             loadCmbCustomers();
             loadcmbFilter();
             //timer1.Start();
@@ -174,7 +181,8 @@ namespace vaalrusGUIPrototype.Forms
         
         private void cmbCustomer_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            customerID = int.Parse(cmbCustomer.SelectedValue.ToString());
+            
         }
 
         private void cmbCustomer_Click(object sender, EventArgs e)
@@ -195,13 +203,15 @@ namespace vaalrusGUIPrototype.Forms
         {
             if (conDB())
             {
-                sql = "SELECT 	Customer_FirstName + ' - ' +  Customer_LastName As Contact FROM Customer";
+                sql = "SELECT 	Customer_ID,Customer_FirstName + ' - ' +  Customer_LastName As Contact FROM Customer";
                 command = new SqlCommand(sql, con);
                 adapter = new SqlDataAdapter();
                 ds = new DataSet();
                 adapter.SelectCommand = command;
-                adapter.Fill(ds, "Contact");
+                adapter.Fill(ds, "Customer_ID");
+                //adapter.Fill(ds, "CustomerID");
                 cmbCustomer.DisplayMember = "Contact";
+                cmbCustomer.ValueMember = "Customer_ID";
                 cmbCustomer.DataSource = ds.Tables[0];
                 con.Close();
 
@@ -226,14 +236,48 @@ namespace vaalrusGUIPrototype.Forms
 
             }
         }
+        private int getID(String col1,string table,string col2, string value )
+        {
+            int i = 0;
+            if (conDB())
+            {
+                sql = $"select '{col1}' from '{table}' where '{col2}' = '{value}'";
+                command = new SqlCommand(sql, con);
+                dataReader = command.ExecuteReader();
+                dataReader.Read();
+                i = (int)dataReader.GetValue(0);
+                con.Close();
+
+            }
+            return i;
+
+        }
         private void loadCmbAcc()
         {
             if (conDB())
             {
-                cmbAccommodation.Items.Clear();
+                if (cmbAccommodation.DataSource == null)
+                {                   
+                    cmbAccommodation.Items.Clear();
+                }
+                else
+                {
+                    cmbAccommodation.DataSource = null;
+                    cmbAccommodation.Items.Clear();
+                }
+               
                 DateTime startDT = dpFrom.Value;
                 DateTime endDT = dpTo.Value;
-                sql = "SELECT Accommodation.Accommodation_ID, Accommodationtype.AccommodationType FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID;";
+                string typeValue = cmbFilter.SelectedItem.ToString();
+                if (cmbFilter.SelectedIndex == 0)
+                {
+                    sql = $"SELECT Accommodation.Accommodation_ID, cast(Accommodation.Accommodation_ID as varchar) + '-' + Accommodationtype.AccommodationType As accmerge FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID;";
+                }
+                else
+                {
+                    sql = $"SELECT Accommodation.Accommodation_ID, cast(Accommodation.Accommodation_ID as varchar) + '-' + Accommodationtype.AccommodationType As accmerge FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID WHERE (dbo.Accommodationtype.AccommodationType = '{typeValue}');";
+                }                
+ 
                 command = new SqlCommand(sql,con);
                 adapter = new SqlDataAdapter();
                 DataSet ds1 = new DataSet();
@@ -247,7 +291,7 @@ namespace vaalrusGUIPrototype.Forms
                 adapter.SelectCommand = command;
                 adapter.Fill(ds);
 
-                foreach (DataRow row1 in ds1.Tables[0].Rows) // save rows to array
+                foreach (DataRow row1 in ds1.Tables[0].Rows) 
                 {
                     foreach (DataRow row2 in ds.Tables[0].Rows)
                     {
@@ -259,13 +303,15 @@ namespace vaalrusGUIPrototype.Forms
                             break; // break inner loop
                         }
                     }
-                   // row1.AcceptChanges();
+                  
                 }
-                ds1.AcceptChanges();
-               foreach(DataRow row in ds1.Tables[0].Rows)
-                {
-                    cmbAccommodation.Items.Add(row.ItemArray[0].ToString() + " - " + row.ItemArray[1].ToString());
-                }
+                ds1.AcceptChanges();               
+              
+                cmbAccommodation.DisplayMember = "accmerge";
+                cmbAccommodation.ValueMember = "Accommodation_ID";
+                cmbAccommodation.DataSource = ds1.Tables[0];
+                cmbAccommodation.SelectedIndex = -1;
+
                 //cmbAccommodation.DataSource = ds1.Tables[0];
                 con.Close();
 
@@ -274,12 +320,80 @@ namespace vaalrusGUIPrototype.Forms
 
         private void cmbAccommodation_Enter(object sender, EventArgs e)
         {
-            loadCmbAcc();
+            //loadCmbAcc();
         }
 
         private void cmbAccommodation_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lstAccommodation.Items.Add(cmbAccommodation.SelectedItem);
+
+            DataRowView row = (DataRowView)cmbAccommodation.SelectedItem;
+            if (cmbAccommodation.SelectedIndex != -1)
+            {
+                if (selectFirst)
+                {
+                    string s = row["accmerge"].ToString();
+                    lstAccommodation.Items.Add(s);
+                    //string substring = st.Substring(0,st.IndexOf(' '));
+                    string t = cmbAccommodation.SelectedValue.ToString();
+                    accList.Add(int.Parse(t));
+                }
+                else
+                    selectFirst = true;
+            }
+            
+               
+        }
+
+        private void cmbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbAccommodation.SelectedIndex = -1;
+            selectFirst = false;
+            loadCmbAcc();
+            cmbAccommodation.Enabled = true;
+            
+            
+        }
+
+        private void btnGeneratQuote_Click(object sender, EventArgs e)
+        {
+            createdBy = txtUser.Text;
+            createdDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+            string startDate = dpFrom.Value.ToString("yyyy/MM/dd");
+            string endDate = dpTo.Value.ToString("yyyy/MM/dd");
+            int days = (dpTo.Value.Date - dpFrom.Value.Date).Days;
+            if (conDB())
+            {
+                sql = "select AccommodationType from Accommodationtype";
+                command = new SqlCommand(sql, con);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "AccommodationType");
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    cmbFilter.Items.Add(row.ItemArray[0]);
+                }
+
+                con.Close();
+
+            }
+        }
+
+        private void cmbAccommodation_DropDown(object sender, EventArgs e)
+        {
+            cmbAccommodation.SelectedIndex = -1;
+        }
+
+        private void cmbAccommodation_DropDownClosed(object sender, EventArgs e)
+        {
+           // cmbAccommodation.SelectedIndex = -1;
+        }
+
+        private void btnClearLst_Click(object sender, EventArgs e)
+        {
+            lstAccommodation.Items.Clear();
+            cmbAccommodation.SelectedIndex = -1;
+            //selectFirst = false;
         }
     }
 }
