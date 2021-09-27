@@ -304,11 +304,12 @@ namespace vaalrusGUIPrototype.Forms
             {
                 try
                 {
+                    int delID = Convert.ToInt32(txtDelID.Text);
                     int type = getAccomType(cbAccomType.Text);
                     //if(cbAccomType.SelectedIndex==0)
                     sqlConnection = new SqlConnection(connString);
                     sqlConnection.Open();
-                    sqlCmd = new SqlCommand($"Delete from Accommodation where Accommodation_ID = '"+Convert.ToInt32(txtDelID.Text)+"'", sqlConnection);
+                    sqlCmd = new SqlCommand($"Delete from Accommodation where Accommodation_ID = '"+delID+"'", sqlConnection);
                     
                     sqlCmd.ExecuteNonQuery();
                     sqlConnection.Close();
