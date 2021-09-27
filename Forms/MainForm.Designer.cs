@@ -156,8 +156,7 @@ namespace vaalrusGUIPrototype
             this.btnDeleteAccommodation.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnDeleteAccommodation.Size = new System.Drawing.Size(169, 35);
             this.btnDeleteAccommodation.TabIndex = 3;
-            this.btnDeleteAccommodation.Text = "Delete Accommodation";
-            this.btnDeleteAccommodation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteAccommodation.Text = "Delete";
             this.btnDeleteAccommodation.UseVisualStyleBackColor = true;
             this.btnDeleteAccommodation.Click += new System.EventHandler(this.btnDeleteAccommodation_Click);
             // 
@@ -172,8 +171,7 @@ namespace vaalrusGUIPrototype
             this.btnUpdateAccommodation.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnUpdateAccommodation.Size = new System.Drawing.Size(169, 35);
             this.btnUpdateAccommodation.TabIndex = 2;
-            this.btnUpdateAccommodation.Text = "Update Existing Accommodation";
-            this.btnUpdateAccommodation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdateAccommodation.Text = "Update";
             this.btnUpdateAccommodation.UseVisualStyleBackColor = true;
             this.btnUpdateAccommodation.Click += new System.EventHandler(this.btnUpdateAccommodation_Click);
             // 
@@ -188,8 +186,7 @@ namespace vaalrusGUIPrototype
             this.btnAddAccommodation.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnAddAccommodation.Size = new System.Drawing.Size(169, 35);
             this.btnAddAccommodation.TabIndex = 1;
-            this.btnAddAccommodation.Text = "Add New Accommodation";
-            this.btnAddAccommodation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddAccommodation.Text = "Add";
             this.btnAddAccommodation.UseVisualStyleBackColor = true;
             this.btnAddAccommodation.Click += new System.EventHandler(this.btnAddAccommodation_Click);
             // 
@@ -204,8 +201,7 @@ namespace vaalrusGUIPrototype
             this.btnViewAccommodations.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnViewAccommodations.Size = new System.Drawing.Size(169, 35);
             this.btnViewAccommodations.TabIndex = 0;
-            this.btnViewAccommodations.Text = "View All Accommodations";
-            this.btnViewAccommodations.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnViewAccommodations.Text = "View";
             this.btnViewAccommodations.UseVisualStyleBackColor = true;
             // 
             // btnAccomodations
@@ -247,8 +243,7 @@ namespace vaalrusGUIPrototype
             this.btnDeleteCustomer.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnDeleteCustomer.Size = new System.Drawing.Size(169, 35);
             this.btnDeleteCustomer.TabIndex = 3;
-            this.btnDeleteCustomer.Text = "Delete Customer";
-            this.btnDeleteCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteCustomer.Text = "Delete";
             this.btnDeleteCustomer.UseVisualStyleBackColor = true;
             this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
             // 
@@ -263,8 +258,7 @@ namespace vaalrusGUIPrototype
             this.btnUpdateCustomer.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnUpdateCustomer.Size = new System.Drawing.Size(169, 35);
             this.btnUpdateCustomer.TabIndex = 2;
-            this.btnUpdateCustomer.Text = "Update Existing Customer";
-            this.btnUpdateCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdateCustomer.Text = "Update";
             this.btnUpdateCustomer.UseVisualStyleBackColor = true;
             this.btnUpdateCustomer.Click += new System.EventHandler(this.btnUpdateCustomer_Click);
             // 
@@ -279,8 +273,7 @@ namespace vaalrusGUIPrototype
             this.btnAddCustomer.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnAddCustomer.Size = new System.Drawing.Size(169, 35);
             this.btnAddCustomer.TabIndex = 1;
-            this.btnAddCustomer.Text = "Add New Customer";
-            this.btnAddCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddCustomer.Text = "Add";
             this.btnAddCustomer.UseVisualStyleBackColor = true;
             this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
@@ -295,8 +288,7 @@ namespace vaalrusGUIPrototype
             this.btnViewCustomers.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnViewCustomers.Size = new System.Drawing.Size(169, 35);
             this.btnViewCustomers.TabIndex = 0;
-            this.btnViewCustomers.Text = "View All Customers";
-            this.btnViewCustomers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnViewCustomers.Text = "View";
             this.btnViewCustomers.UseVisualStyleBackColor = true;
             // 
             // btnCustomers
@@ -339,8 +331,7 @@ namespace vaalrusGUIPrototype
             this.btnDeleteBooking.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnDeleteBooking.Size = new System.Drawing.Size(169, 35);
             this.btnDeleteBooking.TabIndex = 4;
-            this.btnDeleteBooking.Text = "Delete Booking";
-            this.btnDeleteBooking.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteBooking.Text = "Cancel";
             this.btnDeleteBooking.UseVisualStyleBackColor = true;
             // 
             // btnCheckOut
@@ -355,7 +346,6 @@ namespace vaalrusGUIPrototype
             this.btnCheckOut.Size = new System.Drawing.Size(169, 35);
             this.btnCheckOut.TabIndex = 3;
             this.btnCheckOut.Text = "Check-Out";
-            this.btnCheckOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCheckOut.UseVisualStyleBackColor = true;
             this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
             // 
@@ -371,7 +361,6 @@ namespace vaalrusGUIPrototype
             this.btnCheckIn.Size = new System.Drawing.Size(169, 35);
             this.btnCheckIn.TabIndex = 2;
             this.btnCheckIn.Text = "Check-In";
-            this.btnCheckIn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCheckIn.UseVisualStyleBackColor = true;
             // 
             // btnCreateBooking
@@ -385,8 +374,7 @@ namespace vaalrusGUIPrototype
             this.btnCreateBooking.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnCreateBooking.Size = new System.Drawing.Size(169, 35);
             this.btnCreateBooking.TabIndex = 1;
-            this.btnCreateBooking.Text = "Create New Booking";
-            this.btnCreateBooking.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateBooking.Text = "New";
             this.btnCreateBooking.UseVisualStyleBackColor = true;
             this.btnCreateBooking.Click += new System.EventHandler(this.btnCreateBooking_Click);
             // 
@@ -401,8 +389,7 @@ namespace vaalrusGUIPrototype
             this.btnViewBookings.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnViewBookings.Size = new System.Drawing.Size(169, 35);
             this.btnViewBookings.TabIndex = 0;
-            this.btnViewBookings.Text = "View All Bookings";
-            this.btnViewBookings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnViewBookings.Text = "View";
             this.btnViewBookings.UseVisualStyleBackColor = true;
             this.btnViewBookings.Click += new System.EventHandler(this.btnViewBookings_Click);
             // 

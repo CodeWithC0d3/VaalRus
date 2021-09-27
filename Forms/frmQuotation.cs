@@ -26,6 +26,9 @@ namespace vaalrusGUIPrototype.Forms
         private string createdDate;
         private String createdBy;
         private Boolean selectFirst = false;
+        private int quoteId;
+        private string startDate;
+        private string endDate;
 
         public frmQuotation()
         {
@@ -353,32 +356,76 @@ namespace vaalrusGUIPrototype.Forms
             
             
         }
+        private decimal getTotalPrice(List<int> ls)
+        {
+            decimal price = 0;
+            
+            if(conDB())
+            {
+                for (int i = 0; i < ls.Count; i++)
+                {
+                    sql = "SELECT Accommodation_price  from Accommodation where Accommodation_ID = @id";
+                    command = new SqlCommand(sql, con);
+                    command.Parameters.AddWithValue("@id", ls[i].ToString()); ;
+                    dataReader = command.ExecuteReader();
+                    dataReader.Read();
+                     price =+ (decimal)dataReader.GetValue(0);
+                    con.Close();
+                }              
 
+            }
+            return price;
+        }
         private void btnGeneratQuote_Click(object sender, EventArgs e)
         {
+            totalPrice = getTotalPrice(accList);
             createdBy = txtUser.Text;
             createdDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-            string startDate = dpFrom.Value.ToString("yyyy/MM/dd");
-            string endDate = dpTo.Value.ToString("yyyy/MM/dd");
-            int days = (dpTo.Value.Date - dpFrom.Value.Date).Days;
+            startDate = dpFrom.Value.ToString("yyyy/MM/dd");
+            endDate = dpTo.Value.ToString("yyyy/MM/dd");
+            int Bookdays = (dpTo.Value.Date - dpFrom.Value.Date).Days;
             if (conDB())
             {
-                sql = "select AccommodationType from Accommodationtype";
+                sql = "Insert Into Qoutation(Customer_ID, Reservation_Date, Duration,TotalPrice,PaymentStatus,QuoteCreated_DateTime,CreatedBy) Values(@cid, @rdate, @duration,@tp,@ps,@Qdate,@cBy)";
                 command = new SqlCommand(sql, con);
-                adapter = new SqlDataAdapter();
-                ds = new DataSet();
-                adapter.SelectCommand = command;
-                adapter.Fill(ds, "AccommodationType");
-                foreach (DataRow row in ds.Tables[0].Rows)
-                {
-                    cmbFilter.Items.Add(row.ItemArray[0]);
-                }
-
+                command.Parameters.AddWithValue("@cid", customerID);
+                command.Parameters.AddWithValue("@rdate", startDate);
+                command.Parameters.AddWithValue("@duration", Bookdays);
+                command.Parameters.AddWithValue("@tp", totalPrice);
+                command.Parameters.AddWithValue("@ps", "1");
+                command.Parameters.AddWithValue("@Qdate", createdDate);
+                command.Parameters.AddWithValue("@cBy", createdBy);
+                command.ExecuteNonQuery();
+                sql = "select Quoteation_ID from Quotation where Customer_ID = @Cid And Reservation_Date = @start";
+                command = new SqlCommand(sql,con);
+                command.Parameters.AddWithValue("@Cid",customerID);
+                command.Parameters.AddWithValue("@start", startDate);
+                dataReader = command.ExecuteReader();
+                dataReader.Read();
+                quoteId = (int)dataReader.GetValue(0);
                 con.Close();
+                addAccSet(accList);
 
             }
         }
+        private void addAccSet(List<int> ls)
+        {
+            if (conDB())
+            {
+                for (int i = 0;i< accList.Count;i++)
+                {
+                    sql = $"Insert Into Accommodationset(Quotation_ID, Accommodation_ID, startDate,endDate) Values(@Qid, @Accid, @start,@end)";
+                    command = new SqlCommand(sql, con);
+                    command.Parameters.AddWithValue("@Qid", quoteId);
+                    command.Parameters.AddWithValue("@Accid", ls[i]);
+                    command.Parameters.AddWithValue("@start", startDate);
+                    command.Parameters.AddWithValue("@end", endDate);
+                    command.ExecuteNonQuery();
+                    con.Close();
+                }             
 
+            }
+        }
         private void cmbAccommodation_DropDown(object sender, EventArgs e)
         {
             cmbAccommodation.SelectedIndex = -1;
