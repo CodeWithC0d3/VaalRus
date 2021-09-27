@@ -354,10 +354,11 @@ namespace vaalrusGUIPrototype
         {
             if (txtSearchID.Text.Length > 0)
             {
+                string search = txtSearchID.Text;
                 txtSearchOccupants.Clear();
                 txtsearchPrice.Clear();
                 txtSearchType.Clear();
-                Display($"Select * from Accommodation where Accommodation_ID Like '%{txtSearchID.Text}%'");
+                Display($"Select * from Accommodation where Accommodation_ID Like '%{search}%'");
             }
             else
                 Display("Select * from Accommodation");
@@ -413,9 +414,13 @@ namespace vaalrusGUIPrototype
                 {
                     try
                     {
+                        int upID = Convert.ToInt32(txtAID.Text);
+                        int upType = Convert.ToInt32(txtAType.Text);
+                        int upOcc = Convert.ToInt32(txtAOccupants.Text);
+                        double upPrice = Convert.ToDouble(txtAPrice.Text);
                         sqlConnection = new SqlConnection(connString);
                         sqlConnection.Open();
-                        sqlCmd = new SqlCommand($"Update Accommodation Set Accommodation_TypeID = '" + Convert.ToInt32(txtAType.Text) + "', Number_Of_Occupants = '" + Convert.ToInt32(txtAOccupants.Text) + "', Accommodation_Price = '" + Convert.ToDouble(txtAPrice.Text) + "' where Accommodation_ID = '" + Convert.ToInt32(txtAID.Text) + "'", sqlConnection);
+                        sqlCmd = new SqlCommand($"Update Accommodation Set Accommodation_TypeID = '" + upType + "', Number_Of_Occupants = '" + upOcc + "', Accommodation_Price = '" + upPrice + "' where Accommodation_ID = '" + upID + "'", sqlConnection);
 
                         sqlCmd.ExecuteNonQuery();
                         sqlConnection.Close();
@@ -467,15 +472,19 @@ namespace vaalrusGUIPrototype
         {
             if(txtSearchType.Text.Length >0)
             {
+                int serID = Convert.ToInt32(txtSearchID.Text);
+                int serType = Convert.ToInt32(txtSearchType.Text);
+                int serOcc = Convert.ToInt32(txtSearchOccupants.Text);
+                double serPrice = Convert.ToDouble(txtsearchPrice.Text);
                 txtSearchID.Clear();
                 if(txtSearchOccupants.Text.Length == 0 && txtsearchPrice.Text.Length == 0)
-                Display($"Select * from Accommodation where Accommodation_TypeID Like '%{txtSearchType.Text}%'");
+                Display($"Select * from Accommodation where Accommodation_TypeID Like '%{serType}%'");
                 else if(txtSearchOccupants.Text.Length > 0 && txtsearchPrice.Text.Length == 0)
-                    Display($"Select * from Accommodation where Accommodation_TypeID Like '%{txtSearchType.Text}%' AND Number_Of_Occupants Like '%{txtSearchOccupants.Text}%'");
+                    Display($"Select * from Accommodation where Accommodation_TypeID Like '%{serType}%' AND Number_Of_Occupants Like '%{serOcc}%'");
                 else if (txtSearchOccupants.Text.Length == 0 && txtsearchPrice.Text.Length > 0)
-                    Display($"Select * from Accommodation where Accommodation_TypeID Like '%{txtSearchType.Text}%' AND Accommodation_Price Like '%{txtsearchPrice.Text}%'");
+                    Display($"Select * from Accommodation where Accommodation_TypeID Like '%{serType}%' AND Accommodation_Price Like '%{serPrice}%'");
                 else if (txtSearchOccupants.Text.Length > 0 && txtsearchPrice.Text.Length > 0)
-                    Display($"Select * from Accommodation where Accommodation_TypeID Like '%{txtSearchType.Text}%'AND Number_Of_Occupants Like '%{txtSearchOccupants.Text}%' AND Accommodation_Price Like '%{txtsearchPrice.Text}%'");
+                    Display($"Select * from Accommodation where Accommodation_TypeID Like '%{serType}%'AND Number_Of_Occupants Like '%{serOcc}%' AND Accommodation_Price Like '%{serPrice}%'");
             }
             else
                 Display("Select * from Accommodation");
@@ -485,15 +494,19 @@ namespace vaalrusGUIPrototype
         {
             if (txtSearchOccupants.Text.Length > 0)
             {
+                int serID = Convert.ToInt32(txtSearchID.Text);
+                int serType = Convert.ToInt32(txtSearchType.Text);
+                int serOcc = Convert.ToInt32(txtSearchOccupants.Text);
+                double serPrice = Convert.ToDouble(txtsearchPrice.Text);
                 txtSearchID.Clear();
                 if (txtSearchType.Text.Length == 0 && txtsearchPrice.Text.Length == 0)
-                    Display($"Select * from Accommodation where Number_Of_Occupants Like '%{txtSearchOccupants.Text}%'");
+                    Display($"Select * from Accommodation where Number_Of_Occupants Like '%{serOcc}%'");
                 else if (txtSearchType.Text.Length > 0 && txtsearchPrice.Text.Length == 0)
-                    Display($"Select * from Accommodation where Number_Of_Occupants Like '%{txtSearchOccupants.Text}%' AND Accommodation_TypeID Like '%{txtSearchType.Text}%'");
+                    Display($"Select * from Accommodation where Number_Of_Occupants Like '%{serOcc}%' AND Accommodation_TypeID Like '%{serType}%'");
                 else if (txtSearchType.Text.Length == 0 && txtsearchPrice.Text.Length > 0)
-                    Display($"Select * from Accommodation where Number_Of_Occupants Like '%{txtSearchOccupants.Text}%' AND Accommodation_Price Like '%{txtsearchPrice.Text}%'");
+                    Display($"Select * from Accommodation where Number_Of_Occupants Like '%{serOcc}%' AND Accommodation_Price Like '%{serPrice}%'");
                 else if (txtSearchType.Text.Length > 0 && txtsearchPrice.Text.Length > 0)
-                    Display($"Select * from Accommodation where Number_Of_Occupants Like '%{txtSearchOccupants.Text}%'AND Accommodation_TypeID Like '%{txtSearchType.Text}%' AND Accommodation_Price Like '%{txtsearchPrice.Text}%'");
+                    Display($"Select * from Accommodation where Number_Of_Occupants Like '%{serOcc}%'AND Accommodation_TypeID Like '%{serType}%' AND Accommodation_Price Like '%{serPrice}%'");
             }
             else
                 Display("Select * from Accommodation");
@@ -503,15 +516,19 @@ namespace vaalrusGUIPrototype
         {
             if (txtsearchPrice.Text.Length > 0)
             {
+                int serID = Convert.ToInt32(txtSearchID.Text);
+                int serType = Convert.ToInt32(txtSearchType.Text);
+                int serOcc = Convert.ToInt32(txtSearchOccupants.Text);
+                double serPrice = Convert.ToDouble(txtsearchPrice.Text);
                 txtSearchID.Clear();
                 if (txtSearchType.Text.Length == 0 && txtSearchOccupants.Text.Length == 0)
-                    Display($"Select * from Accommodation where Accommodation_Price Like '%{txtsearchPrice.Text}%'");
+                    Display($"Select * from Accommodation where Accommodation_Price Like '%{serPrice}%'");
                 else if (txtSearchType.Text.Length > 0 && txtSearchOccupants.Text.Length == 0)
-                    Display($"Select * from Accommodation where Accommodation_Price Like '%{txtsearchPrice.Text}%' AND Accommodation_TypeID Like '%{txtSearchType.Text}%'");
+                    Display($"Select * from Accommodation where Accommodation_Price Like '%{serPrice}%' AND Accommodation_TypeID Like '%{serType}%'");
                 else if (txtSearchType.Text.Length == 0 && txtSearchOccupants.Text.Length > 0)
-                    Display($"Select * from Accommodation where Accommodation_Price Like '%{txtsearchPrice.Text}%' AND Number_Of_Occupants Like '%{txtSearchOccupants.Text}%'");
+                    Display($"Select * from Accommodation where Accommodation_Price Like '%{serPrice}%' AND Number_Of_Occupants Like '%{serOcc}%'");
                 else if (txtSearchType.Text.Length > 0 && txtSearchOccupants.Text.Length > 0)
-                    Display($"Select * from Accommodation where Accommodation_Price Like '%{txtsearchPrice.Text}%'AND Accommodation_TypeID Like '%{txtSearchType.Text}%' AND Number_Of_Occupants Like '%{txtSearchOccupants.Text}%'");
+                    Display($"Select * from Accommodation where Accommodation_Price Like '%{serPrice}%'AND Accommodation_TypeID Like '%{serType}%' AND Number_Of_Occupants Like '%{serOcc}%'");
             }
             else
                 Display("Select * from Accommodation");
