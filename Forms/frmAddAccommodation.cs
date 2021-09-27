@@ -299,7 +299,8 @@ namespace vaalrusGUIPrototype.Forms
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete accommodation ID: '"+txtDelID.Text+"'?", "Delete Accommodation", MessageBoxButtons.YesNo);
+            string s = txtDelID.Text;
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete accommodation ID: '"+s+"'?", "Delete Accommodation", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 try

@@ -16,5 +16,10 @@ namespace vaalrusGUIPrototype.Forms
         {
             InitializeComponent();
         }
+
+        private void frmAddCustomer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -2,8 +2,9 @@ use Vaalrus
 GO
 CREATE VIEW accAvailibility
 AS
-SELECT        Accommodation.Accommodation_ID, Booking.StartDate, Booking.EndDate
-FROM            Accommodationset INNER JOIN
-                         Quotation ON Accommodationset.Quotation_ID = Quotation.Quotation_ID INNER JOIN
-                         Booking ON Quotation.Quotation_ID = Booking.Quotation_ID INNER JOIN
-                         Accommodation ON Accommodationset.Accommodation_ID = Accommodation.Accommodation_ID;
+SELECT        dbo.Accommodation.Accommodation_ID, dbo.Accommodationtype.AccommodationType, dbo.Booking.StartDate, dbo.Booking.EndDate
+FROM            dbo.Accommodationset INNER JOIN
+                         dbo.Quotation ON dbo.Accommodationset.Quotation_ID = dbo.Quotation.Quotation_ID INNER JOIN
+                         dbo.Booking ON dbo.Quotation.Quotation_ID = dbo.Booking.Quotation_ID INNER JOIN
+                         dbo.Accommodation ON dbo.Accommodationset.Accommodation_ID = dbo.Accommodation.Accommodation_ID INNER JOIN
+                         dbo.Accommodationtype ON dbo.Accommodation.Accommodation_TypeID = dbo.Accommodationtype.Accommodation_TypeID;

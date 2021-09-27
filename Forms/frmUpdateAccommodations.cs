@@ -409,7 +409,8 @@ namespace vaalrusGUIPrototype
         {
             if (err == false)
             {
-                DialogResult dialogResult = MessageBox.Show("Are you sure you want to update Accommodation ID: '" + txtAID.Text + "'?", "Update", MessageBoxButtons.YesNo);
+                string s = txtAID.Text;
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to update Accommodation ID: '" + s + "'?", "Update", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     try
