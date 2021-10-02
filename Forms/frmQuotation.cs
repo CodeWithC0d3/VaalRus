@@ -30,14 +30,24 @@ namespace vaalrusGUIPrototype.Forms
         private string startDate;
         private string endDate;
 
+        private ErrorProvider userErrorProvider;
+        private ErrorProvider customerErrorProvider;
+        private ErrorProvider fromDateErrorProvider;
+        private ErrorProvider toDateErrorProvider;
+        private ErrorProvider typeErrorProvider;
+        private ErrorProvider accListErrorProvider;
+
         public frmQuotation()
         {
             InitializeComponent();
+
+            //pnlMain.Parent = this;
+            //pnlMain.BackColor = Color.Transparent;
         }
         
         private void LoadTheme()
         {
-            foreach (Control co in this.Controls)
+           /* foreach (Control co in this.Controls)
             {
                
                     if (co.GetType() == typeof(Panel))
@@ -54,12 +64,12 @@ namespace vaalrusGUIPrototype.Forms
                         lbl.BackColor = Color.Transparent;
 
                     }            
-            } 
+            } */
             //pnlMain.BackColor = Color.Transparent;
            
            aplytheme(pnlMain);
-           aplytheme(pnlBookingDetails);
-           aplytheme(pnlavailibleAccommodation);
+           aplytheme(panel2);
+          aplytheme(pn_grid);
             //aplytheme(pnl_main);
             timer1.Start();
         }
@@ -94,9 +104,11 @@ namespace vaalrusGUIPrototype.Forms
                     {
                         DataGridView dtgg = (DataGridView)co;
                         dtgg.ForeColor = Color.White;
-                        dtgg.BackgroundColor = SystemColors.Control;
+                        dtgg.BackgroundColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.BackColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
+                        dtgg.DefaultCellStyle.SelectionBackColor = GlobalSettings.PrimaryColor;
+                        
 
                     }
                     if (co.GetType() == typeof(CheckBox))
@@ -144,6 +156,45 @@ namespace vaalrusGUIPrototype.Forms
             }
         }
 
+        private void createErProviders()
+        {
+            userErrorProvider = new ErrorProvider();
+
+            userErrorProvider.SetIconAlignment(txtUser, ErrorIconAlignment.MiddleRight);
+            userErrorProvider.SetIconPadding(txtUser, 2);
+            userErrorProvider.BlinkRate = 1000;
+            userErrorProvider.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
+
+            customerErrorProvider = new ErrorProvider();
+            customerErrorProvider.SetIconAlignment(cmbCustomer, ErrorIconAlignment.MiddleRight);
+            customerErrorProvider.SetIconPadding(cmbCustomer, 2);
+            customerErrorProvider.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
+
+            fromDateErrorProvider = new ErrorProvider();
+            fromDateErrorProvider.SetIconAlignment(dpFrom, ErrorIconAlignment.MiddleRight);
+            fromDateErrorProvider.SetIconPadding(dpFrom, 2);
+            fromDateErrorProvider.BlinkRate = 1000;
+            fromDateErrorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+
+            toDateErrorProvider = new ErrorProvider();
+            toDateErrorProvider.SetIconAlignment(dpTo, ErrorIconAlignment.MiddleRight);
+            toDateErrorProvider.SetIconPadding(dpTo, 2);
+            toDateErrorProvider.BlinkRate = 1000;
+            toDateErrorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+
+            typeErrorProvider = new ErrorProvider();
+            typeErrorProvider.SetIconAlignment(cmbFilter, ErrorIconAlignment.MiddleRight);
+            typeErrorProvider.SetIconPadding(cmbFilter, 2);
+            typeErrorProvider.BlinkRate = 1000;
+            typeErrorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+
+            accListErrorProvider = new ErrorProvider();
+            accListErrorProvider.SetIconAlignment(lstAccommodation, ErrorIconAlignment.MiddleRight);
+            accListErrorProvider.SetIconPadding(lstAccommodation, 2);
+            accListErrorProvider.BlinkRate = 1000;
+            accListErrorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+
+        }
         private void frmQuotation_Load(object sender, EventArgs e)
         {
             pnlMain.Visible = true;
@@ -151,8 +202,35 @@ namespace vaalrusGUIPrototype.Forms
             cmbFilter.SelectedIndex = -1;
             loadCmbCustomers();
             loadcmbFilter();
+            DateTime startDate = DateTime.Now.Date;
+            DateTime endDate = DateTime.Now.AddDays(14);
+            //updateGrid(startDate,endDate);
             //timer1.Start();
+            createErProviders();
 
+
+        }
+        private void updateGrid(DateTime startDate,DateTime endDate)
+        {
+            string stDate = startDate.Date.ToString("yyyy/MM/dd");
+            string eDate = endDate.Date.ToString("yyyy/MM/dd");
+            if (conDB())
+            {
+                //sql = $"select * from Booking where StartDate >@stdate and EndDate < @edate ";
+                sql = $"SELECT Booking.Booking_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Booking.StartDate, Booking.EndDate, Accommodationset.Quotation_ID FROM Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID INNER JOIN Accommodationset ON Booking.Quotation_ID = Accommodationset.Quotation_ID where Booking.StartDate > @stdate and Booking.EndDate < @edate; ";
+                command = new SqlCommand(sql, con);
+                command.Parameters.AddWithValue("@stdate", stDate);
+                command.Parameters.AddWithValue("@edate", eDate);               
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Booking_ID");
+                //adapter.Fill(ds, "CustomerID");
+               
+                dataGridView1.DataSource = ds;
+                dataGridView1.DataMember = "Booking_ID";
+                con.Close();
+            }
         }
 
         private void pnlMain_Paint(object sender, PaintEventArgs e)
@@ -185,6 +263,7 @@ namespace vaalrusGUIPrototype.Forms
         private void cmbCustomer_SelectedIndexChanged(object sender, EventArgs e)
         {
             customerID = int.Parse(cmbCustomer.SelectedValue.ToString());
+            //customerErrorProvider.SetError(cmbCustomer,"");
             
         }
 
@@ -359,21 +438,20 @@ namespace vaalrusGUIPrototype.Forms
         private decimal getTotalPrice(List<int> ls)
         {
             decimal price = 0;
-            
-            if(conDB())
-            {
-                for (int i = 0; i < ls.Count; i++)
-                {
-                    sql = "SELECT Accommodation_price  from Accommodation where Accommodation_ID = @id";
-                    command = new SqlCommand(sql, con);
-                    command.Parameters.AddWithValue("@id", ls[i].ToString()); ;
-                    dataReader = command.ExecuteReader();
-                    dataReader.Read();
-                     price =+ (decimal)dataReader.GetValue(0);
-                    con.Close();
-                }              
 
-            }
+            con = new SqlConnection(constr);            
+            for (int i = 0; i < ls.Count; i++)
+            {
+                con.Open();
+                sql = "SELECT Accommodation_price  from Accommodation where Accommodation_ID = @id";
+                command = new SqlCommand(sql, con);
+                command.Parameters.AddWithValue("@id", ls[i].ToString()); ;
+                dataReader = command.ExecuteReader();
+                dataReader.Read();
+                price =+ (decimal)dataReader.GetValue(0);
+                con.Close();
+            }           
+         
             return price;
         }
         private void btnGeneratQuote_Click(object sender, EventArgs e)
@@ -383,10 +461,10 @@ namespace vaalrusGUIPrototype.Forms
             createdDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             startDate = dpFrom.Value.ToString("yyyy/MM/dd");
             endDate = dpTo.Value.ToString("yyyy/MM/dd");
-            int Bookdays = (dpTo.Value.Date - dpFrom.Value.Date).Days;
+            int Bookdays = (dpFrom.Value.Date - dpTo.Value.Date).Days;
             if (conDB())
             {
-                sql = "Insert Into Qoutation(Customer_ID, Reservation_Date, Duration,TotalPrice,PaymentStatus,QuoteCreated_DateTime,CreatedBy) Values(@cid, @rdate, @duration,@tp,@ps,@Qdate,@cBy)";
+                sql = "Insert Into Quotation(Customer_ID, Reservation_Date, Duration,TotalPrice,PaymentStatus,QuoteCreated_DateTime,CreatedBy) Values(@cid, @rdate, @duration,@tp,@ps,@Qdate,@cBy)";
                 command = new SqlCommand(sql, con);
                 command.Parameters.AddWithValue("@cid", customerID);
                 command.Parameters.AddWithValue("@rdate", startDate);
@@ -396,7 +474,7 @@ namespace vaalrusGUIPrototype.Forms
                 command.Parameters.AddWithValue("@Qdate", createdDate);
                 command.Parameters.AddWithValue("@cBy", createdBy);
                 command.ExecuteNonQuery();
-                sql = "select Quoteation_ID from Quotation where Customer_ID = @Cid And Reservation_Date = @start";
+                sql = "select Quotation_ID from Quotation where Customer_ID = @Cid And Reservation_Date = @start";
                 command = new SqlCommand(sql,con);
                 command.Parameters.AddWithValue("@Cid",customerID);
                 command.Parameters.AddWithValue("@start", startDate);
@@ -410,21 +488,19 @@ namespace vaalrusGUIPrototype.Forms
         }
         private void addAccSet(List<int> ls)
         {
-            if (conDB())
+            con = new SqlConnection(constr);
+            for (int i = 0;i< accList.Count;i++)
             {
-                for (int i = 0;i< accList.Count;i++)
-                {
-                    sql = $"Insert Into Accommodationset(Quotation_ID, Accommodation_ID, startDate,endDate) Values(@Qid, @Accid, @start,@end)";
-                    command = new SqlCommand(sql, con);
-                    command.Parameters.AddWithValue("@Qid", quoteId);
-                    command.Parameters.AddWithValue("@Accid", ls[i]);
-                    command.Parameters.AddWithValue("@start", startDate);
-                    command.Parameters.AddWithValue("@end", endDate);
-                    command.ExecuteNonQuery();
-                    con.Close();
-                }             
-
-            }
+            con.Open();
+            sql = $"Insert Into Accommodationset(Quotation_ID, Accommodation_ID, startDate,endDate) Values(@Qid, @Accid, @start,@end)";
+            command = new SqlCommand(sql, con);
+            command.Parameters.AddWithValue("@Qid", quoteId);
+            command.Parameters.AddWithValue("@Accid", ls[i]);
+            command.Parameters.AddWithValue("@start", startDate);
+            command.Parameters.AddWithValue("@end", endDate);
+            command.ExecuteNonQuery();
+            con.Close();
+            }                   
         }
         private void cmbAccommodation_DropDown(object sender, EventArgs e)
         {
@@ -441,6 +517,49 @@ namespace vaalrusGUIPrototype.Forms
             lstAccommodation.Items.Clear();
             cmbAccommodation.SelectedIndex = -1;
             //selectFirst = false;
+        }
+
+        private void dp_filterFrom_ValueChanged(object sender, EventArgs e)
+        {
+            if (DateTime.Compare(dp_filterFrom.Value.Date,dp_filterTo.Value.Date) == -1)
+            {
+                updateGrid(dp_filterFrom.Value.Date,dp_filterTo.Value.Date);
+            }
+        }
+
+        private void dp_filterTo_ValueChanged(object sender, EventArgs e)
+        {
+            if (DateTime.Compare(dp_filterFrom.Value.Date, dp_filterTo.Value.Date) == -1)
+            {
+                updateGrid(dp_filterFrom.Value.Date, dp_filterTo.Value.Date);
+            }
+        }
+
+        private void txtUser_Validated(object sender, EventArgs e)
+        {
+            if (txtUser.Text == "")
+            {
+                userErrorProvider.SetError(txtUser,"Please provide User");
+            }
+            else
+            {
+                userErrorProvider.SetError(txtUser,"");
+            }
+        }
+
+        private void txtUser_TextChanged(object sender, EventArgs e)
+        {
+            userErrorProvider.SetError(txtUser, "");
+        }
+
+        private void cmbCustomer_Validated(object sender, EventArgs e)
+        {
+            if (cmbCustomer.SelectedIndex == -1)
+            {
+                customerErrorProvider.SetError(cmbCustomer, "Choose a valid customer");
+            }
+           
+                customerErrorProvider.SetError(cmbCustomer, "");
         }
     }
 }
