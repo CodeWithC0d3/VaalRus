@@ -34,5 +34,16 @@ namespace vaalrusGUIPrototype.Properties {
                 this["conString"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-9FREJ9A\\SQLEXPRESS;Initial Catalog=Vaalrus;Integrated Securit" +
+            "y=True")]
+        public string VaalrusConnectionString {
+            get {
+                return ((string)(this["VaalrusConnectionString"]));
+            }
+        }
     }
 }

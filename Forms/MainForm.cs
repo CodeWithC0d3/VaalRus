@@ -253,5 +253,13 @@ namespace vaalrusGUIPrototype
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmReport());
+            lblHeading.Text = "Reports";
+            hideSubMenu();
+            changeButtonBrightness(sender);
+        }
     }
 }
