@@ -80,6 +80,7 @@ namespace vaalrusGUIPrototype
             // 
             this.pnlConnetionControls.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlConnetionControls.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(146)))), ((int)(((byte)(157)))));
             this.pnlConnetionControls.Controls.Add(this.groupBoxSearch);
             this.pnlConnetionControls.Controls.Add(this.btnUpdate);
             this.pnlConnetionControls.Controls.Add(this.btnPrev);
