@@ -56,6 +56,8 @@ namespace vaalrusGUIPrototype
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.pnlLabelHeading = new System.Windows.Forms.Panel();
+            this.pbClose = new System.Windows.Forms.PictureBox();
+            this.pbMinimize = new System.Windows.Forms.PictureBox();
             this.lblHeading = new System.Windows.Forms.Label();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBoxMainFormBackground = new System.Windows.Forms.PictureBox();
@@ -66,6 +68,8 @@ namespace vaalrusGUIPrototype
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.pnlLabelHeading.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainFormBackground)).BeginInit();
             this.SuspendLayout();
             // 
@@ -475,14 +479,38 @@ namespace vaalrusGUIPrototype
             // pnlLabelHeading
             // 
             this.pnlLabelHeading.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(70)))));
+            this.pnlLabelHeading.Controls.Add(this.pbClose);
+            this.pnlLabelHeading.Controls.Add(this.pbMinimize);
             this.pnlLabelHeading.Controls.Add(this.lblHeading);
             this.pnlLabelHeading.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLabelHeading.Location = new System.Drawing.Point(248, 0);
             this.pnlLabelHeading.Margin = new System.Windows.Forms.Padding(4);
             this.pnlLabelHeading.Name = "pnlLabelHeading";
-            this.pnlLabelHeading.Size = new System.Drawing.Size(1116, 98);
+            this.pnlLabelHeading.Size = new System.Drawing.Size(1036, 98);
             this.pnlLabelHeading.TabIndex = 11;
             this.pnlLabelHeading.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlLabelHeading_MouseMove);
+            // 
+            // pbClose
+            // 
+            this.pbClose.Image = global::vaalrusGUIPrototype.Properties.Resources.close;
+            this.pbClose.Location = new System.Drawing.Point(995, 3);
+            this.pbClose.Name = "pbClose";
+            this.pbClose.Size = new System.Drawing.Size(38, 34);
+            this.pbClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbClose.TabIndex = 2;
+            this.pbClose.TabStop = false;
+            this.pbClose.Click += new System.EventHandler(this.pbClose_Click);
+            // 
+            // pbMinimize
+            // 
+            this.pbMinimize.Image = global::vaalrusGUIPrototype.Properties.Resources.minimize__1_;
+            this.pbMinimize.Location = new System.Drawing.Point(951, 3);
+            this.pbMinimize.Name = "pbMinimize";
+            this.pbMinimize.Size = new System.Drawing.Size(38, 34);
+            this.pbMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbMinimize.TabIndex = 1;
+            this.pbMinimize.TabStop = false;
+            this.pbMinimize.Click += new System.EventHandler(this.pbMinimize_Click);
             // 
             // lblHeading
             // 
@@ -505,7 +533,7 @@ namespace vaalrusGUIPrototype
             this.panelChildForm.Location = new System.Drawing.Point(248, 98);
             this.panelChildForm.Margin = new System.Windows.Forms.Padding(4);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(1116, 563);
+            this.panelChildForm.Size = new System.Drawing.Size(1036, 563);
             this.panelChildForm.TabIndex = 12;
             // 
             // pictureBoxMainFormBackground
@@ -525,12 +553,13 @@ namespace vaalrusGUIPrototype
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1364, 661);
+            this.ClientSize = new System.Drawing.Size(1284, 661);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.pictureBoxMainFormBackground);
             this.Controls.Add(this.pnlLabelHeading);
             this.Controls.Add(this.panelSideBar);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Vaalrus Booking System";
@@ -544,6 +573,8 @@ namespace vaalrusGUIPrototype
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.pnlLabelHeading.ResumeLayout(false);
             this.pnlLabelHeading.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainFormBackground)).EndInit();
             this.ResumeLayout(false);
 
@@ -581,6 +612,8 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Panel pnlLabelHeading;
         private System.Windows.Forms.Label lblHeading;
         private System.Windows.Forms.Panel panelChildForm;
+        private System.Windows.Forms.PictureBox pbClose;
+        private System.Windows.Forms.PictureBox pbMinimize;
     }
 }
 
