@@ -54,19 +54,19 @@ namespace vaalrusGUIPrototype
             this.btnBookings = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.pnlLabelHeading = new System.Windows.Forms.Panel();
             this.lblHeading = new System.Windows.Forms.Label();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBoxMainFormBackground = new System.Windows.Forms.PictureBox();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelSideBar.SuspendLayout();
             this.panelSubMenuAccommodation.SuspendLayout();
             this.panelSubMenuCustomer.SuspendLayout();
             this.panelSubMenuBooking.SuspendLayout();
             this.panelMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.pnlLabelHeading.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainFormBackground)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSideBar
@@ -87,7 +87,7 @@ namespace vaalrusGUIPrototype
             this.panelSideBar.Location = new System.Drawing.Point(0, 0);
             this.panelSideBar.Margin = new System.Windows.Forms.Padding(4);
             this.panelSideBar.Name = "panelSideBar";
-            this.panelSideBar.Size = new System.Drawing.Size(248, 749);
+            this.panelSideBar.Size = new System.Drawing.Size(248, 661);
             this.panelSideBar.TabIndex = 0;
             // 
             // btnSettings
@@ -458,6 +458,20 @@ namespace vaalrusGUIPrototype
             this.label1.Text = "LOGO";
             this.label1.Visible = false;
             // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(70)))));
+            this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxLogo.Image = global::vaalrusGUIPrototype.Properties.Resources.Logotest;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(231, 98);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxLogo.TabIndex = 0;
+            this.pictureBoxLogo.TabStop = false;
+            this.pictureBoxLogo.Click += new System.EventHandler(this.pictureBoxLogo_Click);
+            // 
             // pnlLabelHeading
             // 
             this.pnlLabelHeading.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(70)))));
@@ -491,7 +505,7 @@ namespace vaalrusGUIPrototype
             this.panelChildForm.Location = new System.Drawing.Point(248, 98);
             this.panelChildForm.Margin = new System.Windows.Forms.Padding(4);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(1116, 651);
+            this.panelChildForm.Size = new System.Drawing.Size(1116, 563);
             this.panelChildForm.TabIndex = 12;
             // 
             // pictureBoxMainFormBackground
@@ -507,25 +521,11 @@ namespace vaalrusGUIPrototype
             this.pictureBoxMainFormBackground.Visible = false;
             this.pictureBoxMainFormBackground.Click += new System.EventHandler(this.pictureBoxMainFormBackground_Click);
             // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(70)))));
-            this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxLogo.Image = global::vaalrusGUIPrototype.Properties.Resources.Logotest;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(231, 98);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxLogo.TabIndex = 0;
-            this.pictureBoxLogo.TabStop = false;
-            this.pictureBoxLogo.Click += new System.EventHandler(this.pictureBoxLogo_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1364, 749);
+            this.ClientSize = new System.Drawing.Size(1364, 661);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.pictureBoxMainFormBackground);
             this.Controls.Add(this.pnlLabelHeading);
@@ -541,10 +541,10 @@ namespace vaalrusGUIPrototype
             this.panelSubMenuBooking.ResumeLayout(false);
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.pnlLabelHeading.ResumeLayout(false);
             this.pnlLabelHeading.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainFormBackground)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
