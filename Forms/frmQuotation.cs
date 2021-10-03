@@ -47,30 +47,30 @@ namespace vaalrusGUIPrototype.Forms
         
         private void LoadTheme()
         {
-           /* foreach (Control co in this.Controls)
+            foreach (Control co in this.Controls)
             {
                
-                    if (co.GetType() == typeof(Panel))
-                    {
-                        co.Parent = this;
-                        co.BackColor = Color.Transparent;
-                    }
+                   // if (co.GetType() == typeof(Panel))
+                   // {
+                    //    co.Parent = this;
+                    //    co.BackColor = Color.Transparent;
+                   // }
                     if (co.GetType() == typeof(Label))
                     {
                         Label lbl = (Label)co;
-                        //lbl.Font = GlobalSettings.font;
+                        lbl.Font = GlobalSettings.font;
                         lbl.Parent = this;
                         lbl.ForeColor = GlobalSettings.SecondaryColor;
                         lbl.BackColor = Color.Transparent;
 
                     }            
-            } */
+            } 
             //pnlMain.BackColor = Color.Transparent;
            
            aplytheme(pnlMain);
            aplytheme(panel2);
           aplytheme(pn_grid);
-            //aplytheme(pnl_main);
+           aplytheme(pnl_accSet);
             timer1.Start();
         }
         private void aplytheme(Control pn)
@@ -200,11 +200,17 @@ namespace vaalrusGUIPrototype.Forms
             pnlMain.Visible = true;
             LoadTheme();
             cmbFilter.SelectedIndex = -1;
+            dp_filterTo.Value = dp_filterFrom.Value.AddDays(14);
             loadCmbCustomers();
             loadcmbFilter();
-            DateTime startDate = DateTime.Now.Date;
-            DateTime endDate = DateTime.Now.AddDays(14);
-            //updateGrid(startDate,endDate);
+            if (rb_booking.Checked || rb_quote.Checked)
+            {
+                
+                DateTime startDate = DateTime.Now.Date;
+                DateTime endDate = DateTime.Now.AddDays(14);
+                updateGrid(startDate, endDate);
+            }
+            
             //timer1.Start();
             createErProviders();
 
@@ -216,11 +222,24 @@ namespace vaalrusGUIPrototype.Forms
             string eDate = endDate.Date.ToString("yyyy/MM/dd");
             if (conDB())
             {
+                string strto = ch_to.Checked ? $"and Booking.EndDate < '{eDate}';" : "";
+                int duration = (endDate.Date - startDate.Date).Days;
+                string strduration = ch_to.Checked ? $"and Quotation.Duration < {duration}" : "";
                 //sql = $"select * from Booking where StartDate >@stdate and EndDate < @edate ";
-                sql = $"SELECT Booking.Booking_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Booking.StartDate, Booking.EndDate, Accommodationset.Quotation_ID FROM Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID INNER JOIN Accommodationset ON Booking.Quotation_ID = Accommodationset.Quotation_ID where Booking.StartDate > @stdate and Booking.EndDate < @edate; ";
+                if (rb_booking.Checked)
+                {
+                    sql = $"SELECT Booking.Booking_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Booking.StartDate, Booking.EndDate, Accommodationset.Quotation_ID FROM Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID INNER JOIN Accommodationset ON Booking.Quotation_ID = Accommodationset.Quotation_ID where Booking.StartDate > @stdate {strto}";
+                }
+                   
+                if (rb_quote.Checked)
+                {
+                    sql = $"SELECT Quotation.Quotation_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Quotation.Reservation_Date AS [Reservation Date], Quotation.Duration, Quotation.TotalPrice, Quotationstatus.Status_Type AS Status FROM Quotation INNER JOIN Customer ON dbo.Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE Quotation.Reservation_Date > @stdate {strduration}";
+                }
+                   
                 command = new SqlCommand(sql, con);
                 command.Parameters.AddWithValue("@stdate", stDate);
-                command.Parameters.AddWithValue("@edate", eDate);               
+                //command.Parameters.AddWithValue("@edate", eDate);
+                //command.Parameters.AddWithValue("@to", strto);
                 adapter = new SqlDataAdapter();
                 ds = new DataSet();
                 adapter.SelectCommand = command;
@@ -262,7 +281,10 @@ namespace vaalrusGUIPrototype.Forms
         
         private void cmbCustomer_SelectedIndexChanged(object sender, EventArgs e)
         {
-            customerID = int.Parse(cmbCustomer.SelectedValue.ToString());
+            if (cmbCustomer.SelectedValue != null)
+            {
+                customerID = int.Parse(cmbCustomer.SelectedValue.ToString());
+            }                 
             //customerErrorProvider.SetError(cmbCustomer,"");
             
         }
@@ -292,8 +314,8 @@ namespace vaalrusGUIPrototype.Forms
                 adapter.SelectCommand = command;
                 adapter.Fill(ds, "Customer_ID");
                 //adapter.Fill(ds, "CustomerID");
-                cmbCustomer.DisplayMember = "Contact";
                 cmbCustomer.ValueMember = "Customer_ID";
+                cmbCustomer.DisplayMember = "Contact";                
                 cmbCustomer.DataSource = ds.Tables[0];
                 con.Close();
 
@@ -336,7 +358,7 @@ namespace vaalrusGUIPrototype.Forms
         }
         private void loadCmbAcc()
         {
-            if (conDB())
+            if (conDB() && cmbFilter.SelectedIndex != -1)
             {
                 if (cmbAccommodation.DataSource == null)
                 {                   
@@ -454,6 +476,14 @@ namespace vaalrusGUIPrototype.Forms
          
             return price;
         }
+        private void clearControls()
+        {
+            txtUser.Text = "";
+            cmbCustomer.SelectedIndex = -1;
+            cmbFilter.SelectedIndex = -1;
+            cmbAccommodation.Enabled = false;
+            lstAccommodation.Items.Clear();
+        }
         private void btnGeneratQuote_Click(object sender, EventArgs e)
         {
             totalPrice = getTotalPrice(accList);
@@ -461,7 +491,7 @@ namespace vaalrusGUIPrototype.Forms
             createdDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             startDate = dpFrom.Value.ToString("yyyy/MM/dd");
             endDate = dpTo.Value.ToString("yyyy/MM/dd");
-            int Bookdays = (dpFrom.Value.Date - dpTo.Value.Date).Days;
+            int Bookdays = (dpTo.Value.Date - dpFrom.Value.Date).Days;
             if (conDB())
             {
                 sql = "Insert Into Quotation(Customer_ID, Reservation_Date, Duration,TotalPrice,PaymentStatus,QuoteCreated_DateTime,CreatedBy) Values(@cid, @rdate, @duration,@tp,@ps,@Qdate,@cBy)";
@@ -484,6 +514,16 @@ namespace vaalrusGUIPrototype.Forms
                 con.Close();
                 addAccSet(accList);
 
+
+                if (rb_booking.Checked || rb_quote.Checked)
+                {
+
+                    DateTime startDate = DateTime.Now.Date;
+                    DateTime endDate = DateTime.Now.AddDays(14);
+                    updateGrid(startDate, endDate);
+                }
+             
+
             }
         }
         private void addAccSet(List<int> ls)
@@ -500,7 +540,8 @@ namespace vaalrusGUIPrototype.Forms
             command.Parameters.AddWithValue("@end", endDate);
             command.ExecuteNonQuery();
             con.Close();
-            }                   
+            }
+            clearControls();
         }
         private void cmbAccommodation_DropDown(object sender, EventArgs e)
         {
@@ -529,7 +570,7 @@ namespace vaalrusGUIPrototype.Forms
 
         private void dp_filterTo_ValueChanged(object sender, EventArgs e)
         {
-            if (DateTime.Compare(dp_filterFrom.Value.Date, dp_filterTo.Value.Date) == -1)
+            if (DateTime.Compare(dp_filterFrom.Value.Date, dp_filterTo.Value.Date) == -1 && ch_to.Checked)
             {
                 updateGrid(dp_filterFrom.Value.Date, dp_filterTo.Value.Date);
             }
@@ -560,6 +601,38 @@ namespace vaalrusGUIPrototype.Forms
             }
            
                 customerErrorProvider.SetError(cmbCustomer, "");
+        }
+
+        private void rb_quote_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb_quote.Checked)
+            {
+                dp_filterFrom.Enabled = true;
+                DateTime startDate = DateTime.Now.Date;
+                DateTime endDate = DateTime.Now.AddDays(14);
+                updateGrid(startDate, endDate);
+                //dp_filterTo.Enabled = true;
+            }                
+        }
+
+        private void rb_booking_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb_booking.Checked)
+            {
+                dp_filterFrom.Enabled = true;
+                DateTime startDate = DateTime.Now.Date;
+                DateTime endDate = DateTime.Now.AddDays(14);
+                updateGrid(startDate, endDate);
+                // dp_filterTo.Enabled = true;
+            }
+        }
+
+        private void ch_to_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ch_to.Checked)
+                dp_filterTo.Enabled = true;
+            else
+                dp_filterTo.Enabled = false;
         }
     }
 }

@@ -30,9 +30,12 @@ namespace vaalrusGUIPrototype.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.lstAccommodation = new System.Windows.Forms.ListBox();
             this.dpTo = new System.Windows.Forms.DateTimePicker();
@@ -52,25 +55,33 @@ namespace vaalrusGUIPrototype.Forms
             this.pn_grid = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.rb_booking = new System.Windows.Forms.RadioButton();
+            this.rb_quote = new System.Windows.Forms.RadioButton();
             this.dp_filterTo = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
             this.dp_filterFrom = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.erProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ch_to = new System.Windows.Forms.CheckBox();
+            this.pnl_accSet = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grid_accSet = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
             this.pnlMain.SuspendLayout();
             this.pn_grid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erProvider)).BeginInit();
+            this.pnl_accSet.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_accSet)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMain
             // 
             this.pnlMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(146)))), ((int)(((byte)(157)))));
             this.pnlMain.Controls.Add(this.lstAccommodation);
             this.pnlMain.Controls.Add(this.dpTo);
             this.pnlMain.Controls.Add(this.btnClearLst);
@@ -253,7 +264,7 @@ namespace vaalrusGUIPrototype.Forms
             this.pn_grid.Controls.Add(this.panel2);
             this.pn_grid.Location = new System.Drawing.Point(333, 12);
             this.pn_grid.Name = "pn_grid";
-            this.pn_grid.Size = new System.Drawing.Size(658, 639);
+            this.pn_grid.Size = new System.Drawing.Size(658, 436);
             this.pn_grid.TabIndex = 9;
             // 
             // dataGridView1
@@ -261,92 +272,99 @@ namespace vaalrusGUIPrototype.Forms
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 57);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(658, 582);
+            this.dataGridView1.Size = new System.Drawing.Size(658, 379);
             this.dataGridView1.TabIndex = 10;
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(146)))), ((int)(((byte)(157)))));
+            this.panel2.Controls.Add(this.ch_to);
+            this.panel2.Controls.Add(this.rb_booking);
+            this.panel2.Controls.Add(this.rb_quote);
             this.panel2.Controls.Add(this.dp_filterTo);
-            this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.dp_filterFrom);
-            this.panel2.Controls.Add(this.label7);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(658, 57);
             this.panel2.TabIndex = 9;
             // 
+            // rb_booking
+            // 
+            this.rb_booking.AutoSize = true;
+            this.rb_booking.Location = new System.Drawing.Point(13, 32);
+            this.rb_booking.Name = "rb_booking";
+            this.rb_booking.Size = new System.Drawing.Size(106, 17);
+            this.rb_booking.TabIndex = 6;
+            this.rb_booking.TabStop = true;
+            this.rb_booking.Text = "Current Bookings";
+            this.rb_booking.UseVisualStyleBackColor = true;
+            this.rb_booking.CheckedChanged += new System.EventHandler(this.rb_booking_CheckedChanged);
+            // 
+            // rb_quote
+            // 
+            this.rb_quote.AutoSize = true;
+            this.rb_quote.Location = new System.Drawing.Point(13, 8);
+            this.rb_quote.Name = "rb_quote";
+            this.rb_quote.Size = new System.Drawing.Size(59, 17);
+            this.rb_quote.TabIndex = 5;
+            this.rb_quote.TabStop = true;
+            this.rb_quote.Text = "Quotes";
+            this.rb_quote.UseVisualStyleBackColor = true;
+            this.rb_quote.CheckedChanged += new System.EventHandler(this.rb_quote_CheckedChanged);
+            // 
             // dp_filterTo
             // 
             this.dp_filterTo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dp_filterTo.Location = new System.Drawing.Point(351, 30);
+            this.dp_filterTo.Enabled = false;
+            this.dp_filterTo.Location = new System.Drawing.Point(242, 28);
             this.dp_filterTo.Name = "dp_filterTo";
             this.dp_filterTo.Size = new System.Drawing.Size(218, 20);
             this.dp_filterTo.TabIndex = 3;
             this.dp_filterTo.ValueChanged += new System.EventHandler(this.dp_filterTo_ValueChanged);
             // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(323, 33);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(22, 13);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "TO";
-            // 
             // dp_filterFrom
             // 
             this.dp_filterFrom.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dp_filterFrom.Location = new System.Drawing.Point(99, 30);
+            this.dp_filterFrom.Enabled = false;
+            this.dp_filterFrom.Location = new System.Drawing.Point(182, 4);
             this.dp_filterFrom.Name = "dp_filterFrom";
             this.dp_filterFrom.Size = new System.Drawing.Size(218, 20);
             this.dp_filterFrom.TabIndex = 1;
             this.dp_filterFrom.ValueChanged += new System.EventHandler(this.dp_filterFrom_ValueChanged);
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(291, 3);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Current Bookings";
             // 
             // timer1
             // 
@@ -368,6 +386,80 @@ namespace vaalrusGUIPrototype.Forms
             // 
             this.erProvider.ContainerControl = this;
             // 
+            // ch_to
+            // 
+            this.ch_to.AutoSize = true;
+            this.ch_to.Location = new System.Drawing.Point(182, 32);
+            this.ch_to.Name = "ch_to";
+            this.ch_to.Size = new System.Drawing.Size(41, 17);
+            this.ch_to.TabIndex = 7;
+            this.ch_to.Text = "TO";
+            this.ch_to.UseVisualStyleBackColor = true;
+            this.ch_to.CheckedChanged += new System.EventHandler(this.ch_to_CheckedChanged);
+            // 
+            // pnl_accSet
+            // 
+            this.pnl_accSet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_accSet.Controls.Add(this.grid_accSet);
+            this.pnl_accSet.Controls.Add(this.groupBox1);
+            this.pnl_accSet.Location = new System.Drawing.Point(333, 482);
+            this.pnl_accSet.Name = "pnl_accSet";
+            this.pnl_accSet.Size = new System.Drawing.Size(658, 172);
+            this.pnl_accSet.TabIndex = 10;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(270, 98);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(8, 8);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // grid_accSet
+            // 
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid_accSet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            this.grid_accSet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grid_accSet.DefaultCellStyle = dataGridViewCellStyle17;
+            this.grid_accSet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_accSet.Location = new System.Drawing.Point(0, 0);
+            this.grid_accSet.Name = "grid_accSet";
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid_accSet.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            this.grid_accSet.Size = new System.Drawing.Size(658, 172);
+            this.grid_accSet.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(639, 458);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 13);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Acc Set";
+            // 
             // frmQuotation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,6 +467,8 @@ namespace vaalrusGUIPrototype.Forms
             this.BackgroundImage = global::vaalrusGUIPrototype.Properties.Resources.backgroundImage;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1003, 666);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.pnl_accSet);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pn_grid);
@@ -390,7 +484,10 @@ namespace vaalrusGUIPrototype.Forms
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erProvider)).EndInit();
+            this.pnl_accSet.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grid_accSet)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -416,10 +513,15 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.Button btnClearLst;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dp_filterTo;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dp_filterFrom;
         private System.Windows.Forms.ErrorProvider erProvider;
+        private System.Windows.Forms.RadioButton rb_booking;
+        private System.Windows.Forms.RadioButton rb_quote;
+        private System.Windows.Forms.CheckBox ch_to;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel pnl_accSet;
+        private System.Windows.Forms.DataGridView grid_accSet;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
