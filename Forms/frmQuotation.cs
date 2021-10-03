@@ -32,6 +32,7 @@ namespace vaalrusGUIPrototype.Forms
         private string startDate;
         private string endDate;
         private int Bookdays;
+        private string selectedQuoteID;
 
         private ErrorProvider userErrorProvider;
         private ErrorProvider customerErrorProvider;
@@ -43,7 +44,7 @@ namespace vaalrusGUIPrototype.Forms
         public frmQuotation()
         {
             InitializeComponent();
-
+            pictureBox1.Dock = DockStyle.Fill;
             //pnlMain.Parent = this;
             //pnlMain.BackColor = Color.Transparent;
         }
@@ -67,7 +68,19 @@ namespace vaalrusGUIPrototype.Forms
                     lbl.ForeColor = GlobalSettings.SecondaryColor;
                     lbl.BackColor = Color.Transparent;
 
-                }            
+                }
+                if (co.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)co;
+                    btn.FlatStyle = FlatStyle.Flat;
+                    //btn.Parent = pictureBox1;
+                    btn.BackColor = GlobalSettings.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.Font = GlobalSettings.font;
+                    //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                    btn.FlatAppearance.BorderColor = Color.White;
+                    btn.FlatAppearance.BorderSize = 2;
+                }
             } 
             //pnlMain.BackColor = Color.Transparent;
            
@@ -111,8 +124,12 @@ namespace vaalrusGUIPrototype.Forms
                         dtgg.BackgroundColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.BackColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
-                        dtgg.DefaultCellStyle.SelectionBackColor = GlobalSettings.PrimaryColor;
-                        
+                        dtgg.DefaultCellStyle.SelectionBackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2); 
+                        dtgg.ColumnHeadersDefaultCellStyle.BackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
+                        dtgg.ColumnHeadersDefaultCellStyle.SelectionBackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
+                        dtgg.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                        dtgg.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
 
                     }
                     if (co.GetType() == typeof(CheckBox))
@@ -675,8 +692,16 @@ namespace vaalrusGUIPrototype.Forms
 
         private void grid_main_SelectionChanged(object sender, EventArgs e)
         {
-            string id = grid_main.CurrentRow.Cells[0].Value.ToString();
-            updateAccGrid(id);
+            try
+            {
+                string id = grid_main.CurrentRow.Cells[0].Value.ToString();
+                updateAccGrid(id);
+            }
+            catch (Exception)
+            {
+                
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -696,7 +721,9 @@ namespace vaalrusGUIPrototype.Forms
             reportViewer1.SetPageSettings(setup);
             
             ReportDataSource rds = new ReportDataSource("DataSet1", qlist());
+            ReportDataSource rds2 = new ReportDataSource("accls", accListreport());
             this.reportViewer1.LocalReport.DataSources.Add(rds);
+            this.reportViewer1.LocalReport.DataSources.Add(rds2);
             this.reportViewer1.RefreshReport();
             pnlReport.Parent = this;
             pnlReport.BringToFront();
@@ -705,12 +732,47 @@ namespace vaalrusGUIPrototype.Forms
         }    
        
         private List<quoteDetail> qlist()
-        {
+        {           
             return new List<quoteDetail>
             {
                 new quoteDetail { QuoteNr = "1",Booked  = "2021/10/03",Duration = "3",Price = 100.ToString("c") }
                 
             };
+        }
+        private List<accListReport> accListreport()
+        {
+            List<accListReport> list = new List<accListReport>();
+            if (conDB())
+            {
+                sql = $"SELECT Accommodationset.Quotation_ID, Accommodationset.Accommodation_ID, Accommodationtype.AccommodationType, Accommodationset.startDate, Accommodationset.endDate FROM Accommodationset INNER JOIN Accommodation ON Accommodationset.Accommodation_ID = Accommodation.Accommodation_ID INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID WHERE Quotation_ID = @qID";
+                command = new SqlCommand(sql, con);
+                command.Parameters.AddWithValue("@qID", selectedQuoteID);
+                //command.Parameters.AddWithValue("@edate", eDate);
+                //command.Parameters.AddWithValue("@to", strto);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Quotation_ID");
+                con.Close();                
+                 
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    accListReport ls = new accListReport();
+                    ls.QuoteID = row.ItemArray[0].ToString();
+                    ls.AccommodationID = row.ItemArray[1].ToString();
+                    ls.Type = row.ItemArray[2].ToString();
+                    ls.StartDate = row.ItemArray[3].ToString();
+                    ls.EndDate = row.ItemArray[4].ToString();
+                    list.Add(ls);
+                }
+
+            }
+            return list;
+        }
+        private void grid_main_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            btnQuote.Enabled = true;
+            selectedQuoteID = grid_main.SelectedCells[0].Value.ToString();
         }
     }
 }
