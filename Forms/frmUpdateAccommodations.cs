@@ -458,13 +458,88 @@ namespace vaalrusGUIPrototype
             {
                 e.Cancel = true;
                 txtAID.Focus();
-                errorProviderID.SetError(txtAID, "Can not contain string!");
+                errorProviderID.SetError(txtAID, "Can not contain letters!");
                 err = true;
             }
             else
             {
                 e.Cancel = false;
                 errorProviderID.SetError(txtAID, "");
+                err = false;
+            }
+        }
+
+        private void txtAType_Validating(object sender, CancelEventArgs e)
+        {
+            int parsedValue;
+            if (string.IsNullOrWhiteSpace(txtAType.Text))
+            {
+                e.Cancel = true;
+                txtAType.Focus();
+                errorProviderType.SetError(txtAType, "Type can not be blank!");
+                err = true;
+            }
+            else if (!int.TryParse(txtAType.Text, out parsedValue))
+            {
+                e.Cancel = true;
+                txtAType.Focus();
+                errorProviderType.SetError(txtAType, "Can not contain letters!");
+                err = true;
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProviderType.SetError(txtAType, "");
+                err = false;
+            }
+        }
+
+        private void txtAOccupants_Validating(object sender, CancelEventArgs e)
+        {
+            int parsedValue;
+            if (string.IsNullOrWhiteSpace(txtAOccupants.Text))
+            {
+                e.Cancel = true;
+                txtAType.Focus();
+                errorProviderOccupants.SetError(txtAOccupants, "Occupants can not be blank!");
+                err = true;
+            }
+            else if (!int.TryParse(txtAOccupants.Text, out parsedValue))
+            {
+                e.Cancel = true;
+                txtAType.Focus();
+                errorProviderOccupants.SetError(txtAOccupants, "Can not contain letters!");
+                err = true;
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProviderOccupants.SetError(txtAOccupants, "");
+                err = false;
+            }
+        }
+
+        private void txtAPrice_Validating(object sender, CancelEventArgs e)
+        {
+            int parsedValue;
+            if (string.IsNullOrWhiteSpace(txtAPrice.Text))
+            {
+                e.Cancel = true;
+                txtAType.Focus();
+                errorProviderPrice.SetError(txtAPrice, "Type can not be blank!");
+                err = true;
+            }
+            else if (!int.TryParse(txtAPrice.Text, out parsedValue))
+            {
+                e.Cancel = true;
+                txtAType.Focus();
+                errorProviderPrice.SetError(txtAPrice, "Can not contain letters!");
+                err = true;
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProviderPrice.SetError(txtAPrice, "");
                 err = false;
             }
         }

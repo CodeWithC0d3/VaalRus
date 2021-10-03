@@ -59,6 +59,9 @@ namespace vaalrusGUIPrototype
             this.picBackground = new System.Windows.Forms.PictureBox();
             this.pnlDatagrid = new System.Windows.Forms.Panel();
             this.errorProviderID = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderType = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderOccupants = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderPrice = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlConnetionControls.SuspendLayout();
             this.groupBoxSearch.SuspendLayout();
             this.pnlGroupBoxSearch.SuspendLayout();
@@ -68,6 +71,9 @@ namespace vaalrusGUIPrototype
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).BeginInit();
             this.pnlDatagrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderOccupants)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlConnetionControls
@@ -268,6 +274,7 @@ namespace vaalrusGUIPrototype
             this.txtAPrice.Name = "txtAPrice";
             this.txtAPrice.Size = new System.Drawing.Size(134, 20);
             this.txtAPrice.TabIndex = 13;
+            this.txtAPrice.Validating += new System.ComponentModel.CancelEventHandler(this.txtAPrice_Validating);
             // 
             // txtAOccupants
             // 
@@ -275,6 +282,7 @@ namespace vaalrusGUIPrototype
             this.txtAOccupants.Name = "txtAOccupants";
             this.txtAOccupants.Size = new System.Drawing.Size(134, 20);
             this.txtAOccupants.TabIndex = 12;
+            this.txtAOccupants.Validating += new System.ComponentModel.CancelEventHandler(this.txtAOccupants_Validating);
             // 
             // txtAType
             // 
@@ -282,6 +290,7 @@ namespace vaalrusGUIPrototype
             this.txtAType.Name = "txtAType";
             this.txtAType.Size = new System.Drawing.Size(134, 20);
             this.txtAType.TabIndex = 11;
+            this.txtAType.Validating += new System.ComponentModel.CancelEventHandler(this.txtAType_Validating);
             // 
             // lblAccomType
             // 
@@ -350,6 +359,18 @@ namespace vaalrusGUIPrototype
             // 
             this.errorProviderID.ContainerControl = this;
             // 
+            // errorProviderType
+            // 
+            this.errorProviderType.ContainerControl = this;
+            // 
+            // errorProviderOccupants
+            // 
+            this.errorProviderOccupants.ContainerControl = this;
+            // 
+            // errorProviderPrice
+            // 
+            this.errorProviderPrice.ContainerControl = this;
+            // 
             // frmUpdateAccommodations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -372,6 +393,9 @@ namespace vaalrusGUIPrototype
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).EndInit();
             this.pnlDatagrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderOccupants)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPrice)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -406,5 +430,8 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.TextBox txtSearchID;
         private System.Windows.Forms.Panel pnlDatagrid;
         private System.Windows.Forms.ErrorProvider errorProviderID;
+        private System.Windows.Forms.ErrorProvider errorProviderType;
+        private System.Windows.Forms.ErrorProvider errorProviderOccupants;
+        private System.Windows.Forms.ErrorProvider errorProviderPrice;
     }
 }
