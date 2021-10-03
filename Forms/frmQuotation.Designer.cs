@@ -57,6 +57,7 @@ namespace vaalrusGUIPrototype.Forms
             this.pn_grid = new System.Windows.Forms.Panel();
             this.pnlReport = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.grid_main = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ch_to = new System.Windows.Forms.CheckBox();
@@ -71,7 +72,6 @@ namespace vaalrusGUIPrototype.Forms
             this.grid_accSet = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.pnlMain.SuspendLayout();
             this.pn_grid.SuspendLayout();
             this.pnlReport.SuspendLayout();
@@ -113,9 +113,10 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // btnQuote
             // 
-            this.btnQuote.Location = new System.Drawing.Point(117, 577);
+            this.btnQuote.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnQuote.Location = new System.Drawing.Point(218, 533);
             this.btnQuote.Name = "btnQuote";
-            this.btnQuote.Size = new System.Drawing.Size(90, 53);
+            this.btnQuote.Size = new System.Drawing.Size(87, 53);
             this.btnQuote.TabIndex = 19;
             this.btnQuote.Text = "GetQuote";
             this.btnQuote.UseVisualStyleBackColor = true;
@@ -140,10 +141,10 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // btnClearLst
             // 
-            this.btnClearLst.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnClearLst.Location = new System.Drawing.Point(8, 577);
+            this.btnClearLst.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnClearLst.Location = new System.Drawing.Point(15, 533);
             this.btnClearLst.Name = "btnClearLst";
-            this.btnClearLst.Size = new System.Drawing.Size(103, 53);
+            this.btnClearLst.Size = new System.Drawing.Size(87, 53);
             this.btnClearLst.TabIndex = 18;
             this.btnClearLst.Text = "Clear List";
             this.btnClearLst.UseVisualStyleBackColor = true;
@@ -225,10 +226,10 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // btnGeneratQuote
             // 
-            this.btnGeneratQuote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnGeneratQuote.Location = new System.Drawing.Point(213, 577);
+            this.btnGeneratQuote.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnGeneratQuote.Location = new System.Drawing.Point(108, 533);
             this.btnGeneratQuote.Name = "btnGeneratQuote";
-            this.btnGeneratQuote.Size = new System.Drawing.Size(92, 53);
+            this.btnGeneratQuote.Size = new System.Drawing.Size(104, 53);
             this.btnGeneratQuote.TabIndex = 1;
             this.btnGeneratQuote.Text = "Create Quote";
             this.btnGeneratQuote.UseVisualStyleBackColor = true;
@@ -305,6 +306,16 @@ namespace vaalrusGUIPrototype.Forms
             this.button1.Text = "CloseReport";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.PageCountMode = Microsoft.Reporting.WinForms.PageCountMode.Actual;
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(346, 236);
+            this.reportViewer1.TabIndex = 2;
             // 
             // grid_main
             // 
@@ -507,16 +518,6 @@ namespace vaalrusGUIPrototype.Forms
             this.label7.Size = new System.Drawing.Size(45, 13);
             this.label7.TabIndex = 11;
             this.label7.Text = "Acc Set";
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.PageCountMode = Microsoft.Reporting.WinForms.PageCountMode.Actual;
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(346, 236);
-            this.reportViewer1.TabIndex = 2;
             // 
             // frmQuotation
             // 
