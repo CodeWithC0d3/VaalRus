@@ -304,7 +304,8 @@ namespace vaalrusGUIPrototype
                         txtAID.Text = dReader.GetValue(1).ToString();
                         txtAType.Text = dReader.GetValue(2).ToString();
                         txtAOccupants.Text = dReader.GetValue(3).ToString();
-                        txtAPrice.Text = dReader.GetValue(4).ToString();
+                        txtAPrice.Text = "R" + Convert.ToDecimal(String.Format("{0:0}", Convert.ToDecimal(dReader.GetValue(4).ToString()))).ToString();
+
                     }
 
                     dReader.Close();
@@ -334,7 +335,9 @@ namespace vaalrusGUIPrototype
                         txtAID.Text = dReader.GetValue(0).ToString();
                         txtAType.Text = dReader.GetValue(1).ToString();
                         txtAOccupants.Text = dReader.GetValue(2).ToString();
-                        txtAPrice.Text = dReader.GetValue(3).ToString();
+
+                        //txtAPrice.Text = dReader.GetValue(3).ToString();
+                        txtAPrice.Text = "R" + Convert.ToDecimal(String.Format("{0:0}", Convert.ToDecimal(dReader.GetValue(3).ToString()))).ToString();
                     }
 
                     dReader.Close();
@@ -521,7 +524,7 @@ namespace vaalrusGUIPrototype
 
         private void txtAPrice_Validating(object sender, CancelEventArgs e)
         {
-            int parsedValue;
+            /*int parsedValue;
             if (string.IsNullOrWhiteSpace(txtAPrice.Text))
             {
                 e.Cancel = true;
@@ -541,7 +544,7 @@ namespace vaalrusGUIPrototype
                 e.Cancel = false;
                 errorProviderPrice.SetError(txtAPrice, "");
                 err = false;
-            }
+            }*/
         }
 
         private void txtSearchType_TextChanged(object sender, EventArgs e)
