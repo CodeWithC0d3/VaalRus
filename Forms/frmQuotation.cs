@@ -55,15 +55,16 @@ namespace vaalrusGUIPrototype.Forms
                     //    co.Parent = this;
                     //    co.BackColor = Color.Transparent;
                    // }
-                    if (co.GetType() == typeof(Label))
-                    {
-                        Label lbl = (Label)co;
-                        lbl.Font = GlobalSettings.font;
-                        lbl.Parent = this;
-                        lbl.ForeColor = GlobalSettings.SecondaryColor;
-                        lbl.BackColor = Color.Transparent;
+                if (co.GetType() == typeof(Label))
+                {
+                    Label lbl = (Label)co;
+                    lbl.Font = GlobalSettings.font;
+                    lbl.Font = new Font("Microsoft Sans Serif", 12);
+                    lbl.Parent = this;
+                    lbl.ForeColor = GlobalSettings.SecondaryColor;
+                    lbl.BackColor = Color.Transparent;
 
-                    }            
+                }            
             } 
             //pnlMain.BackColor = Color.Transparent;
            
@@ -246,8 +247,8 @@ namespace vaalrusGUIPrototype.Forms
                 adapter.Fill(ds, "Booking_ID");
                 //adapter.Fill(ds, "CustomerID");
                
-                dataGridView1.DataSource = ds;
-                dataGridView1.DataMember = "Booking_ID";
+                grid_main.DataSource = ds;
+                grid_main.DataMember = "Booking_ID";
                 con.Close();
             }
         }
@@ -633,6 +634,41 @@ namespace vaalrusGUIPrototype.Forms
                 dp_filterTo.Enabled = true;
             else
                 dp_filterTo.Enabled = false;
+        }
+
+        private void updateAccGrid(string Quot)
+        {           
+            if (conDB())
+            {
+                //string strto = ch_to.Checked ? $"and Booking.EndDate < '{eDate}';" : "";
+               // int duration = (endDate.Date - startDate.Date).Days;
+                //string strduration = ch_to.Checked ? $"and Quotation.Duration < {duration}" : "";
+                //sql = $"select * from Booking where StartDate >@stdate and EndDate < @edate ";
+       
+
+     
+                sql = $"SELECT Accommodationset.Quotation_ID AS [Quote Number], Accommodationset.Accommodation_ID AS [Acc Number], Accommodationtype.AccommodationType AS Type, Accommodationset.startDate, Quotation.Duration AS[Duration / days] FROM Accommodationset INNER JOIN Accommodation ON Accommodationset.Accommodation_ID = Accommodation.Accommodation_ID INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID INNER JOIN Quotation ON Accommodationset.Quotation_ID = Quotation.Quotation_ID WHERE Quotation.Quotation_ID = @idd";
+   
+                command = new SqlCommand(sql, con);
+                command.Parameters.AddWithValue("@idd", Quot);
+                //command.Parameters.AddWithValue("@edate", eDate);
+                //command.Parameters.AddWithValue("@to", strto);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Quotation_ID");
+                //adapter.Fill(ds, "CustomerID");
+
+                grid_accSet.DataSource = ds;
+                grid_accSet.DataMember = "Quotation_ID";
+                con.Close();
+            }
+        }
+
+        private void grid_main_SelectionChanged(object sender, EventArgs e)
+        {
+            string id = grid_main.CurrentRow.Cells[0].Value.ToString();
+            updateAccGrid(id);
         }
     }
 }
