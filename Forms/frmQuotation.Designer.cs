@@ -36,7 +36,9 @@ namespace vaalrusGUIPrototype.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuotation));
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.btnQuote = new System.Windows.Forms.Button();
             this.lstAccommodation = new System.Windows.Forms.ListBox();
             this.dpTo = new System.Windows.Forms.DateTimePicker();
             this.btnClearLst = new System.Windows.Forms.Button();
@@ -53,6 +55,8 @@ namespace vaalrusGUIPrototype.Forms
             this.txtUser = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pn_grid = new System.Windows.Forms.Panel();
+            this.pnlReport = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.grid_main = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ch_to = new System.Windows.Forms.CheckBox();
@@ -64,11 +68,13 @@ namespace vaalrusGUIPrototype.Forms
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.erProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnl_accSet = new System.Windows.Forms.Panel();
+            this.grid_accSet = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.grid_accSet = new System.Windows.Forms.DataGridView();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.pnlMain.SuspendLayout();
             this.pn_grid.SuspendLayout();
+            this.pnlReport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_main)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,6 +88,7 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(146)))), ((int)(((byte)(157)))));
+            this.pnlMain.Controls.Add(this.btnQuote);
             this.pnlMain.Controls.Add(this.lstAccommodation);
             this.pnlMain.Controls.Add(this.dpTo);
             this.pnlMain.Controls.Add(this.btnClearLst);
@@ -103,6 +110,16 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlMain.TabIndex = 1;
             this.pnlMain.Visible = false;
             this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
+            // 
+            // btnQuote
+            // 
+            this.btnQuote.Location = new System.Drawing.Point(117, 577);
+            this.btnQuote.Name = "btnQuote";
+            this.btnQuote.Size = new System.Drawing.Size(90, 53);
+            this.btnQuote.TabIndex = 19;
+            this.btnQuote.Text = "GetQuote";
+            this.btnQuote.UseVisualStyleBackColor = true;
+            this.btnQuote.Click += new System.EventHandler(this.btnQuote_Click);
             // 
             // lstAccommodation
             // 
@@ -213,7 +230,7 @@ namespace vaalrusGUIPrototype.Forms
             this.btnGeneratQuote.Name = "btnGeneratQuote";
             this.btnGeneratQuote.Size = new System.Drawing.Size(92, 53);
             this.btnGeneratQuote.TabIndex = 1;
-            this.btnGeneratQuote.Text = "Generate Quote";
+            this.btnGeneratQuote.Text = "Create Quote";
             this.btnGeneratQuote.UseVisualStyleBackColor = true;
             this.btnGeneratQuote.Click += new System.EventHandler(this.btnGeneratQuote_Click);
             // 
@@ -260,12 +277,34 @@ namespace vaalrusGUIPrototype.Forms
             this.pn_grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pn_grid.Controls.Add(this.pnlReport);
             this.pn_grid.Controls.Add(this.grid_main);
             this.pn_grid.Controls.Add(this.panel2);
             this.pn_grid.Location = new System.Drawing.Point(333, 12);
             this.pn_grid.Name = "pn_grid";
             this.pn_grid.Size = new System.Drawing.Size(658, 436);
             this.pn_grid.TabIndex = 9;
+            // 
+            // pnlReport
+            // 
+            this.pnlReport.Controls.Add(this.button1);
+            this.pnlReport.Controls.Add(this.reportViewer1);
+            this.pnlReport.Location = new System.Drawing.Point(115, 197);
+            this.pnlReport.Name = "pnlReport";
+            this.pnlReport.Size = new System.Drawing.Size(346, 236);
+            this.pnlReport.TabIndex = 12;
+            this.pnlReport.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Location = new System.Drawing.Point(3, 200);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 33);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "CloseReport";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // grid_main
             // 
@@ -409,25 +448,6 @@ namespace vaalrusGUIPrototype.Forms
             this.pnl_accSet.Size = new System.Drawing.Size(658, 172);
             this.pnl_accSet.TabIndex = 10;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(270, 98);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(8, 8);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(639, 458);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Acc Set";
-            // 
             // grid_accSet
             // 
             this.grid_accSet.AllowUserToAddRows = false;
@@ -469,11 +489,40 @@ namespace vaalrusGUIPrototype.Forms
             this.grid_accSet.Size = new System.Drawing.Size(658, 172);
             this.grid_accSet.TabIndex = 11;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(270, 98);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(8, 8);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(639, 458);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 13);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Acc Set";
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.PageCountMode = Microsoft.Reporting.WinForms.PageCountMode.Actual;
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(346, 236);
+            this.reportViewer1.TabIndex = 2;
+            // 
             // frmQuotation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::vaalrusGUIPrototype.Properties.Resources.backgroundImage;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1003, 666);
             this.Controls.Add(this.label7);
@@ -488,6 +537,7 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             this.pn_grid.ResumeLayout(false);
+            this.pnlReport.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grid_main)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -532,5 +582,9 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.Panel pnl_accSet;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView grid_accSet;
+        private System.Windows.Forms.Panel pnlReport;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnQuote;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

@@ -152,9 +152,6 @@
     <Reference Include="Microsoft.SqlServer.SString, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.SqlServer.SqlManagementObjects.140.17218.0\lib\net40\Microsoft.SqlServer.SString.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.SqlServer.WmiEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.SqlServer.SqlManagementObjects.140.17218.0\lib\net40\Microsoft.SqlServer.WmiEnum.dll</HintPath>
     </Reference>
@@ -236,7 +233,13 @@
     <Compile Include="Forms\testTheme.Designer.cs">
       <DependentUpon>testTheme.cs</DependentUpon>
     </Compile>
+    <Compile Include="quoteDetail.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="VaalrusData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VaalrusData.xsd</DependentUpon>
+    </Compile>
     <Compile Include="VaalrusDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -283,7 +286,11 @@
     <EmbeddedResource Include="Forms\testTheme.resx">
       <DependentUpon>testTheme.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Quote.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\quoteDetail.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -293,6 +300,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="VaalrusData.xsc">
+      <DependentUpon>VaalrusData.xsd</DependentUpon>
+    </None>
+    <None Include="VaalrusData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VaalrusData.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="VaalrusData.xss">
+      <DependentUpon>VaalrusData.xsd</DependentUpon>
+    </None>
     <None Include="VaalrusDataSet.xsc">
       <DependentUpon>VaalrusDataSet.xsd</DependentUpon>
     </None>

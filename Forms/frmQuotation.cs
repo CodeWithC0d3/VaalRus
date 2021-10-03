@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Microsoft.Reporting.WinForms;
+using System.Drawing.Printing;
 
 namespace vaalrusGUIPrototype.Forms
 {
@@ -29,6 +31,7 @@ namespace vaalrusGUIPrototype.Forms
         private int quoteId;
         private string startDate;
         private string endDate;
+        private int Bookdays;
 
         private ErrorProvider userErrorProvider;
         private ErrorProvider customerErrorProvider;
@@ -216,6 +219,9 @@ namespace vaalrusGUIPrototype.Forms
             createErProviders();
 
 
+            //this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
         }
         private void updateGrid(DateTime startDate,DateTime endDate)
         {
@@ -341,22 +347,7 @@ namespace vaalrusGUIPrototype.Forms
 
             }
         }
-        private int getID(String col1,string table,string col2, string value )
-        {
-            int i = 0;
-            if (conDB())
-            {
-                sql = $"select '{col1}' from '{table}' where '{col2}' = '{value}'";
-                command = new SqlCommand(sql, con);
-                dataReader = command.ExecuteReader();
-                dataReader.Read();
-                i = (int)dataReader.GetValue(0);
-                con.Close();
-
-            }
-            return i;
-
-        }
+       
         private void loadCmbAcc()
         {
             if (conDB() && cmbFilter.SelectedIndex != -1)
@@ -492,7 +483,7 @@ namespace vaalrusGUIPrototype.Forms
             createdDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             startDate = dpFrom.Value.ToString("yyyy/MM/dd");
             endDate = dpTo.Value.ToString("yyyy/MM/dd");
-            int Bookdays = (dpTo.Value.Date - dpFrom.Value.Date).Days;
+            Bookdays = (dpTo.Value.Date - dpFrom.Value.Date).Days;
             if (conDB())
             {
                 sql = "Insert Into Quotation(Customer_ID, Reservation_Date, Duration,TotalPrice,PaymentStatus,QuoteCreated_DateTime,CreatedBy) Values(@cid, @rdate, @duration,@tp,@ps,@Qdate,@cBy)";
@@ -526,6 +517,23 @@ namespace vaalrusGUIPrototype.Forms
              
 
             }
+        }
+        
+        private int getID(String col1, string table, string col2, string value)
+        {
+            int i = 0;
+            if (conDB())
+            {
+                sql = $"select '{col1}' from '{table}' where '{col2}' = '{value}'";
+                command = new SqlCommand(sql, con);
+                dataReader = command.ExecuteReader();
+                dataReader.Read();
+                i = (int)dataReader.GetValue(0);
+                con.Close();
+
+            }
+            return i;
+
         }
         private void addAccSet(List<int> ls)
         {
@@ -669,6 +677,40 @@ namespace vaalrusGUIPrototype.Forms
         {
             string id = grid_main.CurrentRow.Cells[0].Value.ToString();
             updateAccGrid(id);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pnlReport.Visible = false;
+        }
+
+        private void btnQuote_Click(object sender, EventArgs e)
+        {
+            genQuote();
+        }
+        private void genQuote()
+        {
+            reportViewer1.LocalReport.ReportPath = @"Reports\Quote.rdlc";
+            var setup = reportViewer1.GetPageSettings();
+            setup.Margins = new Margins(1,1,1,1);
+            reportViewer1.SetPageSettings(setup);
+            
+            ReportDataSource rds = new ReportDataSource("DataSet1", qlist());
+            this.reportViewer1.LocalReport.DataSources.Add(rds);
+            this.reportViewer1.RefreshReport();
+            pnlReport.Parent = this;
+            pnlReport.BringToFront();
+            pnlReport.Dock = DockStyle.Fill;
+            pnlReport.Visible = true;
+        }    
+       
+        private List<quoteDetail> qlist()
+        {
+            return new List<quoteDetail>
+            {
+                new quoteDetail { QuoteNr = "1",Booked  = "2021/10/03",Duration = "3",Price = 100.ToString("c") }
+                
+            };
         }
     }
 }

@@ -40,8 +40,6 @@ namespace vaalrusGUIPrototype {
         
         private QuotationstatusDataTable tableQuotationstatus;
         
-        private accAvailibilityDataTable tableaccAvailibility;
-        
         private global::System.Data.DataRelation relationFK__Accommoda__Accom__36B12243;
         
         private global::System.Data.DataRelation relationFK__Accommoda__Accom__3A81B327;
@@ -109,9 +107,6 @@ namespace vaalrusGUIPrototype {
                 }
                 if ((ds.Tables["Quotationstatus"] != null)) {
                     base.Tables.Add(new QuotationstatusDataTable(ds.Tables["Quotationstatus"]));
-                }
-                if ((ds.Tables["accAvailibility"] != null)) {
-                    base.Tables.Add(new accAvailibilityDataTable(ds.Tables["accAvailibility"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -213,16 +208,6 @@ namespace vaalrusGUIPrototype {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public accAvailibilityDataTable accAvailibility {
-            get {
-                return this.tableaccAvailibility;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -312,9 +297,6 @@ namespace vaalrusGUIPrototype {
                 if ((ds.Tables["Quotationstatus"] != null)) {
                     base.Tables.Add(new QuotationstatusDataTable(ds.Tables["Quotationstatus"]));
                 }
-                if ((ds.Tables["accAvailibility"] != null)) {
-                    base.Tables.Add(new accAvailibilityDataTable(ds.Tables["accAvailibility"]));
-                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -396,12 +378,6 @@ namespace vaalrusGUIPrototype {
                     this.tableQuotationstatus.InitVars();
                 }
             }
-            this.tableaccAvailibility = ((accAvailibilityDataTable)(base.Tables["accAvailibility"]));
-            if ((initTable == true)) {
-                if ((this.tableaccAvailibility != null)) {
-                    this.tableaccAvailibility.InitVars();
-                }
-            }
             this.relationFK__Accommoda__Accom__36B12243 = this.Relations["FK__Accommoda__Accom__36B12243"];
             this.relationFK__Accommoda__Accom__3A81B327 = this.Relations["FK__Accommoda__Accom__3A81B327"];
             this.relationFK__Accommoda__Quota__398D8EEE = this.Relations["FK__Accommoda__Quota__398D8EEE"];
@@ -436,8 +412,6 @@ namespace vaalrusGUIPrototype {
             base.Tables.Add(this.tableQuotation);
             this.tableQuotationstatus = new QuotationstatusDataTable();
             base.Tables.Add(this.tableQuotationstatus);
-            this.tableaccAvailibility = new accAvailibilityDataTable();
-            base.Tables.Add(this.tableaccAvailibility);
             this.relationFK__Accommoda__Accom__36B12243 = new global::System.Data.DataRelation("FK__Accommoda__Accom__36B12243", new global::System.Data.DataColumn[] {
                         this.tableAccommodationtype.Accommodation_TypeIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableAccommodation.Accommodation_TypeIDColumn}, false);
@@ -522,12 +496,6 @@ namespace vaalrusGUIPrototype {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeaccAvailibility() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -604,9 +572,6 @@ namespace vaalrusGUIPrototype {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void QuotationstatusRowChangeEventHandler(object sender, QuotationstatusRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void accAvailibilityRowChangeEventHandler(object sender, accAvailibilityRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -925,6 +890,8 @@ namespace vaalrusGUIPrototype {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class AccommodationsetDataTable : global::System.Data.TypedTableBase<AccommodationsetRow> {
             
+            private global::System.Data.DataColumn columnaccSet;
+            
             private global::System.Data.DataColumn columnQuotation_ID;
             
             private global::System.Data.DataColumn columnAccommodation_ID;
@@ -966,6 +933,14 @@ namespace vaalrusGUIPrototype {
             protected AccommodationsetDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn accSetColumn {
+                get {
+                    return this.columnaccSet;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1050,14 +1025,15 @@ namespace vaalrusGUIPrototype {
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
+                        null,
                         Number_Of_Occupants,
                         startDate,
                         endDate};
                 if ((parentQuotationRowByFK__Accommoda__Quota__398D8EEE != null)) {
-                    columnValuesArray[0] = parentQuotationRowByFK__Accommoda__Quota__398D8EEE[0];
+                    columnValuesArray[1] = parentQuotationRowByFK__Accommoda__Quota__398D8EEE[0];
                 }
                 if ((parentAccommodationRowByFK__Accommoda__Accom__3A81B327 != null)) {
-                    columnValuesArray[1] = parentAccommodationRowByFK__Accommoda__Accom__3A81B327[0];
+                    columnValuesArray[2] = parentAccommodationRowByFK__Accommoda__Accom__3A81B327[0];
                 }
                 rowAccommodationsetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAccommodationsetRow);
@@ -1066,9 +1042,9 @@ namespace vaalrusGUIPrototype {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AccommodationsetRow FindByQuotation_ID(int Quotation_ID) {
+            public AccommodationsetRow FindByaccSet(int accSet) {
                 return ((AccommodationsetRow)(this.Rows.Find(new object[] {
-                            Quotation_ID})));
+                            accSet})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1088,6 +1064,7 @@ namespace vaalrusGUIPrototype {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
+                this.columnaccSet = base.Columns["accSet"];
                 this.columnQuotation_ID = base.Columns["Quotation_ID"];
                 this.columnAccommodation_ID = base.Columns["Accommodation_ID"];
                 this.columnNumber_Of_Occupants = base.Columns["Number_Of_Occupants"];
@@ -1098,6 +1075,8 @@ namespace vaalrusGUIPrototype {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
+                this.columnaccSet = new global::System.Data.DataColumn("accSet", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnaccSet);
                 this.columnQuotation_ID = new global::System.Data.DataColumn("Quotation_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnQuotation_ID);
                 this.columnAccommodation_ID = new global::System.Data.DataColumn("Accommodation_ID", typeof(int), null, global::System.Data.MappingType.Element);
@@ -1109,9 +1088,14 @@ namespace vaalrusGUIPrototype {
                 this.columnendDate = new global::System.Data.DataColumn("endDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnendDate);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnQuotation_ID}, true));
+                                this.columnaccSet}, true));
+                this.columnaccSet.AutoIncrement = true;
+                this.columnaccSet.AutoIncrementSeed = -1;
+                this.columnaccSet.AutoIncrementStep = -1;
+                this.columnaccSet.AllowDBNull = false;
+                this.columnaccSet.ReadOnly = true;
+                this.columnaccSet.Unique = true;
                 this.columnQuotation_ID.AllowDBNull = false;
-                this.columnQuotation_ID.Unique = true;
                 this.columnAccommodation_ID.AllowDBNull = false;
                 this.columnstartDate.AllowDBNull = false;
                 this.columnendDate.AllowDBNull = false;
@@ -3201,307 +3185,6 @@ namespace vaalrusGUIPrototype {
         }
         
         /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class accAvailibilityDataTable : global::System.Data.TypedTableBase<accAvailibilityRow> {
-            
-            private global::System.Data.DataColumn columnAccommodation_ID;
-            
-            private global::System.Data.DataColumn columnAccommodationType;
-            
-            private global::System.Data.DataColumn columnStartDate;
-            
-            private global::System.Data.DataColumn columnEndDate;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public accAvailibilityDataTable() {
-                this.TableName = "accAvailibility";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal accAvailibilityDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected accAvailibilityDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Accommodation_IDColumn {
-                get {
-                    return this.columnAccommodation_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn AccommodationTypeColumn {
-                get {
-                    return this.columnAccommodationType;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn StartDateColumn {
-                get {
-                    return this.columnStartDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn EndDateColumn {
-                get {
-                    return this.columnEndDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public accAvailibilityRow this[int index] {
-                get {
-                    return ((accAvailibilityRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event accAvailibilityRowChangeEventHandler accAvailibilityRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event accAvailibilityRowChangeEventHandler accAvailibilityRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event accAvailibilityRowChangeEventHandler accAvailibilityRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event accAvailibilityRowChangeEventHandler accAvailibilityRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddaccAvailibilityRow(accAvailibilityRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public accAvailibilityRow AddaccAvailibilityRow(int Accommodation_ID, string AccommodationType, System.DateTime StartDate, System.DateTime EndDate) {
-                accAvailibilityRow rowaccAvailibilityRow = ((accAvailibilityRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        Accommodation_ID,
-                        AccommodationType,
-                        StartDate,
-                        EndDate};
-                rowaccAvailibilityRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowaccAvailibilityRow);
-                return rowaccAvailibilityRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public accAvailibilityRow FindByAccommodation_ID(int Accommodation_ID) {
-                return ((accAvailibilityRow)(this.Rows.Find(new object[] {
-                            Accommodation_ID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                accAvailibilityDataTable cln = ((accAvailibilityDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new accAvailibilityDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columnAccommodation_ID = base.Columns["Accommodation_ID"];
-                this.columnAccommodationType = base.Columns["AccommodationType"];
-                this.columnStartDate = base.Columns["StartDate"];
-                this.columnEndDate = base.Columns["EndDate"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columnAccommodation_ID = new global::System.Data.DataColumn("Accommodation_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAccommodation_ID);
-                this.columnAccommodationType = new global::System.Data.DataColumn("AccommodationType", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAccommodationType);
-                this.columnStartDate = new global::System.Data.DataColumn("StartDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStartDate);
-                this.columnEndDate = new global::System.Data.DataColumn("EndDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEndDate);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnAccommodation_ID}, true));
-                this.columnAccommodation_ID.AllowDBNull = false;
-                this.columnAccommodation_ID.Unique = true;
-                this.columnAccommodationType.MaxLength = 20;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public accAvailibilityRow NewaccAvailibilityRow() {
-                return ((accAvailibilityRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new accAvailibilityRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(accAvailibilityRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.accAvailibilityRowChanged != null)) {
-                    this.accAvailibilityRowChanged(this, new accAvailibilityRowChangeEvent(((accAvailibilityRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.accAvailibilityRowChanging != null)) {
-                    this.accAvailibilityRowChanging(this, new accAvailibilityRowChangeEvent(((accAvailibilityRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.accAvailibilityRowDeleted != null)) {
-                    this.accAvailibilityRowDeleted(this, new accAvailibilityRowChangeEvent(((accAvailibilityRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.accAvailibilityRowDeleting != null)) {
-                    this.accAvailibilityRowDeleting(this, new accAvailibilityRowChangeEvent(((accAvailibilityRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveaccAvailibilityRow(accAvailibilityRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                VaalrusDataSet ds = new VaalrusDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "accAvailibilityDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class AccommodationRow : global::System.Data.DataRow {
@@ -3594,6 +3277,17 @@ namespace vaalrusGUIPrototype {
             internal AccommodationsetRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableAccommodationset = ((AccommodationsetDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int accSet {
+                get {
+                    return ((int)(this[this.tableAccommodationset.accSetColumn]));
+                }
+                set {
+                    this[this.tableAccommodationset.accSetColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4460,116 +4154,6 @@ namespace vaalrusGUIPrototype {
         }
         
         /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class accAvailibilityRow : global::System.Data.DataRow {
-            
-            private accAvailibilityDataTable tableaccAvailibility;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal accAvailibilityRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableaccAvailibility = ((accAvailibilityDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Accommodation_ID {
-                get {
-                    return ((int)(this[this.tableaccAvailibility.Accommodation_IDColumn]));
-                }
-                set {
-                    this[this.tableaccAvailibility.Accommodation_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string AccommodationType {
-                get {
-                    try {
-                        return ((string)(this[this.tableaccAvailibility.AccommodationTypeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AccommodationType\' in table \'accAvailibility\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableaccAvailibility.AccommodationTypeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime StartDate {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableaccAvailibility.StartDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'StartDate\' in table \'accAvailibility\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableaccAvailibility.StartDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime EndDate {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableaccAvailibility.EndDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EndDate\' in table \'accAvailibility\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableaccAvailibility.EndDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAccommodationTypeNull() {
-                return this.IsNull(this.tableaccAvailibility.AccommodationTypeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAccommodationTypeNull() {
-                this[this.tableaccAvailibility.AccommodationTypeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsStartDateNull() {
-                return this.IsNull(this.tableaccAvailibility.StartDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetStartDateNull() {
-                this[this.tableaccAvailibility.StartDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsEndDateNull() {
-                return this.IsNull(this.tableaccAvailibility.EndDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetEndDateNull() {
-                this[this.tableaccAvailibility.EndDateColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -4840,40 +4424,6 @@ namespace vaalrusGUIPrototype {
                 }
             }
         }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class accAvailibilityRowChangeEvent : global::System.EventArgs {
-            
-            private accAvailibilityRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public accAvailibilityRowChangeEvent(accAvailibilityRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public accAvailibilityRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
     }
 }
 namespace vaalrusGUIPrototype.VaalrusDataSetTableAdapters {
@@ -5040,7 +4590,8 @@ SELECT Accommodation_ID, Accommodation_TypeID, Number_Of_Occupants, Accommodatio
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::vaalrusGUIPrototype.Properties.Settings.Default.VaalrusConnectionString;
+            this._connection.ConnectionString = "Data Source=DESKTOP-44V4TFA\\SQLEXPRESS;Initial Catalog=Vaalrus;Integrated Securit" +
+                "y=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5315,6 +4866,7 @@ SELECT Accommodation_ID, Accommodation_TypeID, Number_Of_Occupants, Accommodatio
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Accommodationset";
+            tableMapping.ColumnMappings.Add("accSet", "accSet");
             tableMapping.ColumnMappings.Add("Quotation_ID", "Quotation_ID");
             tableMapping.ColumnMappings.Add("Accommodation_ID", "Accommodation_ID");
             tableMapping.ColumnMappings.Add("Number_Of_Occupants", "Number_Of_Occupants");
@@ -5323,8 +4875,9 @@ SELECT Accommodation_ID, Accommodation_TypeID, Number_Of_Occupants, Accommodatio
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Accommodationset] WHERE (([Quotation_ID] = @Original_Quotation_ID) AND ([Accommodation_ID] = @Original_Accommodation_ID) AND ((@IsNull_Number_Of_Occupants = 1 AND [Number_Of_Occupants] IS NULL) OR ([Number_Of_Occupants] = @Original_Number_Of_Occupants)) AND ([startDate] = @Original_startDate) AND ([endDate] = @Original_endDate))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Accommodationset] WHERE (([accSet] = @Original_accSet) AND ([Quotation_ID] = @Original_Quotation_ID) AND ([Accommodation_ID] = @Original_Accommodation_ID) AND ((@IsNull_Number_Of_Occupants = 1 AND [Number_Of_Occupants] IS NULL) OR ([Number_Of_Occupants] = @Original_Number_Of_Occupants)) AND ([startDate] = @Original_startDate) AND ([endDate] = @Original_endDate))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_accSet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "accSet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Quotation_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quotation_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Accommodation_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Accommodation_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Number_Of_Occupants", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Of_Occupants", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -5334,7 +4887,7 @@ SELECT Accommodation_ID, Accommodation_TypeID, Number_Of_Occupants, Accommodatio
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Accommodationset] ([Quotation_ID], [Accommodation_ID], [Number_Of_Occupants], [startDate], [endDate]) VALUES (@Quotation_ID, @Accommodation_ID, @Number_Of_Occupants, @startDate, @endDate);
-SELECT Quotation_ID, Accommodation_ID, Number_Of_Occupants, startDate, endDate FROM Accommodationset WHERE (Quotation_ID = @Quotation_ID)";
+SELECT accSet, Quotation_ID, Accommodation_ID, Number_Of_Occupants, startDate, endDate FROM Accommodationset WHERE (accSet = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quotation_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quotation_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Accommodation_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Accommodation_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5343,27 +4896,30 @@ SELECT Quotation_ID, Accommodation_ID, Number_Of_Occupants, startDate, endDate F
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@endDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "endDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Accommodationset] SET [Quotation_ID] = @Quotation_ID, [Accommodation_ID] = @Accommodation_ID, [Number_Of_Occupants] = @Number_Of_Occupants, [startDate] = @startDate, [endDate] = @endDate WHERE (([Quotation_ID] = @Original_Quotation_ID) AND ([Accommodation_ID] = @Original_Accommodation_ID) AND ((@IsNull_Number_Of_Occupants = 1 AND [Number_Of_Occupants] IS NULL) OR ([Number_Of_Occupants] = @Original_Number_Of_Occupants)) AND ([startDate] = @Original_startDate) AND ([endDate] = @Original_endDate));
-SELECT Quotation_ID, Accommodation_ID, Number_Of_Occupants, startDate, endDate FROM Accommodationset WHERE (Quotation_ID = @Quotation_ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Accommodationset] SET [Quotation_ID] = @Quotation_ID, [Accommodation_ID] = @Accommodation_ID, [Number_Of_Occupants] = @Number_Of_Occupants, [startDate] = @startDate, [endDate] = @endDate WHERE (([accSet] = @Original_accSet) AND ([Quotation_ID] = @Original_Quotation_ID) AND ([Accommodation_ID] = @Original_Accommodation_ID) AND ((@IsNull_Number_Of_Occupants = 1 AND [Number_Of_Occupants] IS NULL) OR ([Number_Of_Occupants] = @Original_Number_Of_Occupants)) AND ([startDate] = @Original_startDate) AND ([endDate] = @Original_endDate));
+SELECT accSet, Quotation_ID, Accommodation_ID, Number_Of_Occupants, startDate, endDate FROM Accommodationset WHERE (accSet = @accSet)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quotation_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quotation_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Accommodation_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Accommodation_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Number_Of_Occupants", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Of_Occupants", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@startDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "startDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@endDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "endDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_accSet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "accSet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Quotation_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quotation_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Accommodation_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Accommodation_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Number_Of_Occupants", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Of_Occupants", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Number_Of_Occupants", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Of_Occupants", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_startDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "startDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_endDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "endDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@accSet", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "accSet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::vaalrusGUIPrototype.Properties.Settings.Default.VaalrusConnectionString;
+            this._connection.ConnectionString = "Data Source=DESKTOP-44V4TFA\\SQLEXPRESS;Initial Catalog=Vaalrus;Integrated Securit" +
+                "y=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5372,8 +4928,8 @@ SELECT Quotation_ID, Accommodation_ID, Number_Of_Occupants, startDate, endDate F
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Quotation_ID, Accommodation_ID, Number_Of_Occupants, startDate, endDate FR" +
-                "OM dbo.Accommodationset";
+            this._commandCollection[0].CommandText = "SELECT accSet, Quotation_ID, Accommodation_ID, Number_Of_Occupants, startDate, en" +
+                "dDate FROM dbo.Accommodationset";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5434,19 +4990,20 @@ SELECT Quotation_ID, Accommodation_ID, Number_Of_Occupants, startDate, endDate F
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Quotation_ID, int Original_Accommodation_ID, global::System.Nullable<int> Original_Number_Of_Occupants, System.DateTime Original_startDate, System.DateTime Original_endDate) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Quotation_ID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Accommodation_ID));
+        public virtual int Delete(int Original_accSet, int Original_Quotation_ID, int Original_Accommodation_ID, global::System.Nullable<int> Original_Number_Of_Occupants, System.DateTime Original_startDate, System.DateTime Original_endDate) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_accSet));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Quotation_ID));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Accommodation_ID));
             if ((Original_Number_Of_Occupants.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_Number_Of_Occupants.Value));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Number_Of_Occupants.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_startDate));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_endDate));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_startDate));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_endDate));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5498,7 +5055,7 @@ SELECT Quotation_ID, Accommodation_ID, Number_Of_Occupants, startDate, endDate F
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Quotation_ID, int Accommodation_ID, global::System.Nullable<int> Number_Of_Occupants, System.DateTime startDate, System.DateTime endDate, int Original_Quotation_ID, int Original_Accommodation_ID, global::System.Nullable<int> Original_Number_Of_Occupants, System.DateTime Original_startDate, System.DateTime Original_endDate) {
+        public virtual int Update(int Quotation_ID, int Accommodation_ID, global::System.Nullable<int> Number_Of_Occupants, System.DateTime startDate, System.DateTime endDate, int Original_accSet, int Original_Quotation_ID, int Original_Accommodation_ID, global::System.Nullable<int> Original_Number_Of_Occupants, System.DateTime Original_startDate, System.DateTime Original_endDate, int accSet) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Quotation_ID));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Accommodation_ID));
             if ((Number_Of_Occupants.HasValue == true)) {
@@ -5509,18 +5066,20 @@ SELECT Quotation_ID, Accommodation_ID, Number_Of_Occupants, startDate, endDate F
             }
             this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(startDate));
             this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(endDate));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Quotation_ID));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Accommodation_ID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_accSet));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Quotation_ID));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Accommodation_ID));
             if ((Original_Number_Of_Occupants.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Number_Of_Occupants.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Number_Of_Occupants.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_startDate));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_endDate));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_startDate));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_endDate));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(accSet));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5541,8 +5100,8 @@ SELECT Quotation_ID, Accommodation_ID, Number_Of_Occupants, startDate, endDate F
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Accommodation_ID, global::System.Nullable<int> Number_Of_Occupants, System.DateTime startDate, System.DateTime endDate, int Original_Quotation_ID, int Original_Accommodation_ID, global::System.Nullable<int> Original_Number_Of_Occupants, System.DateTime Original_startDate, System.DateTime Original_endDate) {
-            return this.Update(Original_Quotation_ID, Accommodation_ID, Number_Of_Occupants, startDate, endDate, Original_Quotation_ID, Original_Accommodation_ID, Original_Number_Of_Occupants, Original_startDate, Original_endDate);
+        public virtual int Update(int Quotation_ID, int Accommodation_ID, global::System.Nullable<int> Number_Of_Occupants, System.DateTime startDate, System.DateTime endDate, int Original_accSet, int Original_Quotation_ID, int Original_Accommodation_ID, global::System.Nullable<int> Original_Number_Of_Occupants, System.DateTime Original_startDate, System.DateTime Original_endDate) {
+            return this.Update(Quotation_ID, Accommodation_ID, Number_Of_Occupants, startDate, endDate, Original_accSet, Original_Quotation_ID, Original_Accommodation_ID, Original_Number_Of_Occupants, Original_startDate, Original_endDate, Original_accSet);
         }
     }
     
@@ -5702,7 +5261,8 @@ SELECT Accommodation_TypeID, AccommodationType FROM Accommodationtype WHERE (Acc
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::vaalrusGUIPrototype.Properties.Settings.Default.VaalrusConnectionString;
+            this._connection.ConnectionString = "Data Source=DESKTOP-44V4TFA\\SQLEXPRESS;Initial Catalog=Vaalrus;Integrated Securit" +
+                "y=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6055,7 +5615,8 @@ SELECT Booking_ID, Customer_ID, Quotation_ID, StartDate, EndDate, Checkin_Time, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::vaalrusGUIPrototype.Properties.Settings.Default.VaalrusConnectionString;
+            this._connection.ConnectionString = "Data Source=DESKTOP-44V4TFA\\SQLEXPRESS;Initial Catalog=Vaalrus;Integrated Securit" +
+                "y=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6499,7 +6060,8 @@ SELECT Customer_ID, Customer_FirstName, Customer_LastName, Customer_IDNumber, Cu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::vaalrusGUIPrototype.Properties.Settings.Default.VaalrusConnectionString;
+            this._connection.ConnectionString = "Data Source=DESKTOP-44V4TFA\\SQLEXPRESS;Initial Catalog=Vaalrus;Integrated Securit" +
+                "y=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6969,7 +6531,8 @@ SELECT Payment_ID, Quotation_ID, ReceivedAmount, Payment_Date, Payment_Status FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::vaalrusGUIPrototype.Properties.Settings.Default.VaalrusConnectionString;
+            this._connection.ConnectionString = "Data Source=DESKTOP-44V4TFA\\SQLEXPRESS;Initial Catalog=Vaalrus;Integrated Securit" +
+                "y=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7380,7 +6943,8 @@ SELECT Quotation_ID, Customer_ID, Reservation_Date, Duration, TotalPrice, Paymen
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::vaalrusGUIPrototype.Properties.Settings.Default.VaalrusConnectionString;
+            this._connection.ConnectionString = "Data Source=DESKTOP-44V4TFA\\SQLEXPRESS;Initial Catalog=Vaalrus;Integrated Securit" +
+                "y=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7742,7 +7306,8 @@ SELECT Status_ID, Status_Type FROM Quotationstatus WHERE (Status_ID = @Status_ID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::vaalrusGUIPrototype.Properties.Settings.Default.VaalrusConnectionString;
+            this._connection.ConnectionString = "Data Source=DESKTOP-44V4TFA\\SQLEXPRESS;Initial Catalog=Vaalrus;Integrated Securit" +
+                "y=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7908,177 +7473,6 @@ SELECT Status_ID, Status_Type FROM Quotationstatus WHERE (Status_ID = @Status_ID
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string Status_Type, int Original_Status_ID, string Original_Status_Type) {
             return this.Update(Status_Type, Original_Status_ID, Original_Status_Type, Original_Status_ID);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class accAvailibilityTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public accAvailibilityTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "accAvailibility";
-            tableMapping.ColumnMappings.Add("Accommodation_ID", "Accommodation_ID");
-            tableMapping.ColumnMappings.Add("AccommodationType", "AccommodationType");
-            tableMapping.ColumnMappings.Add("StartDate", "StartDate");
-            tableMapping.ColumnMappings.Add("EndDate", "EndDate");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::vaalrusGUIPrototype.Properties.Settings.Default.VaalrusConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Accommodation_ID, AccommodationType, StartDate, EndDate FROM dbo.accAvaili" +
-                "bility";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(VaalrusDataSet.accAvailibilityDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual VaalrusDataSet.accAvailibilityDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            VaalrusDataSet.accAvailibilityDataTable dataTable = new VaalrusDataSet.accAvailibilityDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
         }
     }
     
