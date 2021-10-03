@@ -114,6 +114,7 @@ namespace vaalrusGUIPrototype.Forms
             // btnQuote
             // 
             this.btnQuote.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnQuote.Enabled = false;
             this.btnQuote.Location = new System.Drawing.Point(218, 533);
             this.btnQuote.Name = "btnQuote";
             this.btnQuote.Size = new System.Drawing.Size(87, 53);
@@ -322,6 +323,7 @@ namespace vaalrusGUIPrototype.Forms
             this.grid_main.AllowUserToAddRows = false;
             this.grid_main.AllowUserToDeleteRows = false;
             this.grid_main.AllowUserToResizeRows = false;
+            this.grid_main.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -335,11 +337,10 @@ namespace vaalrusGUIPrototype.Forms
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(95)))), ((int)(((byte)(101)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grid_main.DefaultCellStyle = dataGridViewCellStyle2;
-            this.grid_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid_main.EnableHeadersVisualStyles = false;
             this.grid_main.Location = new System.Drawing.Point(0, 57);
             this.grid_main.MultiSelect = false;
@@ -355,8 +356,10 @@ namespace vaalrusGUIPrototype.Forms
             this.grid_main.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grid_main.RowHeadersVisible = false;
             this.grid_main.RowTemplate.ReadOnly = true;
+            this.grid_main.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grid_main.Size = new System.Drawing.Size(658, 379);
-            this.grid_main.TabIndex = 10;
+            this.grid_main.TabIndex = 10;            
+            this.grid_main.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grid_main_CellMouseClick);
             this.grid_main.SelectionChanged += new System.EventHandler(this.grid_main_SelectionChanged);
             // 
             // panel2
@@ -375,8 +378,9 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // ch_to
             // 
+            this.ch_to.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ch_to.AutoSize = true;
-            this.ch_to.Location = new System.Drawing.Point(182, 32);
+            this.ch_to.Location = new System.Drawing.Point(279, 28);
             this.ch_to.Name = "ch_to";
             this.ch_to.Size = new System.Drawing.Size(41, 17);
             this.ch_to.TabIndex = 7;
@@ -386,8 +390,9 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // rb_booking
             // 
+            this.rb_booking.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rb_booking.AutoSize = true;
-            this.rb_booking.Location = new System.Drawing.Point(13, 32);
+            this.rb_booking.Location = new System.Drawing.Point(93, 32);
             this.rb_booking.Name = "rb_booking";
             this.rb_booking.Size = new System.Drawing.Size(106, 17);
             this.rb_booking.TabIndex = 6;
@@ -398,8 +403,9 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // rb_quote
             // 
+            this.rb_quote.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rb_quote.AutoSize = true;
-            this.rb_quote.Location = new System.Drawing.Point(13, 8);
+            this.rb_quote.Location = new System.Drawing.Point(93, 8);
             this.rb_quote.Name = "rb_quote";
             this.rb_quote.Size = new System.Drawing.Size(59, 17);
             this.rb_quote.TabIndex = 5;
@@ -412,7 +418,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             this.dp_filterTo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dp_filterTo.Enabled = false;
-            this.dp_filterTo.Location = new System.Drawing.Point(270, 27);
+            this.dp_filterTo.Location = new System.Drawing.Point(335, 28);
             this.dp_filterTo.Name = "dp_filterTo";
             this.dp_filterTo.Size = new System.Drawing.Size(218, 20);
             this.dp_filterTo.TabIndex = 3;
@@ -422,7 +428,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             this.dp_filterFrom.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dp_filterFrom.Enabled = false;
-            this.dp_filterFrom.Location = new System.Drawing.Point(182, 4);
+            this.dp_filterFrom.Location = new System.Drawing.Point(335, 4);
             this.dp_filterFrom.Name = "dp_filterFrom";
             this.dp_filterFrom.Size = new System.Drawing.Size(218, 20);
             this.dp_filterFrom.TabIndex = 1;
@@ -437,7 +443,7 @@ namespace vaalrusGUIPrototype.Forms
             // pictureBox1
             // 
             this.pictureBox1.Image = global::vaalrusGUIPrototype.Properties.Resources.backgroundImage;
-            this.pictureBox1.Location = new System.Drawing.Point(982, 641);
+            this.pictureBox1.Location = new System.Drawing.Point(909, 606);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(115, 129);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -513,11 +519,11 @@ namespace vaalrusGUIPrototype.Forms
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(639, 458);
+            this.label7.Location = new System.Drawing.Point(600, 457);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 13);
+            this.label7.Size = new System.Drawing.Size(102, 13);
             this.label7.TabIndex = 11;
-            this.label7.Text = "Acc Set";
+            this.label7.Text = "Accommodation Set";
             // 
             // frmQuotation
             // 
@@ -526,9 +532,9 @@ namespace vaalrusGUIPrototype.Forms
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1003, 666);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pnl_accSet);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pn_grid);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

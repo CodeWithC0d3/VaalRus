@@ -170,6 +170,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="accListReport.cs" />
     <Compile Include="Forms\frmAddAccommodation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +291,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\accListReport.datasource" />
     <None Include="Properties\DataSources\quoteDetail.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
