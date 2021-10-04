@@ -33,6 +33,7 @@ namespace vaalrusGUIPrototype.Forms
         private string endDate;
         private int Bookdays;
         private string selectedQuoteID;
+        private string selectedCustomerID;
 
         private ErrorProvider userErrorProvider;
         private ErrorProvider customerErrorProvider;
@@ -481,7 +482,7 @@ namespace vaalrusGUIPrototype.Forms
                 command.Parameters.AddWithValue("@id", ls[i].ToString()); ;
                 dataReader = command.ExecuteReader();
                 dataReader.Read();
-                price =+ (decimal)dataReader.GetValue(0);
+                price += (decimal)dataReader.GetValue(0);
                 con.Close();
             }           
          
@@ -723,9 +724,11 @@ namespace vaalrusGUIPrototype.Forms
             reportViewer1.SetPageSettings(setup);
             
             ReportDataSource rds = new ReportDataSource("DataSet1", qlist());
-            ReportDataSource rds2 = new ReportDataSource("accls", accListreport());
+            ReportDataSource rds2 = new ReportDataSource("Accl", accListreport());
+            ReportDataSource rds3 = new ReportDataSource("Customer", customerReport());
             this.reportViewer1.LocalReport.DataSources.Add(rds);
             this.reportViewer1.LocalReport.DataSources.Add(rds2);
+            this.reportViewer1.LocalReport.DataSources.Add(rds3);
             this.reportViewer1.RefreshReport();
             pnlReport.Parent = this;
             pnlReport.BringToFront();
@@ -766,7 +769,7 @@ namespace vaalrusGUIPrototype.Forms
             List<accListReport> list = new List<accListReport>();
             if (conDB())
             {
-                sql = $"SELECT Accommodationset.Quotation_ID, Accommodationset.Accommodation_ID, Accommodationtype.AccommodationType, Accommodationset.startDate, Accommodationset.endDate FROM Accommodationset INNER JOIN Accommodation ON Accommodationset.Accommodation_ID = Accommodation.Accommodation_ID INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID WHERE Quotation_ID = @qID";
+                sql = $"SELECT Accommodationset.Quotation_ID, Accommodationset.Accommodation_ID, Accommodationtype.AccommodationType, Accommodationset.startDate, Accommodationset.endDate, Accommodation.Accommodation_Price FROM Accommodationset INNER JOIN Accommodation ON Accommodationset.Accommodation_ID = Accommodation.Accommodation_ID INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID WHERE Quotation_ID = @qID";
                 command = new SqlCommand(sql, con);
                 command.Parameters.AddWithValue("@qID", selectedQuoteID);
                 //command.Parameters.AddWithValue("@edate", eDate);
@@ -785,12 +788,52 @@ namespace vaalrusGUIPrototype.Forms
                     ls.Type = row.ItemArray[2].ToString();
                     ls.StartDate = row.ItemArray[3].ToString().Substring(0, row.ItemArray[3].ToString().LastIndexOf(" "));
                     ls.EndDate = row.ItemArray[4].ToString().Substring(0, row.ItemArray[4].ToString().IndexOf(" "));
+                    ls.Price = row.ItemArray[5].ToString();
                     list.Add(ls);
                 }
 
             }
             return list;
         }
+        private List<CustomerDetail> customerReport()
+        {
+            List<CustomerDetail> list = new List<CustomerDetail>();
+            if (conDB())
+            {
+                sql = $"SELECT Quotation.Quotation_ID, Customer.Customer_ID FROM Quotation INNER JOIN Customer ON Quotation.Customer_ID = Customer.Customer_ID WHERE Quotation_ID = @qid";
+                command = new SqlCommand(sql, con);
+                command.Parameters.AddWithValue("@qID", selectedQuoteID);
+                dataReader = command.ExecuteReader();
+                dataReader.Read();
+                selectedCustomerID = dataReader.GetValue(0).ToString();
+                con.Close();
+                con.Open();
+                sql = $"SELECT Customer_FirstName, Customer_LastName, Customer_Cell, Customer_Email FROM Customer WHERE Customer_ID = @cID";
+                command = new SqlCommand(sql, con);
+                command.Parameters.AddWithValue("@cID", selectedQuoteID);
+                //command.Parameters.AddWithValue("@edate", eDate);
+                //command.Parameters.AddWithValue("@to", strto);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Customer_FirstName");
+                con.Close();
+
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    CustomerDetail ls = new CustomerDetail();
+                    ls.FirstName = row.ItemArray[0].ToString();
+                    ls.LastName = row.ItemArray[1].ToString();
+                    ls.Cell = row.ItemArray[2].ToString();
+                    ls.email = row.ItemArray[3].ToString();
+                    
+                    list.Add(ls);
+                }
+
+            }
+            return list;
+        }
+
         private void grid_main_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             btnQuote.Enabled = true;
