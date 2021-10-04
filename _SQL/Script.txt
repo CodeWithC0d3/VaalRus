@@ -71,8 +71,8 @@ CREATE TABLE Accommodation (
     Accommodation_ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	Accommodation_TypeID INT NOT NULL REFERENCES Accommodationtype(Accommodation_TypeID), -- FK
 	Number_Of_Occupants INT NOT NULL,
-	Accommodation_Price SMALLMONEY NOT NULL -- SQL has a currency option, wasn't sure what to go with
-
+	Accommodation_Price SMALLMONEY NOT NULL, -- SQL has a currency option, wasn't sure what to go with
+	Active BIT NOT NULL
 );
 
 

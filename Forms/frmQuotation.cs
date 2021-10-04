@@ -734,12 +734,32 @@ namespace vaalrusGUIPrototype.Forms
         }    
        
         private List<quoteDetail> qlist()
-        {           
-            return new List<quoteDetail>
+        {
+            List<quoteDetail> list = new List<quoteDetail>();
+            if (conDB())
             {
-                new quoteDetail { QuoteNr = "1",Booked  = "2021/10/03",Duration = "3",Price = 100.ToString("c") }
-                
-            };
+                sql = $"SELECT Quotation_ID, Reservation_Date,Duration,TotalPrice FROM Quotation WHERE Quotation_ID = @qID";
+                command = new SqlCommand(sql, con);
+                command.Parameters.AddWithValue("@qID", selectedQuoteID);
+                //command.Parameters.AddWithValue("@edate", eDate);
+                //command.Parameters.AddWithValue("@to", strto);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Quotation_ID");
+                con.Close();
+
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    quoteDetail ls = new quoteDetail();
+                    ls.QuoteNr = row.ItemArray[0].ToString();
+                    ls.Booked = row.ItemArray[1].ToString().Substring(0, row.ItemArray[1].ToString().IndexOf(" "));
+                    ls.Duration = row.ItemArray[2].ToString();
+                    ls.Price = row.ItemArray[3].ToString();                    
+                    list.Add(ls);
+                }
+            }
+            return list;
         }
         private List<accListReport> accListreport()
         {
@@ -763,8 +783,8 @@ namespace vaalrusGUIPrototype.Forms
                     ls.QuoteID = row.ItemArray[0].ToString();
                     ls.AccommodationID = row.ItemArray[1].ToString();
                     ls.Type = row.ItemArray[2].ToString();
-                    ls.StartDate = row.ItemArray[3].ToString();
-                    ls.EndDate = row.ItemArray[4].ToString();
+                    ls.StartDate = row.ItemArray[3].ToString().Substring(0, row.ItemArray[3].ToString().LastIndexOf(" "));
+                    ls.EndDate = row.ItemArray[4].ToString().Substring(0, row.ItemArray[4].ToString().IndexOf(" "));
                     list.Add(ls);
                 }
 
