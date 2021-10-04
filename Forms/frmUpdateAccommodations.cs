@@ -318,7 +318,7 @@ namespace vaalrusGUIPrototype
                         txtAID.Text = dReader.GetValue(1).ToString();
                         txtAType.Text = dReader.GetValue(2).ToString();
                         txtAOccupants.Text = dReader.GetValue(3).ToString();
-                        txtAPrice.Text = "R" + Convert.ToDecimal(String.Format("{0:0}", Convert.ToDecimal(dReader.GetValue(4).ToString()))).ToString();
+                        txtAPrice.Text = Convert.ToDecimal(String.Format("{0:0}", Convert.ToDecimal(dReader.GetValue(4).ToString()))).ToString();
 
                     }
 
@@ -351,7 +351,7 @@ namespace vaalrusGUIPrototype
                         txtAOccupants.Text = dReader.GetValue(2).ToString();
 
                         //txtAPrice.Text = dReader.GetValue(3).ToString();
-                        txtAPrice.Text = "R" + Convert.ToDecimal(String.Format("{0:0}", Convert.ToDecimal(dReader.GetValue(3).ToString()))).ToString();
+                        txtAPrice.Text = Convert.ToDecimal(String.Format("{0:0}", Convert.ToDecimal(dReader.GetValue(3).ToString()))).ToString();
                     }
 
                     dReader.Close();
@@ -407,7 +407,7 @@ namespace vaalrusGUIPrototype
             int rowindex = dataGridViewAccom.CurrentCell.RowIndex;
             int columnindex = dataGridViewAccom.CurrentCell.ColumnIndex;
 
-            string dindex2 = dataGridViewAccom.Rows[rowindex].Cells[columnindex].Value.ToString();
+            string dindex2 = dataGridViewAccom.Rows[rowindex].Cells[0].Value.ToString();
             dIndex = e.RowIndex +1;
             int conv = Convert.ToInt32(dindex2);
             //dIndex = dataGridViewAccom.Rows;

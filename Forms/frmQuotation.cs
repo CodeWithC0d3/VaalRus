@@ -113,7 +113,8 @@ namespace vaalrusGUIPrototype.Forms
                         Label lbl = (Label)co;
                         lbl.Font = GlobalSettings.font;
                         //lbl.Parent = picBackground;
-                        lbl.ForeColor = GlobalSettings.SecondaryColor;
+                        //lbl.ForeColor = GlobalSettings.SecondaryColor;
+                        lbl.ForeColor = Color.White;
                         lbl.BackColor = Color.Transparent;
 
                     }
@@ -129,6 +130,7 @@ namespace vaalrusGUIPrototype.Forms
                         dtgg.ColumnHeadersDefaultCellStyle.SelectionBackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
                         dtgg.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                         dtgg.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                        dtgg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 
                     }

@@ -49,6 +49,7 @@ namespace vaalrusGUIPrototype
             this.lblsearchID = new System.Windows.Forms.Label();
             this.txtSearchID = new System.Windows.Forms.TextBox();
             this.pnlConnetionControls = new System.Windows.Forms.Panel();
+            this.btnNext = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnPrev = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
@@ -62,7 +63,6 @@ namespace vaalrusGUIPrototype
             this.lblAccomType = new System.Windows.Forms.Label();
             this.lblAccomID = new System.Windows.Forms.Label();
             this.txtAID = new System.Windows.Forms.TextBox();
-            this.btnNext = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).BeginInit();
             this.pnlDatagrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).BeginInit();
@@ -107,6 +107,7 @@ namespace vaalrusGUIPrototype
             this.dataGridViewAccom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAccom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewAccom.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewAccom.MultiSelect = false;
             this.dataGridViewAccom.Name = "dataGridViewAccom";
             this.dataGridViewAccom.ReadOnly = true;
             this.dataGridViewAccom.RowHeadersVisible = false;
@@ -134,7 +135,7 @@ namespace vaalrusGUIPrototype
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(146)))), ((int)(((byte)(157)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(93)))), ((int)(((byte)(117)))));
             this.panel1.Controls.Add(this.groupBoxSearch);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
@@ -181,6 +182,8 @@ namespace vaalrusGUIPrototype
             this.txtsearchPrice.Name = "txtsearchPrice";
             this.txtsearchPrice.Size = new System.Drawing.Size(134, 20);
             this.txtsearchPrice.TabIndex = 21;
+            this.txtsearchPrice.TextChanged += new System.EventHandler(this.txtsearchPrice_TextChanged);
+            this.txtsearchPrice.Validating += new System.ComponentModel.CancelEventHandler(this.txtAPrice_Validating);
             // 
             // lblSearchOccupants
             // 
@@ -197,6 +200,8 @@ namespace vaalrusGUIPrototype
             this.txtSearchOccupants.Name = "txtSearchOccupants";
             this.txtSearchOccupants.Size = new System.Drawing.Size(134, 20);
             this.txtSearchOccupants.TabIndex = 19;
+            this.txtSearchOccupants.TextChanged += new System.EventHandler(this.txtSearchOccupants_TextChanged);
+            this.txtSearchOccupants.Validating += new System.ComponentModel.CancelEventHandler(this.txtAOccupants_Validating);
             // 
             // lblSearchType
             // 
@@ -213,6 +218,8 @@ namespace vaalrusGUIPrototype
             this.txtSearchType.Name = "txtSearchType";
             this.txtSearchType.Size = new System.Drawing.Size(134, 20);
             this.txtSearchType.TabIndex = 17;
+            this.txtSearchType.TextChanged += new System.EventHandler(this.txtSearchType_TextChanged);
+            this.txtSearchType.Validating += new System.ComponentModel.CancelEventHandler(this.txtAType_Validating);
             // 
             // lblsearchID
             // 
@@ -229,25 +236,39 @@ namespace vaalrusGUIPrototype
             this.txtSearchID.Name = "txtSearchID";
             this.txtSearchID.Size = new System.Drawing.Size(134, 20);
             this.txtSearchID.TabIndex = 14;
+            this.txtSearchID.TextChanged += new System.EventHandler(this.txtSearchID_TextChanged);
+            this.txtSearchID.Validating += new System.ComponentModel.CancelEventHandler(this.txtAID_Validating);
             // 
             // pnlConnetionControls
             // 
             this.pnlConnetionControls.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.pnlConnetionControls.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(146)))), ((int)(((byte)(157)))));
+            this.pnlConnetionControls.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(93)))), ((int)(((byte)(117)))));
             this.pnlConnetionControls.Controls.Add(this.btnNext);
             this.pnlConnetionControls.Controls.Add(this.btnUpdate);
             this.pnlConnetionControls.Controls.Add(this.btnPrev);
             this.pnlConnetionControls.Controls.Add(this.btnReset);
             this.pnlConnetionControls.Controls.Add(this.gBoxAccom);
-            this.pnlConnetionControls.Location = new System.Drawing.Point(12, 224);
+            this.pnlConnetionControls.Location = new System.Drawing.Point(12, 202);
             this.pnlConnetionControls.Name = "pnlConnetionControls";
-            this.pnlConnetionControls.Size = new System.Drawing.Size(373, 326);
+            this.pnlConnetionControls.Size = new System.Drawing.Size(373, 348);
             this.pnlConnetionControls.TabIndex = 6;
+            // 
+            // btnNext
+            // 
+            this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnNext.Location = new System.Drawing.Point(262, 262);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(90, 72);
+            this.btnNext.TabIndex = 6;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(115, 180);
+            this.btnUpdate.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnUpdate.Location = new System.Drawing.Point(115, 298);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(137, 36);
             this.btnUpdate.TabIndex = 2;
@@ -257,7 +278,8 @@ namespace vaalrusGUIPrototype
             // 
             // btnPrev
             // 
-            this.btnPrev.Location = new System.Drawing.Point(16, 144);
+            this.btnPrev.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnPrev.Location = new System.Drawing.Point(16, 262);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(90, 72);
             this.btnPrev.TabIndex = 5;
@@ -267,7 +289,8 @@ namespace vaalrusGUIPrototype
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(115, 144);
+            this.btnReset.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnReset.Location = new System.Drawing.Point(115, 262);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(137, 36);
             this.btnReset.TabIndex = 3;
@@ -278,7 +301,7 @@ namespace vaalrusGUIPrototype
             // gBoxAccom
             // 
             this.gBoxAccom.Controls.Add(this.pnlGroupBoxDetails);
-            this.gBoxAccom.Location = new System.Drawing.Point(16, 3);
+            this.gBoxAccom.Location = new System.Drawing.Point(16, 12);
             this.gBoxAccom.Name = "gBoxAccom";
             this.gBoxAccom.Size = new System.Drawing.Size(336, 135);
             this.gBoxAccom.TabIndex = 1;
@@ -324,6 +347,7 @@ namespace vaalrusGUIPrototype
             this.txtAPrice.Name = "txtAPrice";
             this.txtAPrice.Size = new System.Drawing.Size(134, 20);
             this.txtAPrice.TabIndex = 13;
+            this.txtAPrice.Validating += new System.ComponentModel.CancelEventHandler(this.txtAPrice_Validating);
             // 
             // txtAOccupants
             // 
@@ -331,6 +355,7 @@ namespace vaalrusGUIPrototype
             this.txtAOccupants.Name = "txtAOccupants";
             this.txtAOccupants.Size = new System.Drawing.Size(134, 20);
             this.txtAOccupants.TabIndex = 12;
+            this.txtAOccupants.Validating += new System.ComponentModel.CancelEventHandler(this.txtAOccupants_Validating);
             // 
             // txtAType
             // 
@@ -338,6 +363,7 @@ namespace vaalrusGUIPrototype
             this.txtAType.Name = "txtAType";
             this.txtAType.Size = new System.Drawing.Size(134, 20);
             this.txtAType.TabIndex = 11;
+            this.txtAType.Validating += new System.ComponentModel.CancelEventHandler(this.txtAType_Validating);
             // 
             // lblAccomType
             // 
@@ -363,16 +389,7 @@ namespace vaalrusGUIPrototype
             this.txtAID.Name = "txtAID";
             this.txtAID.Size = new System.Drawing.Size(134, 20);
             this.txtAID.TabIndex = 8;
-            // 
-            // btnNext
-            // 
-            this.btnNext.Location = new System.Drawing.Point(262, 144);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(90, 72);
-            this.btnNext.TabIndex = 6;
-            this.btnNext.Text = "Next";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            this.txtAID.Validating += new System.ComponentModel.CancelEventHandler(this.txtAID_Validating);
             // 
             // frmUpdateAccommodations
             // 

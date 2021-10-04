@@ -492,6 +492,7 @@ namespace vaalrusGUIPrototype
             // 
             // pbClose
             // 
+            this.pbClose.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pbClose.Image = global::vaalrusGUIPrototype.Properties.Resources.close;
             this.pbClose.Location = new System.Drawing.Point(995, 3);
             this.pbClose.Name = "pbClose";
@@ -503,6 +504,7 @@ namespace vaalrusGUIPrototype
             // 
             // pbMinimize
             // 
+            this.pbMinimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pbMinimize.Image = global::vaalrusGUIPrototype.Properties.Resources.minimize__1_;
             this.pbMinimize.Location = new System.Drawing.Point(951, 3);
             this.pbMinimize.Name = "pbMinimize";
@@ -514,10 +516,11 @@ namespace vaalrusGUIPrototype
             // 
             // lblHeading
             // 
+            this.lblHeading.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblHeading.AutoSize = true;
             this.lblHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeading.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblHeading.Location = new System.Drawing.Point(360, 25);
+            this.lblHeading.Location = new System.Drawing.Point(328, 25);
             this.lblHeading.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHeading.Name = "lblHeading";
             this.lblHeading.Size = new System.Drawing.Size(388, 36);
@@ -559,7 +562,6 @@ namespace vaalrusGUIPrototype
             this.Controls.Add(this.pnlLabelHeading);
             this.Controls.Add(this.panelSideBar);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Vaalrus Booking System";
