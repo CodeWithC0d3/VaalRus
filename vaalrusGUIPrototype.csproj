@@ -323,6 +323,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\accListReport.datasource" />
+    <None Include="Properties\DataSources\CustomerDetail.datasource" />
     <None Include="Properties\DataSources\quoteDetail.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
