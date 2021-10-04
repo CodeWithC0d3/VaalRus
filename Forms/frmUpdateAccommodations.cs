@@ -106,7 +106,7 @@ namespace vaalrusGUIPrototype
                         dtgg.BackgroundColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.BackColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
-                        dtgg.DefaultCellStyle.SelectionBackColor = GlobalSettings.PrimaryColor;
+                        //dtgg.DefaultCellStyle.SelectionBackColor = GlobalSettings.PrimaryColor;
 
 
                     }
@@ -561,7 +561,10 @@ namespace vaalrusGUIPrototype
             }*/
         }
 
-        
+        private void dataGridViewAccom_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
 
         private void txtSearchType_TextChanged(object sender, EventArgs e)
         {
