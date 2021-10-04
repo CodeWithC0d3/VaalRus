@@ -51,7 +51,6 @@ namespace vaalrusGUIPrototype
             this.pnlConnetionControls = new System.Windows.Forms.Panel();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnPrev = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.gBoxAccom = new System.Windows.Forms.GroupBox();
             this.pnlGroupBoxDetails = new System.Windows.Forms.Panel();
@@ -63,6 +62,7 @@ namespace vaalrusGUIPrototype
             this.lblAccomType = new System.Windows.Forms.Label();
             this.lblAccomID = new System.Windows.Forms.Label();
             this.txtAID = new System.Windows.Forms.TextBox();
+            this.btnNext = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).BeginInit();
             this.pnlDatagrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).BeginInit();
@@ -114,7 +114,7 @@ namespace vaalrusGUIPrototype
             this.dataGridViewAccom.Size = new System.Drawing.Size(542, 538);
             this.dataGridViewAccom.TabIndex = 2;
             this.dataGridViewAccom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAccom_CellClick);
-            
+            this.dataGridViewAccom.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAccom_CellContentClick);
             // 
             // errorProviderID
             // 
@@ -235,9 +235,9 @@ namespace vaalrusGUIPrototype
             this.pnlConnetionControls.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlConnetionControls.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(146)))), ((int)(((byte)(157)))));
+            this.pnlConnetionControls.Controls.Add(this.btnNext);
             this.pnlConnetionControls.Controls.Add(this.btnUpdate);
             this.pnlConnetionControls.Controls.Add(this.btnPrev);
-            this.pnlConnetionControls.Controls.Add(this.btnNext);
             this.pnlConnetionControls.Controls.Add(this.btnReset);
             this.pnlConnetionControls.Controls.Add(this.gBoxAccom);
             this.pnlConnetionControls.Location = new System.Drawing.Point(12, 224);
@@ -264,16 +264,6 @@ namespace vaalrusGUIPrototype
             this.btnPrev.Text = "Previous";
             this.btnPrev.UseVisualStyleBackColor = true;
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.Location = new System.Drawing.Point(262, 144);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(90, 72);
-            this.btnNext.TabIndex = 4;
-            this.btnNext.Text = "Next";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnReset
             // 
@@ -374,6 +364,16 @@ namespace vaalrusGUIPrototype
             this.txtAID.Size = new System.Drawing.Size(134, 20);
             this.txtAID.TabIndex = 8;
             // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(262, 144);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(90, 72);
+            this.btnNext.TabIndex = 6;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
             // frmUpdateAccommodations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -426,7 +426,6 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Panel pnlConnetionControls;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnPrev;
-        private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.GroupBox gBoxAccom;
         private System.Windows.Forms.Panel pnlGroupBoxDetails;
@@ -439,5 +438,6 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Label lblAccomID;
         private System.Windows.Forms.TextBox txtAID;
         private System.Windows.Forms.DataGridView dataGridViewAccom;
+        private System.Windows.Forms.Button btnNext;
     }
 }
