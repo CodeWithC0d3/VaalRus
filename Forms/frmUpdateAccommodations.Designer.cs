@@ -32,6 +32,7 @@ namespace vaalrusGUIPrototype
             this.components = new System.ComponentModel.Container();
             this.picBackground = new System.Windows.Forms.PictureBox();
             this.pnlDatagrid = new System.Windows.Forms.Panel();
+            this.dataGridViewAccom = new System.Windows.Forms.DataGridView();
             this.errorProviderID = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderType = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderOccupants = new System.Windows.Forms.ErrorProvider(this.components);
@@ -62,9 +63,9 @@ namespace vaalrusGUIPrototype
             this.lblAccomType = new System.Windows.Forms.Label();
             this.lblAccomID = new System.Windows.Forms.Label();
             this.txtAID = new System.Windows.Forms.TextBox();
-            this.dataGridViewAccom = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).BeginInit();
             this.pnlDatagrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderOccupants)).BeginInit();
@@ -75,7 +76,6 @@ namespace vaalrusGUIPrototype
             this.pnlConnetionControls.SuspendLayout();
             this.gBoxAccom.SuspendLayout();
             this.pnlGroupBoxDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).BeginInit();
             this.SuspendLayout();
             // 
             // picBackground
@@ -99,6 +99,22 @@ namespace vaalrusGUIPrototype
             this.pnlDatagrid.Name = "pnlDatagrid";
             this.pnlDatagrid.Size = new System.Drawing.Size(542, 538);
             this.pnlDatagrid.TabIndex = 4;
+            // 
+            // dataGridViewAccom
+            // 
+            this.dataGridViewAccom.AllowUserToResizeRows = false;
+            this.dataGridViewAccom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewAccom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAccom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewAccom.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewAccom.Name = "dataGridViewAccom";
+            this.dataGridViewAccom.ReadOnly = true;
+            this.dataGridViewAccom.RowHeadersVisible = false;
+            this.dataGridViewAccom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewAccom.Size = new System.Drawing.Size(542, 538);
+            this.dataGridViewAccom.TabIndex = 2;
+            this.dataGridViewAccom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAccom_CellClick);
+            
             // 
             // errorProviderID
             // 
@@ -237,6 +253,7 @@ namespace vaalrusGUIPrototype
             this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnPrev
             // 
@@ -246,6 +263,7 @@ namespace vaalrusGUIPrototype
             this.btnPrev.TabIndex = 5;
             this.btnPrev.Text = "Previous";
             this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
             // btnNext
             // 
@@ -255,6 +273,7 @@ namespace vaalrusGUIPrototype
             this.btnNext.TabIndex = 4;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnReset
             // 
@@ -264,6 +283,7 @@ namespace vaalrusGUIPrototype
             this.btnReset.TabIndex = 3;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // gBoxAccom
             // 
@@ -354,21 +374,6 @@ namespace vaalrusGUIPrototype
             this.txtAID.Size = new System.Drawing.Size(134, 20);
             this.txtAID.TabIndex = 8;
             // 
-            // dataGridViewAccom
-            // 
-            this.dataGridViewAccom.AllowUserToResizeRows = false;
-            this.dataGridViewAccom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewAccom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAccom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewAccom.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewAccom.Name = "dataGridViewAccom";
-            this.dataGridViewAccom.ReadOnly = true;
-            this.dataGridViewAccom.RowHeadersVisible = false;
-            this.dataGridViewAccom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewAccom.Size = new System.Drawing.Size(542, 538);
-            this.dataGridViewAccom.TabIndex = 2;
-            this.dataGridViewAccom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAccom_CellClick);
-            // 
             // frmUpdateAccommodations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -383,6 +388,7 @@ namespace vaalrusGUIPrototype
             this.Load += new System.EventHandler(this.frmUpdateAccommodations_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).EndInit();
             this.pnlDatagrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderOccupants)).EndInit();
@@ -395,7 +401,6 @@ namespace vaalrusGUIPrototype
             this.gBoxAccom.ResumeLayout(false);
             this.pnlGroupBoxDetails.ResumeLayout(false);
             this.pnlGroupBoxDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -48,7 +48,7 @@ namespace vaalrusGUIPrototype
                     lbl.BackColor = Color.Transparent;
 
                 }
-                if (co.GetType() == typeof(Button))
+                /*if (co.GetType() == typeof(Button))
                 {
                     Button btn = (Button)co;
                     btn.FlatStyle = FlatStyle.Flat;
@@ -59,7 +59,7 @@ namespace vaalrusGUIPrototype
                     //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                     btn.FlatAppearance.BorderColor = Color.White;
                     btn.FlatAppearance.BorderSize = 2;
-                }
+                }*/
             }
             
 
@@ -560,6 +560,8 @@ namespace vaalrusGUIPrototype
                 err = false;
             }*/
         }
+
+        
 
         private void txtSearchType_TextChanged(object sender, EventArgs e)
         {
