@@ -171,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="accListReport.cs" />
+    <Compile Include="CustomerDetail.cs" />
     <Compile Include="Forms\frmAddAccommodation.cs">
       <SubType>Form</SubType>
     </Compile>
