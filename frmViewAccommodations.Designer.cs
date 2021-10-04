@@ -49,7 +49,7 @@ namespace vaalrusGUIPrototype
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(576, 474);
+            this.dataGridView1.Size = new System.Drawing.Size(576, 498);
             this.dataGridView1.TabIndex = 0;
             // 
             // panel1
@@ -69,7 +69,7 @@ namespace vaalrusGUIPrototype
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(137, 332);
+            this.button3.Location = new System.Drawing.Point(137, 271);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(125, 31);
             this.button3.TabIndex = 2;
@@ -78,7 +78,7 @@ namespace vaalrusGUIPrototype
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(137, 266);
+            this.button2.Location = new System.Drawing.Point(137, 348);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(125, 30);
             this.button2.TabIndex = 1;
