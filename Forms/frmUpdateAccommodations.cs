@@ -30,33 +30,38 @@ namespace vaalrusGUIPrototype
         }
         private void LoadTheme()
         {
-            foreach (Control btns in this.Controls)
+            foreach (Control co in this.Controls)
             {
-                foreach (Control pnl in this.Controls)
-                {
-                    if (pnl.GetType() == typeof(Panel))
-                    {
-                        if (pnl.Name != "pnlLabelHeading")
-                        {
-                            pnl.Parent = picBackground;
-                            pnl.BackColor = Color.Transparent;
-                        }
-                    }
-                }
-                foreach (Control lbls in this.Controls)
-                {
-                    if (lbls.GetType() == typeof(Label))
-                    {
-                        Label lbl = (Label)lbls;
-                        //lbl.Font = GlobalSettings.font;
-                        lbl.Parent = picBackground;
-                        lbl.ForeColor = GlobalSettings.SecondaryColor;
-                        lbl.BackColor = Color.Transparent;
 
-                    }
-                }
+                // if (co.GetType() == typeof(Panel))
+                // {
+                //    co.Parent = this;
+                //    co.BackColor = Color.Transparent;
+                // }
+                if (co.GetType() == typeof(Label))
+                {
+                    Label lbl = (Label)co;
+                    lbl.Font = GlobalSettings.font;
+                    lbl.Font = new Font("Microsoft Sans Serif", 12);
+                    lbl.Parent = this;
+                    lbl.ForeColor = GlobalSettings.SecondaryColor;
+                    lbl.BackColor = Color.Transparent;
 
+                }
+                if (co.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)co;
+                    btn.FlatStyle = FlatStyle.Flat;
+                    //btn.Parent = pictureBox1;
+                    btn.BackColor = GlobalSettings.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.Font = GlobalSettings.font;
+                    //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                    btn.FlatAppearance.BorderColor = Color.White;
+                    btn.FlatAppearance.BorderSize = 2;
+                }
             }
+            
 
             aplytheme(pnlConnetionControls);
             aplytheme(pnlGroupBoxDetails);
