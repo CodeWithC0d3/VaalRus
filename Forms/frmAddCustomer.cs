@@ -7,11 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace vaalrusGUIPrototype.Forms
 {
+    
+
+
     public partial class frmAddCustomer : Form
     {
+        string constr = Properties.Settings.Default.conString;
+        SqlConnection con;
+        SqlCommand command;
+        SqlDataAdapter adapter;
+        SqlDataReader dataReader;
+        DataSet ds;
+
         public frmAddCustomer()
         {
             InitializeComponent();
@@ -147,6 +158,21 @@ namespace vaalrusGUIPrototype.Forms
             }
         }
 
+        private Boolean conDB()
+        {
+            try
+            {
+                con = new SqlConnection(constr);
+                con.Open();
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
 
         private void frmAddCustomer_Load(object sender, EventArgs e)
         {
@@ -155,7 +181,42 @@ namespace vaalrusGUIPrototype.Forms
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            if (conDB())
+            {
+                //get
+                string firstName = txtFirstName.Text;
+                string lastName = txtLastName.Text;
+                string idNo = txtID.Text;
+                string contactNo = txtContactNumber.Text;
+                string email = txtEmail.Text;
+                string address = rtbAddress.Text;
 
+                //con.Open();
+
+                //create the query
+                string insertQuery = "INSERT INTO Customer(Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address) " +
+                    "Values (@firstName, @lastName, @idNo,  @email, @contactNo, @address)";
+
+                SqlCommand SQLQuery = new SqlCommand(insertQuery, con);
+
+                //insert the data
+
+                SQLQuery.Parameters.AddWithValue("@firstName", firstName);
+                SQLQuery.Parameters.AddWithValue("@lastName", lastName);
+                SQLQuery.Parameters.AddWithValue("@idNo", idNo);
+                SQLQuery.Parameters.AddWithValue("@contactNo", contactNo);
+                SQLQuery.Parameters.AddWithValue("@email", email);
+                SQLQuery.Parameters.AddWithValue("@address", address);
+
+                SQLQuery.ExecuteNonQuery();
+
+                con.Close();
+
+                //message for success
+                MessageBox.Show("Data successfully inserted");
+
+
+            }
         }
     }
 }
