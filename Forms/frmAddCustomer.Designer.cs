@@ -40,17 +40,16 @@ namespace vaalrusGUIPrototype.Forms
             this.label5 = new System.Windows.Forms.Label();
             this.txtContactNumber = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxViewAllBookingsBackground)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxViewAllBookingsBackground
@@ -67,9 +66,16 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(93)))), ((int)(((byte)(117)))));
+            this.panel1.Controls.Add(this.txtID);
             this.panel1.Controls.Add(this.btnCreate);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.txtLastName);
             this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txtFirstName);
             this.panel1.Location = new System.Drawing.Point(36, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(482, 394);
@@ -83,6 +89,7 @@ namespace vaalrusGUIPrototype.Forms
             this.btnCreate.TabIndex = 7;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // groupBox2
             // 
@@ -148,24 +155,9 @@ namespace vaalrusGUIPrototype.Forms
             this.label6.TabIndex = 0;
             this.label6.Text = "Contact number:";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtID);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtLastName);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtFirstName);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(28, 28);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(412, 98);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Personal Details:";
-            // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(273, 46);
+            this.txtID.Location = new System.Drawing.Point(301, 38);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(100, 20);
             this.txtID.TabIndex = 5;
@@ -173,7 +165,7 @@ namespace vaalrusGUIPrototype.Forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(270, 30);
+            this.label3.Location = new System.Drawing.Point(298, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 13);
             this.label3.TabIndex = 4;
@@ -181,7 +173,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(146, 46);
+            this.txtLastName.Location = new System.Drawing.Point(174, 38);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(100, 20);
             this.txtLastName.TabIndex = 3;
@@ -189,7 +181,7 @@ namespace vaalrusGUIPrototype.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(143, 30);
+            this.label2.Location = new System.Drawing.Point(171, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 2;
@@ -197,7 +189,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(22, 46);
+            this.txtFirstName.Location = new System.Drawing.Point(50, 38);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(100, 20);
             this.txtFirstName.TabIndex = 1;
@@ -205,11 +197,20 @@ namespace vaalrusGUIPrototype.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 30);
+            this.label1.Location = new System.Drawing.Point(47, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "First name:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(22, 62);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(412, 98);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Personal Details:";
             // 
             // frmAddCustomer
             // 
@@ -223,10 +224,9 @@ namespace vaalrusGUIPrototype.Forms
             this.Load += new System.EventHandler(this.frmAddCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxViewAllBookingsBackground)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -235,7 +235,6 @@ namespace vaalrusGUIPrototype.Forms
 
         private System.Windows.Forms.PictureBox pictureBoxViewAllBookingsBackground;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtID;
@@ -250,5 +249,6 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtContactNumber;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
