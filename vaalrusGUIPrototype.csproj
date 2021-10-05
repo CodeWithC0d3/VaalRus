@@ -382,6 +382,16 @@
     <None Include="Resources\backgroundImage.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="_SQL\database\Vaalrus.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_SQL\database\Vaalrus_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Vaalrus.mdf</DependentUpon>
+    </Content>
+    <Content Include="_SQL\ViewsLocal.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\close.png" />
     <None Include="Resources\minimize %281%29.png" />
     <Content Include="SqlServerTypes\readme.htm" />
@@ -406,6 +416,9 @@
     <Content Include="_SQL\Script.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="_SQL\ScriptLocal.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="_SQL\SQL setup with Foreign keys.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -426,9 +439,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="_SQL\database\CleanFile\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Microsoft.SqlServer.SqlManagementObjects.140.17218.0\build\net40\Microsoft.SqlServer.SqlManagementObjects.targets" Condition="Exists('packages\Microsoft.SqlServer.SqlManagementObjects.140.17218.0\build\net40\Microsoft.SqlServer.SqlManagementObjects.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
