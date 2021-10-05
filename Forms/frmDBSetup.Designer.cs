@@ -132,9 +132,9 @@ namespace vaalrusGUIPrototype.Forms
             this.ClientSize = new System.Drawing.Size(449, 344);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDBSetup";
             this.Text = "DBSetup";
+            this.Load += new System.EventHandler(this.frmDBSetup_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
