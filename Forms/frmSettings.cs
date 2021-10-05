@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using vaalrusGUIPrototype.Forms;
 using Microsoft.Data.ConnectionUI;
 using System.Data.SqlClient;
 using Microsoft.SqlServer.Management.Common;
@@ -19,6 +20,13 @@ namespace vaalrusGUIPrototype
 {
     public partial class frmSettings : Form
     {
+        string constr = Properties.Settings.Default.conString;
+        SqlConnection con;
+        SqlCommand command;
+        SqlDataAdapter adapter;
+        SqlDataReader dataReader;
+        DataSet ds;
+        string sql = "";
         public frmSettings()
         {
             InitializeComponent();
@@ -119,10 +127,62 @@ namespace vaalrusGUIPrototype
                 }
             }
         }
+        private Boolean conDB()
+        {
+            try
+            {
+                con = new SqlConnection(constr);
+                con.Open();
+                return true;
 
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+        private void CopyDB()
+        {
+
+        }
         private void frmSettings_Load(object sender, EventArgs e)
         {
             LoadTheme();
+            if (Properties.Settings.Default.conString == "")
+            {
+                frmDBSetup frmdb = new frmDBSetup();
+                frmdb.ShowDialog();
+
+                if (frmdb.localServer == true)
+                {
+                    //con = new SqlConnection("Server=(local); Data Source =; Integrated Security = True");
+                    con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;Context Connection = False; ");
+                    command = new SqlCommand("", con);
+                    command.CommandText = @"CREATE DATABASE Vaalrus ON PRIMARY (FILENAME = '_SQL\database\Vaalrus.mdf') FOR ATTACH";
+                    //command.CommandText = @"CREATE DATABASE Vaalrus FOR ATTACH";
+                    con.Open();
+                    command.ExecuteNonQuery();
+                    command.Dispose();
+                    con.Dispose();
+                    
+                    
+                    //File.Copy(Path.Combine(@"_SQL\database\CleanFile\", "Vaalrus.mdf"), Path.Combine(@"_SQL\database\", "Vaalrus.mdf"));
+                    //File.Copy(Path.Combine(@"_SQL\database\CleanFile\", "Vaalrus_log.ldf"), Path.Combine(@"_SQL\database\", "Vaalrus_log.ldf"));
+                    string test = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Xtime\Vaalrus_Project\_SQL\database\Vaalrus.mdf;Integrated Security=True ";
+                    Properties.Settings.Default.conString = test;
+                    Properties.Settings.Default.Save();
+                    constr = Properties.Settings.Default.conString;
+                    createLocalTable();
+                }
+                else if (frmdb.localServer == false)
+                {
+
+                }
+                else
+                    MessageBox.Show("No db setup selected");
+            }
+            
             txtConString.Text = Properties.Settings.Default.conString;
             
         }
@@ -190,10 +250,59 @@ namespace vaalrusGUIPrototype
                 txtConString.Text = Properties.Settings.Default.conString;
             }
         }
+        private void createLocalTable()
+        {
+            if (conDB())
+            {
+                MessageBox.Show("DataBase Vaalrus Will now be Created");
+                //SqlConnection con = new SqlConnection(txtConString.Text);
+                //con.Open();
+                //Server server = new Server(new ServerConnection(con));
 
+                //server.ConnectionContext.ExecuteNonQuery(str);
+                //str = File.ReadAllText(@"_SQL\Script.txt");
+                //server.ConnectionContext.ExecuteNonQuery(str);
+                //string str = "CREATE DATABASE Vaalrus;";
+                //sql = str;
+                //command = new SqlCommand(sql, con);
+                //command.ExecuteNonQuery();
+                //con.Close();
+                //con.Open();
+                string str = File.ReadAllText(@"_SQL\Script.txt");
+                sql = str;
+                command = new SqlCommand(sql, con);
+                command.ExecuteNonQuery();
+                con.Close();
+
+                //string oldconstring = txtConString.Text;
+                //string first = oldconstring.Substring(0, oldconstring.IndexOf(";"));
+                //string second = ";Initial Catalog=Vaalrus";
+                //string third = oldconstring.Substring(oldconstring.IndexOf(";"));
+                //string necon = first + second + third;
+                //Properties.Settings.Default.conString = necon;
+                //Properties.Settings.Default.Save();
+                txtConString.Text = Properties.Settings.Default.conString;
+                MessageBox.Show("Local Vaalrus database is now created");
+            }
+            
+        }
+        private void loadTestData()
+        {
+            if (conDB())
+            {                              
+                Server server = new Server(new ServerConnection(con));
+                string str = File.ReadAllText(@"_SQL\InitialData.txt");
+                server.ConnectionContext.ExecuteNonQuery(str);
+                str = File.ReadAllText(@"_SQL\Views.txt");
+                server.ConnectionContext.ExecuteNonQuery(str);
+
+                con.Close();
+            }
+            
+        }
         private void btnTestData_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(txtConString.Text);
+            /*SqlConnection con = new SqlConnection(txtConString.Text);
             con.Open();
             Server server = new Server(new ServerConnection(con));            
             string str = File.ReadAllText(@"_SQL\InitialData.txt");          
@@ -201,7 +310,8 @@ namespace vaalrusGUIPrototype
             str = File.ReadAllText(@"_SQL\Views.txt");
             server.ConnectionContext.ExecuteNonQuery(str);
 
-            con.Close();
+            con.Close();*/
+            loadTestData();
         }
     }
 }
