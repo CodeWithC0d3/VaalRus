@@ -159,15 +159,11 @@ namespace vaalrusGUIPrototype
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
-            openChildForm(new frmCheckOut());
-            lblHeading.Text = "Check - Out";
-            changeButtonBrightness(sender);           
+            changeButtonBrightness(sender);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            this.StartPosition = FormStartPosition.Manual;
-            this.Location = new Point(35, 10);
             Color color = Color.FromArgb(54, 77, 91);
             GlobalSettings.PrimaryColor = color;
             GlobalSettings.SecondaryColor = GlobalSettings.ChangeColorBrightness(color, -0.3);
@@ -258,40 +254,9 @@ namespace vaalrusGUIPrototype
             }
         }
 
-        private void btnReports_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmReport());
-            lblHeading.Text = "Reports";
-            hideSubMenu();
-            changeButtonBrightness(sender);
-        }
-
-        private void pbMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void pbClose_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to close the program?", "Exit", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
-
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
-            openChildForm(new frmCheckIn());
-            lblHeading.Text = "Check - In";
-            changeButtonBrightness(sender);
-        }
 
-        private void btnViewAccommodations_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmViewAccommodations());
-            lblHeading.Text = "View Accommodations";
-            changeButtonBrightness(sender);
         }
     }
 }
