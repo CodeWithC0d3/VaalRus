@@ -55,11 +55,11 @@ namespace vaalrusGUIPrototype.Forms
             foreach (Control co in this.Controls)
             {
                
-                   // if (co.GetType() == typeof(Panel))
+                  // if (co.GetType() == typeof(Panel))
                    // {
                     //    co.Parent = this;
-                    //    co.BackColor = Color.Transparent;
-                   // }
+                     //   co.BackColor = Color.FromArgb(58, 93, 117);
+                    //}
                 if (co.GetType() == typeof(Label))
                 {
                     Label lbl = (Label)co;
@@ -86,7 +86,7 @@ namespace vaalrusGUIPrototype.Forms
             //pnlMain.BackColor = Color.Transparent;
            
            aplytheme(pnlMain);
-           aplytheme(panel2);
+           aplytheme(pnlFilter);
           aplytheme(pn_grid);
            aplytheme(pnl_accSet);
             timer1.Start();
@@ -95,6 +95,7 @@ namespace vaalrusGUIPrototype.Forms
         {
             if (pn.GetType() == typeof(Panel))
             {
+                pn.BackColor = Color.FromArgb(58, 93, 117);
                 foreach (Control co in pn.Controls)
                 {
                     if (co.GetType() == typeof(Button))

@@ -196,12 +196,14 @@ namespace vaalrusGUIPrototype
         private void frmSettings_Load(object sender, EventArgs e)
         {
             LoadTheme();
-
-            CreateDBStuff();
+            txtConString.Text = Properties.Settings.Default.conString;
+            if (Properties.Settings.Default.conString == "")
+                CreateDBStuff();
             
         }
         private void CreateDBStuff()
         {
+           
             //Boolean exist = false;
             string path = Application.StartupPath;
             string cstr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + $"{path}" + @"\data\Vaalrus.mdf;Integrated Security=True;Connect Timeout=0; ";
@@ -214,27 +216,6 @@ namespace vaalrusGUIPrototype
 
                 if (frmdb.localServer == 0)
                 {
-                    /*if (!File.Exists(path + @"\_SQL\database\Vaalrus.mdf"))
-                    {
-                        SqlConnection c = new SqlConnection();
-                        //con = new SqlConnection("Server =(local); Data Source =; Integrated Security = True");
-                        c = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;Context Connection = False; ");
-                        command = new SqlCommand("", c);
-                        command.CommandText = @"CREATE DATABASE Vaalrus ON PRIMARY (NAME=Vaalrus, FILENAME = '" + path + @"\_SQL\database\Vaalrus.mdf')";
-                        //command.Parameters.AddWithValue("@path",path);
-                        //command.CommandText = @"CREATE DATABASE Vaalrus FOR ATTACH";
-
-
-                        c.Open();
-                        command.ExecuteNonQuery();
-                        command.Dispose();
-                        c.Dispose();
-                    }    */
-
-
-                    //File.Copy(Path.Combine(@"_SQL\database\CleanFile\", "Vaalrus.mdf"), Path.Combine(@"_SQL\database\", "Vaalrus.mdf"));
-                    //File.Copy(Path.Combine(@"_SQL\database\CleanFile\", "Vaalrus_log.ldf"), Path.Combine(@"_SQL\database\", "Vaalrus_log.ldf"));
-                    //string test = cstr;
                     Properties.Settings.Default.conString = cstr;
                     Properties.Settings.Default.Save();
                     constr = Properties.Settings.Default.conString;
@@ -247,9 +228,11 @@ namespace vaalrusGUIPrototype
                 }
                 else
                     MessageBox.Show("No db setup selected");
-           // }
+                
 
-            txtConString.Text = Properties.Settings.Default.conString;
+           // }
+                txtConString.Text = Properties.Settings.Default.conString;
+
         }
         private void btnConString_Click(object sender, EventArgs e)
         {
@@ -328,31 +311,7 @@ namespace vaalrusGUIPrototype
             command.Dispose();
             con.Close();
             txtConString.Text = Properties.Settings.Default.conString;
-            MessageBox.Show("Local Vaalrus database is now created");
-            //SqlConnection con = new SqlConnection(txtConString.Text);
-            //con.Open();
-            //Server server = new Server(new ServerConnection(con));
-
-            //server.ConnectionContext.ExecuteNonQuery(str);
-            //str = File.ReadAllText(@"_SQL\Script.txt");
-            //server.ConnectionContext.ExecuteNonQuery(str);
-            //string str = "CREATE DATABASE Vaalrus;";
-            //sql = str;
-            //command = new SqlCommand(sql, con);
-            //command.ExecuteNonQuery();
-            //con.Close();
-            //con.Open();
-
-            //con.Open();
-
-
-            //string oldconstring = txtConString.Text;
-            //string first = oldconstring.Substring(0, oldconstring.IndexOf(";"));
-            //string second = ";Initial Catalog=Vaalrus";
-            //string third = oldconstring.Substring(oldconstring.IndexOf(";"));
-            //string necon = first + second + third;
-            //Properties.Settings.Default.conString = necon;
-            //Properties.Settings.Default.Save();
+            MessageBox.Show("Local Vaalrus database is now created");         
 
 
 
