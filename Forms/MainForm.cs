@@ -81,6 +81,7 @@ namespace vaalrusGUIPrototype
             panelSubMenuBooking.Visible = false;
             panelSubMenuCustomer.Visible = false;
             panelSubMenuAccommodation.Visible = false;
+            panelSubReports.Visible = false;
         }
         private void hideSubMenu()
         {
@@ -95,6 +96,10 @@ namespace vaalrusGUIPrototype
             if (panelSubMenuAccommodation.Visible == true)
             {
                 panelSubMenuAccommodation.Visible = false;
+            }
+            if (panelSubReports.Visible == true)
+            {
+                panelSubReports.Visible = false;
             }
         }
 
@@ -175,14 +180,7 @@ namespace vaalrusGUIPrototype
             GlobalSettings.font = new Font("Microsoft Sans Serif", 10);
     }
 
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmSettings());
-            hideSubMenu();
-            lblHeading.Text = "Settings";
-            changeButtonBrightness(sender);
-
-        }
+        
 
         private void btnUpdateCustomer_Click(object sender, EventArgs e)
         {
@@ -277,10 +275,12 @@ namespace vaalrusGUIPrototype
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-            openChildForm(new frmReport());
-            lblHeading.Text = "Reports";
-            hideSubMenu();
-            changeButtonBrightness(sender);
+            showSubMenu(panelSubReports);
+
+            //openChildForm(new frmReport());
+            //lblHeading.Text = "Reports";
+            //hideSubMenu();
+            //changeButtonBrightness(sender);
         }
 
         private void btnViewAccommodations_Click_1(object sender, EventArgs e)
@@ -290,6 +290,30 @@ namespace vaalrusGUIPrototype
             hideSubMenu();
             changeButtonBrightness(sender);
 
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmSettings());
+            hideSubMenu();
+            lblHeading.Text = "Settings";
+            changeButtonBrightness(sender);   
+        }
+
+        private void btnTop10Accom_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmReport());
+            lblHeading.Text = "Reports";
+            hideSubMenu();
+            changeButtonBrightness(sender);
+        }
+
+        private void btnBookingsPerPeriod_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmReportBookings());
+            lblHeading.Text = "Reports";
+            hideSubMenu();
+            changeButtonBrightness(sender);
         }
     }
 }
