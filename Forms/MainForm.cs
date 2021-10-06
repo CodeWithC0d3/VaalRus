@@ -159,6 +159,8 @@ namespace vaalrusGUIPrototype
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
+            openChildForm(new frmCheckOut());
+            lblHeading.Text = "Check - Out";
             changeButtonBrightness(sender);
         }
 
@@ -255,6 +257,20 @@ namespace vaalrusGUIPrototype
         }
 
         private void btnCheckIn_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmCheckIn());
+            lblHeading.Text = "Check - In";
+            changeButtonBrightness(sender);
+        }
+
+        private void btnViewAccommodations_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmViewAccommodations());
+            lblHeading.Text = "View Accommodations";
+            changeButtonBrightness(sender);
+        }
+
+        private void btnViewCustomers_Click(object sender, EventArgs e)
         {
 
         }
