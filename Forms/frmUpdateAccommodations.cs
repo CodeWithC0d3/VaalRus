@@ -24,6 +24,8 @@ namespace vaalrusGUIPrototype
         public string connString = Properties.Settings.Default.conString;
         public int dIndex;
         public string tempID, tempType, tempOccupants, tempPrice;
+        public string strDisplay2 = "Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID";
+
         public string strDisplay = "Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID;";
         public frmUpdateAccommodations()
         {
@@ -457,10 +459,12 @@ namespace vaalrusGUIPrototype
                 txtSearchOccupants.Clear();
                 txtsearchPrice.Clear();
                 txtSearchType.Clear();
-                Display($"Select * from Accommodation where Accommodation_ID Like '%{search}%'");
+                Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Accommodation.Accommodation_ID Like '%{search}%';");
+                //Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID;");
+
             }
             else
-                Display("Select * from Accommodation");
+                Display(strDisplay);
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -717,24 +721,28 @@ namespace vaalrusGUIPrototype
             int serOcc = 0;
             double serPrice = 0;
             int serType = 0;
+            Boolean active = true;
             if (txtSearchOccupants.Text.Length > 0)
             {
                 //int serID = Convert.ToInt32(txtSearchID.Text);
                 if (txtSearchType.Text.Length > 0) serType = Convert.ToInt32(txtSearchType.Text);
                 if (txtSearchOccupants.Text.Length > 0) serOcc = Convert.ToInt32(txtSearchOccupants.Text);
                 if (txtsearchPrice.Text.Length > 0) serPrice = Convert.ToDouble(txtsearchPrice.Text);
+                if (checkBoxActive.Checked) active = true; else active = false;
                 txtSearchID.Clear();
                 if (txtSearchType.Text.Length == 0 && txtsearchPrice.Text.Length == 0)
-                    Display($"Select * from Accommodation where Number_Of_Occupants Like '%{serOcc}%'");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%' ; ");
+
+                //Display($"Select * from Accommodation where Number_Of_Occupants Like '%{serOcc}%'");
                 else if (txtSearchType.Text.Length > 0 && txtsearchPrice.Text.Length == 0)
-                    Display($"Select * from Accommodation where Number_Of_Occupants Like '%{serOcc}%' AND Accommodation_TypeID Like '%{serType}%'");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%' AND Accommodation_TypeID Like '%{serType}%' ;");
                 else if (txtSearchType.Text.Length == 0 && txtsearchPrice.Text.Length > 0)
-                    Display($"Select * from Accommodation where Number_Of_Occupants Like '%{serOcc}%' AND Accommodation_Price Like '%{serPrice}%'");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%' AND Accommodation_Price Like '%{serPrice}%' ;");
                 else if (txtSearchType.Text.Length > 0 && txtsearchPrice.Text.Length > 0)
-                    Display($"Select * from Accommodation where Number_Of_Occupants Like '%{serOcc}%'AND Accommodation_TypeID Like '%{serType}%' AND Accommodation_Price Like '%{serPrice}%'");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%'AND Accommodation_TypeID Like '%{serType}%' AND Accommodation_Price Like '%{serPrice}%' ;");
             }
             else
-                Display("Select * from Accommodation");
+                Display(strDisplay);
         }
 
         private void txtsearchPrice_TextChanged(object sender, EventArgs e)
@@ -750,16 +758,16 @@ namespace vaalrusGUIPrototype
                 if (txtsearchPrice.Text.Length > 0) serPrice = Convert.ToDouble(txtsearchPrice.Text);
                 txtSearchID.Clear();
                 if (txtSearchType.Text.Length == 0 && txtSearchOccupants.Text.Length == 0)
-                    Display($"Select * from Accommodation where Accommodation_Price Like '%{serPrice}%'");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Accommodation_Price Like '%{serPrice}%';");
                 else if (txtSearchType.Text.Length > 0 && txtSearchOccupants.Text.Length == 0)
-                    Display($"Select * from Accommodation where Accommodation_Price Like '%{serPrice}%' AND Accommodation_TypeID Like '%{serType}%'");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Accommodation_Price Like '%{serPrice}%' AND Accommodation_TypeID Like '%{serType}%';");
                 else if (txtSearchType.Text.Length == 0 && txtSearchOccupants.Text.Length > 0)
-                    Display($"Select * from Accommodation where Accommodation_Price Like '%{serPrice}%' AND Number_Of_Occupants Like '%{serOcc}%'");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Accommodation_Price Like '%{serPrice}%' AND Number_Of_Occupants Like '%{serOcc}%';");
                 else if (txtSearchType.Text.Length > 0 && txtSearchOccupants.Text.Length > 0)
-                    Display($"Select * from Accommodation where Accommodation_Price Like '%{serPrice}%'AND Accommodation_TypeID Like '%{serType}%' AND Number_Of_Occupants Like '%{serOcc}%'");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Accommodation_Price Like '%{serPrice}%'AND Accommodation_TypeID Like '%{serType}%' AND Number_Of_Occupants Like '%{serOcc}%';");
             }
             else
-                Display("Select * from Accommodation");
+                Display(strDisplay);
         }
     }
 }
