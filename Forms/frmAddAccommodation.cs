@@ -38,7 +38,7 @@ namespace vaalrusGUIPrototype.Forms
                         if (pnl.Name != "pnlLabelHeading")
                         {
                             pnl.Parent = pictureBoxViewAllBookingsBackground;
-                            pnl.BackColor = Color.Transparent;
+                            //pnl.BackColor = Color.Transparent;
                         }
                     }
                 }
@@ -59,8 +59,8 @@ namespace vaalrusGUIPrototype.Forms
 
             aplytheme(pnlNewAccom);
             aplytheme(pnlNewAccomDetails);
-            aplytheme(pnlDelete);
-            aplytheme(pnlDeleteDetails);
+            //aplytheme(pnlDelete);
+            //aplytheme(pnlDeleteDetails);
             aplytheme(pnlDGrid);
 
         }
@@ -68,6 +68,7 @@ namespace vaalrusGUIPrototype.Forms
         {
             if (pn.GetType() == typeof(Panel))
             {
+                
                 foreach (Control co in pn.Controls)
                 {
                     if (co.GetType() == typeof(Button))
@@ -95,9 +96,16 @@ namespace vaalrusGUIPrototype.Forms
                     {
                         DataGridView dtgg = (DataGridView)co;
                         dtgg.ForeColor = Color.White;
-                        dtgg.BackgroundColor = SystemColors.Control;
+                        dtgg.BackgroundColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.BackColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
+                        dtgg.DefaultCellStyle.SelectionBackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
+                        dtgg.ColumnHeadersDefaultCellStyle.BackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
+                        dtgg.ColumnHeadersDefaultCellStyle.SelectionBackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
+                        dtgg.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                        dtgg.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                        dtgg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
 
                     }
                     if (co.GetType() == typeof(CheckBox))
@@ -233,14 +241,46 @@ namespace vaalrusGUIPrototype.Forms
             {
                 try
                 {
-                    int type = getAccomType(cbAccomType.Text);
+                    int tempNewID = 0;
+                    //string tnt = cbAccomType.Text;
+                    string tempNewType = cbAccomType.Text;//cbAccomType.SelectedValue.ToString();
+                    sqlConnection = new SqlConnection(connString);
+                    sqlConnection.Open();
+                    using (SqlCommand sqlCmd = new SqlCommand("Select Accommodation_TypeID from Accommodationtype where AccommodationType = '" + tempNewType + "'", sqlConnection))
+                    {
+                        SqlDataReader dReader = sqlCmd.ExecuteReader();
+
+                        while (dReader.Read())
+                        {
+                            tempNewID = (int)dReader.GetValue(0);
+                        }
+                    }
+                    sqlConnection.Close();
+                    if(tempNewID == 0)
+                    {
+                        //int type = getAccomType(cbAccomType.Text);
+                        //if(cbAccomType.SelectedIndex==0)
+                        sqlConnection = new SqlConnection(connString);
+                        sqlConnection.Open();
+                        sqlCmd = new SqlCommand($"Insert Into Accommodationtype (AccommodationType) Values (@type)", sqlConnection);
+                        //sqlCmd.Parameters.AddWithValue("@typeID", cbAccomType.SelectedIndex + 1);
+                        sqlCmd.Parameters.AddWithValue("@type", tempNewType);
+                        //sqlCmd.Parameters.AddWithValue("@price", Convert.ToInt32(txtAccomPrice.Text));
+                        sqlCmd.ExecuteNonQuery();
+                        sqlConnection.Close();
+                    }
+                        //txtAID.Text = dReader.GetValue(1).ToString();
+
+                        //if(cbAccomType.SelectedValue !=)
+                        int type = getAccomType(cbAccomType.Text);
                     //if(cbAccomType.SelectedIndex==0)
                     sqlConnection = new SqlConnection(connString);
                     sqlConnection.Open();
-                    sqlCmd = new SqlCommand($"Insert Into Accommodation (Accommodation_TypeID,Number_Of_Occupants,Accommodation_Price) Values (@type,@noo,@price)", sqlConnection);
+                    sqlCmd = new SqlCommand($"Insert Into Accommodation (Accommodation_TypeID,Number_Of_Occupants,Accommodation_Price,Active) Values (@type,@noo,@price,@act)", sqlConnection);
                     sqlCmd.Parameters.AddWithValue("@type", cbAccomType.SelectedIndex + 1);
                     sqlCmd.Parameters.AddWithValue("@noo", numOfOccupants.Value);
                     sqlCmd.Parameters.AddWithValue("@price", Convert.ToInt32(txtAccomPrice.Text));
+                    sqlCmd.Parameters.AddWithValue("@act", true);
                     sqlCmd.ExecuteNonQuery();
                     sqlConnection.Close();
 
@@ -287,19 +327,19 @@ namespace vaalrusGUIPrototype.Forms
             int columnindex = dataGridAccommodations.CurrentCell.ColumnIndex;
 
             string dindex2 = dataGridAccommodations.Rows[rowindex].Cells[columnindex].Value.ToString();
-            txtDelID.Text = dindex2;
+            //txtDelID.Text = dindex2;
         }
-        public void clearDel()
+        /*public void clearDel()
         {
             txtDelID.Clear();
             txtDelType.Clear();
             txtDelNumO.Clear();
             txtDelPrice.Clear();
 
-        }
+        }*/
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string s = txtDelID.Text;
+           /* string s = txtDelID.Text;
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete accommodation ID: '"+s+"'?", "Delete Accommodation", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -328,7 +368,7 @@ namespace vaalrusGUIPrototype.Forms
             else if (dialogResult == DialogResult.No)
             {
 
-            }
+            }*/
         }
     }
 }
