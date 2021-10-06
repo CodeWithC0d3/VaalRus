@@ -22,6 +22,8 @@ namespace vaalrusGUIPrototype.Forms
         public string dataFDB;
         public string connString = Properties.Settings.Default.conString;
         public int dIndex;
+        public string strDisplay = "Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID;";
+
         public frmAddAccommodation()
         {
             InitializeComponent();
@@ -284,7 +286,15 @@ namespace vaalrusGUIPrototype.Forms
                     sqlCmd.ExecuteNonQuery();
                     sqlConnection.Close();
 
-                    Display("Select * from Accommodation");
+                    Display(strDisplay);
+                    dataGridAccommodations.Rows[dataGridAccommodations.Rows.Count - 1].Cells[1].Selected = true;
+                    dataGridAccommodations.ClearSelection();
+                    int nRowIndex = dataGridAccommodations.Rows.Count - 1;
+
+                    dataGridAccommodations.Rows[nRowIndex].Selected = true;
+                    dataGridAccommodations.Rows[nRowIndex].Cells[0].Selected = true;
+                    dataGridAccommodations.FirstDisplayedScrollingRowIndex = dataGridAccommodations.RowCount - 1;
+                    MessageBox.Show("New Accommodation succesfully added to database");
                     //dIndex = 1;
                     //readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
                 }
@@ -308,8 +318,8 @@ namespace vaalrusGUIPrototype.Forms
                 sqlConnection.Open();
                 //MessageBox.Show("Connected to db");
                 setType();
-                Display("Select * from Accommodation");
-                cbAccomType.Items.Add("");
+                Display(strDisplay);
+                //cbAccomType.Items.Add("");
                 //readData("Select TOP 1 * from Accommodation");
                 dIndex = 1;
                 sqlConnection.Close();

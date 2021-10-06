@@ -182,6 +182,8 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // dataGridAccommodations
             // 
+            this.dataGridAccommodations.AllowUserToAddRows = false;
+            this.dataGridAccommodations.AllowUserToDeleteRows = false;
             this.dataGridAccommodations.AllowUserToResizeRows = false;
             this.dataGridAccommodations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridAccommodations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
