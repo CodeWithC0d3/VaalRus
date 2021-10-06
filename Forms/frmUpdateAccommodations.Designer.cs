@@ -38,6 +38,7 @@ namespace vaalrusGUIPrototype
             this.errorProviderOccupants = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderPrice = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxSearchType = new System.Windows.Forms.ComboBox();
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
             this.pnlGroupBoxSearch = new System.Windows.Forms.Panel();
             this.lblSearchActive = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@ namespace vaalrusGUIPrototype
             this.lblSearchOccupants = new System.Windows.Forms.Label();
             this.txtSearchOccupants = new System.Windows.Forms.TextBox();
             this.lblSearchType = new System.Windows.Forms.Label();
-            this.txtSearchType = new System.Windows.Forms.TextBox();
             this.lblsearchID = new System.Windows.Forms.Label();
             this.txtSearchID = new System.Windows.Forms.TextBox();
             this.pnlConnetionControls = new System.Windows.Forms.Panel();
@@ -146,6 +146,15 @@ namespace vaalrusGUIPrototype
             this.panel1.Size = new System.Drawing.Size(373, 209);
             this.panel1.TabIndex = 5;
             // 
+            // comboBoxSearchType
+            // 
+            this.comboBoxSearchType.FormattingEnabled = true;
+            this.comboBoxSearchType.Location = new System.Drawing.Point(167, 32);
+            this.comboBoxSearchType.Name = "comboBoxSearchType";
+            this.comboBoxSearchType.Size = new System.Drawing.Size(135, 21);
+            this.comboBoxSearchType.TabIndex = 25;
+            this.comboBoxSearchType.SelectedIndexChanged += new System.EventHandler(this.comboBoxSearchType_SelectedIndexChanged);
+            // 
             // groupBoxSearch
             // 
             this.groupBoxSearch.Controls.Add(this.pnlGroupBoxSearch);
@@ -158,6 +167,7 @@ namespace vaalrusGUIPrototype
             // 
             // pnlGroupBoxSearch
             // 
+            this.pnlGroupBoxSearch.Controls.Add(this.comboBoxSearchType);
             this.pnlGroupBoxSearch.Controls.Add(this.lblSearchActive);
             this.pnlGroupBoxSearch.Controls.Add(this.checkBoxSearchActive);
             this.pnlGroupBoxSearch.Controls.Add(this.lblSearchPrice);
@@ -165,7 +175,6 @@ namespace vaalrusGUIPrototype
             this.pnlGroupBoxSearch.Controls.Add(this.lblSearchOccupants);
             this.pnlGroupBoxSearch.Controls.Add(this.txtSearchOccupants);
             this.pnlGroupBoxSearch.Controls.Add(this.lblSearchType);
-            this.pnlGroupBoxSearch.Controls.Add(this.txtSearchType);
             this.pnlGroupBoxSearch.Controls.Add(this.lblsearchID);
             this.pnlGroupBoxSearch.Controls.Add(this.txtSearchID);
             this.pnlGroupBoxSearch.Location = new System.Drawing.Point(6, 19);
@@ -237,14 +246,6 @@ namespace vaalrusGUIPrototype
             this.lblSearchType.Size = new System.Drawing.Size(113, 13);
             this.lblSearchType.TabIndex = 18;
             this.lblSearchType.Text = "Accommodation Type:";
-            // 
-            // txtSearchType
-            // 
-            this.txtSearchType.Location = new System.Drawing.Point(167, 31);
-            this.txtSearchType.Name = "txtSearchType";
-            this.txtSearchType.Size = new System.Drawing.Size(134, 20);
-            this.txtSearchType.TabIndex = 17;
-            this.txtSearchType.TextChanged += new System.EventHandler(this.txtSearchType_TextChanged);
             // 
             // lblsearchID
             // 
@@ -483,7 +484,6 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Label lblSearchOccupants;
         private System.Windows.Forms.TextBox txtSearchOccupants;
         private System.Windows.Forms.Label lblSearchType;
-        private System.Windows.Forms.TextBox txtSearchType;
         private System.Windows.Forms.Label lblsearchID;
         private System.Windows.Forms.TextBox txtSearchID;
         private System.Windows.Forms.Panel pnlConnetionControls;
@@ -506,5 +506,6 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Label lblSearchActive;
         private System.Windows.Forms.CheckBox checkBoxSearchActive;
         private System.Windows.Forms.ComboBox comboBoxAType;
+        private System.Windows.Forms.ComboBox comboBoxSearchType;
     }
 }
