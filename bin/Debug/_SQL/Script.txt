@@ -76,8 +76,8 @@ CREATE TABLE Accommodation (
 );
 
 
-CREATE TABLE Accommodationset (
-    Quotation_ID INT NOT NULL PRIMARY KEY REFERENCES Quotation(Quotation_ID),
+CREATE TABLE Accommodationset (	
+    Quotation_ID INT NOT NULL REFERENCES Quotation(Quotation_ID),
 	--Quotation_ID INT NOT NULL REFERENCES Quotation(Quotation_ID), --FK also
     Accommodation_ID INT NOT NULL REFERENCES Accommodation(Accommodation_ID), --FK
 	startDate DATE NOT NULL,
