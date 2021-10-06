@@ -39,6 +39,28 @@ namespace vaalrusGUIPrototype
             ReportDataSource rds = new ReportDataSource("DataSet1", dt);
             this.reportViewer.LocalReport.DataSources.Add(rds);
             this.reportViewer.RefreshReport();
+            conn.Close();
+            loadDataSet2();
+        }
+        public void loadDataSet2()
+        {
+            this.reportViewer.RefreshReport();
+            this.reportViewer.RefreshReport();
+
+            SqlConnection conn = new SqlConnection(connString);
+            conn.Open();
+            //SqlCommand myComm = new SqlCommand("Select * from Accommodation", conn);
+            //SqlCommand myComm = new SqlCommand("SELECT Accommodation_ID, COUNT(Accommodation_ID) AS [value_occurrence] FROM Accommodationset GROUP BY Accommodation_ID ORDER BY [value_occurrence] DESC LIMIT 1;",conn);
+            SqlCommand myComm = new SqlCommand("SELECT * FROM Accommodationset;", conn);
+            SqlDataAdapter adapter = new SqlDataAdapter(myComm);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+
+            this.reportViewer.LocalReport.ReportPath = @"listAccomReport.rdlc";
+            ReportDataSource rds2 = new ReportDataSource("DataSet2", dt);
+            this.reportViewer.LocalReport.DataSources.Add(rds2);
+            this.reportViewer.RefreshReport();
+            conn.Close();
         }
     }
 }
