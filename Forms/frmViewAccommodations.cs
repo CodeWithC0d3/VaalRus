@@ -55,7 +55,56 @@ namespace vaalrusGUIPrototype
         {
 
         }
+        private void loadAvailibleAcc()
+        {
+            string constr = Properties.Settings.Default.conString;
+            SqlConnection con = new SqlConnection(constr);
+            SqlCommand command;
+            SqlDataAdapter adapter;
+            SqlDataReader dataReader;
+            DataSet ds;
+            string sql = "";
+            
+                
+            DateTime startDT  = dpFrom.Value.Date;
+            DateTime endDT = dpto.Value.Date;
+            sql = "SELECT * FROM Accommodation";
+             
+            command = new SqlCommand(sql, con);
+            adapter = new SqlDataAdapter();
+            DataSet ds1 = new DataSet();
+            adapter.SelectCommand = command;
+            adapter.Fill(ds1,"Accommodation_ID");
 
+            sql = $"SELECT 	Accommodation_ID, AccommodationType FROM accAvailibility WHERE StartDate >= '{startDT.Date.ToString("yyyy/MM/dd")}' and EndDate <= '{endDT.Date.ToString("yyyy/MM/dd")}'";
+            command = new SqlCommand(sql, con);
+            adapter = new SqlDataAdapter();
+            ds = new DataSet();
+            adapter.SelectCommand = command;
+            adapter.Fill(ds,"Accommodation_ID");
+
+            foreach (DataRow row1 in ds1.Tables[0].Rows)
+            {
+                foreach (DataRow row2 in ds.Tables[0].Rows)
+                {
+                    string st1 = row1.ItemArray[0].ToString();
+                    string st2 = row2.ItemArray[0].ToString();
+                    if (row1.ItemArray[0].ToString() == row2.ItemArray[0].ToString())
+                    {
+                        row1.Delete();
+                        break; // break inner loop
+                    }
+                }
+
+            }
+            ds1.AcceptChanges();
+            dataGridView1.DataMember = "Accommodation_ID";
+            dataGridView1.DataSource = ds1;
+            //cmbAccommodation.DataSource = ds1.Tables[0];
+            con.Close();
+
+            
+        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -93,6 +142,11 @@ namespace vaalrusGUIPrototype
            // dIndex = 1;
            // readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
             //loadTemp();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            loadAvailibleAcc();
         }
     }
 }

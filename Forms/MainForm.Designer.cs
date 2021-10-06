@@ -85,8 +85,9 @@ namespace vaalrusGUIPrototype
             this.panelSideBar.Controls.Add(this.panelMain);
             this.panelSideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideBar.Location = new System.Drawing.Point(0, 0);
+            this.panelSideBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelSideBar.Name = "panelSideBar";
-            this.panelSideBar.Size = new System.Drawing.Size(186, 609);
+            this.panelSideBar.Size = new System.Drawing.Size(248, 750);
             this.panelSideBar.TabIndex = 0;
             // 
             // btnSettings
@@ -95,9 +96,10 @@ namespace vaalrusGUIPrototype
             this.btnSettings.FlatAppearance.BorderSize = 0;
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSettings.Location = new System.Drawing.Point(0, 727);
+            this.btnSettings.Location = new System.Drawing.Point(0, 894);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(169, 35);
+            this.btnSettings.Size = new System.Drawing.Size(227, 43);
             this.btnSettings.TabIndex = 9;
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = true;
@@ -110,9 +112,10 @@ namespace vaalrusGUIPrototype
             this.btnReports.FlatAppearance.BorderSize = 0;
             this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReports.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnReports.Location = new System.Drawing.Point(0, 692);
+            this.btnReports.Location = new System.Drawing.Point(0, 851);
+            this.btnReports.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(169, 35);
+            this.btnReports.Size = new System.Drawing.Size(227, 43);
             this.btnReports.TabIndex = 8;
             this.btnReports.Text = "Reports";
             this.btnReports.UseVisualStyleBackColor = false;
@@ -125,9 +128,10 @@ namespace vaalrusGUIPrototype
             this.btnQoutation.FlatAppearance.BorderSize = 0;
             this.btnQoutation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQoutation.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnQoutation.Location = new System.Drawing.Point(0, 657);
+            this.btnQoutation.Location = new System.Drawing.Point(0, 808);
+            this.btnQoutation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnQoutation.Name = "btnQoutation";
-            this.btnQoutation.Size = new System.Drawing.Size(169, 35);
+            this.btnQoutation.Size = new System.Drawing.Size(227, 43);
             this.btnQoutation.TabIndex = 7;
             this.btnQoutation.Text = "Quotations";
             this.btnQoutation.UseVisualStyleBackColor = false;
@@ -141,9 +145,10 @@ namespace vaalrusGUIPrototype
             this.panelSubMenuAccommodation.Controls.Add(this.btnAddAccommodation);
             this.panelSubMenuAccommodation.Controls.Add(this.btnViewAccommodations);
             this.panelSubMenuAccommodation.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuAccommodation.Location = new System.Drawing.Point(0, 514);
+            this.panelSubMenuAccommodation.Location = new System.Drawing.Point(0, 632);
+            this.panelSubMenuAccommodation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelSubMenuAccommodation.Name = "panelSubMenuAccommodation";
-            this.panelSubMenuAccommodation.Size = new System.Drawing.Size(169, 143);
+            this.panelSubMenuAccommodation.Size = new System.Drawing.Size(227, 176);
             this.panelSubMenuAccommodation.TabIndex = 6;
             // 
             // btnDeleteAccommodation
@@ -152,10 +157,11 @@ namespace vaalrusGUIPrototype
             this.btnDeleteAccommodation.FlatAppearance.BorderSize = 0;
             this.btnDeleteAccommodation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteAccommodation.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDeleteAccommodation.Location = new System.Drawing.Point(0, 105);
+            this.btnDeleteAccommodation.Location = new System.Drawing.Point(0, 129);
+            this.btnDeleteAccommodation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDeleteAccommodation.Name = "btnDeleteAccommodation";
-            this.btnDeleteAccommodation.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnDeleteAccommodation.Size = new System.Drawing.Size(169, 35);
+            this.btnDeleteAccommodation.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnDeleteAccommodation.Size = new System.Drawing.Size(227, 43);
             this.btnDeleteAccommodation.TabIndex = 3;
             this.btnDeleteAccommodation.Text = "Delete";
             this.btnDeleteAccommodation.UseVisualStyleBackColor = true;
@@ -167,10 +173,11 @@ namespace vaalrusGUIPrototype
             this.btnUpdateAccommodation.FlatAppearance.BorderSize = 0;
             this.btnUpdateAccommodation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateAccommodation.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnUpdateAccommodation.Location = new System.Drawing.Point(0, 70);
+            this.btnUpdateAccommodation.Location = new System.Drawing.Point(0, 86);
+            this.btnUpdateAccommodation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdateAccommodation.Name = "btnUpdateAccommodation";
-            this.btnUpdateAccommodation.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnUpdateAccommodation.Size = new System.Drawing.Size(169, 35);
+            this.btnUpdateAccommodation.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnUpdateAccommodation.Size = new System.Drawing.Size(227, 43);
             this.btnUpdateAccommodation.TabIndex = 2;
             this.btnUpdateAccommodation.Text = "Update";
             this.btnUpdateAccommodation.UseVisualStyleBackColor = true;
@@ -182,10 +189,11 @@ namespace vaalrusGUIPrototype
             this.btnAddAccommodation.FlatAppearance.BorderSize = 0;
             this.btnAddAccommodation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddAccommodation.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAddAccommodation.Location = new System.Drawing.Point(0, 35);
+            this.btnAddAccommodation.Location = new System.Drawing.Point(0, 43);
+            this.btnAddAccommodation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddAccommodation.Name = "btnAddAccommodation";
-            this.btnAddAccommodation.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnAddAccommodation.Size = new System.Drawing.Size(169, 35);
+            this.btnAddAccommodation.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnAddAccommodation.Size = new System.Drawing.Size(227, 43);
             this.btnAddAccommodation.TabIndex = 1;
             this.btnAddAccommodation.Text = "Add";
             this.btnAddAccommodation.UseVisualStyleBackColor = true;
@@ -198,12 +206,14 @@ namespace vaalrusGUIPrototype
             this.btnViewAccommodations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewAccommodations.ForeColor = System.Drawing.SystemColors.Control;
             this.btnViewAccommodations.Location = new System.Drawing.Point(0, 0);
+            this.btnViewAccommodations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnViewAccommodations.Name = "btnViewAccommodations";
-            this.btnViewAccommodations.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnViewAccommodations.Size = new System.Drawing.Size(169, 35);
+            this.btnViewAccommodations.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnViewAccommodations.Size = new System.Drawing.Size(227, 43);
             this.btnViewAccommodations.TabIndex = 0;
             this.btnViewAccommodations.Text = "View";
             this.btnViewAccommodations.UseVisualStyleBackColor = true;
+            this.btnViewAccommodations.Click += new System.EventHandler(this.btnViewAccommodations_Click_1);
             // 
             // btnAccomodations
             // 
@@ -212,9 +222,10 @@ namespace vaalrusGUIPrototype
             this.btnAccomodations.FlatAppearance.BorderSize = 0;
             this.btnAccomodations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccomodations.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAccomodations.Location = new System.Drawing.Point(0, 479);
+            this.btnAccomodations.Location = new System.Drawing.Point(0, 589);
+            this.btnAccomodations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAccomodations.Name = "btnAccomodations";
-            this.btnAccomodations.Size = new System.Drawing.Size(169, 35);
+            this.btnAccomodations.Size = new System.Drawing.Size(227, 43);
             this.btnAccomodations.TabIndex = 5;
             this.btnAccomodations.Text = "Accommodations";
             this.btnAccomodations.UseVisualStyleBackColor = false;
@@ -228,9 +239,10 @@ namespace vaalrusGUIPrototype
             this.panelSubMenuCustomer.Controls.Add(this.btnAddCustomer);
             this.panelSubMenuCustomer.Controls.Add(this.btnViewCustomers);
             this.panelSubMenuCustomer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuCustomer.Location = new System.Drawing.Point(0, 336);
+            this.panelSubMenuCustomer.Location = new System.Drawing.Point(0, 413);
+            this.panelSubMenuCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelSubMenuCustomer.Name = "panelSubMenuCustomer";
-            this.panelSubMenuCustomer.Size = new System.Drawing.Size(169, 143);
+            this.panelSubMenuCustomer.Size = new System.Drawing.Size(227, 176);
             this.panelSubMenuCustomer.TabIndex = 4;
             // 
             // btnDeleteCustomer
@@ -239,10 +251,11 @@ namespace vaalrusGUIPrototype
             this.btnDeleteCustomer.FlatAppearance.BorderSize = 0;
             this.btnDeleteCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteCustomer.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDeleteCustomer.Location = new System.Drawing.Point(0, 105);
+            this.btnDeleteCustomer.Location = new System.Drawing.Point(0, 129);
+            this.btnDeleteCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDeleteCustomer.Name = "btnDeleteCustomer";
-            this.btnDeleteCustomer.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnDeleteCustomer.Size = new System.Drawing.Size(169, 35);
+            this.btnDeleteCustomer.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnDeleteCustomer.Size = new System.Drawing.Size(227, 43);
             this.btnDeleteCustomer.TabIndex = 3;
             this.btnDeleteCustomer.Text = "Delete";
             this.btnDeleteCustomer.UseVisualStyleBackColor = true;
@@ -254,10 +267,11 @@ namespace vaalrusGUIPrototype
             this.btnUpdateCustomer.FlatAppearance.BorderSize = 0;
             this.btnUpdateCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateCustomer.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnUpdateCustomer.Location = new System.Drawing.Point(0, 70);
+            this.btnUpdateCustomer.Location = new System.Drawing.Point(0, 86);
+            this.btnUpdateCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdateCustomer.Name = "btnUpdateCustomer";
-            this.btnUpdateCustomer.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnUpdateCustomer.Size = new System.Drawing.Size(169, 35);
+            this.btnUpdateCustomer.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnUpdateCustomer.Size = new System.Drawing.Size(227, 43);
             this.btnUpdateCustomer.TabIndex = 2;
             this.btnUpdateCustomer.Text = "Update";
             this.btnUpdateCustomer.UseVisualStyleBackColor = true;
@@ -269,10 +283,11 @@ namespace vaalrusGUIPrototype
             this.btnAddCustomer.FlatAppearance.BorderSize = 0;
             this.btnAddCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCustomer.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAddCustomer.Location = new System.Drawing.Point(0, 35);
+            this.btnAddCustomer.Location = new System.Drawing.Point(0, 43);
+            this.btnAddCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddCustomer.Name = "btnAddCustomer";
-            this.btnAddCustomer.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnAddCustomer.Size = new System.Drawing.Size(169, 35);
+            this.btnAddCustomer.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnAddCustomer.Size = new System.Drawing.Size(227, 43);
             this.btnAddCustomer.TabIndex = 1;
             this.btnAddCustomer.Text = "Add";
             this.btnAddCustomer.UseVisualStyleBackColor = true;
@@ -285,9 +300,10 @@ namespace vaalrusGUIPrototype
             this.btnViewCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewCustomers.ForeColor = System.Drawing.SystemColors.Control;
             this.btnViewCustomers.Location = new System.Drawing.Point(0, 0);
+            this.btnViewCustomers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnViewCustomers.Name = "btnViewCustomers";
-            this.btnViewCustomers.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnViewCustomers.Size = new System.Drawing.Size(169, 35);
+            this.btnViewCustomers.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnViewCustomers.Size = new System.Drawing.Size(227, 43);
             this.btnViewCustomers.TabIndex = 0;
             this.btnViewCustomers.Text = "View";
             this.btnViewCustomers.UseVisualStyleBackColor = true;
@@ -299,9 +315,10 @@ namespace vaalrusGUIPrototype
             this.btnCustomers.FlatAppearance.BorderSize = 0;
             this.btnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCustomers.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCustomers.Location = new System.Drawing.Point(0, 301);
+            this.btnCustomers.Location = new System.Drawing.Point(0, 370);
+            this.btnCustomers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCustomers.Name = "btnCustomers";
-            this.btnCustomers.Size = new System.Drawing.Size(169, 35);
+            this.btnCustomers.Size = new System.Drawing.Size(227, 43);
             this.btnCustomers.TabIndex = 3;
             this.btnCustomers.Text = "Customers";
             this.btnCustomers.UseVisualStyleBackColor = false;
@@ -316,9 +333,10 @@ namespace vaalrusGUIPrototype
             this.panelSubMenuBooking.Controls.Add(this.btnCreateBooking);
             this.panelSubMenuBooking.Controls.Add(this.btnViewBookings);
             this.panelSubMenuBooking.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuBooking.Location = new System.Drawing.Point(0, 120);
+            this.panelSubMenuBooking.Location = new System.Drawing.Point(0, 147);
+            this.panelSubMenuBooking.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelSubMenuBooking.Name = "panelSubMenuBooking";
-            this.panelSubMenuBooking.Size = new System.Drawing.Size(169, 181);
+            this.panelSubMenuBooking.Size = new System.Drawing.Size(227, 223);
             this.panelSubMenuBooking.TabIndex = 2;
             // 
             // btnDeleteBooking
@@ -327,10 +345,11 @@ namespace vaalrusGUIPrototype
             this.btnDeleteBooking.FlatAppearance.BorderSize = 0;
             this.btnDeleteBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteBooking.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDeleteBooking.Location = new System.Drawing.Point(0, 140);
+            this.btnDeleteBooking.Location = new System.Drawing.Point(0, 172);
+            this.btnDeleteBooking.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDeleteBooking.Name = "btnDeleteBooking";
-            this.btnDeleteBooking.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnDeleteBooking.Size = new System.Drawing.Size(169, 35);
+            this.btnDeleteBooking.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnDeleteBooking.Size = new System.Drawing.Size(227, 43);
             this.btnDeleteBooking.TabIndex = 4;
             this.btnDeleteBooking.Text = "Cancel";
             this.btnDeleteBooking.UseVisualStyleBackColor = true;
@@ -341,10 +360,11 @@ namespace vaalrusGUIPrototype
             this.btnCheckOut.FlatAppearance.BorderSize = 0;
             this.btnCheckOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheckOut.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCheckOut.Location = new System.Drawing.Point(0, 105);
+            this.btnCheckOut.Location = new System.Drawing.Point(0, 129);
+            this.btnCheckOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCheckOut.Name = "btnCheckOut";
-            this.btnCheckOut.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnCheckOut.Size = new System.Drawing.Size(169, 35);
+            this.btnCheckOut.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnCheckOut.Size = new System.Drawing.Size(227, 43);
             this.btnCheckOut.TabIndex = 3;
             this.btnCheckOut.Text = "Check-Out";
             this.btnCheckOut.UseVisualStyleBackColor = true;
@@ -356,10 +376,11 @@ namespace vaalrusGUIPrototype
             this.btnCheckIn.FlatAppearance.BorderSize = 0;
             this.btnCheckIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheckIn.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCheckIn.Location = new System.Drawing.Point(0, 70);
+            this.btnCheckIn.Location = new System.Drawing.Point(0, 86);
+            this.btnCheckIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCheckIn.Name = "btnCheckIn";
-            this.btnCheckIn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnCheckIn.Size = new System.Drawing.Size(169, 35);
+            this.btnCheckIn.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnCheckIn.Size = new System.Drawing.Size(227, 43);
             this.btnCheckIn.TabIndex = 2;
             this.btnCheckIn.Text = "Check-In";
             this.btnCheckIn.UseVisualStyleBackColor = true;
@@ -371,10 +392,11 @@ namespace vaalrusGUIPrototype
             this.btnCreateBooking.FlatAppearance.BorderSize = 0;
             this.btnCreateBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateBooking.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCreateBooking.Location = new System.Drawing.Point(0, 35);
+            this.btnCreateBooking.Location = new System.Drawing.Point(0, 43);
+            this.btnCreateBooking.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCreateBooking.Name = "btnCreateBooking";
-            this.btnCreateBooking.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnCreateBooking.Size = new System.Drawing.Size(169, 35);
+            this.btnCreateBooking.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnCreateBooking.Size = new System.Drawing.Size(227, 43);
             this.btnCreateBooking.TabIndex = 1;
             this.btnCreateBooking.Text = "New";
             this.btnCreateBooking.UseVisualStyleBackColor = true;
@@ -387,9 +409,10 @@ namespace vaalrusGUIPrototype
             this.btnViewBookings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewBookings.ForeColor = System.Drawing.SystemColors.Control;
             this.btnViewBookings.Location = new System.Drawing.Point(0, 0);
+            this.btnViewBookings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnViewBookings.Name = "btnViewBookings";
-            this.btnViewBookings.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnViewBookings.Size = new System.Drawing.Size(169, 35);
+            this.btnViewBookings.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnViewBookings.Size = new System.Drawing.Size(227, 43);
             this.btnViewBookings.TabIndex = 0;
             this.btnViewBookings.Text = "View";
             this.btnViewBookings.UseVisualStyleBackColor = true;
@@ -402,9 +425,10 @@ namespace vaalrusGUIPrototype
             this.btnBookings.FlatAppearance.BorderSize = 0;
             this.btnBookings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBookings.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnBookings.Location = new System.Drawing.Point(0, 80);
+            this.btnBookings.Location = new System.Drawing.Point(0, 98);
+            this.btnBookings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBookings.Name = "btnBookings";
-            this.btnBookings.Size = new System.Drawing.Size(169, 40);
+            this.btnBookings.Size = new System.Drawing.Size(227, 49);
             this.btnBookings.TabIndex = 1;
             this.btnBookings.Text = "Bookings";
             this.btnBookings.UseVisualStyleBackColor = false;
@@ -417,8 +441,9 @@ namespace vaalrusGUIPrototype
             this.panelMain.Controls.Add(this.pictureBoxLogo);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(169, 80);
+            this.panelMain.Size = new System.Drawing.Size(227, 98);
             this.panelMain.TabIndex = 0;
             // 
             // label1
@@ -427,9 +452,10 @@ namespace vaalrusGUIPrototype
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(70)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(81, 0);
+            this.label1.Location = new System.Drawing.Point(108, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 36);
+            this.label1.Size = new System.Drawing.Size(126, 42);
             this.label1.TabIndex = 1;
             this.label1.Text = "LOGO";
             this.label1.Visible = false;
@@ -440,8 +466,9 @@ namespace vaalrusGUIPrototype
             this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBoxLogo.Image = global::vaalrusGUIPrototype.Properties.Resources.Logotest;
             this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(169, 80);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(227, 98);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
@@ -452,9 +479,10 @@ namespace vaalrusGUIPrototype
             this.pnlLabelHeading.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(70)))));
             this.pnlLabelHeading.Controls.Add(this.lblHeading);
             this.pnlLabelHeading.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLabelHeading.Location = new System.Drawing.Point(186, 0);
+            this.pnlLabelHeading.Location = new System.Drawing.Point(248, 0);
+            this.pnlLabelHeading.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlLabelHeading.Name = "pnlLabelHeading";
-            this.pnlLabelHeading.Size = new System.Drawing.Size(837, 97);
+            this.pnlLabelHeading.Size = new System.Drawing.Size(1116, 119);
             this.pnlLabelHeading.TabIndex = 11;
             this.pnlLabelHeading.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlLabelHeading_MouseMove);
             // 
@@ -463,18 +491,20 @@ namespace vaalrusGUIPrototype
             this.lblHeading.AutoSize = true;
             this.lblHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeading.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblHeading.Location = new System.Drawing.Point(270, 20);
+            this.lblHeading.Location = new System.Drawing.Point(360, 25);
+            this.lblHeading.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHeading.Name = "lblHeading";
-            this.lblHeading.Size = new System.Drawing.Size(388, 36);
+            this.lblHeading.Size = new System.Drawing.Size(485, 42);
             this.lblHeading.TabIndex = 0;
             this.lblHeading.Text = "Vaalrus Recreational Resort";
             // 
             // pictureBoxMainFormBackground
             // 
             this.pictureBoxMainFormBackground.Image = global::vaalrusGUIPrototype.Properties.Resources.backgroundImage;
-            this.pictureBoxMainFormBackground.Location = new System.Drawing.Point(888, 120);
+            this.pictureBoxMainFormBackground.Location = new System.Drawing.Point(1184, 148);
+            this.pictureBoxMainFormBackground.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBoxMainFormBackground.Name = "pictureBoxMainFormBackground";
-            this.pictureBoxMainFormBackground.Size = new System.Drawing.Size(213, 161);
+            this.pictureBoxMainFormBackground.Size = new System.Drawing.Size(284, 198);
             this.pictureBoxMainFormBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMainFormBackground.TabIndex = 0;
             this.pictureBoxMainFormBackground.TabStop = false;
@@ -487,20 +517,22 @@ namespace vaalrusGUIPrototype
             this.panelChildForm.BackgroundImage = global::vaalrusGUIPrototype.Properties.Resources.backgroundImage;
             this.panelChildForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(186, 97);
+            this.panelChildForm.Location = new System.Drawing.Point(248, 119);
+            this.panelChildForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(837, 512);
+            this.panelChildForm.Size = new System.Drawing.Size(1116, 631);
             this.panelChildForm.TabIndex = 12;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1023, 609);
+            this.ClientSize = new System.Drawing.Size(1364, 750);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.pictureBoxMainFormBackground);
             this.Controls.Add(this.pnlLabelHeading);
             this.Controls.Add(this.panelSideBar);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
             this.Text = "Vaalrus Booking System";
             this.Load += new System.EventHandler(this.MainForm_Load);

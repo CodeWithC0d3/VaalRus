@@ -44,7 +44,7 @@ namespace vaalrusGUIPrototype
             }
             catch (SqlException sqle)
             {
-                MessageBox.Show(sqle.Message.ToString());
+                MessageBox.Show(sqle.Message.ToString());                
             }
             sqlConnection.Close();
         }
@@ -200,12 +200,12 @@ namespace vaalrusGUIPrototype
             {
                 MessageBox.Show("Connection unsuccesful");
             }
-            Display("Select * from Booking ");
+            Display("SELECT Booking.Booking_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Booking.StartDate, dbo.Booking.EndDate, dbo.Booking.Checkin_Time,dbo.Booking.Checkin_Out FROM     dbo.Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID");
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -222,6 +222,11 @@ namespace vaalrusGUIPrototype
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }
     }
 }

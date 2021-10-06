@@ -282,5 +282,14 @@ namespace vaalrusGUIPrototype
             hideSubMenu();
             changeButtonBrightness(sender);
         }
+
+        private void btnViewAccommodations_Click_1(object sender, EventArgs e)
+        {
+            openChildForm(new frmViewAccommodations());
+            lblHeading.Text = "View Accommodation";
+            hideSubMenu();
+            changeButtonBrightness(sender);
+
+        }
     }
 }

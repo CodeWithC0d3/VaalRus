@@ -31,10 +31,10 @@ namespace vaalrusGUIPrototype
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dpto = new System.Windows.Forms.DateTimePicker();
+            this.dpFrom = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -54,10 +54,10 @@ namespace vaalrusGUIPrototype
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dpto);
+            this.panel1.Controls.Add(this.dpFrom);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.dateTimePicker2);
-            this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
@@ -65,7 +65,20 @@ namespace vaalrusGUIPrototype
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(342, 482);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // dpto
+            // 
+            this.dpto.Location = new System.Drawing.Point(79, 196);
+            this.dpto.Name = "dpto";
+            this.dpto.Size = new System.Drawing.Size(200, 22);
+            this.dpto.TabIndex = 8;
+            // 
+            // dpFrom
+            // 
+            this.dpFrom.Location = new System.Drawing.Point(92, 133);
+            this.dpFrom.Name = "dpFrom";
+            this.dpFrom.Size = new System.Drawing.Size(200, 22);
+            this.dpFrom.TabIndex = 7;
             // 
             // label2
             // 
@@ -85,21 +98,6 @@ namespace vaalrusGUIPrototype
             this.label1.TabIndex = 5;
             this.label1.Text = "FROM:";
             // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(92, 196);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(219, 22);
-            this.dateTimePicker2.TabIndex = 4;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(92, 133);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(217, 22);
-            this.dateTimePicker1.TabIndex = 3;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged_1);
-            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(115, 272);
@@ -108,6 +106,7 @@ namespace vaalrusGUIPrototype
             this.button3.TabIndex = 2;
             this.button3.Text = "Available";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -117,7 +116,6 @@ namespace vaalrusGUIPrototype
             this.button2.TabIndex = 1;
             this.button2.Text = "Booked";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -127,7 +125,6 @@ namespace vaalrusGUIPrototype
             this.button1.TabIndex = 0;
             this.button1.Text = "Display All Accommodations";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmViewAccommodations
             // 
@@ -153,9 +150,9 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dpto;
+        private System.Windows.Forms.DateTimePicker dpFrom;
     }
 }
