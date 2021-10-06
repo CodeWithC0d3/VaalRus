@@ -59,7 +59,7 @@ namespace vaalrusGUIPrototype.Forms
             this.button1 = new System.Windows.Forms.Button();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.grid_main = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlFilter = new System.Windows.Forms.Panel();
             this.ch_to = new System.Windows.Forms.CheckBox();
             this.rb_booking = new System.Windows.Forms.RadioButton();
             this.rb_quote = new System.Windows.Forms.RadioButton();
@@ -76,7 +76,7 @@ namespace vaalrusGUIPrototype.Forms
             this.pn_grid.SuspendLayout();
             this.pnlReport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_main)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.pnlFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erProvider)).BeginInit();
             this.pnl_accSet.SuspendLayout();
@@ -106,7 +106,7 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlMain.Controls.Add(this.label1);
             this.pnlMain.Location = new System.Drawing.Point(12, 12);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(315, 658);
+            this.pnlMain.Size = new System.Drawing.Size(315, 510);
             this.pnlMain.TabIndex = 1;
             this.pnlMain.Visible = false;
             this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
@@ -115,7 +115,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             this.btnQuote.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnQuote.Enabled = false;
-            this.btnQuote.Location = new System.Drawing.Point(218, 590);
+            this.btnQuote.Location = new System.Drawing.Point(218, 442);
             this.btnQuote.Name = "btnQuote";
             this.btnQuote.Size = new System.Drawing.Size(87, 53);
             this.btnQuote.TabIndex = 19;
@@ -129,7 +129,7 @@ namespace vaalrusGUIPrototype.Forms
             this.lstAccommodation.Location = new System.Drawing.Point(15, 302);
             this.lstAccommodation.Margin = new System.Windows.Forms.Padding(2);
             this.lstAccommodation.Name = "lstAccommodation";
-            this.lstAccommodation.Size = new System.Drawing.Size(290, 134);
+            this.lstAccommodation.Size = new System.Drawing.Size(290, 121);
             this.lstAccommodation.TabIndex = 0;
             // 
             // dpTo
@@ -143,7 +143,7 @@ namespace vaalrusGUIPrototype.Forms
             // btnClearLst
             // 
             this.btnClearLst.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnClearLst.Location = new System.Drawing.Point(15, 590);
+            this.btnClearLst.Location = new System.Drawing.Point(15, 442);
             this.btnClearLst.Name = "btnClearLst";
             this.btnClearLst.Size = new System.Drawing.Size(87, 53);
             this.btnClearLst.TabIndex = 18;
@@ -228,7 +228,7 @@ namespace vaalrusGUIPrototype.Forms
             // btnGeneratQuote
             // 
             this.btnGeneratQuote.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnGeneratQuote.Location = new System.Drawing.Point(108, 590);
+            this.btnGeneratQuote.Location = new System.Drawing.Point(108, 442);
             this.btnGeneratQuote.Name = "btnGeneratQuote";
             this.btnGeneratQuote.Size = new System.Drawing.Size(104, 53);
             this.btnGeneratQuote.TabIndex = 1;
@@ -281,17 +281,17 @@ namespace vaalrusGUIPrototype.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pn_grid.Controls.Add(this.pnlReport);
             this.pn_grid.Controls.Add(this.grid_main);
-            this.pn_grid.Controls.Add(this.panel2);
+            this.pn_grid.Controls.Add(this.pnlFilter);
             this.pn_grid.Location = new System.Drawing.Point(333, 12);
             this.pn_grid.Name = "pn_grid";
-            this.pn_grid.Size = new System.Drawing.Size(658, 452);
+            this.pn_grid.Size = new System.Drawing.Size(634, 304);
             this.pn_grid.TabIndex = 9;
             // 
             // pnlReport
             // 
             this.pnlReport.Controls.Add(this.button1);
             this.pnlReport.Controls.Add(this.reportViewer1);
-            this.pnlReport.Location = new System.Drawing.Point(115, 197);
+            this.pnlReport.Location = new System.Drawing.Point(155, 68);
             this.pnlReport.Name = "pnlReport";
             this.pnlReport.Size = new System.Drawing.Size(346, 236);
             this.pnlReport.TabIndex = 12;
@@ -359,30 +359,30 @@ namespace vaalrusGUIPrototype.Forms
             this.grid_main.RowHeadersVisible = false;
             this.grid_main.RowTemplate.ReadOnly = true;
             this.grid_main.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid_main.Size = new System.Drawing.Size(658, 395);
+            this.grid_main.Size = new System.Drawing.Size(634, 247);
             this.grid_main.TabIndex = 10;
             this.grid_main.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grid_main_CellMouseClick);
             this.grid_main.SelectionChanged += new System.EventHandler(this.grid_main_SelectionChanged);
             // 
-            // panel2
+            // pnlFilter
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(93)))), ((int)(((byte)(117)))));
-            this.panel2.Controls.Add(this.ch_to);
-            this.panel2.Controls.Add(this.rb_booking);
-            this.panel2.Controls.Add(this.rb_quote);
-            this.panel2.Controls.Add(this.dp_filterTo);
-            this.panel2.Controls.Add(this.dp_filterFrom);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(658, 57);
-            this.panel2.TabIndex = 9;
+            this.pnlFilter.BackColor = System.Drawing.Color.White;
+            this.pnlFilter.Controls.Add(this.ch_to);
+            this.pnlFilter.Controls.Add(this.rb_booking);
+            this.pnlFilter.Controls.Add(this.rb_quote);
+            this.pnlFilter.Controls.Add(this.dp_filterTo);
+            this.pnlFilter.Controls.Add(this.dp_filterFrom);
+            this.pnlFilter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlFilter.Location = new System.Drawing.Point(0, 0);
+            this.pnlFilter.Name = "pnlFilter";
+            this.pnlFilter.Size = new System.Drawing.Size(634, 57);
+            this.pnlFilter.TabIndex = 9;
             // 
             // ch_to
             // 
             this.ch_to.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ch_to.AutoSize = true;
-            this.ch_to.Location = new System.Drawing.Point(279, 28);
+            this.ch_to.Location = new System.Drawing.Point(267, 28);
             this.ch_to.Name = "ch_to";
             this.ch_to.Size = new System.Drawing.Size(41, 17);
             this.ch_to.TabIndex = 7;
@@ -394,7 +394,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             this.rb_booking.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rb_booking.AutoSize = true;
-            this.rb_booking.Location = new System.Drawing.Point(93, 32);
+            this.rb_booking.Location = new System.Drawing.Point(81, 32);
             this.rb_booking.Name = "rb_booking";
             this.rb_booking.Size = new System.Drawing.Size(106, 17);
             this.rb_booking.TabIndex = 6;
@@ -407,7 +407,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             this.rb_quote.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rb_quote.AutoSize = true;
-            this.rb_quote.Location = new System.Drawing.Point(93, 8);
+            this.rb_quote.Location = new System.Drawing.Point(81, 8);
             this.rb_quote.Name = "rb_quote";
             this.rb_quote.Size = new System.Drawing.Size(59, 17);
             this.rb_quote.TabIndex = 5;
@@ -420,7 +420,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             this.dp_filterTo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dp_filterTo.Enabled = false;
-            this.dp_filterTo.Location = new System.Drawing.Point(335, 28);
+            this.dp_filterTo.Location = new System.Drawing.Point(323, 28);
             this.dp_filterTo.Name = "dp_filterTo";
             this.dp_filterTo.Size = new System.Drawing.Size(218, 20);
             this.dp_filterTo.TabIndex = 3;
@@ -430,7 +430,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             this.dp_filterFrom.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dp_filterFrom.Enabled = false;
-            this.dp_filterFrom.Location = new System.Drawing.Point(335, 4);
+            this.dp_filterFrom.Location = new System.Drawing.Point(323, 4);
             this.dp_filterFrom.Name = "dp_filterFrom";
             this.dp_filterFrom.Size = new System.Drawing.Size(218, 20);
             this.dp_filterFrom.TabIndex = 1;
@@ -462,9 +462,9 @@ namespace vaalrusGUIPrototype.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_accSet.Controls.Add(this.grid_accSet);
             this.pnl_accSet.Controls.Add(this.groupBox1);
-            this.pnl_accSet.Location = new System.Drawing.Point(333, 498);
+            this.pnl_accSet.Location = new System.Drawing.Point(333, 350);
             this.pnl_accSet.Name = "pnl_accSet";
-            this.pnl_accSet.Size = new System.Drawing.Size(658, 172);
+            this.pnl_accSet.Size = new System.Drawing.Size(634, 172);
             this.pnl_accSet.TabIndex = 10;
             // 
             // grid_accSet
@@ -505,7 +505,7 @@ namespace vaalrusGUIPrototype.Forms
             this.grid_accSet.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.grid_accSet.RowHeadersVisible = false;
             this.grid_accSet.RowTemplate.ReadOnly = true;
-            this.grid_accSet.Size = new System.Drawing.Size(658, 172);
+            this.grid_accSet.Size = new System.Drawing.Size(634, 172);
             this.grid_accSet.TabIndex = 11;
             // 
             // groupBox1
@@ -521,7 +521,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(600, 473);
+            this.label7.Location = new System.Drawing.Point(588, 325);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(102, 13);
             this.label7.TabIndex = 11;
@@ -533,7 +533,7 @@ namespace vaalrusGUIPrototype.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1003, 682);
+            this.ClientSize = new System.Drawing.Size(979, 534);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pnl_accSet);
@@ -548,8 +548,8 @@ namespace vaalrusGUIPrototype.Forms
             this.pn_grid.ResumeLayout(false);
             this.pnlReport.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grid_main)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlFilter.ResumeLayout(false);
+            this.pnlFilter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erProvider)).EndInit();
             this.pnl_accSet.ResumeLayout(false);
@@ -580,7 +580,7 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnClearLst;
         private System.Windows.Forms.DataGridView grid_main;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlFilter;
         private System.Windows.Forms.DateTimePicker dp_filterTo;
         private System.Windows.Forms.DateTimePicker dp_filterFrom;
         private System.Windows.Forms.ErrorProvider erProvider;
