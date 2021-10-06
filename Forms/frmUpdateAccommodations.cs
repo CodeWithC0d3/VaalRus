@@ -243,7 +243,7 @@ namespace vaalrusGUIPrototype
         public void loadTemp()
         {
             tempID = txtAID.Text;
-            tempType = txtAType.Text;
+            tempType = comboBoxAType.Text;
             tempOccupants = txtAOccupants.Text;
             tempPrice = txtAPrice.Text;
 
@@ -256,7 +256,7 @@ namespace vaalrusGUIPrototype
         private void btnReset_Click(object sender, EventArgs e)
         {
             txtAID.Text = tempID;
-            txtAType.Text = tempType;
+            comboBoxAType.SelectedItem = tempType;
             txtAOccupants.Text = tempOccupants;
             txtAPrice.Text = tempPrice;
         }
@@ -274,7 +274,8 @@ namespace vaalrusGUIPrototype
             {
                 MessageBox.Show("Connection unsuccesful");
             }
-            Display("Select * from Accommodation");
+            loadComboBox();
+            Display("Select Accommodation_ID as [ID], Accommodation_TypeID as [Type], Number_Of_Occupants as [Occupants], Accommodation_Price as [Price], Active as [Active] from Accommodation");
             //readData("Select TOP 1 * from Accommodation");
             dIndex = 1;
             readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
@@ -303,12 +304,77 @@ namespace vaalrusGUIPrototype
             }
             sqlConnection.Close();
         }
+        public string getTypeID(int id)
+        {
+            string retType = "";
+            try
+            {
+
+                if(sqlConnection.State == ConnectionState.Closed)sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand("Select AccommodationType from Accommodationtype where Accommodation_TypeID='" + id + "'", sqlConnection))
+                {
+
+                    SqlDataReader dReader = sqlCommand.ExecuteReader();
+
+                    while (dReader.Read())
+                    {
+                        retType = dReader.GetValue(0).ToString();
+
+                    }
+
+                    dReader.Close();
+                    sqlCommand.Dispose();
+                }
+
+                sqlConnection.Close();
+                
+            }
+            catch (SqlException sqle)
+            {
+                MessageBox.Show(sqle.Message.ToString());
+                
+            }
+
+            return retType;
+        }
+        public int getAccomType(string type)
+        {
+            int typeInt = 0;
+            try
+            {
+
+                if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand("Select Accommodation_TypeID from Accommodationtype where AccommodationType='" + type + "'", sqlConnection))
+                {
+
+                    SqlDataReader dReader = sqlCommand.ExecuteReader();
+
+                    while (dReader.Read())
+                    {
+                        typeInt = Convert.ToInt32(dReader.GetValue(0));
+
+                    }
+
+                    dReader.Close();
+                    sqlCommand.Dispose();
+                }
+
+                sqlConnection.Close();
+                return typeInt;
+            }
+            catch (SqlException sqle)
+            {
+                MessageBox.Show(sqle.Message.ToString());
+                return typeInt;
+            }
+        }
         public void readData(string readstring)
         {
             try
             {
                 Boolean active = false;
-                sqlConnection.Open();
+                int typeID = 0;
+                if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
                 using (SqlCommand sqlCommand = new SqlCommand(readstring, sqlConnection))
                 {
 
@@ -317,7 +383,9 @@ namespace vaalrusGUIPrototype
                     while (dReader.Read())
                     {
                         txtAID.Text = dReader.GetValue(1).ToString();
-                        txtAType.Text = dReader.GetValue(2).ToString();
+                        typeID = (int)dReader.GetValue(2);
+                        
+                        //txtAType.Text = dReader.GetValue(2).ToString();
                         txtAOccupants.Text = dReader.GetValue(3).ToString();
                         txtAPrice.Text = Convert.ToDecimal(String.Format("{0:0}", Convert.ToDecimal(dReader.GetValue(4).ToString()))).ToString();
                         active = (Boolean)dReader.GetValue(5);
@@ -330,6 +398,8 @@ namespace vaalrusGUIPrototype
                 }
 
                 sqlConnection.Close();
+                //comboBoxAType.SelectedItem = getTypeID(typeID);
+                comboBoxAType.SelectedItem = getTypeID(typeID);
             }
             catch (SqlException sqle)
             {
@@ -341,7 +411,9 @@ namespace vaalrusGUIPrototype
         {
             try
             {
-                sqlConnection.Open();
+                Boolean active = false;
+                int typeID = 0;
+                if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
                 using (SqlCommand sqlCommand = new SqlCommand(readstring, sqlConnection))
                 {
 
@@ -350,11 +422,14 @@ namespace vaalrusGUIPrototype
                     while (dReader.Read())
                     {
                         txtAID.Text = dReader.GetValue(0).ToString();
-                        txtAType.Text = dReader.GetValue(1).ToString();
-                        txtAOccupants.Text = dReader.GetValue(2).ToString();
+                        typeID = (int)dReader.GetValue(1);
 
-                        //txtAPrice.Text = dReader.GetValue(3).ToString();
+                        //txtAType.Text = dReader.GetValue(2).ToString();
+                        txtAOccupants.Text = dReader.GetValue(2).ToString();
                         txtAPrice.Text = Convert.ToDecimal(String.Format("{0:0}", Convert.ToDecimal(dReader.GetValue(3).ToString()))).ToString();
+                        active = (Boolean)dReader.GetValue(4);
+                        if (active == true) checkBoxActive.Checked = true;
+                        else checkBoxActive.Checked = false;
                     }
 
                     dReader.Close();
@@ -362,6 +437,8 @@ namespace vaalrusGUIPrototype
                 }
 
                 sqlConnection.Close();
+                //txtAType.Text = getTypeID(typeID);
+                comboBoxAType.SelectedItem = getTypeID(typeID);
             }
             catch (SqlException sqle)
             {
@@ -438,7 +515,8 @@ namespace vaalrusGUIPrototype
                     try
                     {
                         int upID = Convert.ToInt32(txtAID.Text);
-                        int upType = Convert.ToInt32(txtAType.Text);
+                        //int upType = Convert.ToInt32(txtAType.Text);
+                        int upType = getAccomType(comboBoxAType.Text);
                         int upOcc = Convert.ToInt32(txtAOccupants.Text);
                         double upPrice = Convert.ToDouble(txtAPrice.Text);
                         Boolean active = false;
@@ -494,7 +572,7 @@ namespace vaalrusGUIPrototype
             }
         }
 
-        private void txtAType_Validating(object sender, CancelEventArgs e)
+        /*private void txtAType_Validating(object sender, CancelEventArgs e)
         {
             int parsedValue;
             if (string.IsNullOrWhiteSpace(txtAType.Text))
@@ -517,7 +595,7 @@ namespace vaalrusGUIPrototype
                 errorProviderType.SetError(txtAType, "");
                 err = false;
             }
-        }
+        }*/
 
         private void txtAOccupants_Validating(object sender, CancelEventArgs e)
         {
@@ -525,14 +603,16 @@ namespace vaalrusGUIPrototype
             if (string.IsNullOrWhiteSpace(txtAOccupants.Text))
             {
                 e.Cancel = true;
-                txtAType.Focus();
+                //txtAType.Focus();
+                comboBoxAType.Focus();
                 errorProviderOccupants.SetError(txtAOccupants, "Occupants can not be blank!");
                 err = true;
             }
             else if (!int.TryParse(txtAOccupants.Text, out parsedValue))
             {
                 e.Cancel = true;
-                txtAType.Focus();
+                //txtAType.Focus();
+                comboBoxAType.Focus();
                 errorProviderOccupants.SetError(txtAOccupants, "Can not contain letters!");
                 err = true;
             }
@@ -570,6 +650,37 @@ namespace vaalrusGUIPrototype
         }
 
         private void dataGridViewAccom_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        public void loadComboBox()
+        {
+
+            try
+            {
+                if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand("Select AccommodationType from Accommodationtype", sqlConnection))
+                {
+
+                    SqlDataReader dReader = sqlCommand.ExecuteReader();
+
+                    while (dReader.Read())
+                    {
+                        comboBoxAType.Items.Add(dReader.GetValue(0).ToString());
+                    }
+
+                    dReader.Close();
+                    sqlCommand.Dispose();
+                }
+
+                sqlConnection.Close();
+            }
+            catch (SqlException sqle)
+            {
+                MessageBox.Show(sqle.Message.ToString());
+            }
+        }
+        private void comboBoxAType_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
