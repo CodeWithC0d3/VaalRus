@@ -63,6 +63,10 @@ namespace vaalrusGUIPrototype
             this.lblAccomType = new System.Windows.Forms.Label();
             this.lblAccomID = new System.Windows.Forms.Label();
             this.txtAID = new System.Windows.Forms.TextBox();
+            this.checkBoxActive = new System.Windows.Forms.CheckBox();
+            this.lblActive = new System.Windows.Forms.Label();
+            this.checkBoxSearchActive = new System.Windows.Forms.CheckBox();
+            this.lblSearchActive = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).BeginInit();
             this.pnlDatagrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).BeginInit();
@@ -139,7 +143,7 @@ namespace vaalrusGUIPrototype
             this.panel1.Controls.Add(this.groupBoxSearch);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(373, 184);
+            this.panel1.Size = new System.Drawing.Size(373, 209);
             this.panel1.TabIndex = 5;
             // 
             // groupBoxSearch
@@ -147,13 +151,15 @@ namespace vaalrusGUIPrototype
             this.groupBoxSearch.Controls.Add(this.pnlGroupBoxSearch);
             this.groupBoxSearch.Location = new System.Drawing.Point(16, 12);
             this.groupBoxSearch.Name = "groupBoxSearch";
-            this.groupBoxSearch.Size = new System.Drawing.Size(336, 157);
+            this.groupBoxSearch.Size = new System.Drawing.Size(336, 180);
             this.groupBoxSearch.TabIndex = 9;
             this.groupBoxSearch.TabStop = false;
             this.groupBoxSearch.Text = "Search:";
             // 
             // pnlGroupBoxSearch
             // 
+            this.pnlGroupBoxSearch.Controls.Add(this.lblSearchActive);
+            this.pnlGroupBoxSearch.Controls.Add(this.checkBoxSearchActive);
             this.pnlGroupBoxSearch.Controls.Add(this.lblSearchPrice);
             this.pnlGroupBoxSearch.Controls.Add(this.txtsearchPrice);
             this.pnlGroupBoxSearch.Controls.Add(this.lblSearchOccupants);
@@ -164,7 +170,7 @@ namespace vaalrusGUIPrototype
             this.pnlGroupBoxSearch.Controls.Add(this.txtSearchID);
             this.pnlGroupBoxSearch.Location = new System.Drawing.Point(6, 19);
             this.pnlGroupBoxSearch.Name = "pnlGroupBoxSearch";
-            this.pnlGroupBoxSearch.Size = new System.Drawing.Size(310, 132);
+            this.pnlGroupBoxSearch.Size = new System.Drawing.Size(310, 155);
             this.pnlGroupBoxSearch.TabIndex = 0;
             // 
             // lblSearchPrice
@@ -178,7 +184,7 @@ namespace vaalrusGUIPrototype
             // 
             // txtsearchPrice
             // 
-            this.txtsearchPrice.Location = new System.Drawing.Point(167, 99);
+            this.txtsearchPrice.Location = new System.Drawing.Point(167, 96);
             this.txtsearchPrice.Name = "txtsearchPrice";
             this.txtsearchPrice.Size = new System.Drawing.Size(134, 20);
             this.txtsearchPrice.TabIndex = 21;
@@ -249,15 +255,15 @@ namespace vaalrusGUIPrototype
             this.pnlConnetionControls.Controls.Add(this.btnPrev);
             this.pnlConnetionControls.Controls.Add(this.btnReset);
             this.pnlConnetionControls.Controls.Add(this.gBoxAccom);
-            this.pnlConnetionControls.Location = new System.Drawing.Point(12, 202);
+            this.pnlConnetionControls.Location = new System.Drawing.Point(12, 227);
             this.pnlConnetionControls.Name = "pnlConnetionControls";
-            this.pnlConnetionControls.Size = new System.Drawing.Size(373, 348);
+            this.pnlConnetionControls.Size = new System.Drawing.Size(373, 323);
             this.pnlConnetionControls.TabIndex = 6;
             // 
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(262, 262);
+            this.btnNext.Location = new System.Drawing.Point(262, 237);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(90, 72);
             this.btnNext.TabIndex = 6;
@@ -268,7 +274,7 @@ namespace vaalrusGUIPrototype
             // btnUpdate
             // 
             this.btnUpdate.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnUpdate.Location = new System.Drawing.Point(115, 298);
+            this.btnUpdate.Location = new System.Drawing.Point(115, 273);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(137, 36);
             this.btnUpdate.TabIndex = 2;
@@ -279,7 +285,7 @@ namespace vaalrusGUIPrototype
             // btnPrev
             // 
             this.btnPrev.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrev.Location = new System.Drawing.Point(16, 262);
+            this.btnPrev.Location = new System.Drawing.Point(16, 237);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(90, 72);
             this.btnPrev.TabIndex = 5;
@@ -290,7 +296,7 @@ namespace vaalrusGUIPrototype
             // btnReset
             // 
             this.btnReset.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnReset.Location = new System.Drawing.Point(115, 262);
+            this.btnReset.Location = new System.Drawing.Point(115, 237);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(137, 36);
             this.btnReset.TabIndex = 3;
@@ -303,13 +309,15 @@ namespace vaalrusGUIPrototype
             this.gBoxAccom.Controls.Add(this.pnlGroupBoxDetails);
             this.gBoxAccom.Location = new System.Drawing.Point(16, 12);
             this.gBoxAccom.Name = "gBoxAccom";
-            this.gBoxAccom.Size = new System.Drawing.Size(336, 135);
+            this.gBoxAccom.Size = new System.Drawing.Size(336, 161);
             this.gBoxAccom.TabIndex = 1;
             this.gBoxAccom.TabStop = false;
             this.gBoxAccom.Text = "Accommodation Details:";
             // 
             // pnlGroupBoxDetails
             // 
+            this.pnlGroupBoxDetails.Controls.Add(this.lblActive);
+            this.pnlGroupBoxDetails.Controls.Add(this.checkBoxActive);
             this.pnlGroupBoxDetails.Controls.Add(this.lblAccomPrice);
             this.pnlGroupBoxDetails.Controls.Add(this.lblTotalOccupants);
             this.pnlGroupBoxDetails.Controls.Add(this.txtAPrice);
@@ -318,9 +326,9 @@ namespace vaalrusGUIPrototype
             this.pnlGroupBoxDetails.Controls.Add(this.lblAccomType);
             this.pnlGroupBoxDetails.Controls.Add(this.lblAccomID);
             this.pnlGroupBoxDetails.Controls.Add(this.txtAID);
-            this.pnlGroupBoxDetails.Location = new System.Drawing.Point(6, 11);
+            this.pnlGroupBoxDetails.Location = new System.Drawing.Point(6, 19);
             this.pnlGroupBoxDetails.Name = "pnlGroupBoxDetails";
-            this.pnlGroupBoxDetails.Size = new System.Drawing.Size(311, 118);
+            this.pnlGroupBoxDetails.Size = new System.Drawing.Size(311, 136);
             this.pnlGroupBoxDetails.TabIndex = 0;
             // 
             // lblAccomPrice
@@ -391,6 +399,42 @@ namespace vaalrusGUIPrototype
             this.txtAID.TabIndex = 8;
             this.txtAID.Validating += new System.ComponentModel.CancelEventHandler(this.txtAID_Validating);
             // 
+            // checkBoxActive
+            // 
+            this.checkBoxActive.AutoSize = true;
+            this.checkBoxActive.Location = new System.Drawing.Point(166, 112);
+            this.checkBoxActive.Name = "checkBoxActive";
+            this.checkBoxActive.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxActive.TabIndex = 16;
+            this.checkBoxActive.UseVisualStyleBackColor = true;
+            // 
+            // lblActive
+            // 
+            this.lblActive.AutoSize = true;
+            this.lblActive.Location = new System.Drawing.Point(88, 113);
+            this.lblActive.Name = "lblActive";
+            this.lblActive.Size = new System.Drawing.Size(40, 13);
+            this.lblActive.TabIndex = 17;
+            this.lblActive.Text = "Active:";
+            // 
+            // checkBoxSearchActive
+            // 
+            this.checkBoxSearchActive.AutoSize = true;
+            this.checkBoxSearchActive.Location = new System.Drawing.Point(167, 125);
+            this.checkBoxSearchActive.Name = "checkBoxSearchActive";
+            this.checkBoxSearchActive.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxSearchActive.TabIndex = 23;
+            this.checkBoxSearchActive.UseVisualStyleBackColor = true;
+            // 
+            // lblSearchActive
+            // 
+            this.lblSearchActive.AutoSize = true;
+            this.lblSearchActive.Location = new System.Drawing.Point(88, 126);
+            this.lblSearchActive.Name = "lblSearchActive";
+            this.lblSearchActive.Size = new System.Drawing.Size(43, 13);
+            this.lblSearchActive.TabIndex = 24;
+            this.lblSearchActive.Text = "Active: ";
+            // 
             // frmUpdateAccommodations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -456,5 +500,9 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.TextBox txtAID;
         private System.Windows.Forms.DataGridView dataGridViewAccom;
         private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Label lblActive;
+        private System.Windows.Forms.CheckBox checkBoxActive;
+        private System.Windows.Forms.Label lblSearchActive;
+        private System.Windows.Forms.CheckBox checkBoxSearchActive;
     }
 }

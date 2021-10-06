@@ -307,6 +307,7 @@ namespace vaalrusGUIPrototype
         {
             try
             {
+                Boolean active = false;
                 sqlConnection.Open();
                 using (SqlCommand sqlCommand = new SqlCommand(readstring, sqlConnection))
                 {
@@ -319,7 +320,9 @@ namespace vaalrusGUIPrototype
                         txtAType.Text = dReader.GetValue(2).ToString();
                         txtAOccupants.Text = dReader.GetValue(3).ToString();
                         txtAPrice.Text = Convert.ToDecimal(String.Format("{0:0}", Convert.ToDecimal(dReader.GetValue(4).ToString()))).ToString();
-
+                        active = (Boolean)dReader.GetValue(5);
+                        if (active == true) checkBoxActive.Checked = true;
+                        else checkBoxActive.Checked = false;
                     }
 
                     dReader.Close();
@@ -389,17 +392,19 @@ namespace vaalrusGUIPrototype
                 
                 readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");//'" + dIndex+"'");//'"+dIndex+"'");
                 dataGridViewAccom.ClearSelection();
-                dataGridViewAccom.Rows[dIndex].Selected = true;
+                dataGridViewAccom.Rows[dIndex-1].Selected = true;
             }
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-            if(dIndex>=1)
+            if(dIndex>1)
                 dIndex--;
             readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
             dataGridViewAccom.ClearSelection();
+            if(dIndex<1)
             dataGridViewAccom.Rows[dIndex].Selected = true;
+            else { dataGridViewAccom.Rows[dIndex - 1].Selected = true; }
         }
 
         private void dataGridViewAccom_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -436,9 +441,12 @@ namespace vaalrusGUIPrototype
                         int upType = Convert.ToInt32(txtAType.Text);
                         int upOcc = Convert.ToInt32(txtAOccupants.Text);
                         double upPrice = Convert.ToDouble(txtAPrice.Text);
+                        Boolean active = false;
+                        if (checkBoxActive.Checked) active = true;
+
                         sqlConnection = new SqlConnection(connString);
                         sqlConnection.Open();
-                        sqlCmd = new SqlCommand($"Update Accommodation Set Accommodation_TypeID = '" + upType + "', Number_Of_Occupants = '" + upOcc + "', Accommodation_Price = '" + upPrice + "' where Accommodation_ID = '" + upID + "'", sqlConnection);
+                        sqlCmd = new SqlCommand($"Update Accommodation Set Accommodation_TypeID = '" + upType + "', Number_Of_Occupants = '" + upOcc + "', Accommodation_Price = '" + upPrice + "', Active ='"+active+"' where Accommodation_ID = '" + upID + "'", sqlConnection);
 
                         sqlCmd.ExecuteNonQuery();
                         sqlConnection.Close();
@@ -568,12 +576,15 @@ namespace vaalrusGUIPrototype
 
         private void txtSearchType_TextChanged(object sender, EventArgs e)
         {
+            int serOcc = 0;
+            double serPrice = 0;
+            int serType = 0;
             if(txtSearchType.Text.Length >0)
             {
-                int serID = Convert.ToInt32(txtSearchID.Text);
-                int serType = Convert.ToInt32(txtSearchType.Text);
-                int serOcc = Convert.ToInt32(txtSearchOccupants.Text);
-                double serPrice = Convert.ToDouble(txtsearchPrice.Text);
+                //int serID = Convert.ToInt32(txtSearchID.Text);
+                if(txtSearchType.Text.Length>0) serType = Convert.ToInt32(txtSearchType.Text);
+                if(txtSearchOccupants.Text.Length >0) serOcc = Convert.ToInt32(txtSearchOccupants.Text);
+                if (txtsearchPrice.Text.Length > 0) serPrice = Convert.ToDouble(txtsearchPrice.Text);
                 txtSearchID.Clear();
                 if(txtSearchOccupants.Text.Length == 0 && txtsearchPrice.Text.Length == 0)
                 Display($"Select * from Accommodation where Accommodation_TypeID Like '%{serType}%'");
@@ -590,12 +601,15 @@ namespace vaalrusGUIPrototype
 
         private void txtSearchOccupants_TextChanged(object sender, EventArgs e)
         {
+            int serOcc = 0;
+            double serPrice = 0;
+            int serType = 0;
             if (txtSearchOccupants.Text.Length > 0)
             {
-                int serID = Convert.ToInt32(txtSearchID.Text);
-                int serType = Convert.ToInt32(txtSearchType.Text);
-                int serOcc = Convert.ToInt32(txtSearchOccupants.Text);
-                double serPrice = Convert.ToDouble(txtsearchPrice.Text);
+                //int serID = Convert.ToInt32(txtSearchID.Text);
+                if (txtSearchType.Text.Length > 0) serType = Convert.ToInt32(txtSearchType.Text);
+                if (txtSearchOccupants.Text.Length > 0) serOcc = Convert.ToInt32(txtSearchOccupants.Text);
+                if (txtsearchPrice.Text.Length > 0) serPrice = Convert.ToDouble(txtsearchPrice.Text);
                 txtSearchID.Clear();
                 if (txtSearchType.Text.Length == 0 && txtsearchPrice.Text.Length == 0)
                     Display($"Select * from Accommodation where Number_Of_Occupants Like '%{serOcc}%'");
@@ -612,12 +626,15 @@ namespace vaalrusGUIPrototype
 
         private void txtsearchPrice_TextChanged(object sender, EventArgs e)
         {
+            int serOcc = 0;
+            double serPrice = 0;
+            int serType = 0;
             if (txtsearchPrice.Text.Length > 0)
             {
-                int serID = Convert.ToInt32(txtSearchID.Text);
-                int serType = Convert.ToInt32(txtSearchType.Text);
-                int serOcc = Convert.ToInt32(txtSearchOccupants.Text);
-                double serPrice = Convert.ToDouble(txtsearchPrice.Text);
+                //int serID = Convert.ToInt32(txtSearchID.Text);
+                if (txtSearchType.Text.Length > 0) serType = Convert.ToInt32(txtSearchType.Text);
+                if (txtSearchOccupants.Text.Length > 0) serOcc = Convert.ToInt32(txtSearchOccupants.Text);
+                if (txtsearchPrice.Text.Length > 0) serPrice = Convert.ToDouble(txtsearchPrice.Text);
                 txtSearchID.Clear();
                 if (txtSearchType.Text.Length == 0 && txtSearchOccupants.Text.Length == 0)
                     Display($"Select * from Accommodation where Accommodation_Price Like '%{serPrice}%'");
