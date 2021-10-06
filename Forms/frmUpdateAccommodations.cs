@@ -109,7 +109,12 @@ namespace vaalrusGUIPrototype
                         dtgg.BackgroundColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.BackColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
-                        //dtgg.DefaultCellStyle.SelectionBackColor = GlobalSettings.PrimaryColor;
+                        dtgg.DefaultCellStyle.SelectionBackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
+                        dtgg.ColumnHeadersDefaultCellStyle.BackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
+                        dtgg.ColumnHeadersDefaultCellStyle.SelectionBackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
+                        dtgg.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                        dtgg.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                        dtgg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 
                     }
