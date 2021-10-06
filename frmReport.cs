@@ -28,13 +28,15 @@ namespace vaalrusGUIPrototype
 
             SqlConnection conn = new SqlConnection(connString);
             conn.Open();
-            SqlCommand myComm = new SqlCommand("Select * from Accommodation", conn);
+            //SqlCommand myComm = new SqlCommand("Select * from Accommodation", conn);
+            //SqlCommand myComm = new SqlCommand("SELECT Accommodation_ID, COUNT(Accommodation_ID) AS [value_occurrence] FROM Accommodationset GROUP BY Accommodation_ID ORDER BY [value_occurrence] DESC LIMIT 1;",conn);
+            SqlCommand myComm = new SqlCommand("SELECT Accommodation_ID FROM Accommodationset GROUP BY Accommodation_ID ORDER BY  count(*) DESC;", conn);
             SqlDataAdapter adapter = new SqlDataAdapter(myComm);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
 
             this.reportViewer.LocalReport.ReportPath = @"listAccomReport.rdlc";
-            ReportDataSource rds = new ReportDataSource("DataSetAccommodation", dt);
+            ReportDataSource rds = new ReportDataSource("DataSet1", dt);
             this.reportViewer.LocalReport.DataSources.Add(rds);
             this.reportViewer.RefreshReport();
         }
