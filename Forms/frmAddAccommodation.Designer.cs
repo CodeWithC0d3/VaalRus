@@ -42,18 +42,6 @@ namespace vaalrusGUIPrototype.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.cbAccomType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pnlDelete = new System.Windows.Forms.Panel();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.groupBoxDelete = new System.Windows.Forms.GroupBox();
-            this.pnlDeleteDetails = new System.Windows.Forms.Panel();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.lblOccupants = new System.Windows.Forms.Label();
-            this.txtDelPrice = new System.Windows.Forms.TextBox();
-            this.txtDelNumO = new System.Windows.Forms.TextBox();
-            this.txtDelType = new System.Windows.Forms.TextBox();
-            this.txtDelID = new System.Windows.Forms.TextBox();
-            this.lblType = new System.Windows.Forms.Label();
-            this.lblAccommID = new System.Windows.Forms.Label();
             this.pnlDGrid = new System.Windows.Forms.Panel();
             this.dataGridAccommodations = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxViewAllBookingsBackground)).BeginInit();
@@ -61,9 +49,6 @@ namespace vaalrusGUIPrototype.Forms
             this.groupBox1.SuspendLayout();
             this.pnlNewAccomDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numOfOccupants)).BeginInit();
-            this.pnlDelete.SuspendLayout();
-            this.groupBoxDelete.SuspendLayout();
-            this.pnlDeleteDetails.SuspendLayout();
             this.pnlDGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccommodations)).BeginInit();
             this.SuspendLayout();
@@ -82,6 +67,8 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // pnlNewAccom
             // 
+            this.pnlNewAccom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(93)))), ((int)(((byte)(117)))));
+            this.pnlNewAccom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlNewAccom.Controls.Add(this.btnCreate);
             this.pnlNewAccom.Controls.Add(this.groupBox1);
             this.pnlNewAccom.Location = new System.Drawing.Point(12, 12);
@@ -126,7 +113,7 @@ namespace vaalrusGUIPrototype.Forms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(47, 130);
+            this.label4.Location = new System.Drawing.Point(69, 130);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(15, 13);
             this.label4.TabIndex = 13;
@@ -134,7 +121,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // txtAccomPrice
             // 
-            this.txtAccomPrice.Location = new System.Drawing.Point(68, 127);
+            this.txtAccomPrice.Location = new System.Drawing.Point(90, 127);
             this.txtAccomPrice.Name = "txtAccomPrice";
             this.txtAccomPrice.Size = new System.Drawing.Size(100, 20);
             this.txtAccomPrice.TabIndex = 12;
@@ -142,7 +129,7 @@ namespace vaalrusGUIPrototype.Forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 111);
+            this.label3.Location = new System.Drawing.Point(30, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 13);
             this.label3.TabIndex = 11;
@@ -150,15 +137,15 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // numOfOccupants
             // 
-            this.numOfOccupants.Location = new System.Drawing.Point(46, 77);
+            this.numOfOccupants.Location = new System.Drawing.Point(130, 77);
             this.numOfOccupants.Name = "numOfOccupants";
-            this.numOfOccupants.Size = new System.Drawing.Size(47, 20);
+            this.numOfOccupants.Size = new System.Drawing.Size(60, 20);
             this.numOfOccupants.TabIndex = 10;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 61);
+            this.label2.Location = new System.Drawing.Point(30, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 13);
             this.label2.TabIndex = 9;
@@ -167,7 +154,7 @@ namespace vaalrusGUIPrototype.Forms
             // cbAccomType
             // 
             this.cbAccomType.FormattingEnabled = true;
-            this.cbAccomType.Location = new System.Drawing.Point(46, 25);
+            this.cbAccomType.Location = new System.Drawing.Point(68, 25);
             this.cbAccomType.Name = "cbAccomType";
             this.cbAccomType.Size = new System.Drawing.Size(121, 21);
             this.cbAccomType.TabIndex = 8;
@@ -176,119 +163,11 @@ namespace vaalrusGUIPrototype.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 9);
+            this.label1.Location = new System.Drawing.Point(17, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Type of Accommodation:";
-            // 
-            // pnlDelete
-            // 
-            this.pnlDelete.Controls.Add(this.btnDelete);
-            this.pnlDelete.Controls.Add(this.groupBoxDelete);
-            this.pnlDelete.Location = new System.Drawing.Point(12, 291);
-            this.pnlDelete.Name = "pnlDelete";
-            this.pnlDelete.Size = new System.Drawing.Size(256, 281);
-            this.pnlDelete.TabIndex = 3;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(90, 227);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 43);
-            this.btnDelete.TabIndex = 1;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // groupBoxDelete
-            // 
-            this.groupBoxDelete.Controls.Add(this.pnlDeleteDetails);
-            this.groupBoxDelete.Location = new System.Drawing.Point(16, 17);
-            this.groupBoxDelete.Name = "groupBoxDelete";
-            this.groupBoxDelete.Size = new System.Drawing.Size(223, 204);
-            this.groupBoxDelete.TabIndex = 0;
-            this.groupBoxDelete.TabStop = false;
-            this.groupBoxDelete.Text = "Delete Accommodation details:";
-            // 
-            // pnlDeleteDetails
-            // 
-            this.pnlDeleteDetails.Controls.Add(this.lblPrice);
-            this.pnlDeleteDetails.Controls.Add(this.lblOccupants);
-            this.pnlDeleteDetails.Controls.Add(this.txtDelPrice);
-            this.pnlDeleteDetails.Controls.Add(this.txtDelNumO);
-            this.pnlDeleteDetails.Controls.Add(this.txtDelType);
-            this.pnlDeleteDetails.Controls.Add(this.txtDelID);
-            this.pnlDeleteDetails.Controls.Add(this.lblType);
-            this.pnlDeleteDetails.Controls.Add(this.lblAccommID);
-            this.pnlDeleteDetails.Location = new System.Drawing.Point(6, 19);
-            this.pnlDeleteDetails.Name = "pnlDeleteDetails";
-            this.pnlDeleteDetails.Size = new System.Drawing.Size(211, 179);
-            this.pnlDeleteDetails.TabIndex = 3;
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(47, 122);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(113, 13);
-            this.lblPrice.TabIndex = 17;
-            this.lblPrice.Text = "Accommodation Price:";
-            // 
-            // lblOccupants
-            // 
-            this.lblOccupants.AutoSize = true;
-            this.lblOccupants.Location = new System.Drawing.Point(44, 83);
-            this.lblOccupants.Name = "lblOccupants";
-            this.lblOccupants.Size = new System.Drawing.Size(116, 13);
-            this.lblOccupants.TabIndex = 16;
-            this.lblOccupants.Text = "Number Of Occupants:";
-            // 
-            // txtDelPrice
-            // 
-            this.txtDelPrice.Location = new System.Drawing.Point(43, 138);
-            this.txtDelPrice.Name = "txtDelPrice";
-            this.txtDelPrice.Size = new System.Drawing.Size(122, 20);
-            this.txtDelPrice.TabIndex = 15;
-            // 
-            // txtDelNumO
-            // 
-            this.txtDelNumO.Location = new System.Drawing.Point(43, 99);
-            this.txtDelNumO.Name = "txtDelNumO";
-            this.txtDelNumO.Size = new System.Drawing.Size(122, 20);
-            this.txtDelNumO.TabIndex = 14;
-            // 
-            // txtDelType
-            // 
-            this.txtDelType.Location = new System.Drawing.Point(44, 60);
-            this.txtDelType.Name = "txtDelType";
-            this.txtDelType.Size = new System.Drawing.Size(122, 20);
-            this.txtDelType.TabIndex = 13;
-            // 
-            // txtDelID
-            // 
-            this.txtDelID.Location = new System.Drawing.Point(46, 21);
-            this.txtDelID.Name = "txtDelID";
-            this.txtDelID.Size = new System.Drawing.Size(122, 20);
-            this.txtDelID.TabIndex = 12;
-            // 
-            // lblType
-            // 
-            this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(47, 44);
-            this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(113, 13);
-            this.lblType.TabIndex = 9;
-            this.lblType.Text = "Accommodation Type:";
-            // 
-            // lblAccommID
-            // 
-            this.lblAccommID.AutoSize = true;
-            this.lblAccommID.Location = new System.Drawing.Point(55, 5);
-            this.lblAccommID.Name = "lblAccommID";
-            this.lblAccommID.Size = new System.Drawing.Size(100, 13);
-            this.lblAccommID.TabIndex = 7;
-            this.lblAccommID.Text = "Accommodation ID:";
             // 
             // pnlDGrid
             // 
@@ -322,7 +201,6 @@ namespace vaalrusGUIPrototype.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 601);
             this.Controls.Add(this.pnlDGrid);
-            this.Controls.Add(this.pnlDelete);
             this.Controls.Add(this.pnlNewAccom);
             this.Controls.Add(this.pictureBoxViewAllBookingsBackground);
             this.Name = "frmAddAccommodation";
@@ -334,10 +212,6 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlNewAccomDetails.ResumeLayout(false);
             this.pnlNewAccomDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numOfOccupants)).EndInit();
-            this.pnlDelete.ResumeLayout(false);
-            this.groupBoxDelete.ResumeLayout(false);
-            this.pnlDeleteDetails.ResumeLayout(false);
-            this.pnlDeleteDetails.PerformLayout();
             this.pnlDGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccommodations)).EndInit();
             this.ResumeLayout(false);
@@ -358,19 +232,7 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbAccomType;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel pnlDelete;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.GroupBox groupBoxDelete;
-        private System.Windows.Forms.Panel pnlDeleteDetails;
-        private System.Windows.Forms.TextBox txtDelID;
-        private System.Windows.Forms.Label lblType;
-        private System.Windows.Forms.Label lblAccommID;
         private System.Windows.Forms.Panel pnlDGrid;
         private System.Windows.Forms.DataGridView dataGridAccommodations;
-        private System.Windows.Forms.Label lblPrice;
-        private System.Windows.Forms.Label lblOccupants;
-        private System.Windows.Forms.TextBox txtDelPrice;
-        private System.Windows.Forms.TextBox txtDelNumO;
-        private System.Windows.Forms.TextBox txtDelType;
     }
 }
