@@ -702,22 +702,22 @@ namespace vaalrusGUIPrototype
             if (comboBoxSearchType.Text.Length > 0)
             {
                 //int serID = Convert.ToInt32(txtSearchID.Text);
-                searchType = comboBoxSearchType.SelectedItem.ToString();
+                if (comboBoxSearchType.SelectedItem != null) searchType = comboBoxSearchType.SelectedItem.ToString();
                 //if (txtSearchType.Text.Length > 0) serType = Convert.ToInt32(txtSearchType.Text);
                 if (txtSearchOccupants.Text.Length > 0) serOcc = Convert.ToInt32(txtSearchOccupants.Text);
                 if (txtsearchPrice.Text.Length > 0) serPrice = Convert.ToDouble(txtsearchPrice.Text);
-                if (checkBoxActive.Checked) active = true; else active = false;
+                if (checkBoxActive.Checked == true) active = true; else active = false;
                 txtSearchID.Clear();
                 if (txtSearchOccupants.Text.Length == 0 && txtsearchPrice.Text.Length == 0)
-                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Accommodationtype.AccommodationType Like '%{searchType}%' ; ");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Accommodationtype.AccommodationType Like '%{searchType}%' AND Active = '{Convert.ToByte(active)}'; ");
 
                 //Display($"Select * from Accommodation where Number_Of_Occupants Like '%{serOcc}%'");
                 else if (comboBoxSearchType.Text.Length > 0 && txtsearchPrice.Text.Length == 0)
-                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%' AND Accommodationtype.AccommodationType Like '%{searchType}%' ;");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%' AND Accommodationtype.AccommodationType Like '%{searchType}%' AND Active = '{Convert.ToByte(active)}';");
                 else if (comboBoxSearchType.Text.Length == 0 && txtsearchPrice.Text.Length > 0)
-                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%' AND Accommodation_Price Like '%{serPrice}%' ;");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%' AND Accommodation_Price Like '%{serPrice}%' AND Active = '{Convert.ToByte(active)}';");
                 else if (comboBoxSearchType.Text.Length > 0 && txtsearchPrice.Text.Length > 0)
-                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%'AND Accommodationtype.AccommodationType Like '%{searchType}%' AND Accommodation_Price Like '%{serPrice}%' ;");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%'AND Accommodationtype.AccommodationType Like '%{searchType}%' AND Accommodation_Price Like '%{serPrice}%' AND Active = '{Convert.ToByte(active)}';");
             }
             else
                 Display(strDisplay);
@@ -757,23 +757,23 @@ namespace vaalrusGUIPrototype
             string searchType = "";
             if (txtSearchOccupants.Text.Length > 0)
             {
-                searchType = comboBoxSearchType.SelectedItem.ToString();
+                if(comboBoxSearchType.SelectedItem != null) searchType = comboBoxSearchType.SelectedItem.ToString();
                 //int serID = Convert.ToInt32(txtSearchID.Text);
                 //if (comboBoxSearchType.Text.Length > 0) serType = Convert.ToInt32(txtSearchType.Text);
                 if (txtSearchOccupants.Text.Length > 0) serOcc = Convert.ToInt32(txtSearchOccupants.Text);
                 if (txtsearchPrice.Text.Length > 0) serPrice = Convert.ToDouble(txtsearchPrice.Text);
-                if (checkBoxActive.Checked) active = true; else active = false;
+                if (checkBoxActive.Checked == true) active = true; else active = false;
                 txtSearchID.Clear();
                 if (comboBoxSearchType.Text.Length == 0 && txtsearchPrice.Text.Length == 0)
-                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%' ; ");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%' AND Active = '{active}'; ");
 
                 //Display($"Select * from Accommodation where Number_Of_Occupants Like '%{serOcc}%'");
                 else if (comboBoxSearchType.Text.Length > 0 && txtsearchPrice.Text.Length == 0)
-                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%' AND Accommodationtype.AccommodationType Like '%{searchType}%';");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%' AND Accommodationtype.AccommodationType Like '%{searchType}%' AND Active = '{active}';");
                 else if (comboBoxSearchType.Text.Length == 0 && txtsearchPrice.Text.Length > 0)
-                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%' AND Accommodation_Price Like '%{serPrice}%' ;");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%' AND Accommodation_Price Like '%{serPrice}%' AND Active = '{active}';");
                 else if (comboBoxSearchType.Text.Length > 0 && txtsearchPrice.Text.Length > 0)
-                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%' AND Accommodation_Price Like '%{serPrice}%' AND Accommodationtype.AccommodationType Like '%{searchType}%' ;");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%' AND Accommodation_Price Like '%{serPrice}%' AND Accommodationtype.AccommodationType Like '%{searchType}%' AND Active = '{active}';");
             }
             else
                 Display(strDisplay);
@@ -785,22 +785,25 @@ namespace vaalrusGUIPrototype
             double serPrice = 0;
             int serType = 0;
             string searchType = "";
+            Boolean active = false;
             if (txtsearchPrice.Text.Length > 0)
             {
-                searchType = comboBoxSearchType.SelectedItem.ToString();
+                if (comboBoxSearchType.SelectedItem != null) searchType = comboBoxSearchType.SelectedItem.ToString();
                 //int serID = Convert.ToInt32(txtSearchID.Text);
                 //if (txtSearchType.Text.Length > 0) serType = Convert.ToInt32(txtSearchType.Text);
                 if (txtSearchOccupants.Text.Length > 0) serOcc = Convert.ToInt32(txtSearchOccupants.Text);
                 if (txtsearchPrice.Text.Length > 0) serPrice = Convert.ToDouble(txtsearchPrice.Text);
                 txtSearchID.Clear();
+                if (checkBoxActive.Checked == true) active = true; else active = false;
+                txtSearchID.Clear();
                 if (comboBoxSearchType.Text.Length == 0 && txtSearchOccupants.Text.Length == 0)
-                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Accommodation_Price Like '%{serPrice}%';");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Accommodation_Price Like '%{serPrice}%' AND Active = '{active}';");
                 else if (comboBoxSearchType.Text.Length > 0 && txtSearchOccupants.Text.Length == 0)
-                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Accommodation_Price Like '%{serPrice}%' AND Accommodationtype.AccommodationType Like '%{searchType}%';");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Accommodation_Price Like '%{serPrice}%' AND Accommodationtype.AccommodationType Like '%{searchType}%' AND Active = '{active}';");
                 else if (comboBoxSearchType.Text.Length == 0 && txtSearchOccupants.Text.Length > 0)
-                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Accommodation_Price Like '%{serPrice}%' AND Number_Of_Occupants Like '%{serOcc}%';");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Accommodation_Price Like '%{serPrice}%' AND Number_Of_Occupants Like '%{serOcc}%' AND Active = '{active}';");
                 else if (comboBoxSearchType.Text.Length > 0 && txtSearchOccupants.Text.Length > 0)
-                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Accommodation_Price Like '%{serPrice}%' AND Number_Of_Occupants Like '%{serOcc}%' AND Accommodationtype.AccommodationType Like '%{searchType}%';");
+                    Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Accommodation_Price Like '%{serPrice}%' AND Number_Of_Occupants Like '%{serOcc}%' AND Accommodationtype.AccommodationType Like '%{searchType}%' AND Active = '{active}';");
             }
             else
                 Display(strDisplay);
