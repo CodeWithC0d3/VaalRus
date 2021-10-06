@@ -211,7 +211,7 @@ namespace vaalrusGUIPrototype.Forms
             try
             {
                 
-                sqlConnection.Open();
+                if(sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
                 using (SqlCommand sqlCommand = new SqlCommand("Select Accommodation_TypeID from Accommodationtype where AccommodationType='"+type+"'", sqlConnection))
                 {
 
@@ -277,10 +277,11 @@ namespace vaalrusGUIPrototype.Forms
                         int type = getAccomType(cbAccomType.Text);
                     //if(cbAccomType.SelectedIndex==0)
                     setType();
+                    int typeRet = getAccomType(tempNewType);
                     sqlConnection = new SqlConnection(connString);
-                    sqlConnection.Open();
+                    if(sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
                     sqlCmd = new SqlCommand($"Insert Into Accommodation (Accommodation_TypeID,Number_Of_Occupants,Accommodation_Price,Active) Values (@type,@noo,@price,@act)", sqlConnection);
-                    sqlCmd.Parameters.AddWithValue("@type", cbAccomType.SelectedIndex + 1);
+                    sqlCmd.Parameters.AddWithValue("@type", typeRet);
                     sqlCmd.Parameters.AddWithValue("@noo", numOfOccupants.Value);
                     sqlCmd.Parameters.AddWithValue("@price", Convert.ToInt32(txtAccomPrice.Text));
                     sqlCmd.Parameters.AddWithValue("@act", true);
