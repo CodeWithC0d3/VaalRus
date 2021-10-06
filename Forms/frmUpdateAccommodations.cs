@@ -24,6 +24,7 @@ namespace vaalrusGUIPrototype
         public string connString = Properties.Settings.Default.conString;
         public int dIndex;
         public string tempID, tempType, tempOccupants, tempPrice;
+        public string strDisplay = "Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID;";
         public frmUpdateAccommodations()
         {
             InitializeComponent();
@@ -275,7 +276,8 @@ namespace vaalrusGUIPrototype
                 MessageBox.Show("Connection unsuccesful");
             }
             loadComboBox();
-            Display("Select Accommodation_ID as [ID], Accommodation_TypeID as [Type], Number_Of_Occupants as [Occupants], Accommodation_Price as [Price], Active as [Active] from Accommodation");
+            Display(strDisplay);
+            //Display("Select Accommodation_ID as [ID], Accommodation_TypeID as [Type], Number_Of_Occupants as [Occupants], Accommodation_Price as [Price], Active as [Active] from Accommodation");
             //readData("Select TOP 1 * from Accommodation");
             dIndex = 1;
             readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
@@ -529,7 +531,7 @@ namespace vaalrusGUIPrototype
                         sqlCmd.ExecuteNonQuery();
                         sqlConnection.Close();
 
-                        Display("Select * from Accommodation");
+                        Display(strDisplay);
                         dIndex = 1;
                         readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
                     }
