@@ -67,6 +67,7 @@ namespace vaalrusGUIPrototype
             this.lblAccomType = new System.Windows.Forms.Label();
             this.lblAccomID = new System.Windows.Forms.Label();
             this.txtAID = new System.Windows.Forms.TextBox();
+            this.btnClearSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).BeginInit();
             this.pnlDatagrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).BeginInit();
@@ -149,15 +150,16 @@ namespace vaalrusGUIPrototype
             // groupBoxSearch
             // 
             this.groupBoxSearch.Controls.Add(this.pnlGroupBoxSearch);
-            this.groupBoxSearch.Location = new System.Drawing.Point(16, 12);
+            this.groupBoxSearch.Location = new System.Drawing.Point(16, 3);
             this.groupBoxSearch.Name = "groupBoxSearch";
-            this.groupBoxSearch.Size = new System.Drawing.Size(336, 180);
+            this.groupBoxSearch.Size = new System.Drawing.Size(336, 203);
             this.groupBoxSearch.TabIndex = 9;
             this.groupBoxSearch.TabStop = false;
             this.groupBoxSearch.Text = "Search:";
             // 
             // pnlGroupBoxSearch
             // 
+            this.pnlGroupBoxSearch.Controls.Add(this.btnClearSearch);
             this.pnlGroupBoxSearch.Controls.Add(this.comboBoxSearchType);
             this.pnlGroupBoxSearch.Controls.Add(this.lblSearchActive);
             this.pnlGroupBoxSearch.Controls.Add(this.checkBoxSearchActive);
@@ -170,7 +172,7 @@ namespace vaalrusGUIPrototype
             this.pnlGroupBoxSearch.Controls.Add(this.txtSearchID);
             this.pnlGroupBoxSearch.Location = new System.Drawing.Point(6, 19);
             this.pnlGroupBoxSearch.Name = "pnlGroupBoxSearch";
-            this.pnlGroupBoxSearch.Size = new System.Drawing.Size(310, 155);
+            this.pnlGroupBoxSearch.Size = new System.Drawing.Size(310, 178);
             this.pnlGroupBoxSearch.TabIndex = 0;
             // 
             // comboBoxSearchType
@@ -438,6 +440,16 @@ namespace vaalrusGUIPrototype
             this.txtAID.TabIndex = 8;
             this.txtAID.Validating += new System.ComponentModel.CancelEventHandler(this.txtAID_Validating);
             // 
+            // btnClearSearch
+            // 
+            this.btnClearSearch.Location = new System.Drawing.Point(91, 149);
+            this.btnClearSearch.Name = "btnClearSearch";
+            this.btnClearSearch.Size = new System.Drawing.Size(137, 29);
+            this.btnClearSearch.TabIndex = 25;
+            this.btnClearSearch.Text = "Clear";
+            this.btnClearSearch.UseVisualStyleBackColor = true;
+            this.btnClearSearch.Click += new System.EventHandler(this.btnClearSearch_Click);
+            // 
             // frmUpdateAccommodations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -507,5 +519,6 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.CheckBox checkBoxSearchActive;
         private System.Windows.Forms.ComboBox comboBoxAType;
         private System.Windows.Forms.ComboBox comboBoxSearchType;
+        private System.Windows.Forms.Button btnClearSearch;
     }
 }

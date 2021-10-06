@@ -271,6 +271,8 @@ namespace vaalrusGUIPrototype
 
         private void frmUpdateAccommodations_Load(object sender, EventArgs e)
         {
+            comboBoxAType.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxSearchType.DropDownStyle = ComboBoxStyle.DropDownList;
             LoadTheme();
             sqlConnection = new SqlConnection(connString);
             try
@@ -616,7 +618,7 @@ namespace vaalrusGUIPrototype
             {
                 e.Cancel = true;
                 //txtAType.Focus();
-                comboBoxAType.Focus();
+                txtAOccupants.Focus();
                 errorProviderOccupants.SetError(txtAOccupants, "Occupants can not be blank!");
                 err = true;
             }
@@ -624,7 +626,7 @@ namespace vaalrusGUIPrototype
             {
                 e.Cancel = true;
                 //txtAType.Focus();
-                comboBoxAType.Focus();
+                txtAOccupants.Focus();
                 errorProviderOccupants.SetError(txtAOccupants, "Can not contain letters!");
                 err = true;
             }
@@ -638,18 +640,18 @@ namespace vaalrusGUIPrototype
 
         private void txtAPrice_Validating(object sender, CancelEventArgs e)
         {
-            /*int parsedValue;
+            int parsedValue;
             if (string.IsNullOrWhiteSpace(txtAPrice.Text))
             {
                 e.Cancel = true;
-                txtAType.Focus();
+                txtAPrice.Focus();
                 errorProviderPrice.SetError(txtAPrice, "Type can not be blank!");
                 err = true;
             }
             else if (!int.TryParse(txtAPrice.Text, out parsedValue))
             {
                 e.Cancel = true;
-                txtAType.Focus();
+                txtAPrice.Focus();
                 errorProviderPrice.SetError(txtAPrice, "Can not contain letters!");
                 err = true;
             }
@@ -658,7 +660,7 @@ namespace vaalrusGUIPrototype
                 e.Cancel = false;
                 errorProviderPrice.SetError(txtAPrice, "");
                 err = false;
-            }*/
+            }
         }
 
         private void dataGridViewAccom_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -727,6 +729,15 @@ namespace vaalrusGUIPrototype
             }
             else
                 Display(strDisplay);
+        }
+
+        private void btnClearSearch_Click(object sender, EventArgs e)
+        {
+            comboBoxSearchType.SelectedItem = null;
+            txtSearchID.Clear();
+            txtSearchOccupants.Clear();
+            txtsearchPrice.Clear();
+            txtSearchID.Focus();
         }
 
         private void txtSearchType_TextChanged(object sender, EventArgs e)
