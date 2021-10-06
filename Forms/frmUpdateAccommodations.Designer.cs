@@ -38,9 +38,9 @@ namespace vaalrusGUIPrototype
             this.errorProviderOccupants = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderPrice = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBoxSearchType = new System.Windows.Forms.ComboBox();
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
             this.pnlGroupBoxSearch = new System.Windows.Forms.Panel();
+            this.comboBoxSearchType = new System.Windows.Forms.ComboBox();
             this.lblSearchActive = new System.Windows.Forms.Label();
             this.checkBoxSearchActive = new System.Windows.Forms.CheckBox();
             this.lblSearchPrice = new System.Windows.Forms.Label();
@@ -146,15 +146,6 @@ namespace vaalrusGUIPrototype
             this.panel1.Size = new System.Drawing.Size(373, 209);
             this.panel1.TabIndex = 5;
             // 
-            // comboBoxSearchType
-            // 
-            this.comboBoxSearchType.FormattingEnabled = true;
-            this.comboBoxSearchType.Location = new System.Drawing.Point(167, 32);
-            this.comboBoxSearchType.Name = "comboBoxSearchType";
-            this.comboBoxSearchType.Size = new System.Drawing.Size(135, 21);
-            this.comboBoxSearchType.TabIndex = 25;
-            this.comboBoxSearchType.SelectedIndexChanged += new System.EventHandler(this.comboBoxSearchType_SelectedIndexChanged);
-            // 
             // groupBoxSearch
             // 
             this.groupBoxSearch.Controls.Add(this.pnlGroupBoxSearch);
@@ -181,6 +172,15 @@ namespace vaalrusGUIPrototype
             this.pnlGroupBoxSearch.Name = "pnlGroupBoxSearch";
             this.pnlGroupBoxSearch.Size = new System.Drawing.Size(310, 155);
             this.pnlGroupBoxSearch.TabIndex = 0;
+            // 
+            // comboBoxSearchType
+            // 
+            this.comboBoxSearchType.FormattingEnabled = true;
+            this.comboBoxSearchType.Location = new System.Drawing.Point(167, 32);
+            this.comboBoxSearchType.Name = "comboBoxSearchType";
+            this.comboBoxSearchType.Size = new System.Drawing.Size(135, 21);
+            this.comboBoxSearchType.TabIndex = 15;
+            this.comboBoxSearchType.SelectedIndexChanged += new System.EventHandler(this.comboBoxSearchType_SelectedIndexChanged);
             // 
             // lblSearchActive
             // 
@@ -329,7 +329,7 @@ namespace vaalrusGUIPrototype
             this.gBoxAccom.Controls.Add(this.pnlGroupBoxDetails);
             this.gBoxAccom.Location = new System.Drawing.Point(16, 12);
             this.gBoxAccom.Name = "gBoxAccom";
-            this.gBoxAccom.Size = new System.Drawing.Size(336, 161);
+            this.gBoxAccom.Size = new System.Drawing.Size(336, 166);
             this.gBoxAccom.TabIndex = 1;
             this.gBoxAccom.TabStop = false;
             this.gBoxAccom.Text = "Accommodation Details:";
@@ -348,16 +348,16 @@ namespace vaalrusGUIPrototype
             this.pnlGroupBoxDetails.Controls.Add(this.txtAID);
             this.pnlGroupBoxDetails.Location = new System.Drawing.Point(6, 19);
             this.pnlGroupBoxDetails.Name = "pnlGroupBoxDetails";
-            this.pnlGroupBoxDetails.Size = new System.Drawing.Size(311, 136);
+            this.pnlGroupBoxDetails.Size = new System.Drawing.Size(311, 141);
             this.pnlGroupBoxDetails.TabIndex = 0;
             // 
             // comboBoxAType
             // 
             this.comboBoxAType.FormattingEnabled = true;
-            this.comboBoxAType.Location = new System.Drawing.Point(167, 34);
+            this.comboBoxAType.Location = new System.Drawing.Point(166, 34);
             this.comboBoxAType.Name = "comboBoxAType";
             this.comboBoxAType.Size = new System.Drawing.Size(134, 21);
-            this.comboBoxAType.TabIndex = 25;
+            this.comboBoxAType.TabIndex = 10;
             this.comboBoxAType.SelectedIndexChanged += new System.EventHandler(this.comboBoxAType_SelectedIndexChanged);
             // 
             // lblActive
@@ -372,7 +372,7 @@ namespace vaalrusGUIPrototype
             // checkBoxActive
             // 
             this.checkBoxActive.AutoSize = true;
-            this.checkBoxActive.Location = new System.Drawing.Point(166, 112);
+            this.checkBoxActive.Location = new System.Drawing.Point(166, 113);
             this.checkBoxActive.Name = "checkBoxActive";
             this.checkBoxActive.Size = new System.Drawing.Size(15, 14);
             this.checkBoxActive.TabIndex = 16;

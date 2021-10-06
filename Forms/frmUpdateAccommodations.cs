@@ -283,6 +283,7 @@ namespace vaalrusGUIPrototype
             //readData("Select TOP 1 * from Accommodation");
             dIndex = 1;
             readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
+            txtSearchID.Focus();
             //loadTemp();
         }
         public void Display(string command)
