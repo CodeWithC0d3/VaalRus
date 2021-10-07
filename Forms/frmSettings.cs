@@ -264,7 +264,7 @@ namespace vaalrusGUIPrototype
                 if (!Properties.Settings.Default.conString.Contains("Vaalrus"))
                 {
                     MessageBox.Show("DataBase Vaalrus Will now be Created");
-                    SqlConnection con = new SqlConnection(txtConString.Text);
+                    SqlConnection con = new SqlConnection(Properties.Settings.Default.conString);
                     con.Open();
                     Server server = new Server(new ServerConnection(con));
                     string str = "CREATE DATABASE Vaalrus;";
@@ -318,21 +318,30 @@ namespace vaalrusGUIPrototype
         }
         private void loadTestData()
         {
-            if (conDB())
+            try
             {
-                SqlConnection.ClearPool(con);
-                con = new SqlConnection(constr);
-                con.Open();
-                Server server = new Server(new ServerConnection(con));
-                string str = File.ReadAllText(@"_SQL\InitialData.txt");
-                server.ConnectionContext.ExecuteNonQuery(str);
-                str = File.ReadAllText(@"_SQL\ViewsLocal.txt");
-                server.ConnectionContext.ExecuteNonQuery(str);
-                str = File.ReadAllText(@"_SQL\viewReportBookings.txt");
-                server.ConnectionContext.ExecuteNonQuery(str);
+                if (conDB())
+                {
+                    SqlConnection.ClearPool(con);
+                    con = new SqlConnection(constr);
+                    con.Open();
+                    Server server = new Server(new ServerConnection(con));
+                    string str = File.ReadAllText(@"_SQL\InitialData.txt");
+                    server.ConnectionContext.ExecuteNonQuery(str);
+                    str = File.ReadAllText(@"_SQL\ViewsLocal.txt");
+                    server.ConnectionContext.ExecuteNonQuery(str);
+                    //str = File.ReadAllText(@"_SQL\viewReportBookings.txt");
+                    //server.ConnectionContext.ExecuteNonQuery(str);
 
-                con.Close();
+                    con.Close();
+                }
+                MessageBox.Show("Data Loaded");
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Somthing went wrong\n" + ex.Message);                
+            }
+           
             
         }
         private void btnTestData_Click(object sender, EventArgs e)
