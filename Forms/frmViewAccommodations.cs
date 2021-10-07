@@ -149,7 +149,29 @@ namespace vaalrusGUIPrototype
             loadAvailibleAcc();
         }
 
-       
-        
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                sqlConnection = new SqlConnection(connString);
+                if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
+                using (SqlCommand myComm = new SqlCommand("Select Accommodationset.Accommodation_ID as [CurrentBooked AID] from Booking INNER JOIN Accommodationset on Booking.Quotation_ID = Accommodationset.Quotation_ID where Accommodationset.Quotation_ID = Booking.Quotation_ID AND Booking.EndDate >= '" + DateTime.Today + "'", sqlConnection))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+
+                    DataSet ds = new DataSet();
+                    adapter.SelectCommand = myComm;
+                    adapter.Fill(ds, "AccommodationBooked");
+
+                    dataGridView1.DataSource = ds;
+                    dataGridView1.DataMember = "AccommodationBooked";
+                }
+                sqlConnection.Close();
+            }
+            catch (SqlException sqlx)
+            {
+                MessageBox.Show(sqlx.ToString());
+            }
+        }
     }
 }
