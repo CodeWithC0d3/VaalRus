@@ -46,7 +46,7 @@ namespace vaalrusGUIPrototype
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(328, 41);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -63,7 +63,7 @@ namespace vaalrusGUIPrototype
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(29, 41);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(256, 392);
             this.panel1.TabIndex = 1;
@@ -71,7 +71,7 @@ namespace vaalrusGUIPrototype
             // dpto
             // 
             this.dpto.Location = new System.Drawing.Point(59, 159);
-            this.dpto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dpto.Margin = new System.Windows.Forms.Padding(2);
             this.dpto.Name = "dpto";
             this.dpto.Size = new System.Drawing.Size(151, 20);
             this.dpto.TabIndex = 8;
@@ -79,7 +79,7 @@ namespace vaalrusGUIPrototype
             // dpFrom
             // 
             this.dpFrom.Location = new System.Drawing.Point(69, 108);
-            this.dpFrom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dpFrom.Margin = new System.Windows.Forms.Padding(2);
             this.dpFrom.Name = "dpFrom";
             this.dpFrom.Size = new System.Drawing.Size(151, 20);
             this.dpFrom.TabIndex = 7;
@@ -107,7 +107,7 @@ namespace vaalrusGUIPrototype
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(86, 221);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 25);
             this.button3.TabIndex = 2;
@@ -118,18 +118,18 @@ namespace vaalrusGUIPrototype
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(86, 284);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 24);
             this.button2.TabIndex = 1;
             this.button2.Text = "Booked";
             this.button2.UseVisualStyleBackColor = true;
-            //this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(59, 34);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(156, 32);
             this.button1.TabIndex = 0;
@@ -143,7 +143,7 @@ namespace vaalrusGUIPrototype
             this.ClientSize = new System.Drawing.Size(790, 500);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmViewAccommodations";
             this.Text = "frmViewAccommodations";
             this.Load += new System.EventHandler(this.frmViewAccommodations_Load);
