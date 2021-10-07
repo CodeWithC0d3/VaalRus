@@ -152,8 +152,8 @@ namespace vaalrusGUIPrototype
 
         private void btnCreateBooking_Click(object sender, EventArgs e)
         {
-            //openChildForm(new Test());
-            //hideSubMenu();
+            openChildForm(new frmNewBooking());
+            lblHeading.Text = "Create Booking";
             changeButtonBrightness(sender);
         }
 

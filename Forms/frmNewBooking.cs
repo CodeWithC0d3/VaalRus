@@ -71,6 +71,11 @@ namespace vaalrusGUIPrototype.Forms
             aplytheme(pnlMain);
             aplytheme(pnlFilter);
             aplytheme(pnlGrid);
+            aplytheme(pnlBookDetail);
+            aplytheme(pnlButtons);
+            aplytheme(pnlCusInformation);
+            aplytheme(pnlPayment);
+
             //aplytheme(pnl_accSet);
             //timer1.Start();
         }
@@ -207,6 +212,9 @@ namespace vaalrusGUIPrototype.Forms
 
         }
 
+        private void pnlPayment_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }
