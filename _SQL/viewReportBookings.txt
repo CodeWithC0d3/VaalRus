@@ -1,0 +1,11 @@
+use Vaalrus
+GO
+CREATE VIEW viewBookingReport
+AS
+
+SELECT        dbo.Booking.Booking_ID, dbo.Quotation.Customer_ID, dbo.Booking.StartDate, dbo.Booking.EndDate, dbo.Accommodationset.Accommodation_ID, dbo.Accommodation.Number_Of_Occupants, 
+                         dbo.Accommodation.Accommodation_Price
+FROM            dbo.Accommodation INNER JOIN
+                         dbo.Accommodationset ON dbo.Accommodation.Accommodation_ID = dbo.Accommodationset.Accommodation_ID INNER JOIN
+                         dbo.Quotation ON dbo.Accommodationset.Quotation_ID = dbo.Quotation.Quotation_ID INNER JOIN
+                         dbo.Booking ON dbo.Quotation.Quotation_ID = dbo.Booking.Quotation_ID;

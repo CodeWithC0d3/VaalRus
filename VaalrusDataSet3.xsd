@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="VaalrusDataSet3" targetNamespace="http://tempuri.org/VaalrusDataSet3.xsd" xmlns:mstns="http://tempuri.org/VaalrusDataSet3.xsd" xmlns="http://tempuri.org/VaalrusDataSet3.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="VaalrusConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="VaalrusConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.vaalrusGUIPrototype.Properties.Settings.GlobalReference.Default.VaalrusConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewBookingReportTableAdapter" GeneratorDataComponentClassName="viewBookingReportTableAdapter" Name="viewBookingReport" UserDataComponentName="viewBookingReportTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="VaalrusConnectionString (Settings)" DbObjectName="Vaalrus.dbo.viewBookingReport" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Booking_ID, Customer_ID, StartDate, EndDate, Accommodation_ID, Number_Of_Occupants, Accommodation_Price FROM dbo.viewBookingReport</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Booking_ID" DataSetColumn="Booking_ID" />
+              <Mapping SourceColumn="Customer_ID" DataSetColumn="Customer_ID" />
+              <Mapping SourceColumn="StartDate" DataSetColumn="StartDate" />
+              <Mapping SourceColumn="EndDate" DataSetColumn="EndDate" />
+              <Mapping SourceColumn="Accommodation_ID" DataSetColumn="Accommodation_ID" />
+              <Mapping SourceColumn="Number_Of_Occupants" DataSetColumn="Number_Of_Occupants" />
+              <Mapping SourceColumn="Accommodation_Price" DataSetColumn="Accommodation_Price" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="VaalrusDataSet3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="VaalrusDataSet3" msprop:Generator_UserDSName="VaalrusDataSet3">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="viewBookingReport" msprop:Generator_TableClassName="viewBookingReportDataTable" msprop:Generator_TableVarName="tableviewBookingReport" msprop:Generator_TablePropName="viewBookingReport" msprop:Generator_RowDeletingName="viewBookingReportRowDeleting" msprop:Generator_RowChangingName="viewBookingReportRowChanging" msprop:Generator_RowEvHandlerName="viewBookingReportRowChangeEventHandler" msprop:Generator_RowDeletedName="viewBookingReportRowDeleted" msprop:Generator_UserTableName="viewBookingReport" msprop:Generator_RowChangedName="viewBookingReportRowChanged" msprop:Generator_RowEvArgName="viewBookingReportRowChangeEvent" msprop:Generator_RowClassName="viewBookingReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Booking_ID" msprop:Generator_ColumnVarNameInTable="columnBooking_ID" msprop:Generator_ColumnPropNameInRow="Booking_ID" msprop:Generator_ColumnPropNameInTable="Booking_IDColumn" msprop:Generator_UserColumnName="Booking_ID" type="xs:int" />
+              <xs:element name="Customer_ID" msprop:Generator_ColumnVarNameInTable="columnCustomer_ID" msprop:Generator_ColumnPropNameInRow="Customer_ID" msprop:Generator_ColumnPropNameInTable="Customer_IDColumn" msprop:Generator_UserColumnName="Customer_ID" type="xs:int" />
+              <xs:element name="StartDate" msprop:Generator_ColumnVarNameInTable="columnStartDate" msprop:Generator_ColumnPropNameInRow="StartDate" msprop:Generator_ColumnPropNameInTable="StartDateColumn" msprop:Generator_UserColumnName="StartDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EndDate" msprop:Generator_ColumnVarNameInTable="columnEndDate" msprop:Generator_ColumnPropNameInRow="EndDate" msprop:Generator_ColumnPropNameInTable="EndDateColumn" msprop:Generator_UserColumnName="EndDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Accommodation_ID" msprop:Generator_ColumnVarNameInTable="columnAccommodation_ID" msprop:Generator_ColumnPropNameInRow="Accommodation_ID" msprop:Generator_ColumnPropNameInTable="Accommodation_IDColumn" msprop:Generator_UserColumnName="Accommodation_ID" type="xs:int" />
+              <xs:element name="Number_Of_Occupants" msprop:Generator_ColumnVarNameInTable="columnNumber_Of_Occupants" msprop:Generator_ColumnPropNameInRow="Number_Of_Occupants" msprop:Generator_ColumnPropNameInTable="Number_Of_OccupantsColumn" msprop:Generator_UserColumnName="Number_Of_Occupants" type="xs:int" />
+              <xs:element name="Accommodation_Price" msprop:Generator_ColumnVarNameInTable="columnAccommodation_Price" msprop:Generator_ColumnPropNameInRow="Accommodation_Price" msprop:Generator_ColumnPropNameInTable="Accommodation_PriceColumn" msprop:Generator_UserColumnName="Accommodation_Price" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:viewBookingReport" />
+      <xs:field xpath="mstns:Booking_ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
