@@ -283,6 +283,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VaalrusDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="VaalrusDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VaalrusDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="VaalrusDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VaalrusDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="VaalrusDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VaalrusDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="VaalrusDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VaalrusDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="VaalrusDataSetView.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VaalrusDataSetView.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Bookings.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -386,6 +411,61 @@
     <None Include="VaalrusDataSet.xss">
       <DependentUpon>VaalrusDataSet.xsd</DependentUpon>
     </None>
+    <None Include="VaalrusDataSet1.xsc">
+      <DependentUpon>VaalrusDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="VaalrusDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VaalrusDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VaalrusDataSet1.xss">
+      <DependentUpon>VaalrusDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="VaalrusDataSet2.xsc">
+      <DependentUpon>VaalrusDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="VaalrusDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VaalrusDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VaalrusDataSet2.xss">
+      <DependentUpon>VaalrusDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="VaalrusDataSet3.xsc">
+      <DependentUpon>VaalrusDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="VaalrusDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VaalrusDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VaalrusDataSet3.xss">
+      <DependentUpon>VaalrusDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="VaalrusDataSet4.xsc">
+      <DependentUpon>VaalrusDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="VaalrusDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VaalrusDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VaalrusDataSet4.xss">
+      <DependentUpon>VaalrusDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="VaalrusDataSetView.xsc">
+      <DependentUpon>VaalrusDataSetView.xsd</DependentUpon>
+    </None>
+    <None Include="VaalrusDataSetView.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VaalrusDataSetView.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VaalrusDataSetView.xss">
+      <DependentUpon>VaalrusDataSetView.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -410,6 +490,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Vaalrus.mdf</DependentUpon>
     </Content>
+    <Content Include="_SQL\viewReportBookings.txt" />
     <Content Include="_SQL\ViewsLocal.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
