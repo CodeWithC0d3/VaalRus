@@ -64,24 +64,24 @@ namespace vaalrusGUIPrototype
             SqlDataReader dataReader;
             DataSet ds;
             string sql = "";
-            
-                
-            DateTime startDT  = dpFrom.Value.Date;
+
+
+            DateTime startDT = dpFrom.Value.Date;
             DateTime endDT = dpto.Value.Date;
             sql = "SELECT * FROM Accommodation";
-             
+
             command = new SqlCommand(sql, con);
             adapter = new SqlDataAdapter();
             DataSet ds1 = new DataSet();
             adapter.SelectCommand = command;
-            adapter.Fill(ds1,"Accommodation_ID");
+            adapter.Fill(ds1, "Accommodation_ID");
 
             sql = $"SELECT 	Accommodation_ID, AccommodationType FROM accAvailibility WHERE StartDate >= '{startDT.Date.ToString("yyyy/MM/dd")}' and EndDate <= '{endDT.Date.ToString("yyyy/MM/dd")}'";
             command = new SqlCommand(sql, con);
             adapter = new SqlDataAdapter();
             ds = new DataSet();
             adapter.SelectCommand = command;
-            adapter.Fill(ds,"Accommodation_ID");
+            adapter.Fill(ds, "Accommodation_ID");
 
             foreach (DataRow row1 in ds1.Tables[0].Rows)
             {
@@ -103,7 +103,7 @@ namespace vaalrusGUIPrototype
             //cmbAccommodation.DataSource = ds1.Tables[0];
             con.Close();
 
-            
+
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -139,8 +139,8 @@ namespace vaalrusGUIPrototype
             }
             Display("Select * from Booking ");
             //readData("Select TOP 1 * from Accommodation");
-           // dIndex = 1;
-           // readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
+            // dIndex = 1;
+            // readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
             //loadTemp();
         }
 
@@ -148,5 +148,8 @@ namespace vaalrusGUIPrototype
         {
             loadAvailibleAcc();
         }
+
+       
+        
     }
 }

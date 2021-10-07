@@ -620,6 +620,7 @@ C:\Users\21849633\source\repos\CodeWithC0d3\VaalRus\obj\Debug\vaalrusGUIPrototyp
 C:\Users\21849633\source\repos\CodeWithC0d3\VaalRus\obj\Debug\vaalrusGUIPrototype.csproj.CopyComplete
 C:\Users\21849633\source\repos\CodeWithC0d3\VaalRus\obj\Debug\vaalrusGUIPrototype.exe
 C:\Users\21849633\source\repos\CodeWithC0d3\VaalRus\obj\Debug\vaalrusGUIPrototype.pdb
+<<<<<<< HEAD
 C:\Users\W Heyneke\Documents\GitHub\VaalRus\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 C:\Users\W Heyneke\Documents\GitHub\VaalRus\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 C:\Users\W Heyneke\Documents\GitHub\VaalRus\bin\Debug\SqlServerTypes\x86\msvcr120.dll
@@ -767,3 +768,16 @@ C:\Users\W Heyneke\Documents\GitHub\VaalRus\obj\Debug\vaalrusGUIPrototype.csproj
 C:\Users\W Heyneke\Documents\GitHub\VaalRus\obj\Debug\vaalrusGUIPrototype.csproj.CopyComplete
 C:\Users\W Heyneke\Documents\GitHub\VaalRus\obj\Debug\vaalrusGUIPrototype.exe
 C:\Users\W Heyneke\Documents\GitHub\VaalRus\obj\Debug\vaalrusGUIPrototype.pdb
+=======
+C:\Users\JMX\Desktop\Reposit\VaalRus\bin\Debug\_SQL\ViewsLocal.txt
+C:\Users\JMX\Desktop\Reposit\VaalRus\bin\Debug\_SQL\ScriptLocal.txt
+C:\Users\JMX\Desktop\Reposit\VaalRus\bin\Debug\Bookings.rdlc
+C:\Users\JMX\Desktop\Reposit\VaalRus\bin\Debug\Reports\Quote.rdlc
+C:\Users\JMX\Desktop\Reposit\VaalRus\obj\Debug\vaalrusGUIPrototype.csprojAssemblyReference.cache
+C:\Users\JMX\Desktop\Reposit\VaalRus\obj\Debug\vaalrusGUIPrototype.Forms.frmDBSetup.resources
+C:\Users\JMX\Desktop\Reposit\VaalRus\obj\Debug\vaalrusGUIPrototype.frmDeleteCustomer.resources
+C:\Users\JMX\Desktop\Reposit\VaalRus\obj\Debug\vaalrusGUIPrototype.frmCheckIn.resources
+C:\Users\JMX\Desktop\Reposit\VaalRus\obj\Debug\vaalrusGUIPrototype.frmCheckOut.resources
+C:\Users\JMX\Desktop\Reposit\VaalRus\obj\Debug\vaalrusGUIPrototype.frmViewAccommodations.resources
+C:\Users\JMX\Desktop\Reposit\VaalRus\obj\Debug\vaalrusGUIPrototype.frmReportBookings.resources
+>>>>>>> fdsa
