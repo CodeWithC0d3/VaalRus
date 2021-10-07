@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Bookings per month</Value>
+                <Value>Bookings per time period</Value>
                 <Style>
                   <FontSize>28pt</FontSize>
                 </Style>
@@ -19,7 +19,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Left>0.34666cm</Left>
+        <Left>2.79194cm</Left>
         <Height>2.56328cm</Height>
         <Width>6.18153cm</Width>
         <Style>
@@ -36,7 +36,7 @@
         <Source>Embedded</Source>
         <Value>vaalrusInfoLogo</Value>
         <Sizing>FitProportional</Sizing>
-        <Left>7.53745cm</Left>
+        <Left>9.98273cm</Left>
         <Height>2.56328cm</Height>
         <Width>8.97255cm</Width>
         <ZIndex>1</ZIndex>
@@ -53,7 +53,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Report for Month:</Value>
+                <Value>Report Time period:</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -62,9 +62,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>3.98615cm</Top>
-        <Left>0.34666cm</Left>
+        <Left>2.79194cm</Left>
         <Height>0.58797cm</Height>
-        <Width>3.01625cm</Width>
+        <Width>3.57188cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -78,9 +78,9 @@
       </Textbox>
       <Line Name="Line1">
         <Top>4.94453cm</Top>
-        <Left>0.34666cm</Left>
+        <Left>1.21727cm</Left>
         <Height>0cm</Height>
-        <Width>16.16334cm</Width>
+        <Width>19.33988cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -109,7 +109,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
         <Top>2.73967cm</Top>
-        <Left>0.34666cm</Left>
+        <Left>2.79194cm</Left>
         <Height>0.9525cm</Height>
         <Width>9.58493cm</Width>
         <ZIndex>4</ZIndex>
@@ -139,7 +139,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>2.85433cm</Top>
-        <Left>11.58558cm</Left>
+        <Left>14.03086cm</Left>
         <Height>0.57326cm</Height>
         <Width>4.1275cm</Width>
         <ZIndex>5</ZIndex>
@@ -169,7 +169,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
         <Top>3.62162cm</Top>
-        <Left>11.58558cm</Left>
+        <Left>14.03086cm</Left>
         <Height>0.6cm</Height>
         <Width>4.1275cm</Width>
         <ZIndex>6</ZIndex>
@@ -198,10 +198,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>9.75995cm</Top>
-        <Left>7.00444cm</Left>
+        <Top>9.17787cm</Top>
+        <Left>9.29259cm</Left>
         <Height>0.635cm</Height>
-        <Width>2.51354cm</Width>
+        <Width>2.52646cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -213,40 +213,43 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Tablix Name="Tablix3">
+      <Tablix Name="Tablix1">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.75167cm</Width>
+              <Width>1.47285cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.89154cm</Width>
+              <Width>2.21368cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.75167cm</Width>
+              <Width>1.84326cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.23542cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>1.40229cm</Height>
+              <Height>1.13771cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox5">
+                    <Textbox Name="Textbox19">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Accommodation ID</Value>
+                              <Value>Acc ID</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <rd:DefaultName>Textbox19</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -263,21 +266,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox11">
+                    <Textbox Name="Textbox22">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Number Of Occupants</Value>
+                              <Value>Acc Type</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox11</rd:DefaultName>
+                      <rd:DefaultName>Textbox22</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -294,21 +297,52 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox13">
+                    <Textbox Name="Textbox27">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Accommodation Price</Value>
+                              <Value>Occupants</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox13</rd:DefaultName>
+                      <rd:DefaultName>Textbox27</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>Teal</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox29">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Acc Price</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox29</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -330,7 +364,7 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox24">
+                    <Textbox Name="Textbox35">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -344,7 +378,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox24</rd:DefaultName>
+                      <rd:DefaultName>Textbox35</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -360,7 +394,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox25">
+                    <Textbox Name="Textbox37">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -374,7 +408,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox25</rd:DefaultName>
+                      <rd:DefaultName>Textbox37</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -390,7 +424,37 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox26">
+                    <Textbox Name="Textbox38">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox38</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox39">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -412,32 +476,28 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox26</rd:DefaultName>
+                      <rd:DefaultName>Textbox39</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BottomBorder>
-                          <Style>Double</Style>
-                        </BottomBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>1.40229cm</Height>
+              <Height>1.13771cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Accommodation_ID">
+                    <Textbox Name="Accommodation_ID1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -451,7 +511,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Accommodation_ID</rd:DefaultName>
+                      <rd:DefaultName>Accommodation_ID1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -467,7 +527,37 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Number_Of_Occupants">
+                    <Textbox Name="AccommodationType1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!AccommodationType.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>AccommodationType1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Number_Of_Occupants1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -481,7 +571,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Number_Of_Occupants</rd:DefaultName>
+                      <rd:DefaultName>Number_Of_Occupants1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -497,7 +587,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Accommodation_Price">
+                    <Textbox Name="Accommodation_Price1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -515,7 +605,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Accommodation_Price</rd:DefaultName>
+                      <rd:DefaultName>Accommodation_Price1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -538,15 +628,16 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>2.08493cm</Size>
+                <Size>1.57467cm</Size>
                 <CellContents>
-                  <Textbox Name="Textbox36">
+                  <Textbox Name="Textbox64">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
@@ -560,7 +651,7 @@
                         <Style />
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox36</rd:DefaultName>
+                    <rd:DefaultName>Textbox64</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -578,23 +669,23 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.25271cm</Size>
+                    <Size>2.5cm</Size>
                     <CellContents>
-                      <Textbox Name="Textbox33">
+                      <Textbox Name="Textbox52">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>Customer ID</Value>
+                                <Value>Customer First Name</Value>
                                 <Style />
                               </TextRun>
                             </TextRuns>
                             <Style />
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>Textbox33</rd:DefaultName>
+                        <rd:DefaultName>Textbox52</rd:DefaultName>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -612,23 +703,23 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>2.24833cm</Size>
+                        <Size>2.5cm</Size>
                         <CellContents>
-                          <Textbox Name="Textbox30">
+                          <Textbox Name="Textbox61">
                             <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>Start Date</Value>
+                                    <Value>Customer Last Name</Value>
                                     <Style />
                                   </TextRun>
                                 </TextRuns>
                                 <Style />
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>Textbox30</rd:DefaultName>
+                            <rd:DefaultName>Textbox61</rd:DefaultName>
                             <Style>
                               <Border>
                                 <Color>LightGrey</Color>
@@ -646,23 +737,23 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>2.1825cm</Size>
+                            <Size>2.5cm</Size>
                             <CellContents>
-                              <Textbox Name="Textbox21">
+                              <Textbox Name="Textbox58">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>End Date</Value>
+                                        <Value>Start Date</Value>
                                         <Style />
                                       </TextRun>
                                     </TextRuns>
                                     <Style />
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>Textbox21</rd:DefaultName>
+                                <rd:DefaultName>Textbox58</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Color>LightGrey</Color>
@@ -678,7 +769,43 @@
                             </CellContents>
                           </TablixHeader>
                           <TablixMembers>
-                            <TablixMember />
+                            <TablixMember>
+                              <TablixHeader>
+                                <Size>2.5cm</Size>
+                                <CellContents>
+                                  <Textbox Name="Textbox55">
+                                    <CanGrow>true</CanGrow>
+                                    <KeepTogether>true</KeepTogether>
+                                    <Paragraphs>
+                                      <Paragraph>
+                                        <TextRuns>
+                                          <TextRun>
+                                            <Value>End Date</Value>
+                                            <Style />
+                                          </TextRun>
+                                        </TextRuns>
+                                        <Style />
+                                      </Paragraph>
+                                    </Paragraphs>
+                                    <rd:DefaultName>Textbox55</rd:DefaultName>
+                                    <Style>
+                                      <Border>
+                                        <Color>LightGrey</Color>
+                                        <Style>Solid</Style>
+                                      </Border>
+                                      <BackgroundColor>Teal</BackgroundColor>
+                                      <PaddingLeft>2pt</PaddingLeft>
+                                      <PaddingRight>2pt</PaddingRight>
+                                      <PaddingTop>2pt</PaddingTop>
+                                      <PaddingBottom>2pt</PaddingBottom>
+                                    </Style>
+                                  </Textbox>
+                                </CellContents>
+                              </TablixHeader>
+                              <TablixMembers>
+                                <TablixMember />
+                              </TablixMembers>
+                            </TablixMember>
                           </TablixMembers>
                         </TablixMember>
                       </TablixMembers>
@@ -689,7 +816,7 @@
               <KeepWithGroup>After</KeepWithGroup>
             </TablixMember>
             <TablixMember>
-              <Group Name="Booking_ID1">
+              <Group Name="Booking_ID2">
                 <GroupExpressions>
                   <GroupExpression>=Fields!Booking_ID.Value</GroupExpression>
                 </GroupExpressions>
@@ -700,9 +827,9 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>2.08493cm</Size>
+                <Size>1.57467cm</Size>
                 <CellContents>
-                  <Textbox Name="Booking_ID11">
+                  <Textbox Name="Booking_ID2">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
@@ -716,7 +843,7 @@
                         <Style />
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Booking_ID11</rd:DefaultName>
+                    <rd:DefaultName>Booking_ID2</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -732,34 +859,34 @@
               </TablixHeader>
               <TablixMembers>
                 <TablixMember>
-                  <Group Name="Customer_ID1">
+                  <Group Name="Customer_FirstName1">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Customer_ID.Value</GroupExpression>
+                      <GroupExpression>=Fields!Customer_FirstName.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Customer_ID.Value</Value>
+                      <Value>=Fields!Customer_FirstName.Value</Value>
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>2.25271cm</Size>
+                    <Size>2.5cm</Size>
                     <CellContents>
-                      <Textbox Name="Customer_ID11">
+                      <Textbox Name="Customer_FirstName1">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>=Fields!Customer_ID.Value</Value>
+                                <Value>=Fields!Customer_FirstName.Value</Value>
                                 <Style />
                               </TextRun>
                             </TextRuns>
                             <Style />
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>Customer_ID11</rd:DefaultName>
+                        <rd:DefaultName>Customer_FirstName1</rd:DefaultName>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -775,34 +902,34 @@
                   </TablixHeader>
                   <TablixMembers>
                     <TablixMember>
-                      <Group Name="StartDate1">
+                      <Group Name="Customer_LastName1">
                         <GroupExpressions>
-                          <GroupExpression>=Fields!StartDate.Value</GroupExpression>
+                          <GroupExpression>=Fields!Customer_LastName.Value</GroupExpression>
                         </GroupExpressions>
                       </Group>
                       <SortExpressions>
                         <SortExpression>
-                          <Value>=Fields!StartDate.Value</Value>
+                          <Value>=Fields!Customer_LastName.Value</Value>
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
-                        <Size>2.24833cm</Size>
+                        <Size>2.5cm</Size>
                         <CellContents>
-                          <Textbox Name="StartDate11">
+                          <Textbox Name="Customer_LastName1">
                             <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>=Fields!StartDate.Value</Value>
+                                    <Value>=Fields!Customer_LastName.Value</Value>
                                     <Style />
                                   </TextRun>
                                 </TextRuns>
                                 <Style />
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>StartDate11</rd:DefaultName>
+                            <rd:DefaultName>Customer_LastName1</rd:DefaultName>
                             <Style>
                               <Border>
                                 <Color>LightGrey</Color>
@@ -818,36 +945,77 @@
                       </TablixHeader>
                       <TablixMembers>
                         <TablixMember>
-                          <Group Name="EndDate">
+                          <Group Name="startDate">
                             <GroupExpressions>
-                              <GroupExpression>=Fields!EndDate.Value</GroupExpression>
+                              <GroupExpression>=Fields!startDate.Value</GroupExpression>
                             </GroupExpressions>
                           </Group>
                           <SortExpressions>
                             <SortExpression>
-                              <Value>=Fields!EndDate.Value</Value>
+                              <Value>=Fields!startDate.Value</Value>
                             </SortExpression>
                           </SortExpressions>
+                          <TablixHeader>
+                            <Size>2.5cm</Size>
+                            <CellContents>
+                              <Textbox Name="startDate">
+                                <CanGrow>true</CanGrow>
+                                <KeepTogether>true</KeepTogether>
+                                <Paragraphs>
+                                  <Paragraph>
+                                    <TextRuns>
+                                      <TextRun>
+                                        <Value>=Fields!startDate.Value</Value>
+                                        <Style />
+                                      </TextRun>
+                                    </TextRuns>
+                                    <Style />
+                                  </Paragraph>
+                                </Paragraphs>
+                                <rd:DefaultName>startDate</rd:DefaultName>
+                                <Style>
+                                  <Border>
+                                    <Color>LightGrey</Color>
+                                    <Style>Solid</Style>
+                                  </Border>
+                                  <PaddingLeft>2pt</PaddingLeft>
+                                  <PaddingRight>2pt</PaddingRight>
+                                  <PaddingTop>2pt</PaddingTop>
+                                  <PaddingBottom>2pt</PaddingBottom>
+                                </Style>
+                              </Textbox>
+                            </CellContents>
+                          </TablixHeader>
                           <TablixMembers>
                             <TablixMember>
+                              <Group Name="endDate">
+                                <GroupExpressions>
+                                  <GroupExpression>=Fields!endDate.Value</GroupExpression>
+                                </GroupExpressions>
+                              </Group>
+                              <SortExpressions>
+                                <SortExpression>
+                                  <Value>=Fields!endDate.Value</Value>
+                                </SortExpression>
+                              </SortExpressions>
                               <TablixHeader>
-                                <Size>2.1825cm</Size>
+                                <Size>2.5cm</Size>
                                 <CellContents>
-                                  <Textbox Name="EndDate">
+                                  <Textbox Name="endDate">
                                     <CanGrow>true</CanGrow>
                                     <KeepTogether>true</KeepTogether>
                                     <Paragraphs>
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>=Fields!EndDate.Value</Value>
+                                            <Value>=Fields!endDate.Value</Value>
                                             <Style />
                                           </TextRun>
                                         </TextRuns>
                                         <Style />
                                       </Paragraph>
                                     </Paragraphs>
-                                    <rd:DefaultName>EndDate</rd:DefaultName>
+                                    <rd:DefaultName>endDate</rd:DefaultName>
                                     <Style>
                                       <Border>
                                         <Color>LightGrey</Color>
@@ -863,10 +1031,24 @@
                               </TablixHeader>
                               <TablixMembers>
                                 <TablixMember>
-                                  <KeepWithGroup>After</KeepWithGroup>
-                                </TablixMember>
-                                <TablixMember>
-                                  <Group Name="Details2" />
+                                  <Group Name="Booking_ID">
+                                    <GroupExpressions>
+                                      <GroupExpression>=Fields!Booking_ID.Value</GroupExpression>
+                                    </GroupExpressions>
+                                  </Group>
+                                  <SortExpressions>
+                                    <SortExpression>
+                                      <Value>=Fields!Booking_ID.Value</Value>
+                                    </SortExpression>
+                                  </SortExpressions>
+                                  <TablixMembers>
+                                    <TablixMember>
+                                      <KeepWithGroup>After</KeepWithGroup>
+                                    </TablixMember>
+                                    <TablixMember>
+                                      <Group Name="Details" />
+                                    </TablixMember>
+                                  </TablixMembers>
                                 </TablixMember>
                               </TablixMembers>
                             </TablixMember>
@@ -880,11 +1062,11 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSet1</DataSetName>
-        <Top>5.42078cm</Top>
-        <Left>0.34666cm</Left>
-        <Height>3.40458cm</Height>
-        <Width>16.16334cm</Width>
+        <DataSetName>DataSetFull</DataSetName>
+        <Top>5.73828cm</Top>
+        <Left>1.21727cm</Left>
+        <Height>2.87542cm</Height>
+        <Width>19.33988cm</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
@@ -896,7 +1078,7 @@
     <Height>8.34375in</Height>
     <Style />
   </Body>
-  <Width>10.43701in</Width>
+  <Width>15.64893in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
@@ -922,6 +1104,13 @@
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
       <rd:DataSourceID>e95f3c04-f711-4a09-a344-610be5b4b226</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="VaalrusDataSet5">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>c878a5f7-c1d3-4ad7-921a-92410f40d17d</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -1053,9 +1242,9 @@
         <rd:TableAdapterName>AccommodationsetTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="DataSet1">
+    <DataSet Name="DataSetFull">
       <Query>
-        <DataSourceName>VaalrusDataSetView</DataSourceName>
+        <DataSourceName>VaalrusDataSet5</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1067,17 +1256,29 @@
           <DataField>Customer_ID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="StartDate">
-          <DataField>StartDate</DataField>
+        <Field Name="Customer_FirstName">
+          <DataField>Customer_FirstName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Customer_LastName">
+          <DataField>Customer_LastName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="startDate">
+          <DataField>startDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="EndDate">
-          <DataField>EndDate</DataField>
+        <Field Name="endDate">
+          <DataField>endDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="Accommodation_ID">
           <DataField>Accommodation_ID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="AccommodationType">
+          <DataField>AccommodationType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Number_Of_Occupants">
           <DataField>Number_Of_Occupants</DataField>
@@ -1089,12 +1290,12 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>VaalrusDataSetView</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\JMX\Desktop\Reposit\VaalRus\VaalrusDataSetView.xsd</rd:SchemaPath>
-        <rd:TableName>viewBookingReport</rd:TableName>
+        <rd:DataSetName>VaalrusDataSet5</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\JMX\Desktop\Reposit\VaalRus\VaalrusDataSet5.xsd</rd:SchemaPath>
+        <rd:TableName>viewBookingReport1</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>viewBookingReportTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>viewBookingReport1TableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

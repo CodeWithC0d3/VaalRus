@@ -30,17 +30,17 @@ namespace vaalrusGUIPrototype
         private void InitializeComponent()
         {
             this.panelInput = new System.Windows.Forms.Panel();
+            this.groupBoxDisplay = new System.Windows.Forms.GroupBox();
+            this.dpEnd = new System.Windows.Forms.DateTimePicker();
+            this.dpStart = new System.Windows.Forms.DateTimePicker();
+            this.btnDisplayReport = new System.Windows.Forms.Button();
+            this.lblEnd = new System.Windows.Forms.Label();
+            this.lblStartDate = new System.Windows.Forms.Label();
             this.panelReportViewer = new System.Windows.Forms.Panel();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.groupBoxDisplay = new System.Windows.Forms.GroupBox();
-            this.lblStartDate = new System.Windows.Forms.Label();
-            this.lblEnd = new System.Windows.Forms.Label();
-            this.btnDisplayReport = new System.Windows.Forms.Button();
-            this.dpStart = new System.Windows.Forms.DateTimePicker();
-            this.dpEnd = new System.Windows.Forms.DateTimePicker();
             this.panelInput.SuspendLayout();
-            this.panelReportViewer.SuspendLayout();
             this.groupBoxDisplay.SuspendLayout();
+            this.panelReportViewer.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelInput
@@ -52,6 +52,62 @@ namespace vaalrusGUIPrototype
             this.panelInput.Name = "panelInput";
             this.panelInput.Size = new System.Drawing.Size(800, 60);
             this.panelInput.TabIndex = 1;
+            // 
+            // groupBoxDisplay
+            // 
+            this.groupBoxDisplay.Controls.Add(this.dpEnd);
+            this.groupBoxDisplay.Controls.Add(this.dpStart);
+            this.groupBoxDisplay.Controls.Add(this.btnDisplayReport);
+            this.groupBoxDisplay.Controls.Add(this.lblEnd);
+            this.groupBoxDisplay.Controls.Add(this.lblStartDate);
+            this.groupBoxDisplay.Location = new System.Drawing.Point(12, 3);
+            this.groupBoxDisplay.Name = "groupBoxDisplay";
+            this.groupBoxDisplay.Size = new System.Drawing.Size(776, 54);
+            this.groupBoxDisplay.TabIndex = 0;
+            this.groupBoxDisplay.TabStop = false;
+            this.groupBoxDisplay.Text = "Display report per time period:";
+            // 
+            // dpEnd
+            // 
+            this.dpEnd.Location = new System.Drawing.Point(388, 19);
+            this.dpEnd.Name = "dpEnd";
+            this.dpEnd.Size = new System.Drawing.Size(198, 20);
+            this.dpEnd.TabIndex = 6;
+            // 
+            // dpStart
+            // 
+            this.dpStart.Location = new System.Drawing.Point(83, 19);
+            this.dpStart.Name = "dpStart";
+            this.dpStart.Size = new System.Drawing.Size(198, 20);
+            this.dpStart.TabIndex = 5;
+            // 
+            // btnDisplayReport
+            // 
+            this.btnDisplayReport.Location = new System.Drawing.Point(614, 13);
+            this.btnDisplayReport.Name = "btnDisplayReport";
+            this.btnDisplayReport.Size = new System.Drawing.Size(146, 30);
+            this.btnDisplayReport.TabIndex = 4;
+            this.btnDisplayReport.Text = "Display";
+            this.btnDisplayReport.UseVisualStyleBackColor = true;
+            this.btnDisplayReport.Click += new System.EventHandler(this.btnDisplayReport_Click);
+            // 
+            // lblEnd
+            // 
+            this.lblEnd.AutoSize = true;
+            this.lblEnd.Location = new System.Drawing.Point(309, 22);
+            this.lblEnd.Name = "lblEnd";
+            this.lblEnd.Size = new System.Drawing.Size(55, 13);
+            this.lblEnd.TabIndex = 3;
+            this.lblEnd.Text = "End Date:";
+            // 
+            // lblStartDate
+            // 
+            this.lblStartDate.AutoSize = true;
+            this.lblStartDate.Location = new System.Drawing.Point(6, 22);
+            this.lblStartDate.Name = "lblStartDate";
+            this.lblStartDate.Size = new System.Drawing.Size(58, 13);
+            this.lblStartDate.TabIndex = 2;
+            this.lblStartDate.Text = "Start Date:";
             // 
             // panelReportViewer
             // 
@@ -71,62 +127,6 @@ namespace vaalrusGUIPrototype
             this.reportViewer1.Size = new System.Drawing.Size(800, 390);
             this.reportViewer1.TabIndex = 1;
             // 
-            // groupBoxDisplay
-            // 
-            this.groupBoxDisplay.Controls.Add(this.dpEnd);
-            this.groupBoxDisplay.Controls.Add(this.dpStart);
-            this.groupBoxDisplay.Controls.Add(this.btnDisplayReport);
-            this.groupBoxDisplay.Controls.Add(this.lblEnd);
-            this.groupBoxDisplay.Controls.Add(this.lblStartDate);
-            this.groupBoxDisplay.Location = new System.Drawing.Point(12, 3);
-            this.groupBoxDisplay.Name = "groupBoxDisplay";
-            this.groupBoxDisplay.Size = new System.Drawing.Size(776, 54);
-            this.groupBoxDisplay.TabIndex = 0;
-            this.groupBoxDisplay.TabStop = false;
-            this.groupBoxDisplay.Text = "Display report per month";
-            // 
-            // lblStartDate
-            // 
-            this.lblStartDate.AutoSize = true;
-            this.lblStartDate.Location = new System.Drawing.Point(24, 22);
-            this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(58, 13);
-            this.lblStartDate.TabIndex = 2;
-            this.lblStartDate.Text = "Start Date:";
-            // 
-            // lblEnd
-            // 
-            this.lblEnd.AutoSize = true;
-            this.lblEnd.Location = new System.Drawing.Point(307, 22);
-            this.lblEnd.Name = "lblEnd";
-            this.lblEnd.Size = new System.Drawing.Size(55, 13);
-            this.lblEnd.TabIndex = 3;
-            this.lblEnd.Text = "End Date:";
-            // 
-            // btnDisplayReport
-            // 
-            this.btnDisplayReport.Location = new System.Drawing.Point(591, 13);
-            this.btnDisplayReport.Name = "btnDisplayReport";
-            this.btnDisplayReport.Size = new System.Drawing.Size(169, 30);
-            this.btnDisplayReport.TabIndex = 4;
-            this.btnDisplayReport.Text = "Display";
-            this.btnDisplayReport.UseVisualStyleBackColor = true;
-            this.btnDisplayReport.Click += new System.EventHandler(this.btnDisplayReport_Click);
-            // 
-            // dpStart
-            // 
-            this.dpStart.Location = new System.Drawing.Point(88, 19);
-            this.dpStart.Name = "dpStart";
-            this.dpStart.Size = new System.Drawing.Size(198, 20);
-            this.dpStart.TabIndex = 5;
-            // 
-            // dpEnd
-            // 
-            this.dpEnd.Location = new System.Drawing.Point(375, 19);
-            this.dpEnd.Name = "dpEnd";
-            this.dpEnd.Size = new System.Drawing.Size(198, 20);
-            this.dpEnd.TabIndex = 6;
-            // 
             // frmReportBookings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -138,9 +138,9 @@ namespace vaalrusGUIPrototype
             this.Text = "frmReportBookings";
             this.Load += new System.EventHandler(this.frmReportBookings_Load);
             this.panelInput.ResumeLayout(false);
-            this.panelReportViewer.ResumeLayout(false);
             this.groupBoxDisplay.ResumeLayout(false);
             this.groupBoxDisplay.PerformLayout();
+            this.panelReportViewer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
