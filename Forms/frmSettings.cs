@@ -330,8 +330,8 @@ namespace vaalrusGUIPrototype
                     server.ConnectionContext.ExecuteNonQuery(str);
                     str = File.ReadAllText(@"_SQL\ViewsLocal.txt");
                     server.ConnectionContext.ExecuteNonQuery(str);
-                    //str = File.ReadAllText(@"_SQL\viewReportBookings.txt");
-                    //server.ConnectionContext.ExecuteNonQuery(str);
+                    str = File.ReadAllText(@"_SQL\viewReportBookings.txt");
+                    server.ConnectionContext.ExecuteNonQuery(str);
 
                     con.Close();
                 }

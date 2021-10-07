@@ -499,7 +499,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Vaalrus.mdf</DependentUpon>
     </Content>
-    <Content Include="_SQL\viewReportBookings.txt" />
+    <Content Include="_SQL\viewReportBookings.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="_SQL\ViewsLocal.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
