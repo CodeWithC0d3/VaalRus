@@ -18,6 +18,10 @@ namespace vaalrusGUIPrototype
     public partial class frmReportBookings : Form
     {
         public string connString = Properties.Settings.Default.conString;
+        public DateTime selectedMonth = new DateTime();
+        public DateTime selectYear = new DateTime();
+        public DateTime selectStart = new DateTime();
+        public DateTime selectEnd = new DateTime();
         public frmReportBookings()
         {
             InitializeComponent();
@@ -38,9 +42,18 @@ namespace vaalrusGUIPrototype
         }*/
         private void frmReportBookings_Load(object sender, EventArgs e)
         {
-
+            //DateTime year = new DateTime();
+            //string yearval = DateTime.Now.Year.ToString();
+            //string lastyear = DateTime.Now.AddYears(-1).ToString();
+            //comboBoxYear.Items.Add(lastyear);
+            //comboBoxYear.Items.Add(yearval);
+            //for (int i = 0; i < 12; i++)
+            //{
+                //comboBoxMonth.Items.Add(i);
+            //}
+            //comboBoxYear
             this.reportViewer1.RefreshReport();
-            loadDataSet3();
+            
         }
         public void loadDataSet2()
         {
@@ -109,7 +122,7 @@ namespace vaalrusGUIPrototype
                 StartDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
                 EndDate = new DateTime();
                 EndDate = DateTime.Today.AddMonths(1);
-                SqlCommand myComm4 = new SqlCommand("SELECT * FROM viewBookingReport where startDate >= '" + StartDate + "' AND startDate < '" + EndDate + "' ;", conn);
+                SqlCommand myComm4 = new SqlCommand("SELECT * FROM viewBookingReport where startDate >= '" + selectStart + "' AND startDate < '" + selectEnd + "' ;", conn);
                 SqlDataAdapter adapter4 = new SqlDataAdapter(myComm4);
                 DataTable dt4 = new DataTable();
                 adapter4.Fill(dt4);
@@ -129,6 +142,21 @@ namespace vaalrusGUIPrototype
             catch (SqlException sqlx)
             {
                 MessageBox.Show(sqlx.ToString());
+            }
+        }
+
+        private void btnDisplayReport_Click(object sender, EventArgs e)
+        {
+            if (true)
+            {
+
+                selectStart = dpStart.Value;
+                selectEnd = dpEnd.Value;
+                loadDataSet3();
+            }
+            else
+            {
+                MessageBox.Show("Please select Year and Month paramaters for the report");
             }
         }
     }
