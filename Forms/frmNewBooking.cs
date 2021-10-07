@@ -22,6 +22,7 @@ namespace vaalrusGUIPrototype.Forms
         SqlDataReader dataReader;
         DataSet ds;
         string sql = "";
+        int qid;
 
         /*private ErrorProvider userErrorProvider;
         private ErrorProvider customerErrorProvider;
@@ -172,6 +173,54 @@ namespace vaalrusGUIPrototype.Forms
         {
             LoadTheme();
         }
+        private Boolean conDB()
+        {
+            try
+            {
+                con = new SqlConnection(constr);
+                con.Open();
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+        private void loadGrid()
+        {
+            DateTime startDate = dp_filterFrom.Value.Date;
+            DateTime endDate = dp_filterTo.Value.Date;
+            string stDate = startDate.Date.ToString("yyyy/MM/dd");
+            string eDate = endDate.Date.ToString("yyyy/MM/dd");
+            
+            if (conDB())
+            {
+                //$" and Customer_IDNumber = '" + txtFilterID.Text + "'"
+                int duration = (endDate.Date - startDate.Date).Days;
+                string strduration = ch_to.Checked ? $" and Quotation.Duration <= {duration}" : "";
+                string cusID = txtFilterID.Text != "" ? ch_dateRange.Checked ? $" and Customer_IDNumber = '" + txtFilterID.Text + "'" : $" Customer_IDNumber = '" + txtFilterID.Text + "'" : "";
+                string qID = txtFilterQuote.Text != "" ? $" Quotation_ID = '" + txtFilterQuote.Text + "'" : "";
+                string fdate = txtFilterQuote.Text == "" ? $"Quotation.Reservation_Date >= '{stDate}'" : "";
+
+                //sql = $"select * from Booking where StartDate >@stdate and EndDate < @edate ";                
+                sql = $"SELECT Quotation.Quotation_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name],Customer.Customer_IDNumber, Quotation.Reservation_Date AS [Reservation Date], Quotation.Duration, Quotation.TotalPrice, Quotationstatus.Status_Type AS Status FROM Quotation INNER JOIN Customer ON dbo.Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE {fdate} {qID} {cusID} {strduration} ";
+                command = new SqlCommand(sql, con);
+                command.Parameters.AddWithValue("@stdate", stDate);
+                //command.Parameters.AddWithValue("@edate", eDate);
+                //command.Parameters.AddWithValue("@to", strto);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Quotation_ID");
+                //adapter.Fill(ds, "CustomerID");
+
+                grid.DataSource = ds;
+                grid.DataMember = "Quotation_ID";
+                con.Close();
+            }
+        }
         private void createErProviders()
         {
             /*userErrorProvider = new ErrorProvider();
@@ -215,6 +264,63 @@ namespace vaalrusGUIPrototype.Forms
         private void pnlPayment_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            loadGrid();
+        }
+
+        private void ch_to_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ch_to.Checked)
+                dp_filterTo.Enabled = true;
+            else
+                dp_filterTo.Enabled = false;
+        }
+
+        private void ch_dateRange_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ch_dateRange.Checked)
+                dp_filterFrom.Enabled = true;
+            else
+            {
+                dp_filterFrom.Enabled = false;
+                ch_to.Checked = false;
+            }
+                
+        }
+        private void fillInFormation()
+        {
+            int duration = 0;
+            DateTime sdate = DateTime.Now.Date;
+            sql = $" SELECT Quotation.Quotation_ID, Customer.Customer_FirstName, Customer.Customer_LastName, Customer.Customer_IDNumber, Customer.Customer_Cell, Customer.Customer_Email, Quotation.Reservation_Date, Quotation.Duration, Quotation.TotalPrice FROM Quotation INNER JOIN Customer ON Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE Quotation_ID = @qid";
+            command = new SqlCommand(sql, con);
+            command.Parameters.AddWithValue("@qid", qid);
+            //command.Parameters.AddWithValue("@edate", eDate);
+            //command.Parameters.AddWithValue("@to", strto);
+            adapter = new SqlDataAdapter();
+            ds = new DataSet();
+            adapter.SelectCommand = command;
+            adapter.Fill(ds, "Quotation_ID");
+
+            duration = int.Parse(ds.Tables[0].Rows[0].ItemArray[7].ToString());
+            txtname.Text = ds.Tables[0].Rows[0].ItemArray[1].ToString();
+            txtlastName.Text = ds.Tables[0].Rows[0].ItemArray[2].ToString();
+            txtIdNumber.Text = ds.Tables[0].Rows[0].ItemArray[3].ToString();
+            txtCell.Text = ds.Tables[0].Rows[0].ItemArray[4].ToString();
+            txtemail.Text = ds.Tables[0].Rows[0].ItemArray[5].ToString();
+            txtQuotenr.Text = qid.ToString(); 
+            txtStartDate.Text = ds.Tables[0].Rows[0].ItemArray[6].ToString();
+            txtEndDate.Text = sdate.Date.AddDays(duration).ToString();
+            txtAmount.Text = ds.Tables[0].Rows[0].ItemArray[8].ToString();
+        }
+        private void grid_SelectionChanged(object sender, EventArgs e)
+        {
+
+            qid = int.Parse(grid.CurrentRow.Cells[0].Value.ToString());
+            
+            fillInFormation();
         }
     }
 }
