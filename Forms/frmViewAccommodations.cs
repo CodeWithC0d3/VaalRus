@@ -39,8 +39,8 @@ namespace vaalrusGUIPrototype
                     adapter.SelectCommand = cmd;
                     adapter.Fill(ds, "Accommodation");
 
-                    dataGridView1.DataSource = ds;
-                    dataGridView1.DataMember = "Accommodation";
+                    dtgViewAcc.DataSource = ds;
+                    dtgViewAcc.DataMember = "Accommodation";
                 }
             }
             catch (SqlException sqle)
@@ -61,11 +61,11 @@ namespace vaalrusGUIPrototype
             SqlConnection con = new SqlConnection(constr);
             SqlCommand command;
             SqlDataAdapter adapter;
-            SqlDataReader dataReader;
+           // SqlDataReader dataReader;
             DataSet ds;
             string sql = "";
+
             
-                
             DateTime startDT  = dpFrom.Value.Date;
             DateTime endDT = dpto.Value.Date;
             sql = "SELECT * FROM Accommodation";
@@ -98,8 +98,8 @@ namespace vaalrusGUIPrototype
 
             }
             ds1.AcceptChanges();
-            dataGridView1.DataMember = "Accommodation_ID";
-            dataGridView1.DataSource = ds1;
+            dtgViewAcc.DataMember = "Accommodation_ID";
+            dtgViewAcc.DataSource = ds1;
             //cmbAccommodation.DataSource = ds1.Tables[0];
             con.Close();
 
@@ -133,20 +133,42 @@ namespace vaalrusGUIPrototype
                 sqlConnection.Open();
                 //MessageBox.Show("Connected to db");
             }
-            catch (SqlException sqlx)
+            catch (SqlException)
             {
                 MessageBox.Show("Connection unsuccesful");
             }
             Display("Select * from Booking ");
-            //readData("Select TOP 1 * from Accommodation");
-           // dIndex = 1;
-           // readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
-            //loadTemp();
+        
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             loadAvailibleAcc();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            sqlConnection = new SqlConnection(connString);
+            try
+            {
+                sqlConnection.Open();
+                //MessageBox.Show("Connected to db");
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Connection unsuccesful");
+            }
+            Display("Select * from Accommodation");
+        }
+
+        private void dpFrom_ValueChanged(object sender, EventArgs e)
+        {
+            dtgViewAcc.DataSource=null;
         }
     }
 }
