@@ -70,6 +70,7 @@ namespace vaalrusGUIPrototype
             aplytheme(pnlGroupBoxDetails);
             aplytheme(pnlGroupBoxSearch);
             aplytheme(pnlDatagrid);
+            aplytheme(panel1);
             //aplytheme2(pnlLabelHeading);
             //aplytheme(pnl_device);
             //aplytheme(pnl_main);
@@ -98,7 +99,8 @@ namespace vaalrusGUIPrototype
                         Label lbl = (Label)co;
                         lbl.Font = GlobalSettings.font;
                         //lbl.Parent = picBackground;
-                        lbl.ForeColor = GlobalSettings.SecondaryColor;
+                        //lbl.ForeColor = GlobalSettings.SecondaryColor;
+                        lbl.ForeColor = Color.White;
                         lbl.BackColor = Color.Transparent;
 
                     }
@@ -147,7 +149,8 @@ namespace vaalrusGUIPrototype
                     if (co.GetType() == typeof(GroupBox))
                     {
                         GroupBox gpc = (GroupBox)co;
-                        gpc.ForeColor = GlobalSettings.SecondaryColor;
+                        //gpc.ForeColor = GlobalSettings.SecondaryColor;
+                        gpc.ForeColor = Color.White;
                         gpc.Font = GlobalSettings.font;
 
                     }
