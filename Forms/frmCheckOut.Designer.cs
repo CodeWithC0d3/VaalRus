@@ -29,24 +29,29 @@ namespace vaalrusGUIPrototype
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dtgCheckOut = new System.Windows.Forms.DataGridView();
             this.pnlCheckOut = new System.Windows.Forms.Panel();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.tbLastName = new System.Windows.Forms.TextBox();
             this.tbBookID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCheckout = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.tbLastName = new System.Windows.Forms.TextBox();
             this.btnDisplayBook = new System.Windows.Forms.Button();
             this.pnlSearch = new System.Windows.Forms.Panel();
-            this.tbIDNum = new System.Windows.Forms.TextBox();
-            this.rbLastName = new System.Windows.Forms.RadioButton();
-            this.rbIDnum = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.rbIDnum = new System.Windows.Forms.RadioButton();
+            this.rbLastName = new System.Windows.Forms.RadioButton();
+            this.tbIDNum = new System.Windows.Forms.TextBox();
             this.pnlDisplay = new System.Windows.Forms.Panel();
+            this.epLastName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epIDNumber = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtgCheckOut)).BeginInit();
             this.pnlCheckOut.SuspendLayout();
             this.pnlSearch.SuspendLayout();
             this.pnlDisplay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epLastName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epIDNumber)).BeginInit();
             this.SuspendLayout();
             // 
             // dtgCheckOut
@@ -70,23 +75,6 @@ namespace vaalrusGUIPrototype
             this.pnlCheckOut.Name = "pnlCheckOut";
             this.pnlCheckOut.Size = new System.Drawing.Size(378, 292);
             this.pnlCheckOut.TabIndex = 1;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(809, 10);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(141, 92);
-            this.btnSearch.TabIndex = 8;
-            this.btnSearch.Text = "Filter";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // tbLastName
-            // 
-            this.tbLastName.Location = new System.Drawing.Point(602, 10);
-            this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(170, 22);
-            this.tbLastName.TabIndex = 7;
             // 
             // tbBookID
             // 
@@ -114,6 +102,23 @@ namespace vaalrusGUIPrototype
             this.btnCheckout.UseVisualStyleBackColor = true;
             this.btnCheckout.Click += new System.EventHandler(this.button2_Click);
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(809, 10);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(141, 92);
+            this.btnSearch.TabIndex = 8;
+            this.btnSearch.Text = "Filter";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // tbLastName
+            // 
+            this.tbLastName.Location = new System.Drawing.Point(602, 10);
+            this.tbLastName.Name = "tbLastName";
+            this.tbLastName.Size = new System.Drawing.Size(170, 22);
+            this.tbLastName.TabIndex = 7;
+            // 
             // btnDisplayBook
             // 
             this.btnDisplayBook.Location = new System.Drawing.Point(187, 22);
@@ -139,12 +144,26 @@ namespace vaalrusGUIPrototype
             this.pnlSearch.TabIndex = 9;
             this.pnlSearch.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // tbIDNum
+            // label1
             // 
-            this.tbIDNum.Location = new System.Drawing.Point(602, 58);
-            this.tbIDNum.Name = "tbIDNum";
-            this.tbIDNum.Size = new System.Drawing.Size(170, 22);
-            this.tbIDNum.TabIndex = 9;
+            this.label1.AutoSize = true;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Location = new System.Drawing.Point(13, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(279, 19);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "SEARCH BY LAST NAME OR ID NUMBER:";
+            // 
+            // rbIDnum
+            // 
+            this.rbIDnum.AutoSize = true;
+            this.rbIDnum.Location = new System.Drawing.Point(419, 58);
+            this.rbIDnum.Name = "rbIDnum";
+            this.rbIDnum.Size = new System.Drawing.Size(138, 21);
+            this.rbIDnum.TabIndex = 12;
+            this.rbIDnum.TabStop = true;
+            this.rbIDnum.Text = "Enter ID Number:";
+            this.rbIDnum.UseVisualStyleBackColor = true;
             // 
             // rbLastName
             // 
@@ -158,26 +177,12 @@ namespace vaalrusGUIPrototype
             this.rbLastName.UseVisualStyleBackColor = true;
             this.rbLastName.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // rbIDnum
+            // tbIDNum
             // 
-            this.rbIDnum.AutoSize = true;
-            this.rbIDnum.Location = new System.Drawing.Point(419, 58);
-            this.rbIDnum.Name = "rbIDnum";
-            this.rbIDnum.Size = new System.Drawing.Size(138, 21);
-            this.rbIDnum.TabIndex = 12;
-            this.rbIDnum.TabStop = true;
-            this.rbIDnum.Text = "Enter ID Number:";
-            this.rbIDnum.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Location = new System.Drawing.Point(13, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(279, 19);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "SEARCH BY LAST NAME OR ID NUMBER:";
+            this.tbIDNum.Location = new System.Drawing.Point(602, 58);
+            this.tbIDNum.Name = "tbIDNum";
+            this.tbIDNum.Size = new System.Drawing.Size(170, 22);
+            this.tbIDNum.TabIndex = 9;
             // 
             // pnlDisplay
             // 
@@ -186,6 +191,14 @@ namespace vaalrusGUIPrototype
             this.pnlDisplay.Name = "pnlDisplay";
             this.pnlDisplay.Size = new System.Drawing.Size(651, 100);
             this.pnlDisplay.TabIndex = 6;
+            // 
+            // epLastName
+            // 
+            this.epLastName.ContainerControl = this;
+            // 
+            // epIDNumber
+            // 
+            this.epIDNumber.ContainerControl = this;
             // 
             // frmCheckOut
             // 
@@ -206,6 +219,8 @@ namespace vaalrusGUIPrototype
             this.pnlSearch.ResumeLayout(false);
             this.pnlSearch.PerformLayout();
             this.pnlDisplay.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.epLastName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epIDNumber)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -226,5 +241,7 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.TextBox tbIDNum;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlDisplay;
+        private System.Windows.Forms.ErrorProvider epLastName;
+        private System.Windows.Forms.ErrorProvider epIDNumber;
     }
 }

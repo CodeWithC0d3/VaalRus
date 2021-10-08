@@ -189,11 +189,6 @@ namespace vaalrusGUIPrototype
             LoadTheme(); 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             DateTime Chekin = DateTime.Now;
@@ -219,23 +214,52 @@ namespace vaalrusGUIPrototype
             try
             {
                 sqlConnection.Open();
-                //MessageBox.Show("Connected to db");
+           
             }
             catch (SqlException sqlx)
             {
                 MessageBox.Show("Connection unsuccesful");
             }
-
             if (rbLastName.Checked == true)
             {
 
-                Display("SELECT Booking.Booking_ID AS[Booking Number], Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name],Customer.Customer_IDNumber AS[South African ID], Booking.StartDate, dbo.Booking.EndDate, dbo.Booking.Checkin_Time,dbo.Booking.Checkin_Out FROM  dbo.Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID WHERE Customer.Customer_LastName='" + tbLastName.Text + "'");
+                if (string.IsNullOrEmpty(tbLastName.Text))
+                {
+
+                    // e.Cancel = true;
+                    tbLastName.Focus();
+                    epLastName.SetError(tbLastName, "Customer Last name required");
+
+
+                }
+                else
+                {
+                    Display("SELECT Booking.Booking_ID AS[Booking Number], Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name],Customer.Customer_IDNumber AS[South African ID], Booking.StartDate, dbo.Booking.EndDate, dbo.Booking.Checkin_Time,dbo.Booking.Checkin_Out FROM  dbo.Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID WHERE Customer.Customer_LastName='" + tbLastName.Text + "'");
+
+                }
+
+            }
+            else if (rbIDnum.Checked == true)
+
+            {
+                if (tbIDNum.Text.Length == 13)
+                {
+
+                    Display("SELECT Booking.Booking_ID AS[Booking Number], Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name],Customer.Customer_IDNumber AS[South African ID], Booking.StartDate, dbo.Booking.EndDate, dbo.Booking.Checkin_Time,dbo.Booking.Checkin_Out FROM  dbo.Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID WHERE Customer.Customer_IDNumber='" + tbIDNum.Text + "'");
+                }
+                else
+                {
+                    tbIDNum.Focus();
+
+                    epIDNumber.SetError(tbIDNum, "Customer ID Number must 13 digits long ");
+                }
+
             }
             else
             {
-
-                Display("SELECT Booking.Booking_ID AS[Booking Number], Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name],Customer.Customer_IDNumber AS[South African ID], Booking.StartDate, dbo.Booking.EndDate, dbo.Booking.Checkin_Time,dbo.Booking.Checkin_Out FROM  dbo.Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID WHERE Customer.Customer_IDNumber='" + tbIDNum.Text + "'");
+                MessageBox.Show("ENTER CUSTOMER LAST NAME OR ID NUMBER");
             }
+
         }
 
         private void btnDisplayBook_Click(object sender, EventArgs e)
@@ -244,9 +268,9 @@ namespace vaalrusGUIPrototype
             try
             {
                 sqlConnection.Open();
-                //MessageBox.Show("Connected to db");
+                
             }
-            catch (SqlException sqlx)
+            catch (SqlException)
             {
                 MessageBox.Show("Connection unsuccesful");
             }
@@ -258,9 +282,11 @@ namespace vaalrusGUIPrototype
             if (rbLastName.Checked)
             {
                 tbIDNum.Text = "";
+                epIDNumber.Clear();
             }
             else
                 tbLastName.Text = "";
+                epLastName.Clear();
         }
 
         private void dtgCheckIn_SelectionChanged(object sender, EventArgs e)
