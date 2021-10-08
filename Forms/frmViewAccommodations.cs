@@ -238,7 +238,7 @@ namespace vaalrusGUIPrototype
         {
 
         }
-
+        
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
@@ -291,12 +291,16 @@ namespace vaalrusGUIPrototype
         }
 
         private void button2_Click_1(object sender, EventArgs e)
+
         {
+            DateTime startDT = dpFrom.Value.Date;
+            DateTime endDT = dpto.Value.Date;
+
             try
             {
                 sqlConnection = new SqlConnection(connString);
                 if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
-                using (SqlCommand myComm = new SqlCommand("Select Accommodationset.Accommodation_ID as [CurrentBooked AID] from Booking INNER JOIN Accommodationset on Booking.Quotation_ID = Accommodationset.Quotation_ID where Accommodationset.Quotation_ID = Booking.Quotation_ID AND Booking.EndDate >= '" + DateTime.Today + "'", sqlConnection))
+                using (SqlCommand myComm = new SqlCommand("SELECT Accommodationset.Accommodation_ID AS[Accommodation Number], Accommodationtype.AccommodationType AS Type, Accommodation.Accommodation_Price AS Price, Booking.StartDate AS[Arrival Date],Booking.EndDate AS[Departure Date] FROM Booking INNER JOIN Accommodationset ON Booking.Quotation_ID = Accommodationset.Quotation_ID INNER JOIN Accommodation ON Accommodationset.Accommodation_ID = Accommodation.Accommodation_ID INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Booking.StartDate >= '" + startDT.Date.ToString("yyyy/MM/dd") + "'AND Booking.EndDate<='"+ endDT.Date.ToString("yyyy/MM/dd") + "' ", sqlConnection))
                 {
                     SqlDataAdapter adapter = new SqlDataAdapter();
 
