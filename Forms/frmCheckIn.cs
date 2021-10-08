@@ -38,8 +38,8 @@ namespace vaalrusGUIPrototype
                     adapter.SelectCommand = cmd;
                     adapter.Fill(ds, "Accommodation");
 
-                    dtgCheckIn.DataSource = ds;
-                    dtgCheckIn.DataMember = "Accommodation";
+                    dataGridView1.DataSource = ds;
+                    dataGridView1.DataMember = "Accommodation";
                 }
             }
             catch (SqlException sqle)
@@ -83,9 +83,9 @@ namespace vaalrusGUIPrototype
             }
             //pnlMain.BackColor = Color.Transparent;
 
-            aplytheme(pnlCheckIn);
-          
-            aplytheme(dtgCheckIn);
+            aplytheme(panel1);
+            aplytheme(panel1);
+            aplytheme(dataGridView1);
             //aplytheme(pnl_accSet);
 
         }
@@ -196,7 +196,7 @@ namespace vaalrusGUIPrototype
                 sqlConnection.Open();
                 //MessageBox.Show("Connected to db");
             }
-            catch (SqlException)
+            catch (SqlException sqlx)
             {
                 MessageBox.Show("Connection unsuccesful");
             }
@@ -210,17 +210,13 @@ namespace vaalrusGUIPrototype
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DateTime Chekin = DateTime.Now;
             sqlConnection = new SqlConnection(connString);
             sqlConnection.Open();
            
-            sqlCmd = new SqlCommand($"Update Booking Set Checkin_Time ='"+Chekin+"'  where Booking_ID = "+ Convert.ToInt32(tbBookID.Text)+"", sqlConnection);
+            sqlCmd = new SqlCommand($"Update Booking Set Checkin_Time = dateTimePicker1.SelectedDateIime where Booking_ID = TextBox1.Text, sqlConnection");
 
             sqlCmd.ExecuteNonQuery();
             sqlConnection.Close();
-
-            MessageBox.Show("Successfully Checked In");
-            this.Close();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -230,7 +226,7 @@ namespace vaalrusGUIPrototype
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            tbBookID.Text = dtgCheckIn.CurrentRow.Cells[0].Value.ToString();
+            textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }
     }
 }

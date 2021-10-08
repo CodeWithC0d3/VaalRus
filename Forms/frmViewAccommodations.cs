@@ -39,8 +39,8 @@ namespace vaalrusGUIPrototype
                     adapter.SelectCommand = cmd;
                     adapter.Fill(ds, "Accommodation");
 
-                    dtgViewAcc.DataSource = ds;
-                    dtgViewAcc.DataMember = "Accommodation";
+                    dataGridView1.DataSource = ds;
+                    dataGridView1.DataMember = "Accommodation";
                 }
             }
             catch (SqlException sqle)
@@ -61,32 +61,27 @@ namespace vaalrusGUIPrototype
             SqlConnection con = new SqlConnection(constr);
             SqlCommand command;
             SqlDataAdapter adapter;
-           // SqlDataReader dataReader;
+            SqlDataReader dataReader;
             DataSet ds;
             string sql = "";
-
-<<<<<<< HEAD
-
-            DateTime startDT = dpFrom.Value.Date;
-=======
             
+                
             DateTime startDT  = dpFrom.Value.Date;
->>>>>>> BookedAccom
             DateTime endDT = dpto.Value.Date;
             sql = "SELECT * FROM Accommodation";
-
+             
             command = new SqlCommand(sql, con);
             adapter = new SqlDataAdapter();
             DataSet ds1 = new DataSet();
             adapter.SelectCommand = command;
-            adapter.Fill(ds1, "Accommodation_ID");
+            adapter.Fill(ds1,"Accommodation_ID");
 
             sql = $"SELECT 	Accommodation_ID, AccommodationType FROM accAvailibility WHERE StartDate >= '{startDT.Date.ToString("yyyy/MM/dd")}' and EndDate <= '{endDT.Date.ToString("yyyy/MM/dd")}'";
             command = new SqlCommand(sql, con);
             adapter = new SqlDataAdapter();
             ds = new DataSet();
             adapter.SelectCommand = command;
-            adapter.Fill(ds, "Accommodation_ID");
+            adapter.Fill(ds,"Accommodation_ID");
 
             foreach (DataRow row1 in ds1.Tables[0].Rows)
             {
@@ -103,12 +98,12 @@ namespace vaalrusGUIPrototype
 
             }
             ds1.AcceptChanges();
-            dtgViewAcc.DataMember = "Accommodation_ID";
-            dtgViewAcc.DataSource = ds1;
+            dataGridView1.DataMember = "Accommodation_ID";
+            dataGridView1.DataSource = ds1;
             //cmbAccommodation.DataSource = ds1.Tables[0];
             con.Close();
 
-
+            
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -138,73 +133,20 @@ namespace vaalrusGUIPrototype
                 sqlConnection.Open();
                 //MessageBox.Show("Connected to db");
             }
-            catch (SqlException)
+            catch (SqlException sqlx)
             {
                 MessageBox.Show("Connection unsuccesful");
             }
             Display("Select * from Booking ");
-<<<<<<< HEAD
             //readData("Select TOP 1 * from Accommodation");
-            // dIndex = 1;
-            // readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
+           // dIndex = 1;
+           // readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
             //loadTemp();
-=======
-        
->>>>>>> BookedAccom
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             loadAvailibleAcc();
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-<<<<<<< HEAD
-            try
-            {
-                sqlConnection = new SqlConnection(connString);
-                if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
-                using (SqlCommand myComm = new SqlCommand("Select Accommodationset.Accommodation_ID as [CurrentBooked AID] from Booking INNER JOIN Accommodationset on Booking.Quotation_ID = Accommodationset.Quotation_ID where Accommodationset.Quotation_ID = Booking.Quotation_ID AND Booking.EndDate >= '" + DateTime.Today + "'", sqlConnection))
-                {
-                    SqlDataAdapter adapter = new SqlDataAdapter();
-
-                    DataSet ds = new DataSet();
-                    adapter.SelectCommand = myComm;
-                    adapter.Fill(ds, "AccommodationBooked");
-
-                    dataGridView1.DataSource = ds;
-                    dataGridView1.DataMember = "AccommodationBooked";
-                }
-                sqlConnection.Close();
-            }
-            catch (SqlException sqlx)
-            {
-                MessageBox.Show(sqlx.ToString());
-            }
-=======
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            sqlConnection = new SqlConnection(connString);
-            try
-            {
-                sqlConnection.Open();
-                //MessageBox.Show("Connected to db");
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Connection unsuccesful");
-            }
-            Display("Select * from Accommodation");
-        }
-
-        private void dpFrom_ValueChanged(object sender, EventArgs e)
-        {
-            dtgViewAcc.DataSource=null;
->>>>>>> BookedAccom
         }
     }
 }
