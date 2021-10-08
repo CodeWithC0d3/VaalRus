@@ -250,13 +250,14 @@ namespace vaalrusGUIPrototype
                 }
                 else 
                 {
-                    if (countFlag)
+                    if (!countFlag)
                     {
-                        lblOutput.Text = lastName + ", does not exist in the system!";
+                        lblOutput.Text = "You havent picked a customer to be deleted"; 
+                        
                     }
                     else 
                     {
-                        lblOutput.Text = "You havent picked a customer to be deleted";
+                        lblOutput.Text = lastName + ", does not exist in the system!";
                     }
                     
                 }
