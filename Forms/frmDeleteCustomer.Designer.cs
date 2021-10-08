@@ -33,7 +33,7 @@ namespace vaalrusGUIPrototype
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblLastName = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgView = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -51,6 +51,7 @@ namespace vaalrusGUIPrototype
             this.btnAll.TabIndex = 0;
             this.btnAll.Text = "Display ALL Customers";
             this.btnAll.UseVisualStyleBackColor = true;
+            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
             // btnSearch
             // 
@@ -61,6 +62,7 @@ namespace vaalrusGUIPrototype
             this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnDelete
             // 
@@ -75,7 +77,7 @@ namespace vaalrusGUIPrototype
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.lblLastName);
+            this.panel1.Controls.Add(this.txtLastName);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnAll);
@@ -87,13 +89,14 @@ namespace vaalrusGUIPrototype
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // lblLastName
+            // txtLastName
             // 
-            this.lblLastName.Location = new System.Drawing.Point(54, 122);
-            this.lblLastName.Margin = new System.Windows.Forms.Padding(2);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(160, 20);
-            this.lblLastName.TabIndex = 5;
+            this.txtLastName.Location = new System.Drawing.Point(54, 122);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(160, 20);
+            this.txtLastName.TabIndex = 5;
+            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
             // 
             // label1
             // 
@@ -155,7 +158,7 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox lblLastName;
+        private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgView;
         private System.Windows.Forms.PictureBox pictureBox1;
