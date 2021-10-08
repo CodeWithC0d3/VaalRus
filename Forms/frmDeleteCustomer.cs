@@ -17,6 +17,14 @@ namespace vaalrusGUIPrototype
         string constr = Properties.Settings.Default.conString;
         SqlConnection con;
 
+        SqlCommand command;
+        SqlDataAdapter adapter;
+        SqlDataReader dataReader;
+        DataSet ds;
+
+
+        bool searchFlag = false;
+
         public frmDeleteCustomer()
         {
             InitializeComponent();
@@ -174,26 +182,135 @@ namespace vaalrusGUIPrototype
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
+
+            string lastName = txtLastName.Text;
+
+            DialogResult promptResult = MessageBox.Show("Are you sure you want to delete: \"" + lastName + "\" from the system", "Delete Customer", MessageBoxButtons.YesNo);
+
+            if (promptResult == DialogResult.Yes)
+            {
+                if (conDB())
+                {
+
+
+
+
+
+                    string deleteQuery = "DELETE FROM Customer WHERE Customer_LastName = '" + lastName + "'";
+
+                    SqlCommand cmd = new SqlCommand(deleteQuery, con);
+
+                    SqlDataAdapter myAdapter = new SqlDataAdapter();
+
+                    myAdapter.DeleteCommand = cmd;
+
+                    myAdapter.DeleteCommand.ExecuteNonQuery();
+
+                    con.Close();
+                }
+            }
+
+
+            
+         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+            
+
             if (conDB())
             {
 
-                string lastName = lblLastName.Text;
+                //con.Open();
+                
+                string lastName = txtLastName.Text;
+
+                string queryText = $"SELECT Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address " +
+                    $"FROM Customer WHERE Customer_LastName LIKE '%{lastName}%'";
+
+                SqlCommand SQLQuery = new SqlCommand(queryText, con);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
 
 
+                adapter.SelectCommand = SQLQuery;
+                adapter.Fill(ds, "Customer");
+                
 
-                string deleteQuery = "DELETE FROM Customer WHERE Customer_LastName = '" + lastName + "'";
+                //display in the datagrid
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
 
-                SqlCommand cmd = new SqlCommand(deleteQuery, con);
+                con.Close();
 
-                SqlDataAdapter myAdapter = new SqlDataAdapter();
+                searchFlag = true;
+            }
+            
 
-                myAdapter.DeleteCommand = cmd;
 
-                myAdapter.DeleteCommand.ExecuteNonQuery();
+        }
+
+        private void btnAll_Click(object sender, EventArgs e)
+        {
+            if (conDB())
+            {
+
+                string lastName = txtLastName.Text;
+
+                string queryText = $"SELECT Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address FROM Customer";
+
+                
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+
+
+                command = new SqlCommand(queryText, con);
+
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Customer");
+
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
+
+
+                con.Close();
+
+                searchFlag = true;
+
+            }
+        }
+
+        private void txtLastName_TextChanged(object sender, EventArgs e)
+        {
+
+            if (conDB() && searchFlag)
+            {
+
+                //con.Open();
+
+                string lastName = txtLastName.Text;
+
+                string queryText = $"SELECT Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address " +
+                    $"FROM Customer WHERE Customer_LastName LIKE '%{lastName}%'";
+
+                SqlCommand SQLQuery = new SqlCommand(queryText, con);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+
+
+                adapter.SelectCommand = SQLQuery;
+                adapter.Fill(ds, "Customer");
+
+
+                //display in the datagrid
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
+
+                con.Close();
 
 
             }
-         }
-
+        }
     }
 }
