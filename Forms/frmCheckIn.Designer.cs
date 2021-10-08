@@ -29,6 +29,7 @@ namespace vaalrusGUIPrototype
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dtgCheckIn = new System.Windows.Forms.DataGridView();
             this.pnlCheckIn = new System.Windows.Forms.Panel();
             this.tbBookID = new System.Windows.Forms.TextBox();
@@ -43,10 +44,14 @@ namespace vaalrusGUIPrototype
             this.rbLastName = new System.Windows.Forms.RadioButton();
             this.tbIDNum = new System.Windows.Forms.TextBox();
             this.pnlDisplay = new System.Windows.Forms.Panel();
+            this.epLastName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epIDNumber = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtgCheckIn)).BeginInit();
             this.pnlCheckIn.SuspendLayout();
             this.pnlSearch.SuspendLayout();
             this.pnlDisplay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epLastName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epIDNumber)).BeginInit();
             this.SuspendLayout();
             // 
             // dtgCheckIn
@@ -186,6 +191,14 @@ namespace vaalrusGUIPrototype
             this.pnlDisplay.Size = new System.Drawing.Size(651, 100);
             this.pnlDisplay.TabIndex = 6;
             // 
+            // epLastName
+            // 
+            this.epLastName.ContainerControl = this;
+            // 
+            // epIDNumber
+            // 
+            this.epIDNumber.ContainerControl = this;
+            // 
             // frmCheckIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -205,6 +218,8 @@ namespace vaalrusGUIPrototype
             this.pnlSearch.ResumeLayout(false);
             this.pnlSearch.PerformLayout();
             this.pnlDisplay.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.epLastName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epIDNumber)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -225,5 +240,7 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.TextBox tbIDNum;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlDisplay;
+        private System.Windows.Forms.ErrorProvider epLastName;
+        private System.Windows.Forms.ErrorProvider epIDNumber;
     }
 }
