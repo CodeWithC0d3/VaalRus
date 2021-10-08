@@ -48,5 +48,58 @@ namespace vaalrusGUIPrototype.Forms
             }
             sqlConnection.Close();
         }
+        private void frmViewBookings_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loadAvailibleAcc()
+        {
+            string constr = Properties.Settings.Default.conString;
+            SqlConnection con = new SqlConnection(constr);
+            SqlCommand command;
+            SqlDataAdapter adapter;
+            SqlDataReader dataReader;
+            DataSet ds;
+            string sql = "";
+
+
+            DateTime startDT = dateTimePickerStart.Value.Date;
+            DateTime endDT = dateTimePickerEnd.Value.Date;
+            sql = "SELECT * FROM Bookings";
+
+            command = new SqlCommand(sql, con);
+            adapter = new SqlDataAdapter();
+            DataSet ds1 = new DataSet();
+            adapter.SelectCommand = command;
+            adapter.Fill(ds1, "Bookings");
+
+            sql = $"SELECT 	Accommodation_ID, AccommodationType FROM accAvailibility WHERE StartDate >= '{startDT.Date.ToString("yyyy/MM/dd")}' and EndDate <= '{endDT.Date.ToString("yyyy/MM/dd")}'";
+            command = new SqlCommand(sql, con);
+            adapter = new SqlDataAdapter();
+            ds = new DataSet();
+            adapter.SelectCommand = command;
+            adapter.Fill(ds, "Bookings");
+
+            foreach (DataRow row1 in ds1.Tables[0].Rows)
+            {
+                foreach (DataRow row2 in ds.Tables[0].Rows)
+                {
+                    string st1 = row1.ItemArray[0].ToString();
+                    string st2 = row2.ItemArray[0].ToString();
+                    if (row1.ItemArray[0].ToString() == row2.ItemArray[0].ToString())
+                    {
+                        row1.Delete();
+                        break; // break inner loop
+                    }
+                }
+
+            }
+            ds1.AcceptChanges();
+            dataGridViewBookings.DataMember = "Accommodation_ID";
+            dataGridViewBookings.DataSource = ds1;
+            //cmbAccommodation.DataSource = ds1.Tables[0];
+            con.Close();
+        }
     }
 }
