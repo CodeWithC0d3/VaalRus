@@ -29,24 +29,35 @@ namespace vaalrusGUIPrototype.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddCustomer));
             this.pictureBoxViewAllBookingsBackground = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCreate = new System.Windows.Forms.Button();
             this.rtbAddress = new System.Windows.Forms.RichTextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtContactNumber = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtLastName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.eProviderFN = new System.Windows.Forms.ErrorProvider(this.components);
+            this.eProviderLN = new System.Windows.Forms.ErrorProvider(this.components);
+            this.eProviderID = new System.Windows.Forms.ErrorProvider(this.components);
+            this.eProviderCN = new System.Windows.Forms.ErrorProvider(this.components);
+            this.eProviderEmail = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxViewAllBookingsBackground)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderFN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderLN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderCN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderEmail)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxViewAllBookingsBackground
@@ -82,16 +93,6 @@ namespace vaalrusGUIPrototype.Forms
             this.panel1.Size = new System.Drawing.Size(482, 394);
             this.panel1.TabIndex = 2;
             // 
-            // btnCreate
-            // 
-            this.btnCreate.Location = new System.Drawing.Point(184, 347);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(90, 38);
-            this.btnCreate.TabIndex = 7;
-            this.btnCreate.Text = "Create";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
-            // 
             // rtbAddress
             // 
             this.rtbAddress.Location = new System.Drawing.Point(59, 237);
@@ -99,6 +100,13 @@ namespace vaalrusGUIPrototype.Forms
             this.rtbAddress.Size = new System.Drawing.Size(351, 72);
             this.rtbAddress.TabIndex = 5;
             this.rtbAddress.Text = "";
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(310, 97);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(100, 20);
+            this.txtID.TabIndex = 2;
             // 
             // label4
             // 
@@ -109,12 +117,31 @@ namespace vaalrusGUIPrototype.Forms
             this.label4.TabIndex = 4;
             this.label4.Text = "Physical Address details:";
             // 
+            // btnCreate
+            // 
+            this.btnCreate.Location = new System.Drawing.Point(184, 347);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(90, 38);
+            this.btnCreate.TabIndex = 6;
+            this.btnCreate.Text = "Create";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(183, 179);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(100, 20);
-            this.txtEmail.TabIndex = 3;
+            this.txtEmail.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(307, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Identity Number (ID):";
             // 
             // label5
             // 
@@ -130,7 +157,14 @@ namespace vaalrusGUIPrototype.Forms
             this.txtContactNumber.Location = new System.Drawing.Point(59, 179);
             this.txtContactNumber.Name = "txtContactNumber";
             this.txtContactNumber.Size = new System.Drawing.Size(100, 20);
-            this.txtContactNumber.TabIndex = 1;
+            this.txtContactNumber.TabIndex = 3;
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.Location = new System.Drawing.Point(183, 97);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(100, 20);
+            this.txtLastName.TabIndex = 1;
             // 
             // label6
             // 
@@ -141,29 +175,6 @@ namespace vaalrusGUIPrototype.Forms
             this.label6.TabIndex = 0;
             this.label6.Text = "Contact number:";
             // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(310, 97);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(100, 20);
-            this.txtID.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(307, 81);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Identity Number (ID):";
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.Location = new System.Drawing.Point(183, 97);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(100, 20);
-            this.txtLastName.TabIndex = 3;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -173,13 +184,6 @@ namespace vaalrusGUIPrototype.Forms
             this.label2.TabIndex = 2;
             this.label2.Text = "Last name:";
             // 
-            // txtFirstName
-            // 
-            this.txtFirstName.Location = new System.Drawing.Point(59, 97);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(100, 20);
-            this.txtFirstName.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -188,6 +192,33 @@ namespace vaalrusGUIPrototype.Forms
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "First name:";
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Location = new System.Drawing.Point(59, 97);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(100, 20);
+            this.txtFirstName.TabIndex = 0;
+            // 
+            // eProviderFN
+            // 
+            this.eProviderFN.ContainerControl = this;
+            // 
+            // eProviderLN
+            // 
+            this.eProviderLN.ContainerControl = this;
+            // 
+            // eProviderID
+            // 
+            this.eProviderID.ContainerControl = this;
+            // 
+            // eProviderCN
+            // 
+            this.eProviderCN.ContainerControl = this;
+            // 
+            // eProviderEmail
+            // 
+            this.eProviderEmail.ContainerControl = this;
             // 
             // frmAddCustomer
             // 
@@ -202,6 +233,11 @@ namespace vaalrusGUIPrototype.Forms
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxViewAllBookingsBackground)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderFN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderLN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderCN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderEmail)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -223,5 +259,10 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtContactNumber;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ErrorProvider eProviderFN;
+        private System.Windows.Forms.ErrorProvider eProviderLN;
+        private System.Windows.Forms.ErrorProvider eProviderID;
+        private System.Windows.Forms.ErrorProvider eProviderCN;
+        private System.Windows.Forms.ErrorProvider eProviderEmail;
     }
 }
