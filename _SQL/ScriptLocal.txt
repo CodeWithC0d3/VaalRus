@@ -10,7 +10,7 @@
 --DROP TABLE IF EXISTS Quotationstatus;
 --DROP TABLE IF EXISTS Customer;
 
---use Vaalrus
+use Vaalrus
 --GO
 CREATE TABLE Customer (
     Customer_ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
@@ -76,8 +76,7 @@ CREATE TABLE Accommodation (
 );
 
 
-CREATE TABLE Accommodationset (
-	AccID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+CREATE TABLE Accommodationset (	
     Quotation_ID INT NOT NULL REFERENCES Quotation(Quotation_ID),
 	--Quotation_ID INT NOT NULL REFERENCES Quotation(Quotation_ID), --FK also
     Accommodation_ID INT NOT NULL REFERENCES Accommodation(Accommodation_ID), --FK
@@ -86,7 +85,3 @@ CREATE TABLE Accommodationset (
 	--CONSTRAINT PK_QuoteID FOREIGN KEY (Quotation_ID) REFERENCES Quotation(Quotation_ID)
 
 );
-
-
-
-
