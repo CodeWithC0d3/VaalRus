@@ -502,7 +502,7 @@ namespace vaalrusGUIPrototype
             this.pnlLabelHeading.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLabelHeading.Location = new System.Drawing.Point(186, 0);
             this.pnlLabelHeading.Name = "pnlLabelHeading";
-            this.pnlLabelHeading.Size = new System.Drawing.Size(837, 97);
+            this.pnlLabelHeading.Size = new System.Drawing.Size(1074, 97);
             this.pnlLabelHeading.TabIndex = 11;
             this.pnlLabelHeading.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlLabelHeading_MouseMove);
             // 
@@ -537,14 +537,14 @@ namespace vaalrusGUIPrototype
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(186, 97);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(837, 512);
+            this.panelChildForm.Size = new System.Drawing.Size(1074, 512);
             this.panelChildForm.TabIndex = 12;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1023, 609);
+            this.ClientSize = new System.Drawing.Size(1260, 609);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.pictureBoxMainFormBackground);
             this.Controls.Add(this.pnlLabelHeading);

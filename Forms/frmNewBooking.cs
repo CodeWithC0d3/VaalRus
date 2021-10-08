@@ -175,6 +175,13 @@ namespace vaalrusGUIPrototype.Forms
                         lsc.Font = GlobalSettings.font;
 
                     }
+                    if (co.GetType() == typeof(CheckBox))
+                    {
+                        CheckBox ch = (CheckBox)co;
+                        ch.ForeColor = Color.White;
+                        ch.Font = GlobalSettings.font;
+
+                    }
                 }
 
             }
@@ -182,7 +189,23 @@ namespace vaalrusGUIPrototype.Forms
         private void frmNewBooking_Load(object sender, EventArgs e)
         {
             LoadTheme();
+            if(conDB())
+            {
+                sql = $"SELECT Quotation.Quotation_ID, Customer.Customer_FirstName AS [First name], Customer.Customer_LastName AS [Last name], Quotation.Reservation_Date AS [Start date], Quotation.TotalPrice AS [Total price], Quotationstatus.Status_Type FROM Quotation INNER JOIN Customer ON Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE (Quotation.PaymentStatus = 1)";
+                command = new SqlCommand(sql, con);
+                //command.Parameters.AddWithValue("@stdate", stDate);
+                
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Quotation_ID");         
+
+                grid.DataSource = ds;
+                grid.DataMember = "Quotation_ID";
+                con.Close();
+            }
         }
+
         private Boolean conDB()
         {
             try
