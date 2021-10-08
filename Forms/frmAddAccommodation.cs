@@ -23,7 +23,7 @@ namespace vaalrusGUIPrototype.Forms
         public string connString = Properties.Settings.Default.conString;
         public int dIndex;
         public string strDisplay = "Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID;";
-
+        public Boolean err = false;
         public frmAddAccommodation()
         {
             InitializeComponent();
@@ -238,75 +238,78 @@ namespace vaalrusGUIPrototype.Forms
         }
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to insert new accommodation?", "Add Accommodation", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if (err != true)
             {
-                try
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to insert new accommodation?", "Add Accommodation", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    int tempNewID = 0;
-                    //string tnt = cbAccomType.Text;
-                    string tempNewType = cbAccomType.Text;//cbAccomType.SelectedValue.ToString();
-                    sqlConnection = new SqlConnection(connString);
-                    sqlConnection.Open();
-                    using (SqlCommand sqlCmd = new SqlCommand("Select Accommodation_TypeID from Accommodationtype where AccommodationType = '" + tempNewType + "'", sqlConnection))
+                    try
                     {
-                        SqlDataReader dReader = sqlCmd.ExecuteReader();
-
-                        while (dReader.Read())
-                        {
-                            tempNewID = (int)dReader.GetValue(0);
-                        }
-                    }
-                    sqlConnection.Close();
-                    if(tempNewID == 0)
-                    {
-                        //int type = getAccomType(cbAccomType.Text);
-                        //if(cbAccomType.SelectedIndex==0)
+                        int tempNewID = 0;
+                        //string tnt = cbAccomType.Text;
+                        string tempNewType = cbAccomType.Text;//cbAccomType.SelectedValue.ToString();
                         sqlConnection = new SqlConnection(connString);
                         sqlConnection.Open();
-                        sqlCmd = new SqlCommand($"Insert Into Accommodationtype (AccommodationType) Values (@type)", sqlConnection);
-                        //sqlCmd.Parameters.AddWithValue("@typeID", cbAccomType.SelectedIndex + 1);
-                        sqlCmd.Parameters.AddWithValue("@type", tempNewType);
-                        //sqlCmd.Parameters.AddWithValue("@price", Convert.ToInt32(txtAccomPrice.Text));
-                        sqlCmd.ExecuteNonQuery();
+                        using (SqlCommand sqlCmd = new SqlCommand("Select Accommodation_TypeID from Accommodationtype where AccommodationType = '" + tempNewType + "'", sqlConnection))
+                        {
+                            SqlDataReader dReader = sqlCmd.ExecuteReader();
+
+                            while (dReader.Read())
+                            {
+                                tempNewID = (int)dReader.GetValue(0);
+                            }
+                        }
                         sqlConnection.Close();
-                    }
+                        if (tempNewID == 0)
+                        {
+                            //int type = getAccomType(cbAccomType.Text);
+                            //if(cbAccomType.SelectedIndex==0)
+                            sqlConnection = new SqlConnection(connString);
+                            sqlConnection.Open();
+                            sqlCmd = new SqlCommand($"Insert Into Accommodationtype (AccommodationType) Values (@type)", sqlConnection);
+                            //sqlCmd.Parameters.AddWithValue("@typeID", cbAccomType.SelectedIndex + 1);
+                            sqlCmd.Parameters.AddWithValue("@type", tempNewType);
+                            //sqlCmd.Parameters.AddWithValue("@price", Convert.ToInt32(txtAccomPrice.Text));
+                            sqlCmd.ExecuteNonQuery();
+                            sqlConnection.Close();
+                        }
                         //txtAID.Text = dReader.GetValue(1).ToString();
 
                         //if(cbAccomType.SelectedValue !=)
                         int type = getAccomType(cbAccomType.Text);
-                    //if(cbAccomType.SelectedIndex==0)
-                    sqlConnection = new SqlConnection(connString);
-                    sqlConnection.Open();
-                    sqlCmd = new SqlCommand($"Insert Into Accommodation (Accommodation_TypeID,Number_Of_Occupants,Accommodation_Price,Active) Values (@type,@noo,@price,@act)", sqlConnection);
-                    sqlCmd.Parameters.AddWithValue("@type", cbAccomType.SelectedIndex + 1);
-                    sqlCmd.Parameters.AddWithValue("@noo", numOfOccupants.Value);
-                    sqlCmd.Parameters.AddWithValue("@price", Convert.ToInt32(txtAccomPrice.Text));
-                    sqlCmd.Parameters.AddWithValue("@act", true);
-                    sqlCmd.ExecuteNonQuery();
-                    sqlConnection.Close();
+                        //if(cbAccomType.SelectedIndex==0)
+                        sqlConnection = new SqlConnection(connString);
+                        sqlConnection.Open();
+                        sqlCmd = new SqlCommand($"Insert Into Accommodation (Accommodation_TypeID,Number_Of_Occupants,Accommodation_Price,Active) Values (@type,@noo,@price,@act)", sqlConnection);
+                        sqlCmd.Parameters.AddWithValue("@type", cbAccomType.SelectedIndex + 1);
+                        sqlCmd.Parameters.AddWithValue("@noo", numOfOccupants.Value);
+                        sqlCmd.Parameters.AddWithValue("@price", Convert.ToInt32(txtAccomPrice.Text));
+                        sqlCmd.Parameters.AddWithValue("@act", true);
+                        sqlCmd.ExecuteNonQuery();
+                        sqlConnection.Close();
 
-                    Display(strDisplay);
-                    dataGridAccommodations.Rows[dataGridAccommodations.Rows.Count - 1].Cells[1].Selected = true;
-                    dataGridAccommodations.ClearSelection();
-                    int nRowIndex = dataGridAccommodations.Rows.Count - 1;
+                        Display(strDisplay);
+                        dataGridAccommodations.Rows[dataGridAccommodations.Rows.Count - 1].Cells[1].Selected = true;
+                        dataGridAccommodations.ClearSelection();
+                        int nRowIndex = dataGridAccommodations.Rows.Count - 1;
 
-                    dataGridAccommodations.Rows[nRowIndex].Selected = true;
-                    dataGridAccommodations.Rows[nRowIndex].Cells[0].Selected = true;
-                    dataGridAccommodations.FirstDisplayedScrollingRowIndex = dataGridAccommodations.RowCount - 1;
-                    MessageBox.Show("New Accommodation succesfully added to database");
-                    //dIndex = 1;
-                    //readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
+                        dataGridAccommodations.Rows[nRowIndex].Selected = true;
+                        dataGridAccommodations.Rows[nRowIndex].Cells[0].Selected = true;
+                        dataGridAccommodations.FirstDisplayedScrollingRowIndex = dataGridAccommodations.RowCount - 1;
+                        MessageBox.Show("New Accommodation succesfully added to database");
+                        //dIndex = 1;
+                        //readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
+                    }
+                    catch (SqlException sqlx)
+                    {
+                        //Could not update
+                        MessageBox.Show(sqlx.ToString());
+                    }
                 }
-                catch (SqlException sqlx)
+                else if (dialogResult == DialogResult.No)
                 {
-                    //Could not update
-                    MessageBox.Show(sqlx.ToString());
-                }
-            }
-            else if (dialogResult == DialogResult.No)
-            {
 
+                }
             }
         }
 
@@ -379,6 +382,102 @@ namespace vaalrusGUIPrototype.Forms
             {
 
             }*/
+        }
+
+        private void numOfOccupants_Validating(object sender, CancelEventArgs e)
+        {
+            int parsedValue;
+            if (string.IsNullOrWhiteSpace(numOfOccupants.Text))
+            {
+                e.Cancel = true;
+                //txtAType.Focus();
+                numOfOccupants.Focus();
+                err = true;
+                errorProviderOccupants.SetError(numOfOccupants, "Occupants can not be blank!");
+                
+            }
+            else if (int.TryParse(numOfOccupants.Text, out parsedValue))
+            {
+                if (parsedValue == 0)
+                {
+                    e.Cancel = true;
+                    numOfOccupants.Focus();
+                    err = true;
+                    errorProviderOccupants.SetError(numOfOccupants, "Occupants can not be 0");
+                }
+                
+            }
+            else if (!int.TryParse(numOfOccupants.Text, out parsedValue))
+            {
+                e.Cancel = true;
+                //txtAType.Focus();
+                numOfOccupants.Focus();
+                err = true;
+                errorProviderOccupants.SetError(numOfOccupants, "Can not contain letters!");
+                
+            }
+            else
+            {
+                e.Cancel = false;
+                err = false;
+                errorProviderOccupants.SetError(numOfOccupants, "");
+                
+            }
+        }
+
+        private void txtAccomPrice_Validating(object sender, CancelEventArgs e)
+        {
+            int parsedValue;
+            if (string.IsNullOrWhiteSpace(txtAccomPrice.Text))
+            {
+                e.Cancel = true;
+                txtAccomPrice.Focus();
+                err = true;
+                errorProviderPrice.SetError(txtAccomPrice, "Price can not be blank!");
+                
+            }
+            else if (!int.TryParse(txtAccomPrice.Text, out parsedValue))
+            {
+                e.Cancel = true;
+                txtAccomPrice.Focus();
+                err = true;
+                errorProviderPrice.SetError(txtAccomPrice, "Can not contain letters!");
+                
+            }
+            else
+            {
+                e.Cancel = false;
+                err = false;
+                errorProviderPrice.SetError(txtAccomPrice, "");
+                
+            }
+        }
+
+        private void cbAccomType_Validating(object sender, CancelEventArgs e)
+        {
+            //int parsedValue;
+            if (string.IsNullOrWhiteSpace(cbAccomType.Text))
+            {
+                e.Cancel = true;
+                cbAccomType.Focus();
+                err = true;
+                errorProviderPrice.SetError(cbAccomType, "Type can not be blank!");
+                
+            }
+            //else if (!int.TryParse(cbAccomType.Text, out parsedValue))
+            //{
+            //    e.Cancel = true;
+            //    cbAccomType.Focus();
+            //    errorProviderPrice.SetError(cbAccomType, "Can not contain letters!");
+            //    err = true;
+            //}
+            else
+            {
+                e.Cancel = false;
+                err = false;
+                errorProviderPrice.SetError(cbAccomType, "");
+                
+            }
         }
     }
 }
