@@ -15,6 +15,8 @@ namespace vaalrusGUIPrototype
     public partial class frmReport : Form
     {
         public string connString = Properties.Settings.Default.conString;
+        public DateTime selectStart = new DateTime();
+        public DateTime selectEnd = new DateTime();
         public frmReport()
         {
             InitializeComponent();
@@ -24,6 +26,12 @@ namespace vaalrusGUIPrototype
         {
 
             this.reportViewer.RefreshReport();
+            LoadTheme();
+            //loadDataSet2();
+            //loadDataSet3();
+        }
+        public void loadDSet()
+        {
             this.reportViewer.RefreshReport();
 
             SqlConnection conn = new SqlConnection(connString);
@@ -35,7 +43,7 @@ namespace vaalrusGUIPrototype
             //DataTable dt = new DataTable();
             //adapter.Fill(dt);
 
-            SqlCommand myComm2 = new SqlCommand("SELECT Accommodation_ID, AccommodationType FROM viewBookingReport1 GROUP BY Accommodation_ID, AccommodationType ORDER BY  count(*) DESC;", conn);
+            SqlCommand myComm2 = new SqlCommand("SELECT Accommodation_ID, AccommodationType FROM viewBookingReport1 where startDate >= '" + selectStart + "' AND startDate < '" + selectEnd + "' GROUP BY Accommodation_ID, AccommodationType ORDER BY  count(*) DESC ;", conn);
             SqlDataAdapter adapter2 = new SqlDataAdapter(myComm2);
             DataTable dt2 = new DataTable();
             adapter2.Fill(dt2);
@@ -47,58 +55,150 @@ namespace vaalrusGUIPrototype
             this.reportViewer.LocalReport.DataSources.Add(rds2);
             this.reportViewer.RefreshReport();
             conn.Close();
-            loadDataSet2();
-            //loadDataSet3();
+
         }
-        public void loadDataSet3()
+        private void LoadTheme()
         {
-            try
+            foreach (Control co in this.Controls)
             {
-                this.reportViewer.RefreshReport();
-                this.reportViewer.RefreshReport();
 
-                SqlConnection conn = new SqlConnection(connString);
-                conn.Open();
-                //SqlCommand myComm = new SqlCommand("Select * from Accommodation", conn);
+                // if (co.GetType() == typeof(Panel))
+                // {
+                //    co.Parent = this;
+                //    co.BackColor = Color.Transparent;
+                // }
+                if (co.GetType() == typeof(Label))
+                {
+                    Label lbl = (Label)co;
+                    lbl.Font = GlobalSettings.font;
+                    lbl.Font = new Font("Microsoft Sans Serif", 12);
+                    lbl.Parent = this;
+                    lbl.ForeColor = GlobalSettings.SecondaryColor;
+                    lbl.BackColor = Color.Transparent;
 
-                //SqlCommand myComm = new SqlCommand("SELECT Accommodation_ID, COUNT(Accommodation_ID) AS [value_occurrence] FROM Accommodationset GROUP BY Accommodation_ID ORDER BY [value_occurrence] DESC LIMIT 1;",conn);
-                DateTime StartDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
-                DateTime EndDate = new DateTime();
-                EndDate = DateTime.Today.AddMonths(1);
-                SqlCommand myComm = new SqlCommand("SELECT * FROM Booking where startDate >= '"+StartDate+ "' AND startDate < '" + EndDate + "' ;", conn);
-                SqlDataAdapter adapter = new SqlDataAdapter(myComm);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
+                }
+                /*if (co.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)co;
+                    btn.FlatStyle = FlatStyle.Flat;
+                    //btn.Parent = pictureBox1;
+                    btn.BackColor = GlobalSettings.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.Font = GlobalSettings.font;
+                    //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                    btn.FlatAppearance.BorderColor = Color.White;
+                    btn.FlatAppearance.BorderSize = 2;
+                }*/
+            }
 
-                this.reportViewer.LocalReport.ReportPath = @"Bookings.rdlc";
-                ReportDataSource rds3 = new ReportDataSource("DataSetBooking", dt);
-                this.reportViewer.LocalReport.DataSources.Add(rds3);
-                this.reportViewer.RefreshReport();
-                conn.Close();
-            }catch(SqlException sqlx)
+
+            aplytheme(panelInput);
+
+        }
+        private void aplytheme(Control pn)
+        {
+            if (pn.GetType() == typeof(Panel))
             {
-                MessageBox.Show(sqlx.ToString());
+                foreach (Control co in pn.Controls)
+                {
+                    if (co.GetType() == typeof(Button))
+                    {
+                        Button btn = (Button)co;
+                        btn.FlatStyle = FlatStyle.Flat;
+                        //btn.Parent = pictureBox1;
+                        btn.BackColor = GlobalSettings.PrimaryColor;
+                        btn.ForeColor = Color.White;
+                        btn.Font = GlobalSettings.font;
+                        //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                        btn.FlatAppearance.BorderColor = Color.White;
+                        btn.FlatAppearance.BorderSize = 2;
+                    }
+                    if (co.GetType() == typeof(Label))
+                    {
+                        Label lbl = (Label)co;
+                        lbl.Font = GlobalSettings.font;
+                        //lbl.Parent = picBackground;
+                        //lbl.ForeColor = GlobalSettings.SecondaryColor;
+                        lbl.ForeColor = Color.White;
+                        lbl.BackColor = Color.Transparent;
+
+                    }
+                    if (co.GetType() == typeof(DataGridView))
+                    {
+                        DataGridView dtgg = (DataGridView)co;
+                        dtgg.ForeColor = Color.White;
+                        dtgg.BackgroundColor = GlobalSettings.PrimaryColor;
+                        dtgg.DefaultCellStyle.BackColor = GlobalSettings.PrimaryColor;
+                        dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
+                        dtgg.DefaultCellStyle.SelectionBackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
+                        dtgg.ColumnHeadersDefaultCellStyle.BackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
+                        dtgg.ColumnHeadersDefaultCellStyle.SelectionBackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
+                        dtgg.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                        dtgg.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                        dtgg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+
+                    }
+                    if (co.GetType() == typeof(CheckBox))
+                    {
+                        CheckBox chkk = (CheckBox)co;
+                        chkk.ForeColor = GlobalSettings.SecondaryColor;
+
+                    }
+                    if (co.GetType() == typeof(TextBox))
+                    {
+                        TextBox txtC = (TextBox)co;
+                        txtC.ForeColor = GlobalSettings.SecondaryColor;
+
+                    }
+                    if (co.GetType() == typeof(ComboBox))
+                    {
+                        ComboBox cmbc = (ComboBox)co;
+                        cmbc.ForeColor = GlobalSettings.SecondaryColor;
+                        cmbc.Font = GlobalSettings.font;
+
+                    }
+                    if (co.GetType() == typeof(DateTimePicker))
+                    {
+                        DateTimePicker dtpc = (DateTimePicker)co;
+                        dtpc.ForeColor = GlobalSettings.SecondaryColor;
+                        dtpc.Font = GlobalSettings.font;
+
+                    }
+                    if (co.GetType() == typeof(GroupBox))
+                    {
+                        GroupBox gpc = (GroupBox)co;
+                        gpc.ForeColor = GlobalSettings.SecondaryColor;
+                        gpc.Font = GlobalSettings.font;
+
+                    }
+                    if (co.GetType() == typeof(ListBox))
+                    {
+                        ListBox lsc = (ListBox)co;
+                        lsc.ForeColor = GlobalSettings.SecondaryColor;
+                        lsc.Font = GlobalSettings.font;
+
+                    }
+                }
+
             }
         }
-        public void loadDataSet2()
+        
+
+        private void btnDisplay_Click(object sender, EventArgs e)
         {
-            this.reportViewer.RefreshReport();
-            this.reportViewer.RefreshReport();
+            if (true)
+            {
 
-            SqlConnection conn = new SqlConnection(connString);
-            conn.Open();
-            //SqlCommand myComm = new SqlCommand("Select * from Accommodation", conn);
-            //SqlCommand myComm = new SqlCommand("SELECT Accommodation_ID, COUNT(Accommodation_ID) AS [value_occurrence] FROM Accommodationset GROUP BY Accommodation_ID ORDER BY [value_occurrence] DESC LIMIT 1;",conn);
-            SqlCommand myComm = new SqlCommand("SELECT * FROM Accommodationset;", conn);
-            SqlDataAdapter adapter = new SqlDataAdapter(myComm);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-
-            this.reportViewer.LocalReport.ReportPath = @"listAccomReport.rdlc";
-            ReportDataSource rds2 = new ReportDataSource("DataSet2", dt);
-            this.reportViewer.LocalReport.DataSources.Add(rds2);
-            this.reportViewer.RefreshReport();
-            conn.Close();
+                selectStart = dpStart.Value;
+                selectEnd = dpEnd.Value;
+                loadDSet();
+                //loadDataSet3();
+            }
+            else
+            {
+                MessageBox.Show("Please select Year and Month paramaters for the report");
+            }
         }
     }
 }
