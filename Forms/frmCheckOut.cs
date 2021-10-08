@@ -214,7 +214,7 @@ namespace vaalrusGUIPrototype
             {
                 MessageBox.Show("Connection unsuccesful");
             }
-            Display("SELECT Booking.Booking_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Booking.StartDate, dbo.Booking.EndDate, dbo.Booking.Checkin_Time,dbo.Booking.Checkin_Out FROM     dbo.Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID");
+            Display("SELECT Booking.Booking_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Booking.StartDate,Booking.EndDate, Booking.Checkin_Time, Booking.Checkin_Out FROM Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID where Checkin_Out=Null");
 
 
         }
