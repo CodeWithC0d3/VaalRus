@@ -469,7 +469,8 @@ namespace vaalrusGUIPrototype
                 string search = txtSearchID.Text;
                 txtSearchOccupants.Clear();
                 txtsearchPrice.Clear();
-                comboBoxSearchType.SelectedItem = "";
+                comboBoxSearchType.Text = "";
+                comboBoxSearchType.SelectedItem = null;
                 Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Accommodation.Accommodation_ID Like '%{search}%';");
                 //Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID;");
 
