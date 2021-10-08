@@ -1,4 +1,4 @@
-
+use Vaalrus
 INSERT INTO Customer
 VALUES 
 ('Jimmy', 'Hendrix', '6500000000001', 'jimHendrix@email.com', '0000000000', '62 Valley street'),

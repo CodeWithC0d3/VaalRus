@@ -157,8 +157,6 @@ C:\GitHub\VaalRus\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
 C:\GitHub\VaalRus\bin\Debug\Microsoft.SqlServer.BatchParser.dll
 C:\GitHub\VaalRus\bin\Debug\Microsoft.SqlServer.XE.Core.dll
 C:\GitHub\VaalRus\bin\Debug\Microsoft.SqlServer.XEvent.Linq.dll
-C:\GitHub\VaalRus\bin\Debug\_SQL\database\Vaalrus.mdf
-C:\GitHub\VaalRus\bin\Debug\_SQL\database\Vaalrus_log.ldf
 C:\GitHub\VaalRus\bin\Debug\_SQL\viewReportBookings.txt
 C:\GitHub\VaalRus\bin\Debug\_SQL\ViewsLocal.txt
 C:\GitHub\VaalRus\bin\Debug\_SQL\InitialData.txt

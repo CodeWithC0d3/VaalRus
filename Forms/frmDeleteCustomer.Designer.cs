@@ -44,7 +44,7 @@ namespace vaalrusGUIPrototype
             // 
             // btnAll
             // 
-            this.btnAll.Location = new System.Drawing.Point(54, 17);
+            this.btnAll.Location = new System.Drawing.Point(21, 19);
             this.btnAll.Margin = new System.Windows.Forms.Padding(2);
             this.btnAll.Name = "btnAll";
             this.btnAll.Size = new System.Drawing.Size(159, 34);
@@ -55,7 +55,7 @@ namespace vaalrusGUIPrototype
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(58, 194);
+            this.btnSearch.Location = new System.Drawing.Point(504, 173);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(159, 41);
@@ -82,16 +82,16 @@ namespace vaalrusGUIPrototype
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnAll);
             this.panel1.Controls.Add(this.btnSearch);
-            this.panel1.Location = new System.Drawing.Point(9, 20);
+            this.panel1.Location = new System.Drawing.Point(56, 268);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(270, 366);
+            this.panel1.Size = new System.Drawing.Size(665, 216);
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(54, 122);
+            this.txtLastName.Location = new System.Drawing.Point(247, 103);
             this.txtLastName.Margin = new System.Windows.Forms.Padding(2);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(160, 20);
@@ -101,7 +101,7 @@ namespace vaalrusGUIPrototype
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 97);
+            this.label1.Location = new System.Drawing.Point(22, 106);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(158, 13);
@@ -111,12 +111,12 @@ namespace vaalrusGUIPrototype
             // dgView
             // 
             this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgView.Location = new System.Drawing.Point(307, 20);
+            this.dgView.Location = new System.Drawing.Point(31, 11);
             this.dgView.Margin = new System.Windows.Forms.Padding(2);
             this.dgView.Name = "dgView";
             this.dgView.RowHeadersWidth = 51;
             this.dgView.RowTemplate.Height = 24;
-            this.dgView.Size = new System.Drawing.Size(449, 375);
+            this.dgView.Size = new System.Drawing.Size(721, 253);
             this.dgView.TabIndex = 0;
             // 
             // pictureBox1
@@ -127,7 +127,7 @@ namespace vaalrusGUIPrototype
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(765, 448);
+            this.pictureBox1.Size = new System.Drawing.Size(798, 501);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -136,7 +136,7 @@ namespace vaalrusGUIPrototype
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 448);
+            this.ClientSize = new System.Drawing.Size(798, 501);
             this.Controls.Add(this.dgView);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
