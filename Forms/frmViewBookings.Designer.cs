@@ -31,27 +31,28 @@ namespace vaalrusGUIPrototype.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmViewBookings));
             this.pnlViewBookings = new System.Windows.Forms.Panel();
-            this.lblViewCurrentBookings = new System.Windows.Forms.Label();
-            this.btnViewBookings = new System.Windows.Forms.Button();
-            this.listBoxViewBookings = new System.Windows.Forms.ListBox();
-            this.grpBoxSelectPeriod = new System.Windows.Forms.GroupBox();
-            this.pictureBoxViewAllBookingsBackground = new System.Windows.Forms.PictureBox();
-            this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
-            this.lblStartDate = new System.Windows.Forms.Label();
-            this.lblEndDate = new System.Windows.Forms.Label();
             this.rdbSelectPeriod = new System.Windows.Forms.RadioButton();
+            this.grpBoxSelectPeriod = new System.Windows.Forms.GroupBox();
+            this.lblEndDate = new System.Windows.Forms.Label();
+            this.lblStartDate = new System.Windows.Forms.Label();
+            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.btnViewBookings = new System.Windows.Forms.Button();
+            this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
+            this.lblViewCurrentBookings = new System.Windows.Forms.Label();
+            this.pictureBoxViewAllBookingsBackground = new System.Windows.Forms.PictureBox();
+            this.dataGridViewBookings = new System.Windows.Forms.DataGridView();
             this.pnlViewBookings.SuspendLayout();
             this.grpBoxSelectPeriod.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxViewAllBookingsBackground)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookings)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlViewBookings
             // 
             this.pnlViewBookings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(93)))), ((int)(((byte)(117)))));
+            this.pnlViewBookings.Controls.Add(this.dataGridViewBookings);
             this.pnlViewBookings.Controls.Add(this.rdbSelectPeriod);
             this.pnlViewBookings.Controls.Add(this.grpBoxSelectPeriod);
-            this.pnlViewBookings.Controls.Add(this.listBoxViewBookings);
             this.pnlViewBookings.Controls.Add(this.lblViewCurrentBookings);
             this.pnlViewBookings.Location = new System.Drawing.Point(36, 28);
             this.pnlViewBookings.Margin = new System.Windows.Forms.Padding(4);
@@ -59,34 +60,16 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlViewBookings.Size = new System.Drawing.Size(1065, 567);
             this.pnlViewBookings.TabIndex = 4;
             // 
-            // lblViewCurrentBookings
+            // rdbSelectPeriod
             // 
-            this.lblViewCurrentBookings.AutoSize = true;
-            this.lblViewCurrentBookings.Location = new System.Drawing.Point(607, 44);
-            this.lblViewCurrentBookings.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblViewCurrentBookings.Name = "lblViewCurrentBookings";
-            this.lblViewCurrentBookings.Size = new System.Drawing.Size(116, 17);
-            this.lblViewCurrentBookings.TabIndex = 4;
-            this.lblViewCurrentBookings.Text = "Current bookings";
-            // 
-            // btnViewBookings
-            // 
-            this.btnViewBookings.Location = new System.Drawing.Point(79, 293);
-            this.btnViewBookings.Margin = new System.Windows.Forms.Padding(4);
-            this.btnViewBookings.Name = "btnViewBookings";
-            this.btnViewBookings.Size = new System.Drawing.Size(120, 47);
-            this.btnViewBookings.TabIndex = 7;
-            this.btnViewBookings.Text = "View Bookings";
-            this.btnViewBookings.UseVisualStyleBackColor = true;
-            // 
-            // listBoxViewBookings
-            // 
-            this.listBoxViewBookings.FormattingEnabled = true;
-            this.listBoxViewBookings.ItemHeight = 16;
-            this.listBoxViewBookings.Location = new System.Drawing.Point(345, 80);
-            this.listBoxViewBookings.Name = "listBoxViewBookings";
-            this.listBoxViewBookings.Size = new System.Drawing.Size(688, 452);
-            this.listBoxViewBookings.TabIndex = 8;
+            this.rdbSelectPeriod.AutoSize = true;
+            this.rdbSelectPeriod.Location = new System.Drawing.Point(68, 109);
+            this.rdbSelectPeriod.Name = "rdbSelectPeriod";
+            this.rdbSelectPeriod.Size = new System.Drawing.Size(216, 21);
+            this.rdbSelectPeriod.TabIndex = 10;
+            this.rdbSelectPeriod.TabStop = true;
+            this.rdbSelectPeriod.Text = "Filter according to time period";
+            this.rdbSelectPeriod.UseVisualStyleBackColor = true;
             // 
             // grpBoxSelectPeriod
             // 
@@ -102,6 +85,61 @@ namespace vaalrusGUIPrototype.Forms
             this.grpBoxSelectPeriod.TabStop = false;
             this.grpBoxSelectPeriod.Text = "Select time period";
             // 
+            // lblEndDate
+            // 
+            this.lblEndDate.AutoSize = true;
+            this.lblEndDate.Location = new System.Drawing.Point(33, 128);
+            this.lblEndDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEndDate.Name = "lblEndDate";
+            this.lblEndDate.Size = new System.Drawing.Size(135, 17);
+            this.lblEndDate.TabIndex = 6;
+            this.lblEndDate.Text = "Select the end date:";
+            // 
+            // lblStartDate
+            // 
+            this.lblStartDate.AutoSize = true;
+            this.lblStartDate.Location = new System.Drawing.Point(33, 47);
+            this.lblStartDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStartDate.Name = "lblStartDate";
+            this.lblStartDate.Size = new System.Drawing.Size(139, 17);
+            this.lblStartDate.TabIndex = 5;
+            this.lblStartDate.Text = "Select the start date:";
+            // 
+            // dateTimePickerEnd
+            // 
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(36, 171);
+            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerEnd.TabIndex = 1;
+            // 
+            // btnViewBookings
+            // 
+            this.btnViewBookings.Location = new System.Drawing.Point(79, 293);
+            this.btnViewBookings.Margin = new System.Windows.Forms.Padding(4);
+            this.btnViewBookings.Name = "btnViewBookings";
+            this.btnViewBookings.Size = new System.Drawing.Size(120, 47);
+            this.btnViewBookings.TabIndex = 7;
+            this.btnViewBookings.Text = "View Bookings";
+            this.btnViewBookings.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePickerStart
+            // 
+            this.dateTimePickerStart.Location = new System.Drawing.Point(36, 83);
+            this.dateTimePickerStart.Name = "dateTimePickerStart";
+            this.dateTimePickerStart.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerStart.TabIndex = 0;
+            // 
+            // lblViewCurrentBookings
+            // 
+            this.lblViewCurrentBookings.AutoSize = true;
+            this.lblViewCurrentBookings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblViewCurrentBookings.Location = new System.Drawing.Point(606, 42);
+            this.lblViewCurrentBookings.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblViewCurrentBookings.Name = "lblViewCurrentBookings";
+            this.lblViewCurrentBookings.Size = new System.Drawing.Size(161, 25);
+            this.lblViewCurrentBookings.TabIndex = 4;
+            this.lblViewCurrentBookings.Text = "Current bookings";
+            // 
             // pictureBoxViewAllBookingsBackground
             // 
             this.pictureBoxViewAllBookingsBackground.BackColor = System.Drawing.Color.SpringGreen;
@@ -115,50 +153,15 @@ namespace vaalrusGUIPrototype.Forms
             this.pictureBoxViewAllBookingsBackground.TabIndex = 3;
             this.pictureBoxViewAllBookingsBackground.TabStop = false;
             // 
-            // dateTimePickerStart
+            // dataGridViewBookings
             // 
-            this.dateTimePickerStart.Location = new System.Drawing.Point(36, 83);
-            this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePickerStart.TabIndex = 0;
-            // 
-            // dateTimePickerEnd
-            // 
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(36, 213);
-            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePickerEnd.TabIndex = 1;
-            // 
-            // lblStartDate
-            // 
-            this.lblStartDate.AutoSize = true;
-            this.lblStartDate.Location = new System.Drawing.Point(33, 47);
-            this.lblStartDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(139, 17);
-            this.lblStartDate.TabIndex = 5;
-            this.lblStartDate.Text = "Select the start date:";
-            // 
-            // lblEndDate
-            // 
-            this.lblEndDate.AutoSize = true;
-            this.lblEndDate.Location = new System.Drawing.Point(33, 167);
-            this.lblEndDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(135, 17);
-            this.lblEndDate.TabIndex = 6;
-            this.lblEndDate.Text = "Select the end date:";
-            // 
-            // rdbSelectPeriod
-            // 
-            this.rdbSelectPeriod.AutoSize = true;
-            this.rdbSelectPeriod.Location = new System.Drawing.Point(111, 80);
-            this.rdbSelectPeriod.Name = "rdbSelectPeriod";
-            this.rdbSelectPeriod.Size = new System.Drawing.Size(154, 21);
-            this.rdbSelectPeriod.TabIndex = 10;
-            this.rdbSelectPeriod.TabStop = true;
-            this.rdbSelectPeriod.Text = "Select a time period";
-            this.rdbSelectPeriod.UseVisualStyleBackColor = true;
+            this.dataGridViewBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBookings.Location = new System.Drawing.Point(362, 79);
+            this.dataGridViewBookings.Name = "dataGridViewBookings";
+            this.dataGridViewBookings.RowHeadersWidth = 51;
+            this.dataGridViewBookings.RowTemplate.Height = 24;
+            this.dataGridViewBookings.Size = new System.Drawing.Size(671, 453);
+            this.dataGridViewBookings.TabIndex = 11;
             // 
             // frmViewBookings
             // 
@@ -174,6 +177,7 @@ namespace vaalrusGUIPrototype.Forms
             this.grpBoxSelectPeriod.ResumeLayout(false);
             this.grpBoxSelectPeriod.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxViewAllBookingsBackground)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookings)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -184,12 +188,12 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.Label lblViewCurrentBookings;
         private System.Windows.Forms.Button btnViewBookings;
         private System.Windows.Forms.PictureBox pictureBoxViewAllBookingsBackground;
-        private System.Windows.Forms.ListBox listBoxViewBookings;
         private System.Windows.Forms.GroupBox grpBoxSelectPeriod;
         private System.Windows.Forms.RadioButton rdbSelectPeriod;
         private System.Windows.Forms.Label lblEndDate;
         private System.Windows.Forms.Label lblStartDate;
         private System.Windows.Forms.DateTimePicker dateTimePickerEnd;
         private System.Windows.Forms.DateTimePicker dateTimePickerStart;
+        private System.Windows.Forms.DataGridView dataGridViewBookings;
     }
 }
