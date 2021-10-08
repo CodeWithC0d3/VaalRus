@@ -30,14 +30,21 @@ namespace vaalrusGUIPrototype
             conn.Open();
             //SqlCommand myComm = new SqlCommand("Select * from Accommodation", conn);
             //SqlCommand myComm = new SqlCommand("SELECT Accommodation_ID, COUNT(Accommodation_ID) AS [value_occurrence] FROM Accommodationset GROUP BY Accommodation_ID ORDER BY [value_occurrence] DESC LIMIT 1;",conn);
-            SqlCommand myComm = new SqlCommand("SELECT Accommodation_ID FROM Accommodationset GROUP BY Accommodation_ID ORDER BY  count(*) DESC;", conn);
-            SqlDataAdapter adapter = new SqlDataAdapter(myComm);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
+            //SqlCommand myComm = new SqlCommand("SELECT Accommodation_ID FROM Accommodationset GROUP BY Accommodation_ID ORDER BY  count(*) DESC;", conn);
+            //SqlDataAdapter adapter = new SqlDataAdapter(myComm);
+            //DataTable dt = new DataTable();
+            //adapter.Fill(dt);
+
+            SqlCommand myComm2 = new SqlCommand("SELECT Accommodation_ID, AccommodationType FROM viewBookingReport1 GROUP BY Accommodation_ID, AccommodationType ORDER BY  count(*) DESC;", conn);
+            SqlDataAdapter adapter2 = new SqlDataAdapter(myComm2);
+            DataTable dt2 = new DataTable();
+            adapter2.Fill(dt2);
 
             this.reportViewer.LocalReport.ReportPath = @"listAccomReport.rdlc";
-            ReportDataSource rds = new ReportDataSource("DataSet1", dt);
-            this.reportViewer.LocalReport.DataSources.Add(rds);
+            //ReportDataSource rds = new ReportDataSource("DataSet1", dt);
+            ReportDataSource rds2 = new ReportDataSource("DataSet3", dt2);
+            //this.reportViewer.LocalReport.DataSources.Add(rds);
+            this.reportViewer.LocalReport.DataSources.Add(rds2);
             this.reportViewer.RefreshReport();
             conn.Close();
             loadDataSet2();
