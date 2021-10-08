@@ -37,6 +37,7 @@ namespace vaalrusGUIPrototype
             this.label1 = new System.Windows.Forms.Label();
             this.dgView = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblOutput = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -66,7 +67,7 @@ namespace vaalrusGUIPrototype
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(456, 190);
+            this.btnDelete.Location = new System.Drawing.Point(247, 181);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(159, 41);
@@ -77,6 +78,7 @@ namespace vaalrusGUIPrototype
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblOutput);
             this.panel1.Controls.Add(this.txtLastName);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnDelete);
@@ -101,12 +103,12 @@ namespace vaalrusGUIPrototype
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 106);
+            this.label1.Location = new System.Drawing.Point(61, 103);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 13);
+            this.label1.Size = new System.Drawing.Size(119, 13);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Search customer by Last Name:";
+            this.label1.Text = "Customer to be deleted:";
             // 
             // dgView
             // 
@@ -131,6 +133,15 @@ namespace vaalrusGUIPrototype
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // lblOutput
+            // 
+            this.lblOutput.AutoSize = true;
+            this.lblOutput.Location = new System.Drawing.Point(77, 145);
+            this.lblOutput.Name = "lblOutput";
+            this.lblOutput.Size = new System.Drawing.Size(35, 13);
+            this.lblOutput.TabIndex = 6;
+            this.lblOutput.Text = "label2";
             // 
             // frmDeleteCustomer
             // 
@@ -162,5 +173,6 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgView;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblOutput;
     }
 }

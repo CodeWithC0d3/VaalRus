@@ -185,29 +185,88 @@ namespace vaalrusGUIPrototype
 
             string lastName = txtLastName.Text;
 
-            DialogResult promptResult = MessageBox.Show("Are you sure you want to delete: \"" + lastName + "\" from the system", "Delete Customer", MessageBoxButtons.YesNo);
+            
 
-            if (promptResult == DialogResult.Yes)
-            {
+            
                 if (conDB())
                 {
+                    
+                    //see if there is such an entry
+                    string queryText = $"SELECT COUNT(Customer_LastName)  " +
+                        $"FROM Customer WHERE Customer_LastName = '" + lastName + "'";
 
+                    SqlCommand SQLQuery = new SqlCommand(queryText, con);
 
-
-
-
-                    string deleteQuery = "DELETE FROM Customer WHERE Customer_LastName = '" + lastName + "'";
-
-                    SqlCommand cmd = new SqlCommand(deleteQuery, con);
-
-                    SqlDataAdapter myAdapter = new SqlDataAdapter();
-
-                    myAdapter.DeleteCommand = cmd;
-
-                    myAdapter.DeleteCommand.ExecuteNonQuery();
-
+                    //read from db
+                    Int32 entryCount = Convert.ToInt32(SQLQuery.ExecuteScalar()); // will return the number of vlaues 
+                    SQLQuery.Dispose();
                     con.Close();
+
+
+                    
+                    
+                    //if bigger than 0 then there is a record
+                    if (entryCount > 0)
+                    {
+                        //request user to confirm that they want to delete
+                        DialogResult promptResult = MessageBox.Show("Are you sure you want to delete: \"" + lastName + "\" from the system", "Delete Customer", MessageBoxButtons.YesNoCancel);
+
+                        //if confirmed to be deleted ru nthe next code
+                        if (promptResult == DialogResult.Yes)
+                        {
+
+                        con.Open();
+
+                            string deleteQuery = "DELETE FROM Customer WHERE Customer_LastName = '" + lastName + "'";
+
+                            SqlCommand cmd = new SqlCommand(deleteQuery, con);
+
+                            SqlDataAdapter myAdapter = new SqlDataAdapter();
+
+                            myAdapter.DeleteCommand = cmd;
+
+                            myAdapter.DeleteCommand.ExecuteNonQuery();
+                            
+                            //output to user
+                            lblOutput.Text = lastName + ", has been deleted!";
+                        }
+                    }
+
+                    lblOutput.Text = lastName + ", does not exist in the system!";
+                /*
+
+
+                string deleteQuery = "DELETE FROM Customer WHERE Customer_LastName = '" + lastName + "'";
+
+                SqlCommand cmd = new SqlCommand(deleteQuery, con);
+
+                SqlDataAdapter myAdapter = new SqlDataAdapter();
+
+                myAdapter.DeleteCommand = cmd;
+
+                myAdapter.DeleteCommand.ExecuteNonQuery();
+
+                var effectedRows = Convert.ToInt32(cmd.Parameters["@rowCount"].Value);
+
+                if (effectedRows > 0)
+                {
+                    lblOutput.Text = " was deleted succesfully";
                 }
+
+                /*
+                //query did not execute because no values matching
+                if (cmd.ExecuteNonQuery() == 0)
+                {
+                    lblOutput.Text = "No matching records";
+                }
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    lblOutput.Text =  lastName + " was deleted succesfully";
+                }
+                */
+
+                con.Close();
+                
             }
 
 
