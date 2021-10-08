@@ -715,8 +715,8 @@ namespace vaalrusGUIPrototype
                 //int serID = Convert.ToInt32(txtSearchID.Text);
                 if (comboBoxSearchType.SelectedItem != null) searchType = comboBoxSearchType.SelectedItem.ToString();
                 //if (txtSearchType.Text.Length > 0) serType = Convert.ToInt32(txtSearchType.Text);
-                if (txtSearchOccupants.Text.Length > 0) serOcc = Convert.ToInt32(txtSearchOccupants.Text);
-                if (txtsearchPrice.Text.Length > 0) serPrice = Convert.ToDouble(txtsearchPrice.Text);
+                if (txtSearchOccupants.Text.Length > 0) int.TryParse(txtSearchOccupants.Text, out serOcc);
+                if (txtsearchPrice.Text.Length > 0) double.TryParse(txtsearchPrice.Text, out serPrice);
                 if (checkBoxActive.Checked == true) active = true; else active = false;
                 txtSearchID.Clear();
                 if (txtSearchOccupants.Text.Length == 0 && txtsearchPrice.Text.Length == 0)
@@ -741,6 +741,11 @@ namespace vaalrusGUIPrototype
             txtSearchOccupants.Clear();
             txtsearchPrice.Clear();
             txtSearchID.Focus();
+        }
+
+        private void txtSearchID_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
 
         private void txtSearchType_TextChanged(object sender, EventArgs e)
@@ -780,8 +785,8 @@ namespace vaalrusGUIPrototype
                 if(comboBoxSearchType.SelectedItem != null) searchType = comboBoxSearchType.SelectedItem.ToString();
                 //int serID = Convert.ToInt32(txtSearchID.Text);
                 //if (comboBoxSearchType.Text.Length > 0) serType = Convert.ToInt32(txtSearchType.Text);
-                if (txtSearchOccupants.Text.Length > 0) serOcc = Convert.ToInt32(txtSearchOccupants.Text);
-                if (txtsearchPrice.Text.Length > 0) serPrice = Convert.ToDouble(txtsearchPrice.Text);
+                if (txtSearchOccupants.Text.Length > 0) int.TryParse(txtSearchOccupants.Text, out serOcc);
+                if (txtsearchPrice.Text.Length > 0) double.TryParse(txtsearchPrice.Text, out serPrice);//serPrice = Convert.ToDouble(txtsearchPrice.Text);
                 if (checkBoxActive.Checked == true) active = true; else active = false;
                 txtSearchID.Clear();
                 if (comboBoxSearchType.Text.Length == 0 && txtsearchPrice.Text.Length == 0)
@@ -811,8 +816,8 @@ namespace vaalrusGUIPrototype
                 if (comboBoxSearchType.SelectedItem != null) searchType = comboBoxSearchType.SelectedItem.ToString();
                 //int serID = Convert.ToInt32(txtSearchID.Text);
                 //if (txtSearchType.Text.Length > 0) serType = Convert.ToInt32(txtSearchType.Text);
-                if (txtSearchOccupants.Text.Length > 0) serOcc = Convert.ToInt32(txtSearchOccupants.Text);
-                if (txtsearchPrice.Text.Length > 0) serPrice = Convert.ToDouble(txtsearchPrice.Text);
+                if (txtSearchOccupants.Text.Length > 0) int.TryParse(txtSearchOccupants.Text, out serOcc);
+                if (txtsearchPrice.Text.Length > 0) double.TryParse(txtsearchPrice.Text, out serPrice);
                 txtSearchID.Clear();
                 if (checkBoxActive.Checked == true) active = true; else active = false;
                 txtSearchID.Clear();
