@@ -24,7 +24,7 @@ namespace vaalrusGUIPrototype
 
         private void frmReport_Load(object sender, EventArgs e)
         {
-
+            
             this.reportViewer.RefreshReport();
             LoadTheme();
             //loadDataSet2();
@@ -43,7 +43,7 @@ namespace vaalrusGUIPrototype
             //DataTable dt = new DataTable();
             //adapter.Fill(dt);
 
-            SqlCommand myComm2 = new SqlCommand("SELECT Accommodation_ID, AccommodationType FROM viewBookingReport1 where startDate >= '" + selectStart + "' AND startDate < '" + selectEnd + "' GROUP BY Accommodation_ID, AccommodationType ORDER BY  count(*) DESC ;", conn);
+            SqlCommand myComm2 = new SqlCommand("SELECT TOP 10 Accommodation_ID, AccommodationType FROM viewBookingReport1 where startDate >= '" + selectStart + "' AND startDate < '" + selectEnd + "' GROUP BY Accommodation_ID, AccommodationType ORDER BY  count(*) DESC ;", conn);
             SqlDataAdapter adapter2 = new SqlDataAdapter(myComm2);
             DataTable dt2 = new DataTable();
             adapter2.Fill(dt2);
@@ -189,7 +189,8 @@ namespace vaalrusGUIPrototype
         {
             if (true)
             {
-
+                this.reportViewer.LocalReport.DataSources.Clear();
+                this.reportViewer.RefreshReport();
                 selectStart = dpStart.Value;
                 selectEnd = dpEnd.Value;
                 loadDSet();

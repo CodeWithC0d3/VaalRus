@@ -276,7 +276,8 @@ namespace vaalrusGUIPrototype
         {
             if (true)
             {
-
+                this.reportViewer1.LocalReport.DataSources.Clear();
+                this.reportViewer1.RefreshReport();
                 selectStart = dpStart.Value;
                 selectEnd = dpEnd.Value;
                 loadDataSet3();
