@@ -16,9 +16,9 @@ CREATE TABLE Customer (
     Customer_ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
     Customer_FirstName VARCHAR(50) NOT NULL,
     Customer_LastName VARCHAR(50),
-	Customer_IDNumber CHAR(13) NOT NULL,
-	Customer_Email VARCHAR(50) UNIQUE,
-	Customer_Cell VARCHAR(15) NOT NULL,
+    Customer_IDNumber CHAR(13) NOT NULL,
+    Customer_Email VARCHAR(50) UNIQUE,
+    Customer_Cell VARCHAR(15) NOT NULL,
     Customer_Address NVARCHAR(250) -- Address seems to be a keyword in SQL
 
 );
@@ -43,7 +43,7 @@ CREATE TABLE Quotation (
     ON DELETE CASCADE,
     CONSTRAINT FK_QuoteStatus FOREIGN KEY (PaymentStatus)
     REFERENCES Quotationstatus (Status_ID)  
-   -- ON DELETE No Action --IS same as D:R
+    ON DELETE No Action --IS same as D:R
 );
 
 CREATE TABLE Booking (
@@ -103,6 +103,6 @@ CREATE TABLE Accommodationset (
     ON DELETE CASCADE,
     CONSTRAINT FK_AccSetAccommodation FOREIGN KEY (Accommodation_ID)
     REFERENCES Accommodation(Accommodation_ID)   
-    ON DELETE CASCADE --IS same as D:R
+    ON DELETE CASCADE 
 	
 );
