@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//SQL
+using System.Data.SqlClient;
 
 namespace vaalrusGUIPrototype
 {
     public partial class frmDeleteCustomer : Form
     {
+        string constr = Properties.Settings.Default.conString;
+        SqlConnection con;
+
         public frmDeleteCustomer()
         {
             InitializeComponent();
@@ -151,5 +156,44 @@ namespace vaalrusGUIPrototype
         {
             LoadTheme();
         }
+
+        private Boolean conDB()
+        {
+            try
+            {
+                con = new SqlConnection(constr);
+                con.Open();
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (conDB())
+            {
+
+                string lastName = lblLastName.Text;
+
+
+
+                string deleteQuery = "DELETE FROM Customer WHERE Customer_LastName = '" + lastName + "'";
+
+                SqlCommand cmd = new SqlCommand(deleteQuery, con);
+
+                SqlDataAdapter myAdapter = new SqlDataAdapter();
+
+                myAdapter.DeleteCommand = cmd;
+
+                myAdapter.DeleteCommand.ExecuteNonQuery();
+
+
+            }
+         }
+
     }
 }
