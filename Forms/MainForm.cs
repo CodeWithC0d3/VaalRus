@@ -315,5 +315,12 @@ namespace vaalrusGUIPrototype
             hideSubMenu();
             changeButtonBrightness(sender);
         }
+
+        private void btnViewCustomers_Click_1(object sender, EventArgs e)
+        {
+            openChildForm(new frmViewCustomer());
+            lblHeading.Text = "View Customers";
+            changeButtonBrightness(sender);
+        }
     }
 }

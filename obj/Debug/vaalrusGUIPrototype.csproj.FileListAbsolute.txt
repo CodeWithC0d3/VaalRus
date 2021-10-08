@@ -300,3 +300,4 @@ C:\GitHub\VaalRus\obj\Debug\vaalrusGUIPrototype.csproj.CoreCompileInputs.cache
 C:\GitHub\VaalRus\obj\Debug\vaalrusGUIPrototype.csproj.CopyComplete
 C:\GitHub\VaalRus\obj\Debug\vaalrusGUIPrototype.exe
 C:\GitHub\VaalRus\obj\Debug\vaalrusGUIPrototype.pdb
+C:\GitHub\VaalRus\obj\Debug\vaalrusGUIPrototype.Forms.frmViewCustomer.resources

@@ -338,6 +338,7 @@ namespace vaalrusGUIPrototype
             this.btnViewCustomers.TabIndex = 0;
             this.btnViewCustomers.Text = "View";
             this.btnViewCustomers.UseVisualStyleBackColor = true;
+            this.btnViewCustomers.Click += new System.EventHandler(this.btnViewCustomers_Click_1);
             // 
             // btnCustomers
             // 

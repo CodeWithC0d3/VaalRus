@@ -226,6 +226,12 @@
     <Compile Include="Forms\frmViewBookings.Designer.cs">
       <DependentUpon>frmViewBookings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmViewCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmViewCustomer.Designer.cs">
+      <DependentUpon>frmViewCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -356,6 +362,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmViewBookings.resx">
       <DependentUpon>frmViewBookings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmViewCustomer.resx">
+      <DependentUpon>frmViewCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
