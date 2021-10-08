@@ -55,7 +55,7 @@ namespace vaalrusGUIPrototype
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(504, 173);
+            this.btnSearch.Location = new System.Drawing.Point(456, 92);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(159, 41);
@@ -66,7 +66,7 @@ namespace vaalrusGUIPrototype
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(58, 289);
+            this.btnDelete.Location = new System.Drawing.Point(456, 190);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(159, 41);
@@ -82,10 +82,10 @@ namespace vaalrusGUIPrototype
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnAll);
             this.panel1.Controls.Add(this.btnSearch);
-            this.panel1.Location = new System.Drawing.Point(56, 268);
+            this.panel1.Location = new System.Drawing.Point(53, 268);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(665, 216);
+            this.panel1.Size = new System.Drawing.Size(665, 233);
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
