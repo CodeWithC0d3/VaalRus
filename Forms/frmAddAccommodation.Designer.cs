@@ -29,6 +29,7 @@ namespace vaalrusGUIPrototype.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddAccommodation));
             this.pictureBoxViewAllBookingsBackground = new System.Windows.Forms.PictureBox();
             this.pnlNewAccom = new System.Windows.Forms.Panel();
@@ -44,6 +45,9 @@ namespace vaalrusGUIPrototype.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.pnlDGrid = new System.Windows.Forms.Panel();
             this.dataGridAccommodations = new System.Windows.Forms.DataGridView();
+            this.errorProviderType = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderOccupants = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderPrice = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxViewAllBookingsBackground)).BeginInit();
             this.pnlNewAccom.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -51,6 +55,9 @@ namespace vaalrusGUIPrototype.Forms
             ((System.ComponentModel.ISupportInitialize)(this.numOfOccupants)).BeginInit();
             this.pnlDGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccommodations)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderOccupants)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxViewAllBookingsBackground
@@ -125,6 +132,7 @@ namespace vaalrusGUIPrototype.Forms
             this.txtAccomPrice.Name = "txtAccomPrice";
             this.txtAccomPrice.Size = new System.Drawing.Size(100, 20);
             this.txtAccomPrice.TabIndex = 12;
+            this.txtAccomPrice.Validating += new System.ComponentModel.CancelEventHandler(this.txtAccomPrice_Validating);
             // 
             // label3
             // 
@@ -141,6 +149,7 @@ namespace vaalrusGUIPrototype.Forms
             this.numOfOccupants.Name = "numOfOccupants";
             this.numOfOccupants.Size = new System.Drawing.Size(60, 20);
             this.numOfOccupants.TabIndex = 10;
+            this.numOfOccupants.Validating += new System.ComponentModel.CancelEventHandler(this.numOfOccupants_Validating);
             // 
             // label2
             // 
@@ -158,7 +167,7 @@ namespace vaalrusGUIPrototype.Forms
             this.cbAccomType.Name = "cbAccomType";
             this.cbAccomType.Size = new System.Drawing.Size(121, 21);
             this.cbAccomType.TabIndex = 8;
-            this.cbAccomType.Text = " < None Selected >";
+            this.cbAccomType.Validating += new System.ComponentModel.CancelEventHandler(this.cbAccomType_Validating);
             // 
             // label1
             // 
@@ -197,6 +206,18 @@ namespace vaalrusGUIPrototype.Forms
             this.dataGridAccommodations.TabIndex = 0;
             this.dataGridAccommodations.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridAccommodations_CellClick);
             // 
+            // errorProviderType
+            // 
+            this.errorProviderType.ContainerControl = this;
+            // 
+            // errorProviderOccupants
+            // 
+            this.errorProviderOccupants.ContainerControl = this;
+            // 
+            // errorProviderPrice
+            // 
+            this.errorProviderPrice.ContainerControl = this;
+            // 
             // frmAddAccommodation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,6 +237,9 @@ namespace vaalrusGUIPrototype.Forms
             ((System.ComponentModel.ISupportInitialize)(this.numOfOccupants)).EndInit();
             this.pnlDGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccommodations)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderOccupants)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPrice)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -236,5 +260,8 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlDGrid;
         private System.Windows.Forms.DataGridView dataGridAccommodations;
+        private System.Windows.Forms.ErrorProvider errorProviderType;
+        private System.Windows.Forms.ErrorProvider errorProviderOccupants;
+        private System.Windows.Forms.ErrorProvider errorProviderPrice;
     }
 }
