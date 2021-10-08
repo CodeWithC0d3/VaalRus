@@ -24,6 +24,7 @@ namespace vaalrusGUIPrototype
 
 
         bool searchFlag = false;
+        bool countFlag = false; 
 
         public frmDeleteCustomer()
         {
@@ -31,78 +32,57 @@ namespace vaalrusGUIPrototype
         }
         private void LoadTheme()
         {
-            foreach (Control btns in this.Controls)
+            foreach (Control co in this.Controls)
             {
-                foreach (Control pnl in this.Controls)
+
+                // if (co.GetType() == typeof(Panel))
+                // {
+                //    co.Parent = this;
+                //    co.BackColor = Color.Transparent;
+                // }
+                if (co.GetType() == typeof(Label))
                 {
-                    if (pnl.GetType() == typeof(Panel))
-                    {
-                        //pnl.Parent = pictureBoxViewAllBookingsBackground;
-                        pnl.BackColor = Color.Transparent;
-                    }
+                    Label lbl = (Label)co;
+                    lbl.Font = GlobalSettings.font;
+                    lbl.Font = new Font("Microsoft Sans Serif", 12);
+                    lbl.Parent = this;
+                    lbl.ForeColor = GlobalSettings.SecondaryColor;
+                    lbl.BackColor = Color.Transparent;
+
                 }
-                /*
-                    if (btns.GetType() == typeof(Button))
-                    {
-                        Button btn = (Button)btns;
-                        btn.FlatStyle = FlatStyle.Flat;
-                        //btn.Parent = pictureBox1;//If using a picture box as background please set parent
-                        btn.BackColor = GlobalSettings.PrimaryColor;
-                        btn.ForeColor = Color.White;
-                        btn.Font = GlobalSettings.font;
-                        //btn.FlatAppearance.BorderColor = GlobalSettings.SecondaryColor;
-                        btn.FlatAppearance.BorderColor = Color.White;
-                        btn.FlatAppearance.BorderSize = 2;
-                    }
+                if (co.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)co;
+                    btn.FlatStyle = FlatStyle.Flat;
+                    //btn.Parent = pictureBox1;
+                    btn.BackColor = GlobalSettings.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.Font = GlobalSettings.font;
+                    //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                    btn.FlatAppearance.BorderColor = Color.White;
+                    btn.FlatAppearance.BorderSize = 2;
                 }
-                foreach (Control lbls in this.Controls)
-                {
-                    if (lbls.GetType() == typeof(Label))
-                    {
-                        Label lbl = (Label)lbls;
-                        lbl.Font = GlobalSettings.font;
-                        //lbl.Parent = pictureBox1;//If using a picture box as background please set parent
-                        lbl.ForeColor = GlobalSettings.SecondaryColor;
-                        lbl.Parent = pictureBoxViewAllBookingsBackground;
-                        lbl.BackColor = Color.Transparent;
-
-                    }
-                }                          
-                foreach (Control dtg in this.Controls)
-                {
-                    if (dtg.GetType() == typeof(DataGridView))
-                    {
-                        DataGridView dtgg = (DataGridView)dtg;
-                        dtgg.ForeColor = Color.White;
-                        dtgg.BackgroundColor = SystemColors.Control;
-                        dtgg.DefaultCellStyle.BackColor = GlobalSettings.PrimaryColor;
-                        dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
-
-                    }
-                }
-
-                foreach (Control chk in this.Controls)
-                {
-                    if (chk.GetType() == typeof(CheckBox))
-                    {
-                        CheckBox chkk = (CheckBox)chk;
-                        chkk.ForeColor = GlobalSettings.SecondaryColor;
-
-                    }*/
             }
-            aplytheme(panel1);
+            //pnlMain.BackColor = Color.Transparent;
 
-
+            //aplytheme(panel1);
+            //aplytheme(panel2);
+            //aplytheme(pn_grid);
+            //aplytheme(pnl_accSet);
+            //timer1.Start();
         }
-        private void aplytheme(Control co)
+
+
+
+        private void aplytheme(Control pn)
         {
-            if (co.GetType() == typeof(Panel))
+            if (pn.GetType() == typeof(Panel))
             {
-                foreach (Control btns in co.Controls)
+                foreach (Control co in pn.Controls)
                 {
-                    if (btns.GetType() == typeof(Button))
+                    if (co.GetType() == typeof(Button))
                     {
-                        Button btn = (Button)btns;
+                        Button btn = (Button)co;
                         btn.FlatStyle = FlatStyle.Flat;
                         //btn.Parent = pictureBox1;
                         btn.BackColor = GlobalSettings.PrimaryColor;
@@ -111,44 +91,78 @@ namespace vaalrusGUIPrototype
                         //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                         btn.FlatAppearance.BorderColor = Color.White;
                         btn.FlatAppearance.BorderSize = 2;
-
                     }
-                }
-                foreach (Control lbls in co.Controls)
-                {
-                    if (lbls.GetType() == typeof(Label))
+                    if (co.GetType() == typeof(Label))
                     {
-                        Label lbl = (Label)lbls;
+                        Label lbl = (Label)co;
                         lbl.Font = GlobalSettings.font;
-                        //lbl.Parent = pictureBox1;
-                        lbl.ForeColor = GlobalSettings.SecondaryColor;
+                        //lbl.Parent = picBackground;
+                        //lbl.ForeColor = GlobalSettings.SecondaryColor;
+                        lbl.ForeColor = Color.White;
                         lbl.BackColor = Color.Transparent;
 
                     }
-                }
-                foreach (Control dtg in co.Controls)
-                {
-                    if (dtg.GetType() == typeof(DataGridView))
+                    if (co.GetType() == typeof(DataGridView))
                     {
-                        DataGridView dtgg = (DataGridView)dtg;
+                        DataGridView dtgg = (DataGridView)co;
                         dtgg.ForeColor = Color.White;
-                        dtgg.BackgroundColor = SystemColors.Control;
+                        dtgg.BackgroundColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.BackColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
+                        dtgg.DefaultCellStyle.SelectionBackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
+                        dtgg.ColumnHeadersDefaultCellStyle.BackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
+                        dtgg.ColumnHeadersDefaultCellStyle.SelectionBackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
+                        dtgg.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                        dtgg.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                        dtgg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
 
                     }
-                }
-                foreach (Control chk in co.Controls)
-                {
-                    if (chk.GetType() == typeof(CheckBox))
+                    if (co.GetType() == typeof(CheckBox))
                     {
-                        CheckBox chkk = (CheckBox)chk;
+                        CheckBox chkk = (CheckBox)co;
                         chkk.ForeColor = GlobalSettings.SecondaryColor;
 
                     }
+                    if (co.GetType() == typeof(TextBox))
+                    {
+                        TextBox txtC = (TextBox)co;
+                        txtC.ForeColor = GlobalSettings.SecondaryColor;
+
+                    }
+                    if (co.GetType() == typeof(ComboBox))
+                    {
+                        ComboBox cmbc = (ComboBox)co;
+                        cmbc.ForeColor = GlobalSettings.SecondaryColor;
+                        cmbc.Font = GlobalSettings.font;
+
+                    }
+                    if (co.GetType() == typeof(DateTimePicker))
+                    {
+                        DateTimePicker dtpc = (DateTimePicker)co;
+                        dtpc.ForeColor = GlobalSettings.SecondaryColor;
+                        dtpc.Font = GlobalSettings.font;
+
+                    }
+                    if (co.GetType() == typeof(GroupBox))
+                    {
+                        GroupBox gpc = (GroupBox)co;
+                        gpc.ForeColor = GlobalSettings.SecondaryColor;
+                        gpc.Font = GlobalSettings.font;
+
+                    }
+                    if (co.GetType() == typeof(ListBox))
+                    {
+                        ListBox lsc = (ListBox)co;
+                        lsc.ForeColor = GlobalSettings.SecondaryColor;
+                        lsc.Font = GlobalSettings.font;
+
+                    }
                 }
+
             }
         }
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -185,7 +199,10 @@ namespace vaalrusGUIPrototype
 
             string lastName = txtLastName.Text;
 
-            
+            if (!string.IsNullOrEmpty(lastName))
+            {
+                countFlag = true;
+            }
 
             
                 if (conDB())
@@ -203,36 +220,48 @@ namespace vaalrusGUIPrototype
                     con.Close();
 
 
-                    
-                    
-                    //if bigger than 0 then there is a record
-                    if (entryCount > 0)
-                    {
-                        //request user to confirm that they want to delete
-                        DialogResult promptResult = MessageBox.Show("Are you sure you want to delete: \"" + lastName + "\" from the system", "Delete Customer", MessageBoxButtons.YesNoCancel);
 
-                        //if confirmed to be deleted ru nthe next code
-                        if (promptResult == DialogResult.Yes)
-                        {
+
+                //if bigger than 0 then there is a record
+                if (entryCount > 0)
+                {
+                    //request user to confirm that they want to delete
+                    DialogResult promptResult = MessageBox.Show("Are you sure you want to delete: \"" + lastName + "\" from the system", "Delete Customer", MessageBoxButtons.YesNoCancel);
+
+                    //if confirmed to be deleted ru nthe next code
+                    if (promptResult == DialogResult.Yes)
+                    {
 
                         con.Open();
 
-                            string deleteQuery = "DELETE FROM Customer WHERE Customer_LastName = '" + lastName + "'";
+                        string deleteQuery = "DELETE FROM Customer WHERE Customer_LastName = '" + lastName + "'";
 
-                            SqlCommand cmd = new SqlCommand(deleteQuery, con);
+                        SqlCommand cmd = new SqlCommand(deleteQuery, con);
 
-                            SqlDataAdapter myAdapter = new SqlDataAdapter();
+                        SqlDataAdapter myAdapter = new SqlDataAdapter();
 
-                            myAdapter.DeleteCommand = cmd;
+                        myAdapter.DeleteCommand = cmd;
 
-                            myAdapter.DeleteCommand.ExecuteNonQuery();
-                            
-                            //output to user
-                            lblOutput.Text = lastName + ", has been deleted!";
-                        }
+                        myAdapter.DeleteCommand.ExecuteNonQuery();
+
+                        //output to user
+                        lblOutput.Text = lastName + ", has been deleted!";
                     }
+                }
+                else 
+                {
+                    if (countFlag)
+                    {
+                        lblOutput.Text = lastName + ", does not exist in the system!";
+                    }
+                    else 
+                    {
+                        lblOutput.Text = "You havent picked a customer to be deleted";
+                    }
+                    
+                }
 
-                    lblOutput.Text = lastName + ", does not exist in the system!";
+                    
                 /*
 
 
