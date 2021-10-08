@@ -189,7 +189,7 @@ namespace vaalrusGUIPrototype
             sqlCmd.ExecuteNonQuery();
             sqlConnection.Close();
             MessageBox.Show("Successfully Checked Out");
-            this.Close();
+            //this.Close();
         }
 
         private void frmCheckOut_Load(object sender, EventArgs e)
@@ -223,6 +223,22 @@ namespace vaalrusGUIPrototype
         private void dtgCheckOut_SelectionChanged(object sender, EventArgs e)
         {
             tbBookID.Text = dtgCheckOut.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+            sqlConnection = new SqlConnection(connString);
+            try
+            {
+                sqlConnection.Open();
+                //MessageBox.Show("Connected to db");
+            }
+            catch (SqlException sqlx)
+            {
+                MessageBox.Show("Connection unsuccesful");
+            }
+            Display("SELECT Booking.Booking_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Booking.StartDate, dbo.Booking.EndDate, dbo.Booking.Checkin_Time,dbo.Booking.Checkin_Out FROM     dbo.Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID WHERE Customer.Customer_LastName='" + tbSearch.Text + "'");
         }
     }
 }

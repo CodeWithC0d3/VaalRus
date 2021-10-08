@@ -210,13 +210,16 @@ namespace vaalrusGUIPrototype
 
         private void button2_Click(object sender, EventArgs e)
         {
+            DateTime Chekin = DateTime.Now;
             sqlConnection = new SqlConnection(connString);
             sqlConnection.Open();
-           
-            sqlCmd = new SqlCommand($"Update Booking Set Checkin_Time = dateTimePicker1.SelectedDateIime where Booking_ID = TextBox1.Text, sqlConnection");
+
+            sqlCmd = new SqlCommand($"Update Booking Set Checkin_Time ='" + Chekin + "'  where Booking_ID = " + Convert.ToInt32(textBox1.Text) + "", sqlConnection);
 
             sqlCmd.ExecuteNonQuery();
             sqlConnection.Close();
+            MessageBox.Show("Successfully Checked In");
+            //this.Close();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -228,5 +231,22 @@ namespace vaalrusGUIPrototype
         {
             textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            sqlConnection = new SqlConnection(connString);
+            try
+            {
+                sqlConnection.Open();
+                //MessageBox.Show("Connected to db");
+            }
+            catch (SqlException sqlx)
+            {
+                MessageBox.Show("Connection unsuccesful");
+            }
+            Display("SELECT Booking.Booking_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Booking.StartDate, dbo.Booking.EndDate, dbo.Booking.Checkin_Time,dbo.Booking.Checkin_Out FROM     dbo.Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID WHERE Customer.Customer_LastName='"+tbSearch.Text+"'");
+        }
     }
+    
 }
