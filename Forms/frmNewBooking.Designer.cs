@@ -69,18 +69,18 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.grid = new System.Windows.Forms.DataGridView();
             this.pnlFilter = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtFilterID = new System.Windows.Forms.TextBox();
-            this.txtFilterQuote = new System.Windows.Forms.TextBox();
+            this.ch_dateRange = new System.Windows.Forms.CheckBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
             this.ch_to = new System.Windows.Forms.CheckBox();
             this.dp_filterTo = new System.Windows.Forms.DateTimePicker();
             this.dp_filterFrom = new System.Windows.Forms.DateTimePicker();
-            this.label20 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.ch_dateRange = new System.Windows.Forms.CheckBox();
+            this.txtFilterQuote = new System.Windows.Forms.TextBox();
+            this.txtFilterID = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
             this.pnlMain.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.pnlPayment.SuspendLayout();
@@ -129,6 +129,7 @@ namespace vaalrusGUIPrototype.Forms
             this.button1.TabIndex = 0;
             this.button1.Text = "Create";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pnlPayment
             // 
@@ -216,6 +217,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // txtAmount
             // 
+            this.txtAmount.Enabled = false;
             this.txtAmount.Location = new System.Drawing.Point(147, 92);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(87, 20);
@@ -223,6 +225,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // txtEndDate
             // 
+            this.txtEndDate.Enabled = false;
             this.txtEndDate.Location = new System.Drawing.Point(147, 64);
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.Size = new System.Drawing.Size(144, 20);
@@ -230,6 +233,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // txtStartDate
             // 
+            this.txtStartDate.Enabled = false;
             this.txtStartDate.Location = new System.Drawing.Point(147, 34);
             this.txtStartDate.Name = "txtStartDate";
             this.txtStartDate.Size = new System.Drawing.Size(144, 20);
@@ -237,6 +241,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // txtQuotenr
             // 
+            this.txtQuotenr.Enabled = false;
             this.txtQuotenr.Location = new System.Drawing.Point(147, 3);
             this.txtQuotenr.Name = "txtQuotenr";
             this.txtQuotenr.Size = new System.Drawing.Size(56, 20);
@@ -338,6 +343,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // txtemail
             // 
+            this.txtemail.Enabled = false;
             this.txtemail.Location = new System.Drawing.Point(147, 121);
             this.txtemail.Name = "txtemail";
             this.txtemail.Size = new System.Drawing.Size(204, 20);
@@ -345,6 +351,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // txtCell
             // 
+            this.txtCell.Enabled = false;
             this.txtCell.Location = new System.Drawing.Point(147, 92);
             this.txtCell.Name = "txtCell";
             this.txtCell.Size = new System.Drawing.Size(131, 20);
@@ -352,6 +359,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // txtIdNumber
             // 
+            this.txtIdNumber.Enabled = false;
             this.txtIdNumber.Location = new System.Drawing.Point(147, 63);
             this.txtIdNumber.Name = "txtIdNumber";
             this.txtIdNumber.Size = new System.Drawing.Size(131, 20);
@@ -359,6 +367,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // txtlastName
             // 
+            this.txtlastName.Enabled = false;
             this.txtlastName.Location = new System.Drawing.Point(147, 34);
             this.txtlastName.Name = "txtlastName";
             this.txtlastName.Size = new System.Drawing.Size(169, 20);
@@ -366,6 +375,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // txtname
             // 
+            this.txtname.Enabled = false;
             this.txtname.Location = new System.Drawing.Point(147, 5);
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(169, 20);
@@ -485,65 +495,39 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlFilter.Size = new System.Drawing.Size(812, 177);
             this.pnlFilter.TabIndex = 0;
             // 
-            // panel4
+            // ch_dateRange
             // 
-            this.panel4.Controls.Add(this.label17);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(812, 35);
-            this.panel4.TabIndex = 0;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(16, 8);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(103, 20);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "Filter Options";
-            // 
-            // label18
-            // 
-            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ch_dateRange.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(3, 38);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(65, 13);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "Customer ID";
+            this.ch_dateRange.AutoSize = true;
+            this.ch_dateRange.Location = new System.Drawing.Point(3, 61);
+            this.ch_dateRange.Name = "ch_dateRange";
+            this.ch_dateRange.Size = new System.Drawing.Size(101, 17);
+            this.ch_dateRange.TabIndex = 12;
+            this.ch_dateRange.Text = "Add Date range";
+            this.ch_dateRange.UseVisualStyleBackColor = true;
+            this.ch_dateRange.CheckedChanged += new System.EventHandler(this.ch_dateRange_CheckedChanged);
             // 
-            // label19
+            // button2
             // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.button2.Location = new System.Drawing.Point(6, 134);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 38);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Filter";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label20
+            // 
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(192, 38);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(50, 13);
-            this.label19.TabIndex = 2;
-            this.label19.Text = "Quote Nr";
-            // 
-            // txtFilterID
-            // 
-            this.txtFilterID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtFilterID.Location = new System.Drawing.Point(86, 35);
-            this.txtFilterID.Name = "txtFilterID";
-            this.txtFilterID.Size = new System.Drawing.Size(100, 20);
-            this.txtFilterID.TabIndex = 3;
-            // 
-            // txtFilterQuote
-            // 
-            this.txtFilterQuote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtFilterQuote.Location = new System.Drawing.Point(275, 34);
-            this.txtFilterQuote.Name = "txtFilterQuote";
-            this.txtFilterQuote.Size = new System.Drawing.Size(100, 20);
-            this.txtFilterQuote.TabIndex = 4;
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(0, 86);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(30, 13);
+            this.label20.TabIndex = 11;
+            this.label20.Text = "From";
             // 
             // ch_to
             // 
@@ -578,39 +562,65 @@ namespace vaalrusGUIPrototype.Forms
             this.dp_filterFrom.Size = new System.Drawing.Size(218, 20);
             this.dp_filterFrom.TabIndex = 8;
             // 
-            // label20
+            // txtFilterQuote
             // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtFilterQuote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(0, 86);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(30, 13);
-            this.label20.TabIndex = 11;
-            this.label20.Text = "From";
+            this.txtFilterQuote.Location = new System.Drawing.Point(275, 34);
+            this.txtFilterQuote.Name = "txtFilterQuote";
+            this.txtFilterQuote.Size = new System.Drawing.Size(100, 20);
+            this.txtFilterQuote.TabIndex = 4;
             // 
-            // button2
+            // txtFilterID
             // 
-            this.button2.Location = new System.Drawing.Point(6, 134);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 38);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Filter";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // ch_dateRange
-            // 
-            this.ch_dateRange.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtFilterID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.ch_dateRange.AutoSize = true;
-            this.ch_dateRange.Location = new System.Drawing.Point(3, 61);
-            this.ch_dateRange.Name = "ch_dateRange";
-            this.ch_dateRange.Size = new System.Drawing.Size(101, 17);
-            this.ch_dateRange.TabIndex = 12;
-            this.ch_dateRange.Text = "Add Date range";
-            this.ch_dateRange.UseVisualStyleBackColor = true;
-            this.ch_dateRange.CheckedChanged += new System.EventHandler(this.ch_dateRange_CheckedChanged);
+            this.txtFilterID.Location = new System.Drawing.Point(86, 35);
+            this.txtFilterID.Name = "txtFilterID";
+            this.txtFilterID.Size = new System.Drawing.Size(100, 20);
+            this.txtFilterID.TabIndex = 3;
+            // 
+            // label19
+            // 
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(192, 38);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(50, 13);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "Quote Nr";
+            // 
+            // label18
+            // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(3, 38);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(65, 13);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "Customer ID";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label17);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(812, 35);
+            this.panel4.TabIndex = 0;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(16, 8);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(103, 20);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Filter Options";
             // 
             // frmNewBooking
             // 

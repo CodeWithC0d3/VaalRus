@@ -23,6 +23,16 @@ namespace vaalrusGUIPrototype.Forms
         DataSet ds;
         string sql = "";
         int qid;
+        int duration = 0;
+        string cusID;
+        string name;
+        string lastName;
+        string idNumber;
+        string cell;
+        string email;
+        string startDate;
+        string endDate;
+        string amount;
 
         /*private ErrorProvider userErrorProvider;
         private ErrorProvider customerErrorProvider;
@@ -290,30 +300,52 @@ namespace vaalrusGUIPrototype.Forms
             }
                 
         }
+
         private void fillInFormation()
         {
-            int duration = 0;
-            DateTime sdate = DateTime.Now.Date;
-            sql = $" SELECT Quotation.Quotation_ID, Customer.Customer_FirstName, Customer.Customer_LastName, Customer.Customer_IDNumber, Customer.Customer_Cell, Customer.Customer_Email, Quotation.Reservation_Date, Quotation.Duration, Quotation.TotalPrice FROM Quotation INNER JOIN Customer ON Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE Quotation_ID = @qid";
-            command = new SqlCommand(sql, con);
-            command.Parameters.AddWithValue("@qid", qid);
-            //command.Parameters.AddWithValue("@edate", eDate);
-            //command.Parameters.AddWithValue("@to", strto);
-            adapter = new SqlDataAdapter();
-            ds = new DataSet();
-            adapter.SelectCommand = command;
-            adapter.Fill(ds, "Quotation_ID");
+            if (conDB())
+            {
 
-            duration = int.Parse(ds.Tables[0].Rows[0].ItemArray[7].ToString());
-            txtname.Text = ds.Tables[0].Rows[0].ItemArray[1].ToString();
-            txtlastName.Text = ds.Tables[0].Rows[0].ItemArray[2].ToString();
-            txtIdNumber.Text = ds.Tables[0].Rows[0].ItemArray[3].ToString();
-            txtCell.Text = ds.Tables[0].Rows[0].ItemArray[4].ToString();
-            txtemail.Text = ds.Tables[0].Rows[0].ItemArray[5].ToString();
-            txtQuotenr.Text = qid.ToString(); 
-            txtStartDate.Text = ds.Tables[0].Rows[0].ItemArray[6].ToString();
-            txtEndDate.Text = sdate.Date.AddDays(duration).ToString();
-            txtAmount.Text = ds.Tables[0].Rows[0].ItemArray[8].ToString();
+                //int duration = 0;
+                DateTime sdate = DateTime.Now.Date;
+                sql = $" SELECT Quotation.Quotation_ID, Customer.Customer_FirstName, Customer.Customer_LastName, Customer.Customer_IDNumber, Customer.Customer_Cell, Customer.Customer_Email, Quotation.Reservation_Date, Quotation.Duration, Quotation.TotalPrice FROM Quotation INNER JOIN Customer ON Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE Quotation_ID = @qid";
+                command = new SqlCommand(sql, con);
+                command.Parameters.AddWithValue("@qid", qid);
+                //command.Parameters.AddWithValue("@edate", eDate);
+                //command.Parameters.AddWithValue("@to", strto);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Quotation_ID");
+
+                duration = int.Parse(ds.Tables[0].Rows[0].ItemArray[7].ToString());
+                name = txtname.Text = ds.Tables[0].Rows[0].ItemArray[1].ToString();
+                lastName = txtlastName.Text = ds.Tables[0].Rows[0].ItemArray[2].ToString();
+                idNumber = txtIdNumber.Text = ds.Tables[0].Rows[0].ItemArray[3].ToString();
+                cell =  txtCell.Text = ds.Tables[0].Rows[0].ItemArray[4].ToString();
+                email = txtemail.Text = ds.Tables[0].Rows[0].ItemArray[5].ToString();
+                txtQuotenr.Text = qid.ToString(); 
+                startDate = txtStartDate.Text = ds.Tables[0].Rows[0].ItemArray[6].ToString();
+                endDate = txtEndDate.Text = sdate.Date.AddDays(duration).ToString();
+                amount = txtAmount.Text = ds.Tables[0].Rows[0].ItemArray[8].ToString();            
+
+                sql = $"SELECT Accommodation_ID from Accommodationset WHERE Quotation_ID = @qid ";
+                command = new SqlCommand(sql, con);
+                command.Parameters.AddWithValue("@qid", qid);
+                //command.Parameters.AddWithValue("@edate", eDate);
+                //command.Parameters.AddWithValue("@to", strto);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Quotation_ID");
+                lsAcc.Items.Clear();
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    lsAcc.Items.Add(row.ItemArray[0] );
+                }
+                con.Close();
+            }
+
         }
         private void grid_SelectionChanged(object sender, EventArgs e)
         {
@@ -321,6 +353,46 @@ namespace vaalrusGUIPrototype.Forms
             qid = int.Parse(grid.CurrentRow.Cells[0].Value.ToString());
             
             fillInFormation();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (conDB())
+            {
+                sql = "SELECT Customer_ID FROM Quotation WHERE Quotation_ID = @qid";
+                command = new SqlCommand(sql,con);
+                command.Parameters.AddWithValue("@qid",qid);
+                dataReader = command.ExecuteReader();
+                dataReader.Read();
+                cusID = dataReader.GetValue(0).ToString();
+                dataReader.Close();
+                sql = "Insert Into Booking(Customer_ID, Quotation_ID, StartDate,EndDate) Values(@cid, @qid, @startDate,@endDate)";
+                command = new SqlCommand(sql, con);
+                command.Parameters.AddWithValue("@cid", cusID );
+                command.Parameters.AddWithValue("@qid", qid);
+                command.Parameters.AddWithValue("@startDate", startDate);
+                command.Parameters.AddWithValue("@endDate", endDate);
+                command.ExecuteNonQuery();
+
+                sql = "UPDATE Quotation SET PaymentStatus = @complete WHERE Quotation_ID = @qid";
+                command = new SqlCommand(sql, con);
+                command.Parameters.AddWithValue("@complete", 2);
+                command.Parameters.AddWithValue("@qid",qid);
+                command.ExecuteNonQuery();
+
+                sql = "INSERT INTO Payment(Quotation_ID, ReceivedAmount ,Payment_Date,Payment_Status) Values(@qid,@amount,@paymentdate,@paymentstatus)";
+                command = new SqlCommand(sql, con);
+                command.Parameters.AddWithValue("@amount", amount);
+                command.Parameters.AddWithValue("@paymentdate", dpRecieved.Value.ToString("yyyy/MM/dd HH:mm:ss"));
+                command.Parameters.AddWithValue("@paymentstatus", 1);
+                command.Parameters.AddWithValue("@qid", qid);
+                
+                
+                command.ExecuteNonQuery();
+            }
+            MessageBox.Show("Booking created");
+            loadGrid();
+
         }
     }
 }
