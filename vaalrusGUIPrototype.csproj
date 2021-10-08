@@ -542,6 +542,9 @@
     <None Include="Resources\backgroundImage.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="_SQL\older queries\Initial Data Population.sql" />
+    <Content Include="_SQL\older queries\SQL setup with Foreign keys.sql" />
+    <Content Include="_SQL\older queries\SQL setup.sql" />
     <Content Include="_SQL\viewReportBookings.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -563,7 +566,6 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="_SQL\Initial Data Population.sql" />
     <Content Include="_SQL\InitialData.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -575,10 +577,6 @@
     <Content Include="_SQL\ScriptLocal.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="_SQL\SQL setup with Foreign keys.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="_SQL\SQL setup.sql" />
     <Content Include="_SQL\Views.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
