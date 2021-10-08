@@ -314,6 +314,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VaalrusDataSet5.xsd</DependentUpon>
     </Compile>
+    <Compile Include="VaalrusDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VaalrusDataSet6.xsd</DependentUpon>
+    </Compile>
     <Compile Include="VaalrusDataSetView.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -479,6 +484,17 @@
     </None>
     <None Include="VaalrusDataSet5.xss">
       <DependentUpon>VaalrusDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="VaalrusDataSet6.xsc">
+      <DependentUpon>VaalrusDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="VaalrusDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VaalrusDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VaalrusDataSet6.xss">
+      <DependentUpon>VaalrusDataSet6.xsd</DependentUpon>
     </None>
     <None Include="VaalrusDataSetView.xsc">
       <DependentUpon>VaalrusDataSetView.xsd</DependentUpon>
