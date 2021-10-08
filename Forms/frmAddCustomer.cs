@@ -26,6 +26,8 @@ namespace vaalrusGUIPrototype.Forms
         SqlDataReader dataReader;
         DataSet ds;
 
+        bool errorFlag = false;
+
 
         //globals
         string firstName, lastName, idNo, contactNo, email, address;
@@ -196,7 +198,7 @@ namespace vaalrusGUIPrototype.Forms
         private void btnCreate_Click(object sender, EventArgs e)
         {
 
-            if (conDB())
+            if (conDB() && errorFlag)
             {
                 /*
                     //get
@@ -235,6 +237,14 @@ namespace vaalrusGUIPrototype.Forms
                 //message for success
                 MessageBox.Show("Data successfully inserted");
 
+                //reset texboxes
+                txtFirstName.Text = "";
+                txtLastName.Text = "";
+                txtID.Text = "";
+                txtContactNumber.Text = "";
+                txtEmail.Text = "";
+                rtbAddress.Text = "";
+
 
             }
 
@@ -254,12 +264,24 @@ namespace vaalrusGUIPrototype.Forms
                 e.Cancel = true;
                 txtFirstName.Focus();
                 eProviderFN.SetError(txtFirstName, "Customer first name required");
+
+                //set error flag
+                errorFlag = false;
             }
             else if (firstName.Length < 2) //check if longer than 2 characters
             {
                 e.Cancel = true;
                 txtFirstName.Focus();
                 eProviderFN.SetError(txtFirstName, "Customer first name must be longer than 2 characters");
+
+                //set error flag
+                errorFlag = false;
+
+            }
+            else
+            {
+                //set error flag
+                errorFlag = true;
             }
         }
 
@@ -274,12 +296,23 @@ namespace vaalrusGUIPrototype.Forms
                 e.Cancel = true;
                 txtLastName.Focus();
                 eProviderLN.SetError(txtLastName, "Customer last name required");
+
+                //set error flag
+                errorFlag = false;
             }
             else if (lastName.Length < 2) //check if longer than 2 characters
             {
                 e.Cancel = true;
                 txtLastName.Focus();
                 eProviderLN.SetError(txtLastName, "Customer last name must be longer than 2 characters");
+
+                //set error flag
+                errorFlag = false;
+            }
+            else
+            {
+                //set error flag
+                errorFlag = true;
             }
         }
 
@@ -293,12 +326,23 @@ namespace vaalrusGUIPrototype.Forms
                 e.Cancel = true;
                 txtID.Focus();
                 eProviderID.SetError(txtID, "Customer ID number required");
+
+                //set error flag
+                errorFlag = false;
             }
             else if (idNo.Length != 13) //check if longer than 2 characters
             {
                 e.Cancel = true;
                 txtID.Focus();
                 eProviderID.SetError(txtID, "An South African ID needs to be exactly 13 characters");
+
+                //set error flag
+                errorFlag = false;
+            }
+            else
+            {
+                //set error flag
+                errorFlag = true;
             }
         }
 
@@ -314,18 +358,32 @@ namespace vaalrusGUIPrototype.Forms
                 e.Cancel = true;
                 txtContactNumber.Focus();
                 eProviderCN.SetError(txtContactNumber, "Customer Contact NUmber required");
+
+                //set error flag
+                errorFlag = false;
             }
             else if (contactNo.Length < 6) //check if longer than 5 characters
             {
                 e.Cancel = true;
                 txtContactNumber.Focus();
                 eProviderCN.SetError(txtContactNumber, "Contact number must be atleast 6 digits");
+
+                //set error flag
+                errorFlag = false;
             }
             else if (!Regex.IsMatch(contactNo, regex)) //check that input is only numbers
             {
                 e.Cancel = true;
                 txtContactNumber.Focus();
                 eProviderCN.SetError(txtContactNumber, "Only numbers for contact numbers");
+
+                //set error flag
+                errorFlag = false;
+            }
+            else
+            {
+                //set error flag
+                errorFlag = true;
             }
         }
 
@@ -342,12 +400,18 @@ namespace vaalrusGUIPrototype.Forms
                 e.Cancel = true;
                 txtEmail.Focus();
                 eProviderEmail.SetError(txtEmail, "Email address required");
+
+                //set error flag
+                errorFlag = false;
             }
             else if (email.Length < 4) //check if longer than 4 characters
             {
                 e.Cancel = true;
                 txtEmail.Focus();
                 eProviderEmail.SetError(txtEmail, "An email address must be atleast 3 characters long");
+
+                //set error flag
+                errorFlag = false;
             }
 
             else if (!Regex.IsMatch(email, regex)) //check that input is only numbers
@@ -355,6 +419,14 @@ namespace vaalrusGUIPrototype.Forms
                 e.Cancel = true;
                 txtEmail.Focus();
                 eProviderEmail.SetError(txtEmail, "Not a valid email address");
+
+                //set error flag
+                errorFlag = false;
+            }
+            else
+            {
+                //set error flag
+                errorFlag = true;
             }
         }
         /** END Validation Checking**/
