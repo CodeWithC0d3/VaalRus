@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//SQL
 using System.Data.SqlClient;
+//RGX
+using System.Text.RegularExpressions;
 
 namespace vaalrusGUIPrototype.Forms
 {
-    
+
 
 
     public partial class frmAddCustomer : Form
@@ -23,10 +26,16 @@ namespace vaalrusGUIPrototype.Forms
         SqlDataReader dataReader;
         DataSet ds;
 
+
+        //globals
+        string firstName, lastName, idNo, contactNo, email, address;
+
         public frmAddCustomer()
         {
             InitializeComponent();
         }
+
+
 
         private void LoadTheme()
         {
@@ -69,6 +78,9 @@ namespace vaalrusGUIPrototype.Forms
             //aplytheme(pnl_accSet);
             //timer1.Start();
         }
+
+
+
         private void aplytheme(Control pn)
         {
             if (pn.GetType() == typeof(Panel))
@@ -158,6 +170,8 @@ namespace vaalrusGUIPrototype.Forms
             }
         }
 
+
+
         private Boolean conDB()
         {
             try
@@ -181,14 +195,20 @@ namespace vaalrusGUIPrototype.Forms
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            
             if (conDB())
             {
-                //get
-                string firstName = txtFirstName.Text;
-                string lastName = txtLastName.Text;
-                string idNo = txtID.Text;
-                string contactNo = txtContactNumber.Text;
-                string email = txtEmail.Text;
+                /*
+                    //get
+                    string firstName = txtFirstName.Text;
+                    string lastName = txtLastName.Text;
+                    string idNo = txtID.Text;
+                    string contactNo = txtContactNumber.Text;
+                    string email = txtEmail.Text;
+                    s
+                */
+
+                //address can be null
                 string address = rtbAddress.Text;
 
                 //con.Open();
@@ -217,6 +237,127 @@ namespace vaalrusGUIPrototype.Forms
 
 
             }
+            
         }
+
+/**
+ *  Validation checking
+ */
+        private void txtFirstName_Validating(object sender, CancelEventArgs e)
+        {
+            //set
+            firstName = txtFirstName.Text;
+
+            //check if empty
+            if (string.IsNullOrEmpty(firstName))
+            {
+                e.Cancel = true;
+                txtFirstName.Focus();
+                eProviderFN.SetError(txtFirstName, "Customer first name required");
+            }
+            else if (firstName.Length < 2) //check if longer than 2 characters
+            {
+                e.Cancel = true;
+                txtFirstName.Focus();
+                eProviderFN.SetError(txtFirstName, "Customer first name must be longer than 2 characters");
+            }
+        }
+
+        private void txtLastName_Validating(object sender, CancelEventArgs e)
+        {
+            //set
+            lastName = txtLastName.Text;
+
+            //check if empty
+            if (string.IsNullOrEmpty(lastName))
+            {
+                e.Cancel = true;
+                txtLastName.Focus();
+                eProviderFN.SetError(txtLastName, "Customer last name required");
+            }
+            else if (lastName.Length < 2) //check if longer than 2 characters
+            {
+                e.Cancel = true;
+                txtLastName.Focus();
+                eProviderFN.SetError(txtLastName, "Customer last name must be longer than 2 characters");
+            }
+        }
+
+        private void txtID_Validating(object sender, CancelEventArgs e)
+        {
+            idNo = txtID.Text;
+
+            //check if empty
+            if (string.IsNullOrEmpty(idNo))
+            {
+                e.Cancel = true;
+                txtID.Focus();
+                eProviderFN.SetError(txtID, "Customer ID number required");
+            }
+            else if (idNo.Length != 13) //check if longer than 2 characters
+            {
+                e.Cancel = true;
+                txtID.Focus();
+                eProviderFN.SetError(txtID, "An South African ID needs to be exactly 13 characters");
+            }
+        }
+
+        private void txtContactNumber_Validating(object sender, CancelEventArgs e)
+        {
+            contactNo = txtContactNumber.Text;
+
+            string regex = @"^[0-9]+$"; // regular expression for matching only numbers
+
+            //check if empty
+            if (string.IsNullOrEmpty(contactNo))
+            {
+                e.Cancel = true;
+                txtContactNumber.Focus();
+                eProviderFN.SetError(txtContactNumber, "Customer Contact NUmber required");
+            }
+            else if (contactNo.Length < 6) //check if longer than 5 characters
+            {
+                e.Cancel = true;
+                txtContactNumber.Focus();
+                eProviderFN.SetError(txtContactNumber, "Contact number must be atleast 6 digits");
+            }
+            else if (!Regex.IsMatch(contactNo, regex)) //check that input is only numbers
+            {
+                e.Cancel = true;
+                txtContactNumber.Focus();
+                eProviderFN.SetError(txtContactNumber, "Only numbers for contact numbers");
+            }
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            email = txtEmail.Text;
+
+            //regular expression for matching email valid characters
+            string regex = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"; 
+
+            //check if empty
+            if (string.IsNullOrEmpty(email))
+            {
+                e.Cancel = true;
+                txtEmail.Focus();
+                eProviderFN.SetError(txtEmail, "Email address required");
+            }
+            else if (email.Length < 4) //check if longer than 4 characters
+            {
+                e.Cancel = true;
+                txtEmail.Focus();
+                eProviderFN.SetError(txtEmail, "An email address must be atleast 3 characters long");
+            }
+           
+            else if (!Regex.IsMatch(email, regex)) //check that input is only numbers
+            {
+                e.Cancel = true;
+                txtEmail.Focus();
+                eProviderFN.SetError(txtEmail, "Not a valid email address");
+            }
+        }
+/** END Validation Checking**/
+
     }
 }
