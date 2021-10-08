@@ -35,6 +35,9 @@ namespace vaalrusGUIPrototype
             this.label2 = new System.Windows.Forms.Label();
             this.btnCheckout = new System.Windows.Forms.Button();
             this.btnDisplayBook = new System.Windows.Forms.Button();
+            this.lblCSearch = new System.Windows.Forms.Label();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCheckOut)).BeginInit();
             this.pnlCheckOut.SuspendLayout();
             this.SuspendLayout();
@@ -53,18 +56,21 @@ namespace vaalrusGUIPrototype
             // 
             // pnlCheckOut
             // 
+            this.pnlCheckOut.Controls.Add(this.btnSearch);
+            this.pnlCheckOut.Controls.Add(this.tbSearch);
+            this.pnlCheckOut.Controls.Add(this.lblCSearch);
             this.pnlCheckOut.Controls.Add(this.tbBookID);
             this.pnlCheckOut.Controls.Add(this.label2);
             this.pnlCheckOut.Controls.Add(this.btnCheckout);
             this.pnlCheckOut.Controls.Add(this.btnDisplayBook);
             this.pnlCheckOut.Location = new System.Drawing.Point(42, 26);
             this.pnlCheckOut.Name = "pnlCheckOut";
-            this.pnlCheckOut.Size = new System.Drawing.Size(376, 455);
+            this.pnlCheckOut.Size = new System.Drawing.Size(378, 465);
             this.pnlCheckOut.TabIndex = 1;
             // 
             // tbBookID
             // 
-            this.tbBookID.Location = new System.Drawing.Point(86, 227);
+            this.tbBookID.Location = new System.Drawing.Point(143, 306);
             this.tbBookID.Name = "tbBookID";
             this.tbBookID.Size = new System.Drawing.Size(47, 22);
             this.tbBookID.TabIndex = 5;
@@ -72,7 +78,7 @@ namespace vaalrusGUIPrototype
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(83, 170);
+            this.label2.Location = new System.Drawing.Point(108, 271);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 17);
             this.label2.TabIndex = 4;
@@ -80,7 +86,7 @@ namespace vaalrusGUIPrototype
             // 
             // btnCheckout
             // 
-            this.btnCheckout.Location = new System.Drawing.Point(86, 312);
+            this.btnCheckout.Location = new System.Drawing.Point(86, 371);
             this.btnCheckout.Name = "btnCheckout";
             this.btnCheckout.Size = new System.Drawing.Size(151, 66);
             this.btnCheckout.TabIndex = 2;
@@ -97,6 +103,32 @@ namespace vaalrusGUIPrototype
             this.btnDisplayBook.Text = "Display Bookings";
             this.btnDisplayBook.UseVisualStyleBackColor = true;
             this.btnDisplayBook.Click += new System.EventHandler(this.btnDisplayBook_Click);
+            // 
+            // lblCSearch
+            // 
+            this.lblCSearch.AutoSize = true;
+            this.lblCSearch.Location = new System.Drawing.Point(33, 132);
+            this.lblCSearch.Name = "lblCSearch";
+            this.lblCSearch.Size = new System.Drawing.Size(114, 17);
+            this.lblCSearch.TabIndex = 6;
+            this.lblCSearch.Text = "Enter LastName:";
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Location = new System.Drawing.Point(172, 132);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(170, 22);
+            this.tbSearch.TabIndex = 7;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(86, 203);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(141, 39);
+            this.btnSearch.TabIndex = 8;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // frmCheckOut
             // 
@@ -124,5 +156,8 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Button btnDisplayBook;
         private System.Windows.Forms.TextBox tbBookID;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.Label lblCSearch;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
