@@ -220,6 +220,12 @@
     <Compile Include="Forms\frmUpdateAccommodations.Designer.cs">
       <DependentUpon>frmUpdateAccommodations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmUpdateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUpdateCustomer.Designer.cs">
+      <DependentUpon>frmUpdateCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmViewBookings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -359,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmUpdateAccommodations.resx">
       <DependentUpon>frmUpdateAccommodations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmUpdateCustomer.resx">
+      <DependentUpon>frmUpdateCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmViewBookings.resx">
       <DependentUpon>frmViewBookings.cs</DependentUpon>

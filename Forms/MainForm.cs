@@ -184,7 +184,9 @@ namespace vaalrusGUIPrototype
 
         private void btnUpdateCustomer_Click(object sender, EventArgs e)
         {
-            
+            openChildForm(new frmUpdateCustomer());
+            lblHeading.Text = "Update a Customers information";
+            changeButtonBrightness(sender);
         }
 
         private void btnUpdateAccommodation_Click(object sender, EventArgs e)
