@@ -69,6 +69,10 @@ namespace vaalrusGUIPrototype
             this.lblAccomID = new System.Windows.Forms.Label();
             this.txtAID = new System.Windows.Forms.TextBox();
             this.helpProviderID = new System.Windows.Forms.HelpProvider();
+            this.toolTipID = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipType = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipOccupants = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipPrice = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picBackground)).BeginInit();
             this.pnlDatagrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccom)).BeginInit();
@@ -193,6 +197,7 @@ namespace vaalrusGUIPrototype
             this.comboBoxSearchType.Name = "comboBoxSearchType";
             this.comboBoxSearchType.Size = new System.Drawing.Size(135, 21);
             this.comboBoxSearchType.TabIndex = 15;
+            this.toolTipType.SetToolTip(this.comboBoxSearchType, "Click the dropdown to select a type");
             this.comboBoxSearchType.SelectedIndexChanged += new System.EventHandler(this.comboBoxSearchType_SelectedIndexChanged);
             // 
             // lblSearchActive
@@ -230,6 +235,7 @@ namespace vaalrusGUIPrototype
             this.txtsearchPrice.Name = "txtsearchPrice";
             this.txtsearchPrice.Size = new System.Drawing.Size(134, 20);
             this.txtsearchPrice.TabIndex = 21;
+            this.toolTipPrice.SetToolTip(this.txtsearchPrice, "This field can only contain numbers");
             this.txtsearchPrice.TextChanged += new System.EventHandler(this.txtsearchPrice_TextChanged);
             this.txtsearchPrice.Validating += new System.ComponentModel.CancelEventHandler(this.txtAPrice_Validating);
             // 
@@ -248,6 +254,7 @@ namespace vaalrusGUIPrototype
             this.txtSearchOccupants.Name = "txtSearchOccupants";
             this.txtSearchOccupants.Size = new System.Drawing.Size(134, 20);
             this.txtSearchOccupants.TabIndex = 19;
+            this.toolTipOccupants.SetToolTip(this.txtSearchOccupants, "This field can only contain numbers");
             this.txtSearchOccupants.TextChanged += new System.EventHandler(this.txtSearchOccupants_TextChanged);
             this.txtSearchOccupants.Validating += new System.ComponentModel.CancelEventHandler(this.txtAOccupants_Validating);
             // 
@@ -275,7 +282,8 @@ namespace vaalrusGUIPrototype
             this.txtSearchID.Name = "txtSearchID";
             this.txtSearchID.Size = new System.Drawing.Size(134, 20);
             this.txtSearchID.TabIndex = 14;
-            this.txtSearchID.TextChanged += new System.EventHandler(this.txtSearchID_TextChanged_1);
+            this.toolTipID.SetToolTip(this.txtSearchID, "ID only contains numbers");
+            this.txtSearchID.TextChanged += new System.EventHandler(this.txtSearchID_TextChanged);
             this.txtSearchID.Validating += new System.ComponentModel.CancelEventHandler(this.txtAID_Validating);
             // 
             // pnlConnetionControls
@@ -522,5 +530,9 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.ComboBox comboBoxSearchType;
         private System.Windows.Forms.Button btnClearSearch;
         private System.Windows.Forms.HelpProvider helpProviderID;
+        private System.Windows.Forms.ToolTip toolTipID;
+        private System.Windows.Forms.ToolTip toolTipType;
+        private System.Windows.Forms.ToolTip toolTipPrice;
+        private System.Windows.Forms.ToolTip toolTipOccupants;
     }
 }
