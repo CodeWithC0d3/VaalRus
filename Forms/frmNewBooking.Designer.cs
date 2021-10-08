@@ -71,7 +71,6 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlFilter = new System.Windows.Forms.Panel();
             this.ch_dateRange = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
             this.ch_to = new System.Windows.Forms.CheckBox();
             this.dp_filterTo = new System.Windows.Forms.DateTimePicker();
             this.dp_filterFrom = new System.Windows.Forms.DateTimePicker();
@@ -470,9 +469,9 @@ namespace vaalrusGUIPrototype.Forms
             // 
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grid.Location = new System.Drawing.Point(0, 177);
+            this.grid.Location = new System.Drawing.Point(0, 121);
             this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(812, 406);
+            this.grid.Size = new System.Drawing.Size(812, 462);
             this.grid.TabIndex = 1;
             this.grid.SelectionChanged += new System.EventHandler(this.grid_SelectionChanged);
             // 
@@ -480,7 +479,6 @@ namespace vaalrusGUIPrototype.Forms
             // 
             this.pnlFilter.Controls.Add(this.ch_dateRange);
             this.pnlFilter.Controls.Add(this.button2);
-            this.pnlFilter.Controls.Add(this.label20);
             this.pnlFilter.Controls.Add(this.ch_to);
             this.pnlFilter.Controls.Add(this.dp_filterTo);
             this.pnlFilter.Controls.Add(this.dp_filterFrom);
@@ -492,7 +490,7 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlFilter.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlFilter.Location = new System.Drawing.Point(0, 0);
             this.pnlFilter.Name = "pnlFilter";
-            this.pnlFilter.Size = new System.Drawing.Size(812, 177);
+            this.pnlFilter.Size = new System.Drawing.Size(812, 121);
             this.pnlFilter.TabIndex = 0;
             // 
             // ch_dateRange
@@ -500,7 +498,7 @@ namespace vaalrusGUIPrototype.Forms
             this.ch_dateRange.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.ch_dateRange.AutoSize = true;
-            this.ch_dateRange.Location = new System.Drawing.Point(3, 61);
+            this.ch_dateRange.Location = new System.Drawing.Point(3, 41);
             this.ch_dateRange.Name = "ch_dateRange";
             this.ch_dateRange.Size = new System.Drawing.Size(101, 17);
             this.ch_dateRange.TabIndex = 12;
@@ -510,7 +508,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(6, 134);
+            this.button2.Location = new System.Drawing.Point(388, 55);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 38);
             this.button2.TabIndex = 2;
@@ -518,23 +516,12 @@ namespace vaalrusGUIPrototype.Forms
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label20
-            // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(0, 86);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(30, 13);
-            this.label20.TabIndex = 11;
-            this.label20.Text = "From";
-            // 
             // ch_to
             // 
             this.ch_to.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.ch_to.AutoSize = true;
-            this.ch_to.Location = new System.Drawing.Point(3, 109);
+            this.ch_to.Location = new System.Drawing.Point(3, 67);
             this.ch_to.Name = "ch_to";
             this.ch_to.Size = new System.Drawing.Size(41, 17);
             this.ch_to.TabIndex = 10;
@@ -547,9 +534,9 @@ namespace vaalrusGUIPrototype.Forms
             this.dp_filterTo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dp_filterTo.Enabled = false;
-            this.dp_filterTo.Location = new System.Drawing.Point(50, 106);
+            this.dp_filterTo.Location = new System.Drawing.Point(144, 62);
             this.dp_filterTo.Name = "dp_filterTo";
-            this.dp_filterTo.Size = new System.Drawing.Size(218, 20);
+            this.dp_filterTo.Size = new System.Drawing.Size(238, 20);
             this.dp_filterTo.TabIndex = 9;
             // 
             // dp_filterFrom
@@ -557,16 +544,16 @@ namespace vaalrusGUIPrototype.Forms
             this.dp_filterFrom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dp_filterFrom.Enabled = false;
-            this.dp_filterFrom.Location = new System.Drawing.Point(50, 82);
+            this.dp_filterFrom.Location = new System.Drawing.Point(144, 38);
             this.dp_filterFrom.Name = "dp_filterFrom";
-            this.dp_filterFrom.Size = new System.Drawing.Size(218, 20);
+            this.dp_filterFrom.Size = new System.Drawing.Size(238, 20);
             this.dp_filterFrom.TabIndex = 8;
             // 
             // txtFilterQuote
             // 
             this.txtFilterQuote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtFilterQuote.Location = new System.Drawing.Point(275, 34);
+            this.txtFilterQuote.Location = new System.Drawing.Point(283, 88);
             this.txtFilterQuote.Name = "txtFilterQuote";
             this.txtFilterQuote.Size = new System.Drawing.Size(100, 20);
             this.txtFilterQuote.TabIndex = 4;
@@ -575,7 +562,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             this.txtFilterID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtFilterID.Location = new System.Drawing.Point(86, 35);
+            this.txtFilterID.Location = new System.Drawing.Point(85, 88);
             this.txtFilterID.Name = "txtFilterID";
             this.txtFilterID.Size = new System.Drawing.Size(100, 20);
             this.txtFilterID.TabIndex = 3;
@@ -585,7 +572,7 @@ namespace vaalrusGUIPrototype.Forms
             this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(192, 38);
+            this.label19.Location = new System.Drawing.Point(210, 91);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(50, 13);
             this.label19.TabIndex = 2;
@@ -596,7 +583,7 @@ namespace vaalrusGUIPrototype.Forms
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(3, 38);
+            this.label18.Location = new System.Drawing.Point(3, 93);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(65, 13);
             this.label18.TabIndex = 1;
@@ -705,7 +692,6 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.CheckBox ch_to;
         private System.Windows.Forms.DateTimePicker dp_filterTo;
         private System.Windows.Forms.DateTimePicker dp_filterFrom;
