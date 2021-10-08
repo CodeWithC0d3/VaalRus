@@ -24,7 +24,7 @@ namespace vaalrusGUIPrototype
 
         private void frmReport_Load(object sender, EventArgs e)
         {
-
+            
             this.reportViewer.RefreshReport();
             LoadTheme();
             //loadDataSet2();
@@ -189,7 +189,8 @@ namespace vaalrusGUIPrototype
         {
             if (true)
             {
-
+                this.reportViewer.LocalReport.DataSources.Clear();
+                this.reportViewer.RefreshReport();
                 selectStart = dpStart.Value;
                 selectEnd = dpEnd.Value;
                 loadDSet();
