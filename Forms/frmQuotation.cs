@@ -127,12 +127,20 @@ namespace vaalrusGUIPrototype.Forms
                         dtgg.BackgroundColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.BackColor = GlobalSettings.PrimaryColor;
                         dtgg.DefaultCellStyle.Font = new Font("Arial", float.Parse("10"), FontStyle.Regular);
-                        dtgg.DefaultCellStyle.SelectionBackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2); 
+                        dtgg.DefaultCellStyle.SelectionBackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
                         dtgg.ColumnHeadersDefaultCellStyle.BackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
                         dtgg.ColumnHeadersDefaultCellStyle.SelectionBackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
                         dtgg.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                         dtgg.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                         dtgg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        dtgg.AllowUserToAddRows = false;
+                        dtgg.AllowUserToDeleteRows = false;
+                        dtgg.AllowUserToOrderColumns = false;
+                        dtgg.AllowUserToResizeRows = false;
+                        dtgg.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+                        dtgg.RowHeadersVisible = false;
+                        dtgg.ColumnHeadersHeight = 4;
+                        dtgg.EnableHeadersVisualStyles = false;
 
 
                     }
