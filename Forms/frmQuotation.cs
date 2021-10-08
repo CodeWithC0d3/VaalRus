@@ -230,6 +230,7 @@ namespace vaalrusGUIPrototype.Forms
         }
         private void frmQuotation_Load(object sender, EventArgs e)
         {
+            txtUser.Focus();
             pnlMain.Visible = true;
             LoadTheme();
             cmbFilter.SelectedIndex = -1;
@@ -251,6 +252,8 @@ namespace vaalrusGUIPrototype.Forms
             //this.reportViewer1.RefreshReport();
             this.reportViewer1.RefreshReport();
             this.reportViewer1.RefreshReport();
+            txtUser.Focus();
+
         }
         private void updateGrid(DateTime startDate,DateTime endDate)
         {
