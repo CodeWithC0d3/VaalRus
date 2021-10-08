@@ -124,8 +124,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox10</rd:DefaultName>
-            <Top>7.76138cm</Top>
-            <Left>3.2112cm</Left>
+            <Top>13.92555cm</Top>
+            <Left>7.70912cm</Left>
             <Height>0.60854cm</Height>
             <Width>2.64583cm</Width>
             <ZIndex>1</ZIndex>
@@ -583,14 +583,14 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Chart Title</Caption>
+                <Caption>Top 10 Accommodations</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextAlign>Left</TextAlign>
                   <VerticalAlign>Top</VerticalAlign>
-                  <Color>#a6a6a6</Color>
+                  <Color>Teal</Color>
                 </Style>
                 <Position>TopLeft</Position>
               </ChartTitle>
@@ -612,8 +612,8 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <Top>8.74916cm</Top>
-            <Left>0.45666cm</Left>
+            <Top>7.2593cm</Top>
+            <Left>0.85703cm</Left>
             <Height>5cm</Height>
             <Width>7.5cm</Width>
             <ZIndex>7</ZIndex>
@@ -708,6 +708,8 @@
                         <Color>#5c5c5c</Color>
                       </Style>
                     </ChartAxisTitle>
+                    <Margin>False</Margin>
+                    <IntervalType>Default</IntervalType>
                     <ChartMajorGridLines>
                       <Enabled>False</Enabled>
                       <Style>
@@ -806,6 +808,7 @@
                 </ChartCategoryAxes>
                 <ChartValueAxes>
                   <ChartAxis Name="Primary">
+                    <Visible>False</Visible>
                     <Style>
                       <Border>
                         <Color>Gainsboro</Color>
@@ -949,7 +952,7 @@
                   <FontWeight>Normal</FontWeight>
                   <TextAlign>Left</TextAlign>
                   <VerticalAlign>Top</VerticalAlign>
-                  <Color>#a6a6a6</Color>
+                  <Color>Teal</Color>
                 </Style>
                 <Position>TopLeft</Position>
               </ChartTitle>
