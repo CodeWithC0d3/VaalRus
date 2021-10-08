@@ -118,7 +118,7 @@ namespace vaalrusGUIPrototype.Forms
             this.btnQuote.Location = new System.Drawing.Point(218, 442);
             this.btnQuote.Name = "btnQuote";
             this.btnQuote.Size = new System.Drawing.Size(87, 53);
-            this.btnQuote.TabIndex = 19;
+            this.btnQuote.TabIndex = 21;
             this.btnQuote.Text = "GetQuote";
             this.btnQuote.UseVisualStyleBackColor = true;
             this.btnQuote.Click += new System.EventHandler(this.btnQuote_Click);
@@ -130,7 +130,7 @@ namespace vaalrusGUIPrototype.Forms
             this.lstAccommodation.Margin = new System.Windows.Forms.Padding(2);
             this.lstAccommodation.Name = "lstAccommodation";
             this.lstAccommodation.Size = new System.Drawing.Size(290, 121);
-            this.lstAccommodation.TabIndex = 0;
+            this.lstAccommodation.TabIndex = 30;
             // 
             // dpTo
             // 
@@ -146,7 +146,7 @@ namespace vaalrusGUIPrototype.Forms
             this.btnClearLst.Location = new System.Drawing.Point(15, 442);
             this.btnClearLst.Name = "btnClearLst";
             this.btnClearLst.Size = new System.Drawing.Size(87, 53);
-            this.btnClearLst.TabIndex = 18;
+            this.btnClearLst.TabIndex = 19;
             this.btnClearLst.Text = "Clear List";
             this.btnClearLst.UseVisualStyleBackColor = true;
             this.btnClearLst.Click += new System.EventHandler(this.btnClearLst_Click);
@@ -206,7 +206,7 @@ namespace vaalrusGUIPrototype.Forms
             this.cmbAccommodation.Location = new System.Drawing.Point(15, 276);
             this.cmbAccommodation.Name = "cmbAccommodation";
             this.cmbAccommodation.Size = new System.Drawing.Size(290, 21);
-            this.cmbAccommodation.TabIndex = 15;
+            this.cmbAccommodation.TabIndex = 18;
             this.cmbAccommodation.DropDown += new System.EventHandler(this.cmbAccommodation_DropDown);
             this.cmbAccommodation.SelectedIndexChanged += new System.EventHandler(this.cmbAccommodation_SelectedIndexChanged);
             this.cmbAccommodation.DropDownClosed += new System.EventHandler(this.cmbAccommodation_DropDownClosed);
@@ -231,7 +231,7 @@ namespace vaalrusGUIPrototype.Forms
             this.btnGeneratQuote.Location = new System.Drawing.Point(108, 442);
             this.btnGeneratQuote.Name = "btnGeneratQuote";
             this.btnGeneratQuote.Size = new System.Drawing.Size(104, 53);
-            this.btnGeneratQuote.TabIndex = 1;
+            this.btnGeneratQuote.TabIndex = 20;
             this.btnGeneratQuote.Text = "Create Quote";
             this.btnGeneratQuote.UseVisualStyleBackColor = true;
             this.btnGeneratQuote.Click += new System.EventHandler(this.btnGeneratQuote_Click);
