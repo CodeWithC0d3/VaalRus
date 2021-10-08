@@ -32,7 +32,7 @@ namespace vaalrusGUIPrototype.Forms
         string email;
         string startDate;
         string endDate;
-        string amount;
+        decimal amount;
 
         /*private ErrorProvider userErrorProvider;
         private ErrorProvider customerErrorProvider;
@@ -327,8 +327,8 @@ namespace vaalrusGUIPrototype.Forms
                 txtQuotenr.Text = qid.ToString(); 
                 startDate = txtStartDate.Text = ds.Tables[0].Rows[0].ItemArray[6].ToString();
                 endDate = txtEndDate.Text = sdate.Date.AddDays(duration).ToString();
-                amount = txtAmount.Text = ds.Tables[0].Rows[0].ItemArray[8].ToString();            
-
+                txtAmount.Text = ds.Tables[0].Rows[0].ItemArray[8].ToString();
+                amount = decimal.Parse(ds.Tables[0].Rows[0].ItemArray[8].ToString());
                 sql = $"SELECT Accommodation_ID from Accommodationset WHERE Quotation_ID = @qid ";
                 command = new SqlCommand(sql, con);
                 command.Parameters.AddWithValue("@qid", qid);
@@ -382,7 +382,7 @@ namespace vaalrusGUIPrototype.Forms
 
                 sql = "INSERT INTO Payment(Quotation_ID, ReceivedAmount ,Payment_Date,Payment_Status) Values(@qid,@amount,@paymentdate,@paymentstatus)";
                 command = new SqlCommand(sql, con);
-                command.Parameters.AddWithValue("@amount", amount);
+                command.Parameters.AddWithValue("@amount", txtRecievedAmount.Text);
                 command.Parameters.AddWithValue("@paymentdate", dpRecieved.Value.ToString("yyyy/MM/dd HH:mm:ss"));
                 command.Parameters.AddWithValue("@paymentstatus", 1);
                 command.Parameters.AddWithValue("@qid", qid);

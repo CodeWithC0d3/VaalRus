@@ -133,9 +133,9 @@ namespace vaalrusGUIPrototype
 
         private void btnViewBookings_Click(object sender, EventArgs e)
         {
-            //code
-            openChildForm(new testTheme());
-            hideSubMenu();
+            openChildForm(new frmViewBookings());
+            lblHeading.Text = "View Booking";
+            changeButtonBrightness(sender);
         }
 
         private void btnCustomers_Click(object sender, EventArgs e)
