@@ -206,9 +206,11 @@ namespace vaalrusGUIPrototype
            
             //Boolean exist = false;
             string path = Application.StartupPath;
-            string cstr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + $"{path}" + @"\data\Vaalrus.mdf;Integrated Security=True;Connect Timeout=0; ";
-            //if (Properties.Settings.Default.conString == "")
-            //{
+            //+$"{path}" + @"\data\Test\Vaalrus.mdf ;Integrated Security=True;Connect Timeout=0; 
+            //string cstr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" ";
+            string cstr = @"Data Source=(LocalDB)\MSSQLLocalDB;";
+            if (Properties.Settings.Default.conString == "")
+            {
                 frmDBSetup frmdb = new frmDBSetup();
                 frmdb.StartPosition = FormStartPosition.CenterParent;
                 frmdb.ShowDialog();
@@ -230,7 +232,8 @@ namespace vaalrusGUIPrototype
                     MessageBox.Show("No db setup selected");
                 
 
-           // }
+            }
+               
                 txtConString.Text = Properties.Settings.Default.conString;
 
         }
@@ -300,20 +303,54 @@ namespace vaalrusGUIPrototype
         }
         private void createLocalTable()
         {
-            string str = File.ReadAllText(@"_SQL\ScriptLocal.txt");
-          
-            sql = str;
-            MessageBox.Show("DataBase Vaalrus Will now be Created");
-            con = new SqlConnection(constr);
-            command = new SqlCommand(sql, con);
-            con.Open();
-            command.ExecuteNonQuery();
-            command.Dispose();
-            con.Close();
-            txtConString.Text = Properties.Settings.Default.conString;
-            MessageBox.Show("Local Vaalrus database is now created");         
+            string path = "%USERPROFILE%";
+            string filepath =Environment.ExpandEnvironmentVariables(path + @"\Vaalrus.mdf");
+            if (File.Exists(filepath))
+            {
+                DialogResult dialogResult = MessageBox.Show("Vaalrus Database Already exists. Do you want replace with new database", "DataBase Exists", MessageBoxButtons.YesNo); 
+                if (dialogResult == DialogResult.Yes)
+                {
+                    
+                    string str = File.ReadAllText(@"_SQL\ScriptLocal.txt");
 
+                    sql = str;
+                    MessageBox.Show("DataBase Vaalrus Will now be Created");
+                    con = new SqlConnection(constr);
+                    command = new SqlCommand(sql, con);
+                    con.Open();
+                    command.ExecuteNonQuery();
+                    command.Dispose();
+                    con.Close();
+                    Properties.Settings.Default.conString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + $"{path}" + @"\Vaalrus.mdf ;Integrated Security=True;Connect Timeout=0; ";
 
+                    txtConString.Text = Properties.Settings.Default.conString;
+                    MessageBox.Show("Local Vaalrus database is now created");
+                }
+                else if(dialogResult == DialogResult.No)
+                {
+                    Properties.Settings.Default.conString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + $"{path}" + @"\Vaalrus.mdf ;Integrated Security=True;Connect Timeout=0; ";
+
+                    txtConString.Text = Properties.Settings.Default.conString;
+                }
+            }
+            else
+            {
+                string str = File.ReadAllText(@"_SQL\ScriptLocal.txt");
+
+                sql = str;
+                MessageBox.Show("DataBase Vaalrus Will now be Created");
+                con = new SqlConnection(constr);
+                command = new SqlCommand(sql, con);
+                con.Open();
+                command.ExecuteNonQuery();
+                command.Dispose();
+                con.Close();
+                Properties.Settings.Default.conString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + $"{path}" + @"\Vaalrus.mdf ;Integrated Security=True;Connect Timeout=0; ";
+
+                txtConString.Text = Properties.Settings.Default.conString;
+                MessageBox.Show("Local Vaalrus database is now created");
+            }
+            
 
         }
         private void loadTestData()
