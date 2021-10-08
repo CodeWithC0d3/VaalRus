@@ -38,8 +38,8 @@ namespace vaalrusGUIPrototype
                     adapter.SelectCommand = cmd;
                     adapter.Fill(ds, "Accommodation");
 
-                    dataGridView1.DataSource = ds;
-                    dataGridView1.DataMember = "Accommodation";
+                    dtgCheckIn.DataSource = ds;
+                    dtgCheckIn.DataMember = "Accommodation";
                 }
             }
             catch (SqlException sqle)
@@ -83,9 +83,10 @@ namespace vaalrusGUIPrototype
             }
             //pnlMain.BackColor = Color.Transparent;
 
-            aplytheme(panel1);
-            aplytheme(panel1);
-            aplytheme(dataGridView1);
+            aplytheme(pnlDisplay);
+            aplytheme(pnlCheckIn);
+            aplytheme(pnlSearch);
+            aplytheme(dtgCheckIn);
             //aplytheme(pnl_accSet);
 
         }
@@ -188,21 +189,6 @@ namespace vaalrusGUIPrototype
             LoadTheme(); 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            sqlConnection = new SqlConnection(connString);
-            try
-            {
-                sqlConnection.Open();
-                //MessageBox.Show("Connected to db");
-            }
-            catch (SqlException sqlx)
-            {
-                MessageBox.Show("Connection unsuccesful");
-            }
-            Display("SELECT Booking.Booking_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Booking.StartDate, Booking.EndDate, Booking.Checkin_Time, Booking.Checkin_Out FROM Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID where Checkin_Time=Null");
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
@@ -214,7 +200,7 @@ namespace vaalrusGUIPrototype
             sqlConnection = new SqlConnection(connString);
             sqlConnection.Open();
 
-            sqlCmd = new SqlCommand($"Update Booking Set Checkin_Time ='" + Chekin + "'  where Booking_ID = " + Convert.ToInt32(textBox1.Text) + "", sqlConnection);
+            sqlCmd = new SqlCommand($"Update Booking Set Checkin_Time ='" + Chekin + "'  where Booking_ID = " + Convert.ToInt32(tbBookID.Text) + "", sqlConnection);
 
             sqlCmd.ExecuteNonQuery();
             sqlConnection.Close();
@@ -227,14 +213,8 @@ namespace vaalrusGUIPrototype
 
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-            textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
             sqlConnection = new SqlConnection(connString);
             try
             {
@@ -245,12 +225,47 @@ namespace vaalrusGUIPrototype
             {
                 MessageBox.Show("Connection unsuccesful");
             }
-            Display("SELECT Booking.Booking_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Booking.StartDate, dbo.Booking.EndDate, dbo.Booking.Checkin_Time,dbo.Booking.Checkin_Out FROM Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID WHERE Customer.Customer_LastName='"+tbSearch.Text+"'");
+
+            if (rbLastName.Checked == true)
+            {
+
+                Display("SELECT Booking.Booking_ID AS[Booking Number], Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name],Customer.Customer_IDNumber AS[South African ID], Booking.StartDate, dbo.Booking.EndDate, dbo.Booking.Checkin_Time,dbo.Booking.Checkin_Out FROM  dbo.Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID WHERE Customer.Customer_LastName='" + tbLastName.Text + "'");
+            }
+            else
+            {
+
+                Display("SELECT Booking.Booking_ID AS[Booking Number], Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name],Customer.Customer_IDNumber AS[South African ID], Booking.StartDate, dbo.Booking.EndDate, dbo.Booking.Checkin_Time,dbo.Booking.Checkin_Out FROM  dbo.Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID WHERE Customer.Customer_IDNumber='" + tbIDNum.Text + "'");
+            }
         }
 
-        private void tbSearch_TextChanged(object sender, EventArgs e)
+        private void btnDisplayBook_Click(object sender, EventArgs e)
         {
+            sqlConnection = new SqlConnection(connString);
+            try
+            {
+                sqlConnection.Open();
+                //MessageBox.Show("Connected to db");
+            }
+            catch (SqlException sqlx)
+            {
+                MessageBox.Show("Connection unsuccesful");
+            }
+             Display("SELECT Booking.Booking_ID AS[Booking Number], Customer.Customer_FirstName AS[First Name], Customer.Customer_LastName AS[Last Name], Customer.Customer_IDNumber AS[South African ID], Booking.StartDate, Booking.EndDate, Booking.Checkin_Time, Booking.Checkin_Out FROM Customer INNER JOIN Booking ON Customer.Customer_ID = Booking.Customer_ID");
+        }
 
+        private void rbLastName_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbLastName.Checked)
+            {
+                tbIDNum.Text = "";
+            }
+            else
+                tbLastName.Text = "";
+        }
+
+        private void dtgCheckIn_SelectionChanged(object sender, EventArgs e)
+        {
+            tbBookID.Text = dtgCheckIn.CurrentRow.Cells[0].Value.ToString();
         }
     }
     
