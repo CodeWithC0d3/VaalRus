@@ -594,6 +594,7 @@ namespace vaalrusGUIPrototype.Forms
         private void btnClearLst_Click(object sender, EventArgs e)
         {
             lstAccommodation.Items.Clear();
+            totalPrice = 0;
             cmbAccommodation.SelectedIndex = -1;
             //selectFirst = false;
         }
