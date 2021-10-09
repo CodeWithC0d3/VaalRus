@@ -162,7 +162,6 @@ C:\GitHub\VaalRus\bin\Debug\_SQL\ViewsLocal.txt
 C:\GitHub\VaalRus\bin\Debug\_SQL\InitialData.txt
 C:\GitHub\VaalRus\bin\Debug\_SQL\Script.txt
 C:\GitHub\VaalRus\bin\Debug\_SQL\ScriptLocal.txt
-C:\GitHub\VaalRus\bin\Debug\_SQL\SQL setup with Foreign keys.sql
 C:\GitHub\VaalRus\bin\Debug\_SQL\Views.txt
 C:\GitHub\VaalRus\bin\Debug\Bookings.rdlc
 C:\GitHub\VaalRus\bin\Debug\listAccomReport.rdlc
