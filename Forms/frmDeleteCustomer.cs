@@ -26,11 +26,24 @@ namespace vaalrusGUIPrototype
 
 
         bool searchFlag = false;
-        bool countFlag = false; 
+        bool countFlag = false;
+
+        bool overrideCheck = false;
+
+        int qid;
 
         public frmDeleteCustomer()
         {
             InitializeComponent();
+
+            populateDataGrid();
+
+            txtCustNo.Enabled = false;
+            txtFirstName.Enabled = false;
+            txtLastName.Enabled = false;
+
+            populateCombo("search");
+
         }
         private void LoadTheme()
         {
@@ -40,8 +53,8 @@ namespace vaalrusGUIPrototype
                 // if (co.GetType() == typeof(Panel))
                 // {
                 //    co.Parent = this;
-                //    co.BackColor = Color.Transparent;
-                // }
+                //   co.BackColor = Color.FromArgb(58, 93, 117);
+                //}
                 if (co.GetType() == typeof(Label))
                 {
                     Label lbl = (Label)co;
@@ -67,19 +80,21 @@ namespace vaalrusGUIPrototype
             }
             //pnlMain.BackColor = Color.Transparent;
 
-            //aplytheme(panel1);
-            //aplytheme(panel2);
-            //aplytheme(pn_grid);
+            aplytheme(panel1);
+            aplytheme(panel2);
+            aplytheme(panel3);
+            aplytheme(panel4);
+            aplytheme(panel5);
+            aplytheme(panel6);
+
             //aplytheme(pnl_accSet);
             //timer1.Start();
         }
-
-
-
         private void aplytheme(Control pn)
         {
             if (pn.GetType() == typeof(Panel))
             {
+                pn.BackColor = Color.FromArgb(58, 93, 117);
                 foreach (Control co in pn.Controls)
                 {
                     if (co.GetType() == typeof(Button))
@@ -117,6 +132,15 @@ namespace vaalrusGUIPrototype
                         dtgg.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                         dtgg.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                         dtgg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        dtgg.AllowUserToAddRows = false;
+                        dtgg.AllowUserToDeleteRows = false;
+                        dtgg.AllowUserToOrderColumns = false;
+                        dtgg.AllowUserToResizeRows = false;
+                        dtgg.AllowUserToResizeColumns = true;
+                        dtgg.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+                        dtgg.RowHeadersVisible = false;
+                        dtgg.ColumnHeadersHeight = 4;
+                        dtgg.EnableHeadersVisualStyles = false;
 
 
                     }
@@ -149,7 +173,7 @@ namespace vaalrusGUIPrototype
                     if (co.GetType() == typeof(GroupBox))
                     {
                         GroupBox gpc = (GroupBox)co;
-                        gpc.ForeColor = GlobalSettings.SecondaryColor;
+                        gpc.ForeColor = Color.White;
                         gpc.Font = GlobalSettings.font;
 
                     }
@@ -160,19 +184,23 @@ namespace vaalrusGUIPrototype
                         lsc.Font = GlobalSettings.font;
 
                     }
+                    if (co.GetType() == typeof(CheckBox))
+                    {
+                        CheckBox ch = (CheckBox)co;
+                        ch.ForeColor = Color.White;
+                        ch.Font = GlobalSettings.font;
+
+                    }
                 }
 
             }
         }
-
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void sizeGrid()
         {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+            for (int i = 0; i < dgView.Columns.Count; i++)
+            {
+                dgView.Columns[i].MinimumWidth = 100;
+            }
 
         }
 
@@ -200,6 +228,7 @@ namespace vaalrusGUIPrototype
         {
 
             string lastName = txtLastName.Text;
+            string ID = txtCustNo.Text;
 
             if (!string.IsNullOrEmpty(lastName))
             {
@@ -207,7 +236,7 @@ namespace vaalrusGUIPrototype
             }
 
             
-                if (conDB())
+                if (conDB() && overrideCheck)
                 {
                     
                     //see if there is such an entry
@@ -236,7 +265,7 @@ namespace vaalrusGUIPrototype
 
                         con.Open();
 
-                        string deleteQuery = "DELETE FROM Customer WHERE Customer_LastName = '" + lastName + "'";
+                        string deleteQuery = "DELETE FROM Customer WHERE Customer_ID = '" + ID + "'";
 
                         SqlCommand cmd = new SqlCommand(deleteQuery, con);
 
@@ -263,8 +292,9 @@ namespace vaalrusGUIPrototype
                     }
                     
                 }
+                cbOverride.Checked = false;
+                overrideCheck = false;
 
-                    
                 /*
 
 
@@ -344,32 +374,7 @@ namespace vaalrusGUIPrototype
 
         private void btnAll_Click(object sender, EventArgs e)
         {
-            if (conDB())
-            {
-
-                string lastName = txtLastName.Text;
-
-                string queryText = $"SELECT Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address FROM Customer";
-
-                
-                adapter = new SqlDataAdapter();
-                ds = new DataSet();
-
-
-                command = new SqlCommand(queryText, con);
-
-                adapter.SelectCommand = command;
-                adapter.Fill(ds, "Customer");
-
-                dgView.DataSource = ds;
-                dgView.DataMember = "Customer";
-
-
-                con.Close();
-
-                searchFlag = true;
-
-            }
+            populateDataGrid();
         }
 
         private void txtLastName_TextChanged(object sender, EventArgs e)
@@ -404,9 +409,276 @@ namespace vaalrusGUIPrototype
             }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+       private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void populateDataGrid()
+        {
+            //populate the data grid
+            if (conDB())
+            {
+
+                //string lastName = txtLastName.Text;
+
+                string queryText = $"SELECT Customer_ID AS 'Customer Number',Customer_FirstName AS 'First name', Customer_LastName AS 'Last name'" +
+                    $",Customer_IDNumber AS 'Identity Number', Customer_Email AS 'email', Customer_Cell AS 'Contact number', Customer_Address AS 'Address' FROM Customer";
+
+
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+
+
+                command = new SqlCommand(queryText, con);
+
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Customer");
+
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
+
+
+                con.Close();
+
+
+            }
+            sizeGrid();
+
+        }
+
+        private void dgView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgView.CurrentRow != null)
+            {
+                qid = int.Parse(dgView.CurrentRow.Cells[0].Value.ToString());
+
+                //lblOutput.Text = qid.ToString();
+                //fillInFormation();
+            }
+            //populate the textboxes
+
+            populateTextBoxes(qid);
+
+        }
+
+        private void populateTextBoxes(int id)
+        {
+
+            if (conDB())
+            {
+
+
+                string queryText = $"SELECT Customer_ID,Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address FROM Customer WHERE Customer_ID = '{id}'";
+
+
+                SqlCommand SQLQuery = new SqlCommand(queryText, con);
+
+                dataReader = SQLQuery.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    //cbCustNo.SelectedIndex = int.Parse(dataReader.GetValue(0).ToString());
+                    txtCustNo.Text = dataReader.GetValue(0).ToString();
+                    txtFirstName.Text = dataReader.GetValue(1).ToString();
+                    txtLastName.Text = dataReader.GetValue(2).ToString();
+
+                }
+
+                //testc to see output
+                //lblOutput.Text = searchCustNo.ToString();
+
+
+                con.Close();
+
+            }
+
+        }
+
+        private void cbOverride_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbOverride.Checked)
+            {
+                overrideCheck = true;
+                //lblOutput.Text = "checked";
+            }
+            else
+            {
+                overrideCheck = false;
+                //lblOutput.Text = "unchecked";
+            }
+        }
+
+        private void cbSearchCustNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string searchCustNo = cbSearchCustNo.SelectedItem.ToString();
+
+            lblOutput.Text = searchCustNo.ToString();
+
+            if (conDB())
+            {
+                // string queryText = $"SELECT Customer_ID AS 'Customer Number',Customer_FirstName AS 'First name', Customer_LastName AS 'Last name'" +
+                //$",Customer_IDNumber AS 'Identity Number', Customer_Email AS 'email', Customer_Cell AS 'Contact number', Customer_Address AS 'Address' FROM Customer";
+
+
+                string queryText = $"SELECT Customer_ID AS 'Customer Number',Customer_FirstName AS 'First name', Customer_LastName AS 'Last name'" +
+                    $",Customer_IDNumber AS 'Identity Number', Customer_Email AS 'email', Customer_Cell AS 'Contact number', Customer_Address AS 'Address' " +
+                    $"FROM Customer WHERE Customer_ID = '{searchCustNo}'";
+
+                SqlCommand SQLQuery = new SqlCommand(queryText, con);
+
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+
+
+                command = new SqlCommand(queryText, con);
+
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Customer");
+
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
+
+
+                con.Close();
+
+            }
+            cbOverride.Checked = false;
+            overrideCheck = false;
+            //populateCombo("update");
+        }
+
+        private void populateCombo(String whichComboBox)
+        {
+
+
+            if (whichComboBox == "search")
+            {
+
+                //populate the customer number drop down search box
+                if (conDB() && string.IsNullOrEmpty(cbSearchCustNo.Text))
+                {
+
+
+
+                    SqlCommand SQLQuery = new SqlCommand(@"Select Distinct Customer_ID FROM Customer ORDER BY Customer_ID", con);
+                    dataReader = SQLQuery.ExecuteReader();
+
+                    //loop through the data
+                    while (dataReader.Read())
+                    {
+                        //add to the combo box
+                        cbSearchCustNo.Items.Add(dataReader.GetValue(0));
+
+                    }
+
+                    con.Close();
+
+                }
+            }
+
+        }
+
+        private void txtSearchFirstName_TextChanged(object sender, EventArgs e)
+        {
+            if (conDB())
+            {
+
+                //con.Open();
+
+                string firstName = txtSearchFirstName.Text;
+
+                string queryText = $"SELECT Customer_ID AS 'Customer Number',Customer_FirstName AS 'First name', Customer_LastName AS 'Last name'" +
+                    $",Customer_IDNumber AS 'Identity Number', Customer_Email AS 'email', Customer_Cell AS 'Contact number', Customer_Address AS 'Address' " +
+                    $"FROM Customer WHERE Customer_FirstName LIKE '%{firstName}%'";
+
+                SqlCommand SQLQuery = new SqlCommand(queryText, con);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+
+
+                adapter.SelectCommand = SQLQuery;
+                adapter.Fill(ds, "Customer");
+
+
+                //display in the datagrid
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
+
+                con.Close();
+
+
+            }
+            cbOverride.Checked = false;
+            overrideCheck = false;
+        }
+
+        private void txtSearchLastName_TextChanged(object sender, EventArgs e)
+        {
+            if (conDB())
+            {
+
+                //con.Open();
+
+                string lastName = txtSearchLastName.Text;
+
+                string queryText = $"SELECT Customer_ID AS 'Customer Number',Customer_FirstName AS 'First name', Customer_LastName AS 'Last name'" +
+                    $",Customer_IDNumber AS 'Identity Number', Customer_Email AS 'email', Customer_Cell AS 'Contact number', Customer_Address AS 'Address' " +
+                    $"FROM Customer WHERE Customer_LastName LIKE '%{lastName}%'";
+
+                SqlCommand SQLQuery = new SqlCommand(queryText, con);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+
+
+                adapter.SelectCommand = SQLQuery;
+                adapter.Fill(ds, "Customer");
+
+
+                //display in the datagrid
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
+
+                con.Close();
+
+
+            }
+            cbOverride.Checked = false;
+            overrideCheck = false;
+        }
+
+        private void txtSearchID_TextChanged(object sender, EventArgs e)
+        {
+            if (conDB())
+            {
+
+                //con.Open();
+
+                string IdNo = txtSearchID.Text;
+
+                string queryText = $"SELECT Customer_ID AS 'Customer Number',Customer_FirstName AS 'First name', Customer_LastName AS 'Last name'" +
+                    $",Customer_IDNumber AS 'Identity Number', Customer_Email AS 'email', Customer_Cell AS 'Contact number', Customer_Address AS 'Address' " +
+                    $"FROM Customer WHERE Customer_IDNumber LIKE '{IdNo}%'";
+
+                SqlCommand SQLQuery = new SqlCommand(queryText, con);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+
+
+                adapter.SelectCommand = SQLQuery;
+                adapter.Fill(ds, "Customer");
+
+
+                //display in the datagrid
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
+
+                con.Close();
+
+
+            }
+            cbOverride.Checked = false;
+            overrideCheck = false;
         }
     }
 }
