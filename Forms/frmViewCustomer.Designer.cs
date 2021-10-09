@@ -186,7 +186,7 @@ namespace vaalrusGUIPrototype.Forms
             this.btnAll.Name = "btnAll";
             this.btnAll.Size = new System.Drawing.Size(159, 34);
             this.btnAll.TabIndex = 0;
-            this.btnAll.Text = "Display ALL Customers";
+            this.btnAll.Text = "Reload";
             this.btnAll.UseVisualStyleBackColor = true;
             this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 

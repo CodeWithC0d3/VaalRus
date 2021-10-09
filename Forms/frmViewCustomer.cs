@@ -23,7 +23,35 @@ namespace vaalrusGUIPrototype.Forms
 
         public frmViewCustomer()
         {
+
+
+
             InitializeComponent();
+            if (conDB())
+            {
+
+                //string lastName = txtLastName.Text;
+
+                string queryText = $"SELECT Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address FROM Customer";
+
+
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+
+
+                command = new SqlCommand(queryText, con);
+
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Customer");
+
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
+
+
+                con.Close();
+
+
+            }
         }
 
         private void LoadTheme()
@@ -68,6 +96,22 @@ namespace vaalrusGUIPrototype.Forms
             //timer1.Start();
         }
 
+
+        private Boolean conDB()
+        {
+            try
+            {
+                con = new SqlConnection(constr);
+                con.Open();
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
 
 
         private void aplytheme(Control pn)
@@ -163,23 +207,11 @@ namespace vaalrusGUIPrototype.Forms
         private void frmDeleteCustomer_Load(object sender, EventArgs e)
         {
             LoadTheme();
+
+
         }
 
-        private Boolean conDB()
-        {
-            try
-            {
-                con = new SqlConnection(constr);
-                con.Open();
-                return true;
-
-            }
-            catch (Exception)
-            {
-
-                return false;
-            }
-        }
+       
 
         private void btnAll_Click(object sender, EventArgs e)
         {
