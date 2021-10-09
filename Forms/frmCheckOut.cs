@@ -184,8 +184,8 @@ namespace vaalrusGUIPrototype
             DateTime Chekout = DateTime.Now;
             sqlConnection = new SqlConnection(connString);
             sqlConnection.Open();
-            
-           sqlCmd = new SqlCommand($"Update Booking Set Checkin_Out ='" + Chekout + "'  where Booking_ID = " + Convert.ToInt32(tbBookID.Text) + "", sqlConnection);
+
+            sqlCmd = new SqlCommand($"Update Booking Set Checkin_Out ='" + Chekout + "'  where Booking_ID = " + Convert.ToInt32(tbBookID.Text) + "", sqlConnection);
 
             sqlCmd.ExecuteNonQuery();
             sqlConnection.Close();
@@ -215,7 +215,7 @@ namespace vaalrusGUIPrototype
             {
                 MessageBox.Show("Connection unsuccesful");
             }
-            Display("SELECT Booking.Booking_ID AS[Booking Number], Customer.Customer_FirstName AS[First Name], Customer.Customer_LastName AS[Last Name], Customer.Customer_IDNumber AS[South African ID], Booking.StartDate, Booking.EndDate, Booking.Checkin_Time, Booking.Checkin_Out FROM Customer INNER JOIN Booking ON Customer.Customer_ID = Booking.Customer_ID WHERE Booking.Checkin_Out=Null ");
+            Display("SELECT Booking.Booking_ID AS[Booking Number], Customer.Customer_FirstName AS[First Name], Customer.Customer_LastName AS[Last Name], Customer.Customer_IDNumber AS[South African ID], Booking.StartDate, Booking.EndDate, Booking.Checkin_Time, Booking.Checkin_Out FROM Customer INNER JOIN Booking ON Customer.Customer_ID = Booking.Customer_ID");
             
 
         }
