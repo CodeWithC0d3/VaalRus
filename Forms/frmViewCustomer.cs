@@ -115,7 +115,7 @@ namespace vaalrusGUIPrototype.Forms
                         dtgg.ColumnHeadersDefaultCellStyle.SelectionBackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
                         dtgg.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                         dtgg.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                        dtgg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                        dtgg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         dtgg.AllowUserToAddRows = false;
                         dtgg.AllowUserToDeleteRows = false;
                         dtgg.AllowUserToOrderColumns = false;
@@ -233,8 +233,8 @@ namespace vaalrusGUIPrototype.Forms
 
                 string firstName = txtFirstName.Text;
 
-                string queryText = $"SELECT Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address " +
-                    $"FROM Customer WHERE Customer_FirstName LIKE '%{firstName}%'";
+                string queryText = $"SELECT Customer_FirstName AS 'First name', Customer_LastName AS 'Last name'" +
+                    $",Customer_IDNumber AS 'Identity Number', Customer_Email AS 'email', Customer_Cell AS 'Contact number', Customer_Address AS 'Address' FROM Customer WHERE Customer_FirstName LIKE '%{firstName}%'";
 
                 SqlCommand SQLQuery = new SqlCommand(queryText, con);
                 adapter = new SqlDataAdapter();
@@ -266,8 +266,8 @@ namespace vaalrusGUIPrototype.Forms
 
                 string lastName = txtLastName.Text;
 
-                string queryText = $"SELECT Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address " +
-                    $"FROM Customer WHERE Customer_LastName LIKE '%{lastName}%'";
+                string queryText = $"SELECT Customer_FirstName AS 'First name', Customer_LastName AS 'Last name'" +
+                    $",Customer_IDNumber AS 'Identity Number', Customer_Email AS 'email', Customer_Cell AS 'Contact number', Customer_Address AS 'Address' FROM Customer WHERE Customer_LastName LIKE '%{lastName}%'";
 
                 SqlCommand SQLQuery = new SqlCommand(queryText, con);
                 adapter = new SqlDataAdapter();
@@ -298,8 +298,8 @@ namespace vaalrusGUIPrototype.Forms
 
                 string IdNo = txtID.Text;
 
-                string queryText = $"SELECT Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address " +
-                    $"FROM Customer WHERE Customer_IDNumber LIKE '{IdNo}%'";
+                string queryText = $"SELECT Customer_FirstName AS 'First name', Customer_LastName AS 'Last name'" +
+                    $",Customer_IDNumber AS 'Identity Number', Customer_Email AS 'email', Customer_Cell AS 'Contact number', Customer_Address AS 'Address' FROM Customer WHERE Customer_IDNumber LIKE '{IdNo}%'";
 
                 SqlCommand SQLQuery = new SqlCommand(queryText, con);
                 adapter = new SqlDataAdapter();
