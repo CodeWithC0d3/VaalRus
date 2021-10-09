@@ -32,6 +32,9 @@ namespace vaalrusGUIPrototype.Forms
         bool errorFlagEmail = false;
         bool errorFlagContactNo = false;
 
+        bool IDUnique = false;
+        bool emailUnique = false;
+
 
         //globals
         string firstName, lastName, idNo, contactNo, email, address1, address2, address3, addressConcact;
@@ -252,47 +255,113 @@ namespace vaalrusGUIPrototype.Forms
 
 
             if (conDB() && errorFlagFirstName && errorFlagLastName && errorFlagID && errorFlagEmail && errorFlagContactNo)
+            {
+
+
+                //address can be null
+                //string address = rtbAddress.Text;
+
+                //con.Open();
+
+                //check if id is unique
+
+
+                conDB();
+                //see if there is such an entry
+                string queryText = $"SELECT COUNT(Customer_IDNumber)  " +
+                    $"FROM Customer WHERE Customer_IDNumber = '" + idNo + "'";
+
+                SqlCommand SQLQuery = new SqlCommand(queryText, con);
+
+                //read from db
+                Int32 IDCount = Convert.ToInt32(SQLQuery.ExecuteScalar()); // will return the number of vlaues 
+                SQLQuery.Dispose();
+                con.Close();
+
+
+                
+                //check if email is unique
+                conDB();
+                string queryText2 = $"SELECT COUNT(Customer_Email)  " +
+                                        $"FROM Customer WHERE Customer_Email = '" + email + "'";
+
+                SqlCommand SQLQuery2 = new SqlCommand(queryText2, con);
+
+                //read from db
+                Int32 emailCount = Convert.ToInt32(SQLQuery2.ExecuteScalar()); // will return the number of vlaues 
+                SQLQuery2.Dispose();
+                con.Close();
+                
+
+
+                //if not bigger than 0 then it is unique
+                if (IDCount > 0)
                 {
+                    eProviderID.SetError(txtID, "ID alraedy in use");
+                    IDUnique = false;
+
+                }
+                else 
+                {
+                    eProviderID.SetError(txtID, "");
+                    IDUnique = true;
+                }
+
+                //if not bigger than 0 then it is unique
+                if (emailCount > 0)
+                {
+                    eProviderID.SetError(txtEmail, "Email alraedy in use");
+                    emailUnique = false;
+
+                }
+                else
+                {
+                    eProviderID.SetError(txtEmail, "");
+                    emailUnique = true;
+                }
 
 
-                    //address can be null
-                    //string address = rtbAddress.Text;
 
-                    //con.Open();
 
+
+
+
+
+                if (conDB() && IDUnique && emailUnique)
+                { 
 
                     //create the query
                     string insertQuery = "INSERT INTO Customer(Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address) " +
-                        "Values (@firstName, @lastName, @idNo,  @email, @contactNo, @address)";
+                        "Values (@firstName, @lastName, @idNo,  @email, @contactNo, @addressConcact)";
 
-                    SqlCommand SQLQuery = new SqlCommand(insertQuery, con);
+                SqlCommand SQLQuery3 = new SqlCommand(insertQuery, con);
 
-                    //insert the data
+                //insert the data
 
-                    SQLQuery.Parameters.AddWithValue("@firstName", firstName);
-                    SQLQuery.Parameters.AddWithValue("@lastName", lastName);
-                    SQLQuery.Parameters.AddWithValue("@idNo", idNo);
-                    SQLQuery.Parameters.AddWithValue("@contactNo", contactNo);
-                    SQLQuery.Parameters.AddWithValue("@email", email);
-                    SQLQuery.Parameters.AddWithValue("@address", addressConcact);
+                SQLQuery3.Parameters.AddWithValue("@firstName", firstName);
+                SQLQuery3.Parameters.AddWithValue("@lastName", lastName);
+                SQLQuery3.Parameters.AddWithValue("@idNo", idNo);
+                SQLQuery3.Parameters.AddWithValue("@contactNo", contactNo);
+                SQLQuery3.Parameters.AddWithValue("@email", email);
+                SQLQuery3.Parameters.AddWithValue("@addressConcact", addressConcact);
 
-                    SQLQuery.ExecuteNonQuery();
+                SQLQuery3.ExecuteNonQuery();
 
-                    con.Close();
+                con.Close();
 
-                    //message for success
-                    MessageBox.Show("Data successfully inserted");
+                //message for success
+                MessageBox.Show("Data successfully inserted");
 
-                    //reset texboxes
-                    txtFirstName.Text = "";
-                    txtLastName.Text = "";
-                    txtID.Text = "";
-                    txtContactNumber.Text = "";
-                    txtEmail.Text = "";
-                    txtAddress1.Text = "";
-                    txtAddress2.Text = "";
-                    txtAddress3.Text = "";
-
+                //reset texboxes
+                txtFirstName.Text = "";
+                txtLastName.Text = "";
+                txtID.Text = "";
+                txtContactNumber.Text = "";
+                txtEmail.Text = "";
+                txtAddress1.Text = "";
+                txtAddress2.Text = "";
+                txtAddress3.Text = "";
+            }
 
             }
 
