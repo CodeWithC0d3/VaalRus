@@ -30,7 +30,6 @@ namespace vaalrusGUIPrototype.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddAccommodation));
             this.pictureBoxViewAllBookingsBackground = new System.Windows.Forms.PictureBox();
             this.pnlNewAccom = new System.Windows.Forms.Panel();
             this.btnCreate = new System.Windows.Forms.Button();
@@ -64,7 +63,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             this.pictureBoxViewAllBookingsBackground.BackColor = System.Drawing.Color.SpringGreen;
             this.pictureBoxViewAllBookingsBackground.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxViewAllBookingsBackground.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxViewAllBookingsBackground.Image")));
+            this.pictureBoxViewAllBookingsBackground.Image = global::vaalrusGUIPrototype.Properties.Resources.backgroundImage;
             this.pictureBoxViewAllBookingsBackground.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxViewAllBookingsBackground.Name = "pictureBoxViewAllBookingsBackground";
             this.pictureBoxViewAllBookingsBackground.Size = new System.Drawing.Size(800, 601);
@@ -85,9 +84,9 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(90, 218);
+            this.btnCreate.Location = new System.Drawing.Point(42, 218);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(75, 43);
+            this.btnCreate.Size = new System.Drawing.Size(170, 43);
             this.btnCreate.TabIndex = 1;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;

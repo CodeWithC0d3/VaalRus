@@ -171,6 +171,7 @@ namespace vaalrusGUIPrototype
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             Color color = Color.FromArgb(54, 77, 91);
             GlobalSettings.PrimaryColor = color;
             GlobalSettings.SecondaryColor = GlobalSettings.ChangeColorBrightness(color, -0.3);
@@ -323,6 +324,25 @@ namespace vaalrusGUIPrototype
             openChildForm(new frmViewCustomer());
             lblHeading.Text = "View Customers";
             changeButtonBrightness(sender);
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to close the program?", "Exit", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void pictureBoxMin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pictureBoxMax_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
         }
     }
 }
