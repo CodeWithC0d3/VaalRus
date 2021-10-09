@@ -125,6 +125,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.lblOutput);
             this.panel4.Controls.Add(this.groupBox1);
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Controls.Add(this.groupBox2);
@@ -230,17 +231,16 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.lblOutput);
             this.panel2.Controls.Add(this.btnAll);
             this.panel2.Location = new System.Drawing.Point(3, 145);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(319, 52);
+            this.panel2.Size = new System.Drawing.Size(319, 39);
             this.panel2.TabIndex = 16;
             // 
             // lblOutput
             // 
             this.lblOutput.AutoSize = true;
-            this.lblOutput.Location = new System.Drawing.Point(49, 20);
+            this.lblOutput.Location = new System.Drawing.Point(23, 488);
             this.lblOutput.Name = "lblOutput";
             this.lblOutput.Size = new System.Drawing.Size(39, 13);
             this.lblOutput.TabIndex = 6;
@@ -248,7 +248,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // btnAll
             // 
-            this.btnAll.Location = new System.Drawing.Point(152, 9);
+            this.btnAll.Location = new System.Drawing.Point(120, 3);
             this.btnAll.Margin = new System.Windows.Forms.Padding(2);
             this.btnAll.Name = "btnAll";
             this.btnAll.Size = new System.Drawing.Size(159, 34);
@@ -260,9 +260,9 @@ namespace vaalrusGUIPrototype.Forms
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.panel3);
-            this.groupBox2.Location = new System.Drawing.Point(6, 204);
+            this.groupBox2.Location = new System.Drawing.Point(6, 187);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(316, 306);
+            this.groupBox2.Size = new System.Drawing.Size(316, 298);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update Customer Details:";
@@ -288,7 +288,7 @@ namespace vaalrusGUIPrototype.Forms
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 16);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(310, 287);
+            this.panel3.Size = new System.Drawing.Size(310, 279);
             this.panel3.TabIndex = 0;
             // 
             // label6
@@ -459,11 +459,11 @@ namespace vaalrusGUIPrototype.Forms
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).EndInit();
             this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
