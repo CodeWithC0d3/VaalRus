@@ -66,7 +66,7 @@ namespace vaalrusGUIPrototype.Forms
             }
             //pnlMain.BackColor = Color.Transparent;
 
-            aplytheme(panel1);
+            //aplytheme(panel1);
             aplytheme(panel2);
             aplytheme(panel3);
             aplytheme(panel4);
