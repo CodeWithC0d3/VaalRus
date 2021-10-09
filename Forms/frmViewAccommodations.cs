@@ -61,9 +61,10 @@ namespace vaalrusGUIPrototype
             }
             //pnlMain.BackColor = Color.Transparent;
 
-            aplytheme(panel1);
-            aplytheme(panel1);
-            aplytheme(dataGridView1);
+            aplytheme(pnlView);
+            aplytheme(pnlDate);
+            aplytheme(pnlDisplay);
+            aplytheme(dtgViewAcc);
             //aplytheme(pnl_accSet);
 
         }
@@ -168,8 +169,8 @@ namespace vaalrusGUIPrototype
                     adapter.SelectCommand = cmd;
                     adapter.Fill(ds, "Accommodation");
 
-                    dataGridView1.DataSource = ds;
-                    dataGridView1.DataMember = "Accommodation";
+                    dtgViewAcc.DataSource = ds;
+                    dtgViewAcc.DataMember = "Accommodation";
                 }
             }
             catch (SqlException sqle)
@@ -227,9 +228,10 @@ namespace vaalrusGUIPrototype
 
             }
             ds1.AcceptChanges();
-            dataGridView1.DataMember = "Accommodation_ID";
-            dataGridView1.DataSource = ds1;
-            //cmbAccommodation.DataSource = ds1.Tables[0];
+            dtgViewAcc.DataSource = null;
+            dtgViewAcc.DataMember = "Accommodation_ID";
+            dtgViewAcc.DataSource = ds1;
+         
             con.Close();
 
             
@@ -307,9 +309,9 @@ namespace vaalrusGUIPrototype
                     DataSet ds = new DataSet();
                     adapter.SelectCommand = myComm;
                     adapter.Fill(ds, "AccommodationBooked");
-
-                    dataGridView1.DataSource = ds;
-                    dataGridView1.DataMember = "AccommodationBooked";
+                  
+                    dtgViewAcc.DataSource = ds;
+                    dtgViewAcc.DataMember = "AccommodationBooked";
                 }
                 sqlConnection.Close();
             }
@@ -318,5 +320,22 @@ namespace vaalrusGUIPrototype
                 MessageBox.Show(sqlx.ToString());
             }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dpFrom_ValueChanged(object sender, EventArgs e)
+        {
+            //dtgViewAcc.DataSource = null;
+        }
+
+        private void dpto_ValueChanged(object sender, EventArgs e)
+        {
+           // dtgViewAcc.DataSource = null;
+        }
     }
+
+    
 }
