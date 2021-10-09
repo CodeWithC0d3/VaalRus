@@ -27,6 +27,7 @@ namespace vaalrusGUIPrototype.Forms
 
         string firstName, lastName, idNo, contactNo, email, address;
         int qid;
+        bool overrideCheck = false;
 
         public frmUpdateCustomer()
         {
@@ -34,11 +35,12 @@ namespace vaalrusGUIPrototype.Forms
 
             populateCombo("search");
 
-            populateCombo("update");
+            //populateCombo("update");
 
 
             populateDataGrid();
 
+            txtCustNo.Enabled = false;
 
 
         }
@@ -259,7 +261,8 @@ namespace vaalrusGUIPrototype.Forms
 
                 string firstName = txtSearchFirstName.Text;
 
-                string queryText = $"SELECT * " +
+                string queryText = $"SELECT Customer_ID AS 'Customer Number',Customer_FirstName AS 'First name', Customer_LastName AS 'Last name'" +
+                    $",Customer_IDNumber AS 'Identity Number', Customer_Email AS 'email', Customer_Cell AS 'Contact number', Customer_Address AS 'Address' " +
                     $"FROM Customer WHERE Customer_FirstName LIKE '%{firstName}%'";
 
                 SqlCommand SQLQuery = new SqlCommand(queryText, con);
@@ -295,7 +298,8 @@ namespace vaalrusGUIPrototype.Forms
 
                 string lastName = txtSearchLastName.Text;
 
-                string queryText = $"SELECT * " +
+                string queryText = $"SELECT Customer_ID AS 'Customer Number',Customer_FirstName AS 'First name', Customer_LastName AS 'Last name'" +
+                    $",Customer_IDNumber AS 'Identity Number', Customer_Email AS 'email', Customer_Cell AS 'Contact number', Customer_Address AS 'Address' " +
                     $"FROM Customer WHERE Customer_LastName LIKE '%{lastName}%'";
 
                 SqlCommand SQLQuery = new SqlCommand(queryText, con);
@@ -328,7 +332,8 @@ namespace vaalrusGUIPrototype.Forms
 
                 string IdNo = txtSearchID.Text;
 
-                string queryText = $"SELECT * " +
+                string queryText = $"SELECT Customer_ID AS 'Customer Number',Customer_FirstName AS 'First name', Customer_LastName AS 'Last name'" +
+                    $",Customer_IDNumber AS 'Identity Number', Customer_Email AS 'email', Customer_Cell AS 'Contact number', Customer_Address AS 'Address' " +
                     $"FROM Customer WHERE Customer_IDNumber LIKE '{IdNo}%'";
 
                 SqlCommand SQLQuery = new SqlCommand(queryText, con);
@@ -350,7 +355,7 @@ namespace vaalrusGUIPrototype.Forms
             }
 
             resetTexboxes();
-            populateCombo("update");
+            //populateCombo("update");
 
 
         }
@@ -365,7 +370,13 @@ namespace vaalrusGUIPrototype.Forms
 
                 if (conDB())
                 {
-                    string queryText = $"SELECT * FROM Customer WHERE Customer_ID = '{searchCustNo}'";
+               // string queryText = $"SELECT Customer_ID AS 'Customer Number',Customer_FirstName AS 'First name', Customer_LastName AS 'Last name'" +
+                    //$",Customer_IDNumber AS 'Identity Number', Customer_Email AS 'email', Customer_Cell AS 'Contact number', Customer_Address AS 'Address' FROM Customer";
+
+
+                string queryText = $"SELECT Customer_ID AS 'Customer Number',Customer_FirstName AS 'First name', Customer_LastName AS 'Last name'" +
+                    $",Customer_IDNumber AS 'Identity Number', Customer_Email AS 'email', Customer_Cell AS 'Contact number', Customer_Address AS 'Address' " +
+                    $"FROM Customer WHERE Customer_ID = '{searchCustNo}'";
 
                     SqlCommand SQLQuery = new SqlCommand(queryText, con);
 
@@ -386,7 +397,7 @@ namespace vaalrusGUIPrototype.Forms
 
                 }
             resetTexboxes();
-            populateCombo("update");
+            //populateCombo("update");
 
         }
 
@@ -402,11 +413,32 @@ namespace vaalrusGUIPrototype.Forms
                 //fillInFormation();
             }
 
+
+            //populate the textboxes
+
+            populateTextBoxes(qid);
+
+
+
         }
 
         private void frmUpdateCustomer_Load(object sender, EventArgs e)
         {
             LoadTheme();
+        }
+
+        private void cbOverride_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbOverride.Checked)
+            {
+                overrideCheck = true;
+                //lblOutput.Text = "checked";
+            }
+            else 
+            {
+                overrideCheck = false;
+                //lblOutput.Text = "unchecked";
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -415,7 +447,8 @@ namespace vaalrusGUIPrototype.Forms
 
 
             //the custoemr number
-            string searchCustNo = cbCustNo.SelectedItem.ToString();
+            //string searchCustNo = cbCustNo.SelectedItem.ToString();
+            string searchCustNo = txtCustNo.Text;
 
             if (!string.IsNullOrEmpty(searchCustNo))
             {
@@ -441,7 +474,7 @@ namespace vaalrusGUIPrototype.Forms
             }
         }
 
-
+/*
         private void cbCustNo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -493,7 +526,7 @@ namespace vaalrusGUIPrototype.Forms
 
         }
 
-
+*/
 
 
 /*
@@ -528,7 +561,7 @@ namespace vaalrusGUIPrototype.Forms
                 }
             }
 
-
+/*
             if (whichComboBox == "update")
             {
 
@@ -557,7 +590,7 @@ namespace vaalrusGUIPrototype.Forms
 
 
             }
-
+*/
 
 
 
@@ -572,7 +605,7 @@ will reset the update texboxes
         private void resetTexboxes()
         {
 
-
+            txtCustNo.Text = "";
             txtFirstName.Text = "";
             txtLastName.Text = ""; ;
             txtID.Text = ""; ;
@@ -580,7 +613,7 @@ will reset the update texboxes
             txtContact.Text = ""; ;
             txtAddress.Text = "";
 
-
+            cbOverride.Checked = false;
 
         }
 
@@ -617,7 +650,42 @@ will reset the update texboxes
 
         }
 
+        private void populateTextBoxes(int id)
+        {
 
+            if (conDB())
+            {
+
+
+                string queryText = $"SELECT Customer_ID,Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address FROM Customer WHERE Customer_ID = '{id}'";
+
+
+                SqlCommand SQLQuery = new SqlCommand(queryText, con);
+
+                dataReader = SQLQuery.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    //cbCustNo.SelectedIndex = int.Parse(dataReader.GetValue(0).ToString());
+                    txtCustNo.Text = dataReader.GetValue(0).ToString();
+                    txtFirstName.Text = dataReader.GetValue(1).ToString();
+                    txtLastName.Text = dataReader.GetValue(2).ToString();
+                    txtID.Text = dataReader.GetValue(3).ToString();
+                    txtEmail.Text = dataReader.GetValue(4).ToString();
+                    txtContact.Text = dataReader.GetValue(5).ToString();
+                    txtAddress.Text = dataReader.GetValue(6).ToString();
+
+                }
+
+                //testc to see output
+                //lblOutput.Text = searchCustNo.ToString();
+
+
+                con.Close();
+
+            }
+
+        }
 
 
     }
