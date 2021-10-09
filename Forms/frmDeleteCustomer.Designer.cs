@@ -202,7 +202,7 @@ namespace vaalrusGUIPrototype
             // 
             this.txtLastName.Location = new System.Drawing.Point(112, 61);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(142, 20);
+            this.txtLastName.Size = new System.Drawing.Size(149, 20);
             this.txtLastName.TabIndex = 11;
             // 
             // label7
@@ -218,7 +218,7 @@ namespace vaalrusGUIPrototype
             // 
             this.txtCustNo.Location = new System.Drawing.Point(168, 9);
             this.txtCustNo.Name = "txtCustNo";
-            this.txtCustNo.Size = new System.Drawing.Size(86, 20);
+            this.txtCustNo.Size = new System.Drawing.Size(93, 20);
             this.txtCustNo.TabIndex = 9;
             this.txtCustNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -226,7 +226,7 @@ namespace vaalrusGUIPrototype
             // 
             this.txtFirstName.Location = new System.Drawing.Point(112, 35);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(142, 20);
+            this.txtFirstName.Size = new System.Drawing.Size(149, 20);
             this.txtFirstName.TabIndex = 10;
             // 
             // groupBox1

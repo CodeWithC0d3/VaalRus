@@ -34,7 +34,7 @@ namespace vaalrusGUIPrototype.Forms
 
 
         //globals
-        string firstName, lastName, idNo, contactNo, email, address;
+        string firstName, lastName, idNo, contactNo, email, address1, address2, address3, addressConcact;
 
         public frmAddCustomer()
         {
@@ -51,8 +51,8 @@ namespace vaalrusGUIPrototype.Forms
                 // if (co.GetType() == typeof(Panel))
                 // {
                 //    co.Parent = this;
-                //    co.BackColor = Color.Transparent;
-                // }
+                //   co.BackColor = Color.FromArgb(58, 93, 117);
+                //}
                 if (co.GetType() == typeof(Label))
                 {
                     Label lbl = (Label)co;
@@ -79,18 +79,20 @@ namespace vaalrusGUIPrototype.Forms
             //pnlMain.BackColor = Color.Transparent;
 
             aplytheme(panel1);
-            //aplytheme(panel2);
-            //aplytheme(pn_grid);
+            aplytheme(panel2);
+            aplytheme(panel3);
+            //aplytheme(panel4);
+            //aplytheme(panel5);
+            //aplytheme(panel6);
+
             //aplytheme(pnl_accSet);
             //timer1.Start();
         }
-
-
-
         private void aplytheme(Control pn)
         {
             if (pn.GetType() == typeof(Panel))
             {
+                pn.BackColor = Color.FromArgb(58, 93, 117);
                 foreach (Control co in pn.Controls)
                 {
                     if (co.GetType() == typeof(Button))
@@ -128,6 +130,15 @@ namespace vaalrusGUIPrototype.Forms
                         dtgg.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                         dtgg.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                         dtgg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        dtgg.AllowUserToAddRows = false;
+                        dtgg.AllowUserToDeleteRows = false;
+                        dtgg.AllowUserToOrderColumns = false;
+                        dtgg.AllowUserToResizeRows = false;
+                        dtgg.AllowUserToResizeColumns = true;
+                        dtgg.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+                        dtgg.RowHeadersVisible = false;
+                        dtgg.ColumnHeadersHeight = 4;
+                        dtgg.EnableHeadersVisualStyles = false;
 
 
                     }
@@ -160,7 +171,7 @@ namespace vaalrusGUIPrototype.Forms
                     if (co.GetType() == typeof(GroupBox))
                     {
                         GroupBox gpc = (GroupBox)co;
-                        gpc.ForeColor = GlobalSettings.SecondaryColor;
+                        gpc.ForeColor = Color.White;
                         gpc.Font = GlobalSettings.font;
 
                     }
@@ -171,12 +182,29 @@ namespace vaalrusGUIPrototype.Forms
                         lsc.Font = GlobalSettings.font;
 
                     }
+                    if (co.GetType() == typeof(CheckBox))
+                    {
+                        CheckBox ch = (CheckBox)co;
+                        ch.ForeColor = Color.White;
+                        ch.Font = GlobalSettings.font;
+
+                    }
                 }
 
             }
         }
 
-
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtFirstName.Text = "";
+            txtLastName.Text = "";
+            txtID.Text = "";
+            txtContactNumber.Text = "";
+            txtEmail.Text = "";
+            txtAddress1.Text = "";
+            txtAddress2.Text = "";
+            txtAddress3.Text = "";
+        }
 
         private Boolean conDB()
         {
@@ -208,6 +236,12 @@ namespace vaalrusGUIPrototype.Forms
             contactNo = txtContactNumber.Text;
             email = txtEmail.Text;
 
+            address1 = txtAddress1.Text;
+            address2 = txtAddress2.Text;
+            address3 = txtAddress3.Text;
+
+            addressConcact = address1 + ", " + address2 + ", " + address3;
+
             firstNameValidate(firstName);
             lastNameValidate(lastName);
             IDValidate(idNo);
@@ -222,9 +256,10 @@ namespace vaalrusGUIPrototype.Forms
 
 
                     //address can be null
-                    string address = rtbAddress.Text;
+                    //string address = rtbAddress.Text;
 
                     //con.Open();
+
 
                     //create the query
                     string insertQuery = "INSERT INTO Customer(Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address) " +
@@ -239,7 +274,7 @@ namespace vaalrusGUIPrototype.Forms
                     SQLQuery.Parameters.AddWithValue("@idNo", idNo);
                     SQLQuery.Parameters.AddWithValue("@contactNo", contactNo);
                     SQLQuery.Parameters.AddWithValue("@email", email);
-                    SQLQuery.Parameters.AddWithValue("@address", address);
+                    SQLQuery.Parameters.AddWithValue("@address", addressConcact);
 
                     SQLQuery.ExecuteNonQuery();
 
@@ -254,10 +289,12 @@ namespace vaalrusGUIPrototype.Forms
                     txtID.Text = "";
                     txtContactNumber.Text = "";
                     txtEmail.Text = "";
-                    rtbAddress.Text = "";
+                    txtAddress1.Text = "";
+                    txtAddress2.Text = "";
+                    txtAddress3.Text = "";
 
 
-                }
+            }
 
             }
 

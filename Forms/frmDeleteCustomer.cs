@@ -238,6 +238,7 @@ namespace vaalrusGUIPrototype
             
                 if (conDB() && overrideCheck)
                 {
+                ///NBNBNB msut check the email and id numbers
                     
                     //see if there is such an entry
                     string queryText = $"SELECT COUNT(Customer_LastName)  " +
