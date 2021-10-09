@@ -192,31 +192,7 @@ namespace vaalrusGUIPrototype.Forms
 
         private void btnAll_Click(object sender, EventArgs e)
         {
-            if (conDB())
-            {
-
-                string lastName = txtLastName.Text;
-
-                string queryText = $"SELECT Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address FROM Customer";
-
-
-                adapter = new SqlDataAdapter();
-                ds = new DataSet();
-
-
-                command = new SqlCommand(queryText, con);
-
-                adapter.SelectCommand = command;
-                adapter.Fill(ds, "Customer");
-
-                dgView.DataSource = ds;
-                dgView.DataMember = "Customer";
-
-
-                con.Close();
-
-
-            }
+            populateDataGrid();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
