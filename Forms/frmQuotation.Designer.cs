@@ -67,7 +67,6 @@ namespace vaalrusGUIPrototype.Forms
             this.dp_filterFrom = new System.Windows.Forms.DateTimePicker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.erProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnl_accSet = new System.Windows.Forms.Panel();
             this.grid_accSet = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -78,7 +77,6 @@ namespace vaalrusGUIPrototype.Forms
             ((System.ComponentModel.ISupportInitialize)(this.grid_main)).BeginInit();
             this.pnlFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erProvider)).BeginInit();
             this.pnl_accSet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_accSet)).BeginInit();
             this.SuspendLayout();
@@ -117,7 +115,7 @@ namespace vaalrusGUIPrototype.Forms
             this.btnQuote.Enabled = false;
             this.btnQuote.Location = new System.Drawing.Point(218, 442);
             this.btnQuote.Name = "btnQuote";
-            this.btnQuote.Size = new System.Drawing.Size(87, 53);
+            this.btnQuote.Size = new System.Drawing.Size(71, 53);
             this.btnQuote.TabIndex = 21;
             this.btnQuote.Text = "GetQuote";
             this.btnQuote.UseVisualStyleBackColor = true;
@@ -129,8 +127,9 @@ namespace vaalrusGUIPrototype.Forms
             this.lstAccommodation.Location = new System.Drawing.Point(15, 302);
             this.lstAccommodation.Margin = new System.Windows.Forms.Padding(2);
             this.lstAccommodation.Name = "lstAccommodation";
-            this.lstAccommodation.Size = new System.Drawing.Size(290, 121);
+            this.lstAccommodation.Size = new System.Drawing.Size(274, 121);
             this.lstAccommodation.TabIndex = 30;
+            this.lstAccommodation.Validated += new System.EventHandler(this.lstAccommodation_Validated);
             // 
             // dpTo
             // 
@@ -139,13 +138,14 @@ namespace vaalrusGUIPrototype.Forms
             this.dpTo.Name = "dpTo";
             this.dpTo.Size = new System.Drawing.Size(177, 20);
             this.dpTo.TabIndex = 13;
+            this.dpTo.ValueChanged += new System.EventHandler(this.dpTo_ValueChanged);
             // 
             // btnClearLst
             // 
             this.btnClearLst.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnClearLst.Location = new System.Drawing.Point(15, 442);
             this.btnClearLst.Name = "btnClearLst";
-            this.btnClearLst.Size = new System.Drawing.Size(87, 53);
+            this.btnClearLst.Size = new System.Drawing.Size(73, 53);
             this.btnClearLst.TabIndex = 19;
             this.btnClearLst.Text = "Clear List";
             this.btnClearLst.UseVisualStyleBackColor = true;
@@ -179,6 +179,7 @@ namespace vaalrusGUIPrototype.Forms
             this.dpFrom.Name = "dpFrom";
             this.dpFrom.Size = new System.Drawing.Size(177, 20);
             this.dpFrom.TabIndex = 11;
+            this.dpFrom.ValueChanged += new System.EventHandler(this.dpFrom_ValueChanged);
             // 
             // label6
             // 
@@ -205,12 +206,13 @@ namespace vaalrusGUIPrototype.Forms
             this.cmbAccommodation.FormattingEnabled = true;
             this.cmbAccommodation.Location = new System.Drawing.Point(15, 276);
             this.cmbAccommodation.Name = "cmbAccommodation";
-            this.cmbAccommodation.Size = new System.Drawing.Size(290, 21);
+            this.cmbAccommodation.Size = new System.Drawing.Size(274, 21);
             this.cmbAccommodation.TabIndex = 18;
             this.cmbAccommodation.DropDown += new System.EventHandler(this.cmbAccommodation_DropDown);
             this.cmbAccommodation.SelectedIndexChanged += new System.EventHandler(this.cmbAccommodation_SelectedIndexChanged);
             this.cmbAccommodation.DropDownClosed += new System.EventHandler(this.cmbAccommodation_DropDownClosed);
             this.cmbAccommodation.Enter += new System.EventHandler(this.cmbAccommodation_Enter);
+            this.cmbAccommodation.Validated += new System.EventHandler(this.cmbAccommodation_Validated);
             // 
             // cmbCustomer
             // 
@@ -221,6 +223,7 @@ namespace vaalrusGUIPrototype.Forms
             this.cmbCustomer.Size = new System.Drawing.Size(199, 21);
             this.cmbCustomer.TabIndex = 9;
             this.cmbCustomer.SelectedIndexChanged += new System.EventHandler(this.cmbCustomer_SelectedIndexChanged);
+            this.cmbCustomer.TextChanged += new System.EventHandler(this.cmbCustomer_TextChanged);
             this.cmbCustomer.Click += new System.EventHandler(this.cmbCustomer_Click);
             this.cmbCustomer.Enter += new System.EventHandler(this.cmbCustomer_Enter);
             this.cmbCustomer.Validated += new System.EventHandler(this.cmbCustomer_Validated);
@@ -228,9 +231,10 @@ namespace vaalrusGUIPrototype.Forms
             // btnGeneratQuote
             // 
             this.btnGeneratQuote.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnGeneratQuote.Location = new System.Drawing.Point(108, 442);
+            this.btnGeneratQuote.Enabled = false;
+            this.btnGeneratQuote.Location = new System.Drawing.Point(106, 442);
             this.btnGeneratQuote.Name = "btnGeneratQuote";
-            this.btnGeneratQuote.Size = new System.Drawing.Size(104, 53);
+            this.btnGeneratQuote.Size = new System.Drawing.Size(94, 53);
             this.btnGeneratQuote.TabIndex = 20;
             this.btnGeneratQuote.Text = "Create Quote";
             this.btnGeneratQuote.UseVisualStyleBackColor = true;
@@ -358,7 +362,6 @@ namespace vaalrusGUIPrototype.Forms
             this.grid_main.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grid_main.RowHeadersVisible = false;
             this.grid_main.RowTemplate.ReadOnly = true;
-            this.grid_main.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grid_main.Size = new System.Drawing.Size(634, 247);
             this.grid_main.TabIndex = 10;
             this.grid_main.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grid_main_CellMouseClick);
@@ -451,10 +454,6 @@ namespace vaalrusGUIPrototype.Forms
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // erProvider
-            // 
-            this.erProvider.ContainerControl = this;
             // 
             // pnl_accSet
             // 
@@ -551,7 +550,6 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlFilter.ResumeLayout(false);
             this.pnlFilter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erProvider)).EndInit();
             this.pnl_accSet.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grid_accSet)).EndInit();
             this.ResumeLayout(false);
@@ -583,7 +581,6 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.Panel pnlFilter;
         private System.Windows.Forms.DateTimePicker dp_filterTo;
         private System.Windows.Forms.DateTimePicker dp_filterFrom;
-        private System.Windows.Forms.ErrorProvider erProvider;
         private System.Windows.Forms.RadioButton rb_booking;
         private System.Windows.Forms.RadioButton rb_quote;
         private System.Windows.Forms.CheckBox ch_to;
