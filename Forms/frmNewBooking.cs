@@ -34,9 +34,11 @@ namespace vaalrusGUIPrototype.Forms
         string endDate;
         decimal amount;
 
-        /*private ErrorProvider userErrorProvider;
-        private ErrorProvider customerErrorProvider;
+        private ErrorProvider customerIDErrorProvider;
+        private ErrorProvider quoteTextErrorProvider;
         private ErrorProvider fromDateErrorProvider;
+        private ErrorProvider amountrecievedErrorProvider;
+        /*private ErrorProvider userErrorProvider;          
         private ErrorProvider toDateErrorProvider;
         private ErrorProvider typeErrorProvider;
         private ErrorProvider accListErrorProvider;*/
@@ -197,6 +199,7 @@ namespace vaalrusGUIPrototype.Forms
         private void frmNewBooking_Load(object sender, EventArgs e)
         {
             LoadTheme();
+            createErProviders();
             if(conDB())
             {
                 sql = $"SELECT Quotation.Quotation_ID, Customer.Customer_FirstName AS [First name], Customer.Customer_LastName AS [Last name],Customer.Customer_IDNumber AS [ID], Quotation.Reservation_Date AS [Start date], Quotation.TotalPrice AS [Total price], Quotationstatus.Status_Type AS [Status] FROM Quotation INNER JOIN Customer ON Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE (Quotation.PaymentStatus = 1)";
@@ -239,14 +242,39 @@ namespace vaalrusGUIPrototype.Forms
             if (conDB())
             {
                 //$" and Customer_IDNumber = '" + txtFilterID.Text + "'"
+                string strduration = "";
+                string cusID = "";
+                string qID = "";
+                string fdate = "";
+                string andd = "";
+
                 int duration = (endDate.Date - startDate.Date).Days;
-                string strduration = ch_to.Checked ? $" and Quotation.Duration <= {duration}" : "";
-                string cusID = txtFilterID.Text != "" ? ch_dateRange.Checked ? $" and Customer_IDNumber = '" + txtFilterID.Text + "'" : $" Customer_IDNumber = '" + txtFilterID.Text + "'" : "";
-                string qID = txtFilterQuote.Text != "" ? $" Quotation_ID = '" + txtFilterQuote.Text + "'" : "";
-                string fdate = txtFilterQuote.Text == "" ? $"Quotation.Reservation_Date >= '{stDate}'" : "";
+                if (ch_to.Checked)
+                    strduration = $" and Quotation.Duration <= {duration}";
+                if (txtFilterID.Text != "")
+                {
+                    if (ch_dateRange.Checked || txtFilterQuote.Text != "")
+                        cusID = $" and Customer_IDNumber = '" + txtFilterID.Text + "'";
+                    else
+                        cusID = $" Customer_IDNumber = '" + txtFilterID.Text + "'";
+                }
+                if (txtFilterQuote.Text != "")
+                {
+                    if (ch_dateRange.Checked)
+                        qID = $" and Quotation_ID = '" + txtFilterQuote.Text + "'";
+                    else
+                        qID = $" Quotation_ID = '" + txtFilterQuote.Text + "'";
+                }
+                if (ch_dateRange.Checked)
+                    fdate = $"Quotation.Reservation_Date >= '{stDate}'";
+                if (strduration == "" && cusID == "" && qID == "" && fdate == "")
+                    andd = "";
+                else
+                    andd = " and ";
+
 
                 //sql = $"select * from Booking where StartDate >@stdate and EndDate < @edate ";                
-                sql = $"SELECT Quotation.Quotation_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name],Customer.Customer_IDNumber AS [ID], Quotation.Reservation_Date AS [Start date], Quotation.Duration, Quotation.TotalPrice AS [TotalPrice], Quotationstatus.Status_Type AS Status FROM Quotation INNER JOIN Customer ON dbo.Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE PaymentStatus = 1 and {fdate} {qID} {cusID} {strduration} ";
+                sql = $"SELECT Quotation.Quotation_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name],Customer.Customer_IDNumber AS [ID], Quotation.Reservation_Date AS [Start date], Quotation.Duration, Quotation.TotalPrice AS [TotalPrice], Quotationstatus.Status_Type AS Status FROM Quotation INNER JOIN Customer ON dbo.Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE PaymentStatus = 1 {andd} {fdate} {qID} {cusID} {strduration} ";
                 command = new SqlCommand(sql, con);
                 command.Parameters.AddWithValue("@stdate", stDate);
                 //command.Parameters.AddWithValue("@edate", eDate);
@@ -264,29 +292,30 @@ namespace vaalrusGUIPrototype.Forms
         }
         private void createErProviders()
         {
-            /*userErrorProvider = new ErrorProvider();
+            customerIDErrorProvider = new ErrorProvider();
 
-            userErrorProvider.SetIconAlignment(txtUser, ErrorIconAlignment.MiddleRight);
-            userErrorProvider.SetIconPadding(txtUser, 2);
-            userErrorProvider.BlinkRate = 1000;
-            userErrorProvider.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
+            customerIDErrorProvider.SetIconAlignment(txtFilterID, ErrorIconAlignment.MiddleRight);
+            customerIDErrorProvider.SetIconPadding(txtFilterID, 2);
+            customerIDErrorProvider.BlinkRate = 1000;
+            customerIDErrorProvider.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
 
-            customerErrorProvider = new ErrorProvider();
-            customerErrorProvider.SetIconAlignment(cmbCustomer, ErrorIconAlignment.MiddleRight);
-            customerErrorProvider.SetIconPadding(cmbCustomer, 2);
-            customerErrorProvider.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
-
+            quoteTextErrorProvider = new ErrorProvider();
+            quoteTextErrorProvider.SetIconAlignment(txtFilterQuote, ErrorIconAlignment.MiddleRight);
+            quoteTextErrorProvider.SetIconPadding(txtFilterQuote, 2);
+            quoteTextErrorProvider.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
+ 
             fromDateErrorProvider = new ErrorProvider();
-            fromDateErrorProvider.SetIconAlignment(dpFrom, ErrorIconAlignment.MiddleRight);
-            fromDateErrorProvider.SetIconPadding(dpFrom, 2);
+            fromDateErrorProvider.SetIconAlignment(dp_filterFrom, ErrorIconAlignment.MiddleRight);
+            fromDateErrorProvider.SetIconPadding(dp_filterFrom, 2);
             fromDateErrorProvider.BlinkRate = 1000;
             fromDateErrorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
 
-            toDateErrorProvider = new ErrorProvider();
-            toDateErrorProvider.SetIconAlignment(dpTo, ErrorIconAlignment.MiddleRight);
-            toDateErrorProvider.SetIconPadding(dpTo, 2);
-            toDateErrorProvider.BlinkRate = 1000;
-            toDateErrorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            amountrecievedErrorProvider = new ErrorProvider();
+            amountrecievedErrorProvider.SetIconAlignment(txtRecievedAmount, ErrorIconAlignment.MiddleRight);
+            amountrecievedErrorProvider.SetIconPadding(txtRecievedAmount, 2);
+            amountrecievedErrorProvider.BlinkRate = 1000;
+            amountrecievedErrorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+/*
 
             typeErrorProvider = new ErrorProvider();
             typeErrorProvider.SetIconAlignment(cmbFilter, ErrorIconAlignment.MiddleRight);
@@ -307,17 +336,30 @@ namespace vaalrusGUIPrototype.Forms
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            loadGrid();
-        }
+        
 
         private void ch_to_CheckedChanged(object sender, EventArgs e)
         {
             if (ch_to.Checked)
+            {
                 dp_filterTo.Enabled = true;
+                if (dp_filterFrom.Value > dp_filterTo.Value && dp_filterTo.Enabled == true)
+                {
+                    fromDateErrorProvider.SetError(dp_filterFrom, "From Date can not be after TO date");
+                    btnFilter.Enabled = false;
+                    dp_filterFrom.BackColor = Color.IndianRed;
+                }
+                else
+                {
+                    fromDateErrorProvider.SetError(dp_filterFrom, "");
+                    btnFilter.Enabled = true;
+                    dp_filterFrom.BackColor = Color.White;
+                }
+            }
+                
             else
                 dp_filterTo.Enabled = false;
+
         }
 
         private void ch_dateRange_CheckedChanged(object sender, EventArgs e)
@@ -385,7 +427,10 @@ namespace vaalrusGUIPrototype.Forms
             
             fillInFormation();
         }
-
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            loadGrid();
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             if (conDB())
@@ -441,6 +486,185 @@ namespace vaalrusGUIPrototype.Forms
             dpRecieved.Value = DateTime.Now.Date;
             txtRecievedAmount.Text = "";
             txtRecievedAmount.Focus();
+        }
+
+        private void txtFilterID_TextChanged(object sender, EventArgs e)
+        {
+            if ((!txtFilterID.Text.All(char.IsDigit) && txtFilterID.Text != "") || (txtFilterID.Text.Length != 13 && txtFilterID.Text != ""))
+            {
+                customerIDErrorProvider.SetError(txtFilterID, "ID Number only contains Digits and need to be 13 Characters");
+                btnFilter.Enabled = false;
+                txtFilterID.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                customerIDErrorProvider.SetError(txtFilterID, "");
+                btnFilter.Enabled = true;
+                txtFilterID.BackColor = Color.White;
+            }
+            
+        }
+
+        private void txtFilterID_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtFilterID.Text.Length != 13 && txtFilterID.Text != "")
+            {
+                customerIDErrorProvider.SetError(txtFilterID, "ID Number need 13 numbers");
+                btnFilter.Enabled = false;
+                txtFilterID.BackColor = Color.IndianRed;
+            }
+            else if (txtFilterID.Text != "")
+            {
+               // customerIDErrorProvider.SetError(txtFilterID, "");        
+                //btnFilter.Enabled = true;
+               // txtFilterID.BackColor = Color.Wheat;
+                if (conDB())
+                {
+                    sql = $"SELECT Customer_IDNumber from Customer where Customer_IDNumber = @cusid";
+                    command = new SqlCommand(sql, con);
+                    command.Parameters.AddWithValue("@cusid",txtFilterID.Text);
+                    adapter = new SqlDataAdapter();
+                    ds = new DataSet();
+                    adapter.SelectCommand = command;                  
+                    adapter.Fill(ds, "Customer_ID");                 
+                    con.Close();
+                }
+                if (ds.Tables[0].Rows.Count <1)
+                {
+                    customerIDErrorProvider.SetError(txtFilterID, "The Customer IDnumber does no match any Customer");
+                    btnFilter.Enabled = false;
+                    txtFilterID.BackColor = Color.IndianRed;
+                }
+                else
+                {
+                    customerIDErrorProvider.SetError(txtFilterID, "");
+                    btnFilter.Enabled = true;
+                    txtFilterID.BackColor = Color.White;
+                }
+            }
+            
+
+        }
+
+        private void txtFilterQuote_TextChanged(object sender, EventArgs e)
+        {
+            if (!txtFilterQuote.Text.All(char.IsDigit) && txtFilterQuote.Text != "")
+            {
+                quoteTextErrorProvider.SetError(txtFilterQuote, "Quote Numbers only contains Digits");
+                btnFilter.Enabled = false;
+                txtFilterQuote.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                quoteTextErrorProvider.SetError(txtFilterQuote, "");
+                btnFilter.Enabled = true;
+                txtFilterQuote.BackColor = Color.White;
+            }
+        }
+
+        private void txtFilterQuote_Validated(object sender, EventArgs e)
+        {
+            if (txtFilterQuote.Text != "")
+            {
+                if (conDB())
+                {
+                    sql = $"SELECT Quotation_ID from Quotation WHERE Quotation_ID = @qid";
+                    command = new SqlCommand(sql, con);
+                    command.Parameters.AddWithValue("@qid", txtFilterQuote.Text);
+                    adapter = new SqlDataAdapter();
+                    ds = new DataSet();
+                    adapter.SelectCommand = command;
+                    adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                    adapter.Fill(ds, "Quotation_ID");
+                    con.Close();
+                }
+                if (ds.Tables[0].Rows.Count < 1)
+                {
+                    quoteTextErrorProvider.SetError(txtFilterQuote, "The Quote number does no match any Quote");
+                    btnFilter.Enabled = false;
+                    txtFilterQuote.BackColor = Color.IndianRed;
+                }
+                else
+                {
+                    quoteTextErrorProvider.SetError(txtFilterQuote, "");
+                    btnFilter.Enabled = true;
+                    txtFilterQuote.BackColor = Color.White;
+                }
+            }
+            else if (txtFilterQuote.Text == "")
+            {
+                quoteTextErrorProvider.SetError(txtFilterQuote, "");
+                btnFilter.Enabled = true;
+                txtFilterQuote.BackColor = Color.White;
+            }
+            
+
+
+            
+        }
+
+        private void dp_filterFrom_ValueChanged(object sender, EventArgs e)
+        {
+            if (dp_filterFrom.Value > dp_filterTo.Value && dp_filterTo.Enabled == true)
+            {
+                fromDateErrorProvider.SetError(dp_filterFrom, "From Date can not be after TO date");
+                btnFilter.Enabled = false;
+                dp_filterFrom.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                fromDateErrorProvider.SetError(dp_filterFrom, "");
+                btnFilter.Enabled = true;
+                dp_filterFrom.BackColor = Color.White;
+            }
+        }
+
+        private void dp_filterTo_ValueChanged(object sender, EventArgs e)
+        {
+            if (dp_filterFrom.Value > dp_filterTo.Value && dp_filterTo.Enabled == true)
+            {
+                fromDateErrorProvider.SetError(dp_filterFrom, "From Date can not be after TO date");
+                btnFilter.Enabled = false;
+                dp_filterFrom.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                fromDateErrorProvider.SetError(dp_filterFrom, "");
+                btnFilter.Enabled = true;
+                dp_filterFrom.BackColor = Color.White;
+            }
+        }
+
+        private void dp_filterFrom_Validated(object sender, EventArgs e)
+        {
+            if (dp_filterFrom.Value > dp_filterTo.Value && dp_filterTo.Enabled == true)
+            {
+                fromDateErrorProvider.SetError(dp_filterFrom, "From Date can not be after to date");
+                btnFilter.Enabled = false;
+                dp_filterFrom.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                fromDateErrorProvider.SetError(dp_filterFrom, "");
+                btnFilter.Enabled = true;
+                dp_filterFrom.BackColor = Color.White;
+            }
+        }
+
+        private void txtRecievedAmount_TextChanged(object sender, EventArgs e)
+        {
+            if (txtRecievedAmount.Text.All(char.IsLetter) && txtRecievedAmount.Text != "")
+            {
+                fromDateErrorProvider.SetError(txtRecievedAmount, "Please enter valid price");
+                btnCreate.Enabled = false;
+                txtRecievedAmount.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                fromDateErrorProvider.SetError(txtRecievedAmount, "");
+                btnCreate.Enabled = true;
+                txtRecievedAmount.BackColor = Color.White;
+            }
         }
     }
 }

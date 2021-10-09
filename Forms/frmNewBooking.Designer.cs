@@ -31,7 +31,7 @@ namespace vaalrusGUIPrototype.Forms
         {
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlButtons = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.pnlPayment = new System.Windows.Forms.Panel();
             this.txtRecievedAmount = new System.Windows.Forms.TextBox();
             this.dpRecieved = new System.Windows.Forms.DateTimePicker();
@@ -70,7 +70,7 @@ namespace vaalrusGUIPrototype.Forms
             this.grid = new System.Windows.Forms.DataGridView();
             this.pnlFilter = new System.Windows.Forms.Panel();
             this.ch_dateRange = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnFilter = new System.Windows.Forms.Button();
             this.ch_to = new System.Windows.Forms.CheckBox();
             this.dp_filterTo = new System.Windows.Forms.DateTimePicker();
             this.dp_filterFrom = new System.Windows.Forms.DateTimePicker();
@@ -113,22 +113,22 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // pnlButtons
             // 
-            this.pnlButtons.Controls.Add(this.button1);
+            this.pnlButtons.Controls.Add(this.btnCreate);
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlButtons.Location = new System.Drawing.Point(0, 455);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Size = new System.Drawing.Size(354, 128);
             this.pnlButtons.TabIndex = 7;
             // 
-            // button1
+            // btnCreate
             // 
-            this.button1.Location = new System.Drawing.Point(106, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 28);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Create";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCreate.Location = new System.Drawing.Point(106, 3);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(108, 28);
+            this.btnCreate.TabIndex = 0;
+            this.btnCreate.Text = "Create";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.button1_Click);
             // 
             // pnlPayment
             // 
@@ -150,6 +150,7 @@ namespace vaalrusGUIPrototype.Forms
             this.txtRecievedAmount.Name = "txtRecievedAmount";
             this.txtRecievedAmount.Size = new System.Drawing.Size(87, 20);
             this.txtRecievedAmount.TabIndex = 13;
+            this.txtRecievedAmount.TextChanged += new System.EventHandler(this.txtRecievedAmount_TextChanged);
             // 
             // dpRecieved
             // 
@@ -478,7 +479,7 @@ namespace vaalrusGUIPrototype.Forms
             // pnlFilter
             // 
             this.pnlFilter.Controls.Add(this.ch_dateRange);
-            this.pnlFilter.Controls.Add(this.button2);
+            this.pnlFilter.Controls.Add(this.btnFilter);
             this.pnlFilter.Controls.Add(this.ch_to);
             this.pnlFilter.Controls.Add(this.dp_filterTo);
             this.pnlFilter.Controls.Add(this.dp_filterFrom);
@@ -506,15 +507,15 @@ namespace vaalrusGUIPrototype.Forms
             this.ch_dateRange.UseVisualStyleBackColor = true;
             this.ch_dateRange.CheckedChanged += new System.EventHandler(this.ch_dateRange_CheckedChanged);
             // 
-            // button2
+            // btnFilter
             // 
-            this.button2.Location = new System.Drawing.Point(388, 38);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 70);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Filter";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnFilter.Location = new System.Drawing.Point(388, 38);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(75, 70);
+            this.btnFilter.TabIndex = 2;
+            this.btnFilter.Text = "Filter";
+            this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // ch_to
             // 
@@ -534,29 +535,34 @@ namespace vaalrusGUIPrototype.Forms
             this.dp_filterTo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dp_filterTo.Enabled = false;
-            this.dp_filterTo.Location = new System.Drawing.Point(144, 62);
+            this.dp_filterTo.Location = new System.Drawing.Point(129, 62);
             this.dp_filterTo.Name = "dp_filterTo";
             this.dp_filterTo.Size = new System.Drawing.Size(238, 20);
             this.dp_filterTo.TabIndex = 9;
+            this.dp_filterTo.ValueChanged += new System.EventHandler(this.dp_filterTo_ValueChanged);
             // 
             // dp_filterFrom
             // 
             this.dp_filterFrom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dp_filterFrom.Enabled = false;
-            this.dp_filterFrom.Location = new System.Drawing.Point(144, 38);
+            this.dp_filterFrom.Location = new System.Drawing.Point(129, 38);
             this.dp_filterFrom.Name = "dp_filterFrom";
             this.dp_filterFrom.Size = new System.Drawing.Size(238, 20);
             this.dp_filterFrom.TabIndex = 8;
+            this.dp_filterFrom.ValueChanged += new System.EventHandler(this.dp_filterFrom_ValueChanged);
+            this.dp_filterFrom.Validated += new System.EventHandler(this.dp_filterFrom_Validated);
             // 
             // txtFilterQuote
             // 
             this.txtFilterQuote.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtFilterQuote.Location = new System.Drawing.Point(283, 88);
+            this.txtFilterQuote.Location = new System.Drawing.Point(267, 88);
             this.txtFilterQuote.Name = "txtFilterQuote";
             this.txtFilterQuote.Size = new System.Drawing.Size(100, 20);
             this.txtFilterQuote.TabIndex = 4;
+            this.txtFilterQuote.TextChanged += new System.EventHandler(this.txtFilterQuote_TextChanged);
+            this.txtFilterQuote.Validated += new System.EventHandler(this.txtFilterQuote_Validated);
             // 
             // txtFilterID
             // 
@@ -566,13 +572,15 @@ namespace vaalrusGUIPrototype.Forms
             this.txtFilterID.Name = "txtFilterID";
             this.txtFilterID.Size = new System.Drawing.Size(100, 20);
             this.txtFilterID.TabIndex = 3;
+            this.txtFilterID.TextChanged += new System.EventHandler(this.txtFilterID_TextChanged);
+            this.txtFilterID.Validating += new System.ComponentModel.CancelEventHandler(this.txtFilterID_Validating);
             // 
             // label19
             // 
             this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(210, 91);
+            this.label19.Location = new System.Drawing.Point(201, 91);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(50, 13);
             this.label19.TabIndex = 2;
@@ -687,7 +695,7 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.TextBox txtEndDate;
         private System.Windows.Forms.TextBox txtStartDate;
         private System.Windows.Forms.TextBox txtQuotenr;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel4;
@@ -697,7 +705,7 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.DateTimePicker dp_filterFrom;
         private System.Windows.Forms.TextBox txtFilterQuote;
         private System.Windows.Forms.TextBox txtFilterID;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.CheckBox ch_dateRange;
     }
 }
