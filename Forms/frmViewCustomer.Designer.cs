@@ -192,6 +192,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // dgView
             // 
+            this.dgView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgView.Location = new System.Drawing.Point(36, 11);
             this.dgView.Margin = new System.Windows.Forms.Padding(2);
