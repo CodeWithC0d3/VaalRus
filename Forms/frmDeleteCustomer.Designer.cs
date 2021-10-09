@@ -55,7 +55,6 @@ namespace vaalrusGUIPrototype
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -65,13 +64,12 @@ namespace vaalrusGUIPrototype
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAll
             // 
-            this.btnAll.Location = new System.Drawing.Point(164, 4);
+            this.btnAll.Location = new System.Drawing.Point(170, 157);
             this.btnAll.Margin = new System.Windows.Forms.Padding(2);
             this.btnAll.Name = "btnAll";
             this.btnAll.Size = new System.Drawing.Size(120, 34);
@@ -83,7 +81,7 @@ namespace vaalrusGUIPrototype
             // lblOutput
             // 
             this.lblOutput.AutoSize = true;
-            this.lblOutput.Location = new System.Drawing.Point(30, 8);
+            this.lblOutput.Location = new System.Drawing.Point(11, 11);
             this.lblOutput.Name = "lblOutput";
             this.lblOutput.Size = new System.Drawing.Size(39, 13);
             this.lblOutput.TabIndex = 6;
@@ -117,10 +115,10 @@ namespace vaalrusGUIPrototype
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnAll);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.groupBox2);
             this.panel3.Controls.Add(this.groupBox1);
-            this.panel3.Controls.Add(this.panel5);
             this.panel3.Location = new System.Drawing.Point(21, 25);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(338, 418);
@@ -129,15 +127,15 @@ namespace vaalrusGUIPrototype
             // panel6
             // 
             this.panel6.Controls.Add(this.lblOutput);
-            this.panel6.Location = new System.Drawing.Point(13, 202);
+            this.panel6.Location = new System.Drawing.Point(16, 355);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(311, 30);
+            this.panel6.Size = new System.Drawing.Size(311, 48);
             this.panel6.TabIndex = 19;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.panel1);
-            this.groupBox2.Location = new System.Drawing.Point(13, 238);
+            this.groupBox2.Location = new System.Drawing.Point(13, 193);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(311, 156);
             this.groupBox2.TabIndex = 20;
@@ -326,14 +324,6 @@ namespace vaalrusGUIPrototype
             this.label5.TabIndex = 0;
             this.label5.Text = "Customer Number:";
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.btnAll);
-            this.panel5.Location = new System.Drawing.Point(13, 154);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(311, 42);
-            this.panel5.TabIndex = 18;
-            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -367,7 +357,6 @@ namespace vaalrusGUIPrototype
             this.groupBox1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -390,7 +379,6 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button2;
