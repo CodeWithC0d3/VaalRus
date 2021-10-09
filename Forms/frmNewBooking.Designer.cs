@@ -37,8 +37,6 @@ namespace vaalrusGUIPrototype.Forms
             this.dpRecieved = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
             this.pnlBookDetail = new System.Windows.Forms.Panel();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.txtEndDate = new System.Windows.Forms.TextBox();
@@ -50,8 +48,6 @@ namespace vaalrusGUIPrototype.Forms
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.pnlCusInformation = new System.Windows.Forms.Panel();
             this.txtemail = new System.Windows.Forms.TextBox();
             this.txtCell = new System.Windows.Forms.TextBox();
@@ -64,8 +60,6 @@ namespace vaalrusGUIPrototype.Forms
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.grid = new System.Windows.Forms.DataGridView();
             this.pnlFilter = new System.Windows.Forms.Panel();
@@ -80,18 +74,21 @@ namespace vaalrusGUIPrototype.Forms
             this.label18 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pnlMain.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.pnlPayment.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.pnlBookDetail.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.pnlCusInformation.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.pnlFilter.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -99,25 +96,22 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlMain.Controls.Add(this.pnlButtons);
-            this.pnlMain.Controls.Add(this.pnlPayment);
-            this.pnlMain.Controls.Add(this.pnlBookDetail);
-            this.pnlMain.Controls.Add(this.panel2);
-            this.pnlMain.Controls.Add(this.pnlCusInformation);
+            this.pnlMain.Controls.Add(this.groupBox3);
+            this.pnlMain.Controls.Add(this.groupBox2);
+            this.pnlMain.Controls.Add(this.groupBox1);
             this.pnlMain.Controls.Add(this.label2);
-            this.pnlMain.Controls.Add(this.panel1);
             this.pnlMain.Location = new System.Drawing.Point(12, 6);
-            this.pnlMain.MinimumSize = new System.Drawing.Size(354, 489);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(354, 583);
+            this.pnlMain.Size = new System.Drawing.Size(324, 583);
             this.pnlMain.TabIndex = 0;
             // 
             // pnlButtons
             // 
             this.pnlButtons.Controls.Add(this.btnCreate);
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlButtons.Location = new System.Drawing.Point(0, 455);
+            this.pnlButtons.Location = new System.Drawing.Point(0, 466);
             this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Size = new System.Drawing.Size(354, 128);
+            this.pnlButtons.Size = new System.Drawing.Size(324, 117);
             this.pnlButtons.TabIndex = 7;
             // 
             // btnCreate
@@ -136,17 +130,16 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlPayment.Controls.Add(this.dpRecieved);
             this.pnlPayment.Controls.Add(this.label14);
             this.pnlPayment.Controls.Add(this.label15);
-            this.pnlPayment.Controls.Add(this.panel3);
-            this.pnlPayment.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlPayment.Location = new System.Drawing.Point(0, 374);
+            this.pnlPayment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPayment.Location = new System.Drawing.Point(3, 16);
             this.pnlPayment.Name = "pnlPayment";
-            this.pnlPayment.Size = new System.Drawing.Size(354, 81);
+            this.pnlPayment.Size = new System.Drawing.Size(318, 79);
             this.pnlPayment.TabIndex = 6;
             this.pnlPayment.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPayment_Paint);
             // 
             // txtRecievedAmount
             // 
-            this.txtRecievedAmount.Location = new System.Drawing.Point(147, 54);
+            this.txtRecievedAmount.Location = new System.Drawing.Point(115, 54);
             this.txtRecievedAmount.Name = "txtRecievedAmount";
             this.txtRecievedAmount.Size = new System.Drawing.Size(87, 20);
             this.txtRecievedAmount.TabIndex = 13;
@@ -154,7 +147,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // dpRecieved
             // 
-            this.dpRecieved.Location = new System.Drawing.Point(147, 25);
+            this.dpRecieved.Location = new System.Drawing.Point(115, 25);
             this.dpRecieved.Name = "dpRecieved";
             this.dpRecieved.Size = new System.Drawing.Size(200, 20);
             this.dpRecieved.TabIndex = 12;
@@ -162,7 +155,7 @@ namespace vaalrusGUIPrototype.Forms
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(21, 57);
+            this.label14.Location = new System.Drawing.Point(6, 57);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(92, 13);
             this.label14.TabIndex = 11;
@@ -171,31 +164,11 @@ namespace vaalrusGUIPrototype.Forms
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(21, 31);
+            this.label15.Location = new System.Drawing.Point(6, 31);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(79, 13);
             this.label15.TabIndex = 7;
             this.label15.Text = "Date Recieved";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.label13);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(354, 20);
-            this.panel3.TabIndex = 5;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(0, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(130, 20);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Confirm Payment";
             // 
             // pnlBookDetail
             // 
@@ -209,16 +182,16 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlBookDetail.Controls.Add(this.label11);
             this.pnlBookDetail.Controls.Add(this.label10);
             this.pnlBookDetail.Controls.Add(this.label9);
-            this.pnlBookDetail.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlBookDetail.Location = new System.Drawing.Point(0, 191);
+            this.pnlBookDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlBookDetail.Location = new System.Drawing.Point(3, 16);
             this.pnlBookDetail.Name = "pnlBookDetail";
-            this.pnlBookDetail.Size = new System.Drawing.Size(354, 183);
+            this.pnlBookDetail.Size = new System.Drawing.Size(318, 183);
             this.pnlBookDetail.TabIndex = 5;
             // 
             // txtAmount
             // 
             this.txtAmount.Enabled = false;
-            this.txtAmount.Location = new System.Drawing.Point(147, 92);
+            this.txtAmount.Location = new System.Drawing.Point(115, 92);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(87, 20);
             this.txtAmount.TabIndex = 9;
@@ -226,7 +199,7 @@ namespace vaalrusGUIPrototype.Forms
             // txtEndDate
             // 
             this.txtEndDate.Enabled = false;
-            this.txtEndDate.Location = new System.Drawing.Point(147, 64);
+            this.txtEndDate.Location = new System.Drawing.Point(115, 64);
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.Size = new System.Drawing.Size(144, 20);
             this.txtEndDate.TabIndex = 8;
@@ -234,7 +207,7 @@ namespace vaalrusGUIPrototype.Forms
             // txtStartDate
             // 
             this.txtStartDate.Enabled = false;
-            this.txtStartDate.Location = new System.Drawing.Point(147, 34);
+            this.txtStartDate.Location = new System.Drawing.Point(115, 34);
             this.txtStartDate.Name = "txtStartDate";
             this.txtStartDate.Size = new System.Drawing.Size(144, 20);
             this.txtStartDate.TabIndex = 7;
@@ -242,7 +215,7 @@ namespace vaalrusGUIPrototype.Forms
             // txtQuotenr
             // 
             this.txtQuotenr.Enabled = false;
-            this.txtQuotenr.Location = new System.Drawing.Point(147, 3);
+            this.txtQuotenr.Location = new System.Drawing.Point(115, 3);
             this.txtQuotenr.Name = "txtQuotenr";
             this.txtQuotenr.Size = new System.Drawing.Size(56, 20);
             this.txtQuotenr.TabIndex = 6;
@@ -250,7 +223,7 @@ namespace vaalrusGUIPrototype.Forms
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(21, 95);
+            this.label16.Location = new System.Drawing.Point(6, 95);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(89, 13);
             this.label16.TabIndex = 5;
@@ -273,13 +246,13 @@ namespace vaalrusGUIPrototype.Forms
             this.lsAcc.FormattingEnabled = true;
             this.lsAcc.Location = new System.Drawing.Point(3, 133);
             this.lsAcc.Name = "lsAcc";
-            this.lsAcc.Size = new System.Drawing.Size(348, 43);
+            this.lsAcc.Size = new System.Drawing.Size(312, 43);
             this.lsAcc.TabIndex = 3;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(21, 67);
+            this.label11.Location = new System.Drawing.Point(6, 67);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(50, 13);
             this.label11.TabIndex = 2;
@@ -288,7 +261,7 @@ namespace vaalrusGUIPrototype.Forms
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(21, 37);
+            this.label10.Location = new System.Drawing.Point(6, 37);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 13);
             this.label10.TabIndex = 1;
@@ -297,31 +270,11 @@ namespace vaalrusGUIPrototype.Forms
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(21, 9);
+            this.label9.Location = new System.Drawing.Point(6, 9);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(50, 13);
             this.label9.TabIndex = 0;
             this.label9.Text = "Quote Nr";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 170);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(354, 21);
-            this.panel2.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(0, -2);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 20);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Quote Details";
             // 
             // pnlCusInformation
             // 
@@ -335,24 +288,24 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlCusInformation.Controls.Add(this.label6);
             this.pnlCusInformation.Controls.Add(this.label5);
             this.pnlCusInformation.Controls.Add(this.label4);
-            this.pnlCusInformation.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlCusInformation.Location = new System.Drawing.Point(0, 23);
+            this.pnlCusInformation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCusInformation.Location = new System.Drawing.Point(3, 16);
             this.pnlCusInformation.Name = "pnlCusInformation";
-            this.pnlCusInformation.Size = new System.Drawing.Size(354, 147);
+            this.pnlCusInformation.Size = new System.Drawing.Size(318, 147);
             this.pnlCusInformation.TabIndex = 3;
             // 
             // txtemail
             // 
             this.txtemail.Enabled = false;
-            this.txtemail.Location = new System.Drawing.Point(147, 121);
+            this.txtemail.Location = new System.Drawing.Point(115, 121);
             this.txtemail.Name = "txtemail";
-            this.txtemail.Size = new System.Drawing.Size(204, 20);
+            this.txtemail.Size = new System.Drawing.Size(183, 20);
             this.txtemail.TabIndex = 9;
             // 
             // txtCell
             // 
             this.txtCell.Enabled = false;
-            this.txtCell.Location = new System.Drawing.Point(147, 92);
+            this.txtCell.Location = new System.Drawing.Point(115, 92);
             this.txtCell.Name = "txtCell";
             this.txtCell.Size = new System.Drawing.Size(131, 20);
             this.txtCell.TabIndex = 8;
@@ -360,7 +313,7 @@ namespace vaalrusGUIPrototype.Forms
             // txtIdNumber
             // 
             this.txtIdNumber.Enabled = false;
-            this.txtIdNumber.Location = new System.Drawing.Point(147, 63);
+            this.txtIdNumber.Location = new System.Drawing.Point(115, 63);
             this.txtIdNumber.Name = "txtIdNumber";
             this.txtIdNumber.Size = new System.Drawing.Size(131, 20);
             this.txtIdNumber.TabIndex = 7;
@@ -368,7 +321,7 @@ namespace vaalrusGUIPrototype.Forms
             // txtlastName
             // 
             this.txtlastName.Enabled = false;
-            this.txtlastName.Location = new System.Drawing.Point(147, 34);
+            this.txtlastName.Location = new System.Drawing.Point(115, 34);
             this.txtlastName.Name = "txtlastName";
             this.txtlastName.Size = new System.Drawing.Size(169, 20);
             this.txtlastName.TabIndex = 6;
@@ -376,7 +329,7 @@ namespace vaalrusGUIPrototype.Forms
             // txtname
             // 
             this.txtname.Enabled = false;
-            this.txtname.Location = new System.Drawing.Point(147, 5);
+            this.txtname.Location = new System.Drawing.Point(115, 5);
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(169, 20);
             this.txtname.TabIndex = 5;
@@ -384,7 +337,7 @@ namespace vaalrusGUIPrototype.Forms
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 124);
+            this.label8.Location = new System.Drawing.Point(6, 124);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 4;
@@ -393,7 +346,7 @@ namespace vaalrusGUIPrototype.Forms
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(21, 95);
+            this.label7.Location = new System.Drawing.Point(6, 95);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(24, 13);
             this.label7.TabIndex = 3;
@@ -402,7 +355,7 @@ namespace vaalrusGUIPrototype.Forms
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 66);
+            this.label6.Location = new System.Drawing.Point(6, 66);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 2;
@@ -411,7 +364,7 @@ namespace vaalrusGUIPrototype.Forms
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 37);
+            this.label5.Location = new System.Drawing.Point(6, 37);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 1;
@@ -420,7 +373,7 @@ namespace vaalrusGUIPrototype.Forms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 8);
+            this.label4.Location = new System.Drawing.Point(6, 8);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 0;
@@ -434,26 +387,6 @@ namespace vaalrusGUIPrototype.Forms
             this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 2;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(354, 23);
-            this.panel1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(0, -3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Customer Information";
-            // 
             // pnlGrid
             // 
             this.pnlGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -461,9 +394,9 @@ namespace vaalrusGUIPrototype.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlGrid.Controls.Add(this.grid);
             this.pnlGrid.Controls.Add(this.pnlFilter);
-            this.pnlGrid.Location = new System.Drawing.Point(382, 6);
+            this.pnlGrid.Location = new System.Drawing.Point(342, 6);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(812, 583);
+            this.pnlGrid.Size = new System.Drawing.Size(852, 583);
             this.pnlGrid.TabIndex = 1;
             // 
             // grid
@@ -472,7 +405,7 @@ namespace vaalrusGUIPrototype.Forms
             this.grid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid.Location = new System.Drawing.Point(0, 121);
             this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(812, 462);
+            this.grid.Size = new System.Drawing.Size(852, 462);
             this.grid.TabIndex = 1;
             this.grid.SelectionChanged += new System.EventHandler(this.grid_SelectionChanged);
             // 
@@ -491,7 +424,7 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlFilter.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlFilter.Location = new System.Drawing.Point(0, 0);
             this.pnlFilter.Name = "pnlFilter";
-            this.pnlFilter.Size = new System.Drawing.Size(812, 121);
+            this.pnlFilter.Size = new System.Drawing.Size(852, 121);
             this.pnlFilter.TabIndex = 0;
             // 
             // ch_dateRange
@@ -603,7 +536,7 @@ namespace vaalrusGUIPrototype.Forms
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(812, 35);
+            this.panel4.Size = new System.Drawing.Size(852, 35);
             this.panel4.TabIndex = 0;
             // 
             // label17
@@ -616,6 +549,39 @@ namespace vaalrusGUIPrototype.Forms
             this.label17.Size = new System.Drawing.Size(103, 20);
             this.label17.TabIndex = 1;
             this.label17.Text = "Filter Options";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.pnlCusInformation);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(324, 166);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Customer Information";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.pnlBookDetail);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.Location = new System.Drawing.Point(0, 166);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(324, 202);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Quote Details";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.pnlPayment);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox3.Location = new System.Drawing.Point(0, 368);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(324, 98);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Confirm Payment";
             // 
             // frmNewBooking
             // 
@@ -634,22 +600,19 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlButtons.ResumeLayout(false);
             this.pnlPayment.ResumeLayout(false);
             this.pnlPayment.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.pnlBookDetail.ResumeLayout(false);
             this.pnlBookDetail.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.pnlCusInformation.ResumeLayout(false);
             this.pnlCusInformation.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.pnlFilter.ResumeLayout(false);
             this.pnlFilter.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -662,8 +625,6 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.Panel pnlFilter;
         private System.Windows.Forms.Panel pnlPayment;
         private System.Windows.Forms.Panel pnlBookDetail;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel pnlCusInformation;
         private System.Windows.Forms.TextBox txtemail;
         private System.Windows.Forms.TextBox txtCell;
@@ -676,11 +637,7 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ListBox lsAcc;
@@ -707,5 +664,8 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.TextBox txtFilterID;
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.CheckBox ch_dateRange;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

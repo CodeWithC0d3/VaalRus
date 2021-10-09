@@ -32,9 +32,9 @@ namespace vaalrusGUIPrototype
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
             this.btnConString = new System.Windows.Forms.Button();
             this.pnlConnetionControls = new System.Windows.Forms.Panel();
+            this.txtConString = new System.Windows.Forms.TextBox();
             this.btnTestData = new System.Windows.Forms.Button();
             this.btnCreateDatabAse = new System.Windows.Forms.Button();
-            this.txtConString = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.picBackground = new System.Windows.Forms.PictureBox();
@@ -59,30 +59,12 @@ namespace vaalrusGUIPrototype
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlConnetionControls.Controls.Add(this.txtConString);
             this.pnlConnetionControls.Controls.Add(this.btnConString);
+            this.pnlConnetionControls.Controls.Add(this.btnTestData);
+            this.pnlConnetionControls.Controls.Add(this.btnCreateDatabAse);
             this.pnlConnetionControls.Location = new System.Drawing.Point(0, 56);
             this.pnlConnetionControls.Name = "pnlConnetionControls";
             this.pnlConnetionControls.Size = new System.Drawing.Size(1099, 423);
             this.pnlConnetionControls.TabIndex = 2;
-            // 
-            // btnTestData
-            // 
-            this.btnTestData.Location = new System.Drawing.Point(12, 485);
-            this.btnTestData.Name = "btnTestData";
-            this.btnTestData.Size = new System.Drawing.Size(139, 38);
-            this.btnTestData.TabIndex = 5;
-            this.btnTestData.Text = "Add Test Data";
-            this.btnTestData.UseVisualStyleBackColor = true;
-            this.btnTestData.Click += new System.EventHandler(this.btnTestData_Click);
-            // 
-            // btnCreateDatabAse
-            // 
-            this.btnCreateDatabAse.Location = new System.Drawing.Point(22, 532);
-            this.btnCreateDatabAse.Name = "btnCreateDatabAse";
-            this.btnCreateDatabAse.Size = new System.Drawing.Size(129, 38);
-            this.btnCreateDatabAse.TabIndex = 4;
-            this.btnCreateDatabAse.Text = "Delete String";
-            this.btnCreateDatabAse.UseVisualStyleBackColor = true;
-            this.btnCreateDatabAse.Click += new System.EventHandler(this.btnCreateDatabAse_Click);
             // 
             // txtConString
             // 
@@ -93,6 +75,26 @@ namespace vaalrusGUIPrototype
             this.txtConString.Name = "txtConString";
             this.txtConString.Size = new System.Drawing.Size(909, 56);
             this.txtConString.TabIndex = 3;
+            // 
+            // btnTestData
+            // 
+            this.btnTestData.Location = new System.Drawing.Point(3, 4);
+            this.btnTestData.Name = "btnTestData";
+            this.btnTestData.Size = new System.Drawing.Size(104, 38);
+            this.btnTestData.TabIndex = 5;
+            this.btnTestData.Text = "Add Test Data";
+            this.btnTestData.UseVisualStyleBackColor = true;
+            this.btnTestData.Click += new System.EventHandler(this.btnTestData_Click);
+            // 
+            // btnCreateDatabAse
+            // 
+            this.btnCreateDatabAse.Location = new System.Drawing.Point(3, 51);
+            this.btnCreateDatabAse.Name = "btnCreateDatabAse";
+            this.btnCreateDatabAse.Size = new System.Drawing.Size(104, 38);
+            this.btnCreateDatabAse.TabIndex = 4;
+            this.btnCreateDatabAse.Text = "Delete String";
+            this.btnCreateDatabAse.UseVisualStyleBackColor = true;
+            this.btnCreateDatabAse.Click += new System.EventHandler(this.btnCreateDatabAse_Click);
             // 
             // label2
             // 
@@ -129,10 +131,8 @@ namespace vaalrusGUIPrototype
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1099, 584);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnTestData);
-            this.Controls.Add(this.btnCreateDatabAse);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.pnlConnetionControls);
             this.Controls.Add(this.picBackground);
             this.Name = "frmSettings";
