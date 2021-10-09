@@ -80,6 +80,7 @@ namespace vaalrusGUIPrototype
         {
             if (pn.GetType() == typeof(Panel))
             {
+                pn.BackColor = Color.FromArgb(58, 93, 117);
                 foreach (Control co in pn.Controls)
                 {
                     if (co.GetType() == typeof(Button))
@@ -117,6 +118,14 @@ namespace vaalrusGUIPrototype
                         dtgg.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                         dtgg.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                         dtgg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        dtgg.AllowUserToAddRows = false;
+                        dtgg.AllowUserToDeleteRows = false;
+                        dtgg.AllowUserToOrderColumns = false;
+                        dtgg.AllowUserToResizeRows = false;
+                        dtgg.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+                        dtgg.RowHeadersVisible = false;
+                        dtgg.ColumnHeadersHeight = 4;
+                        dtgg.EnableHeadersVisualStyles = false;
 
 
                     }
@@ -149,8 +158,7 @@ namespace vaalrusGUIPrototype
                     if (co.GetType() == typeof(GroupBox))
                     {
                         GroupBox gpc = (GroupBox)co;
-                        //gpc.ForeColor = GlobalSettings.SecondaryColor;
-                        gpc.ForeColor = Color.White;
+                        gpc.ForeColor = GlobalSettings.SecondaryColor;
                         gpc.Font = GlobalSettings.font;
 
                     }
@@ -159,6 +167,13 @@ namespace vaalrusGUIPrototype
                         ListBox lsc = (ListBox)co;
                         lsc.ForeColor = GlobalSettings.SecondaryColor;
                         lsc.Font = GlobalSettings.font;
+
+                    }
+                    if (co.GetType() == typeof(CheckBox))
+                    {
+                        CheckBox ch = (CheckBox)co;
+                        ch.ForeColor = Color.White;
+                        ch.Font = GlobalSettings.font;
 
                     }
                 }
