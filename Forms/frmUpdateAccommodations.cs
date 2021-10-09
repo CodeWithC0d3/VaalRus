@@ -464,8 +464,11 @@ namespace vaalrusGUIPrototype
 
         private void txtSearchID_TextChanged(object sender, EventArgs e)
         {
+            int parsedval;
             if (txtSearchID.Text.Length > 0)
             {
+                if (!int.TryParse(txtSearchID.Text, out parsedval)) txtSearchID.BackColor = Color.FromArgb(255, 204, 204);
+                else txtSearchID.BackColor = Color.White;
                 string search = txtSearchID.Text;
                 txtSearchOccupants.Clear();
                 txtsearchPrice.Clear();
@@ -476,7 +479,10 @@ namespace vaalrusGUIPrototype
 
             }
             else
+            {
+                txtSearchID.BackColor = Color.White;
                 Display(strDisplay);
+            }
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -781,9 +787,12 @@ namespace vaalrusGUIPrototype
             int serType = 0;
             Boolean active = true;
             string searchType = "";
+            int parsedval;
             if (txtSearchOccupants.Text.Length > 0)
             {
-                if(comboBoxSearchType.SelectedItem != null) searchType = comboBoxSearchType.SelectedItem.ToString();
+                if (!int.TryParse(txtSearchOccupants.Text, out parsedval)) txtSearchOccupants.BackColor = Color.FromArgb(255, 204, 204);
+                else txtSearchOccupants.BackColor = Color.White;
+                if (comboBoxSearchType.SelectedItem != null) searchType = comboBoxSearchType.SelectedItem.ToString();
                 //int serID = Convert.ToInt32(txtSearchID.Text);
                 //if (comboBoxSearchType.Text.Length > 0) serType = Convert.ToInt32(txtSearchType.Text);
                 if (txtSearchOccupants.Text.Length > 0) int.TryParse(txtSearchOccupants.Text, out serOcc);
@@ -802,18 +811,24 @@ namespace vaalrusGUIPrototype
                     Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Number_Of_Occupants Like '%{serOcc}%' AND Accommodation_Price Like '%{serPrice}%' AND Accommodationtype.AccommodationType Like '%{searchType}%' AND Active = '{active}';");
             }
             else
+            {
+                txtSearchOccupants.BackColor = Color.White;
                 Display(strDisplay);
+            }
         }
 
         private void txtsearchPrice_TextChanged(object sender, EventArgs e)
         {
             int serOcc = 0;
             double serPrice = 0;
-            int serType = 0;
+            
             string searchType = "";
             Boolean active = false;
+            int parsedval;
             if (txtsearchPrice.Text.Length > 0)
             {
+                if (!int.TryParse(txtsearchPrice.Text, out parsedval)) txtsearchPrice.BackColor = Color.FromArgb(255, 204, 204);
+                else txtsearchPrice.BackColor = Color.White;
                 if (comboBoxSearchType.SelectedItem != null) searchType = comboBoxSearchType.SelectedItem.ToString();
                 //int serID = Convert.ToInt32(txtSearchID.Text);
                 //if (txtSearchType.Text.Length > 0) serType = Convert.ToInt32(txtSearchType.Text);
@@ -832,7 +847,10 @@ namespace vaalrusGUIPrototype
                     Display($"Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Accommodation_Price Like '%{serPrice}%' AND Number_Of_Occupants Like '%{serOcc}%' AND Accommodationtype.AccommodationType Like '%{searchType}%' AND Active = '{active}';");
             }
             else
+            {
+                txtsearchPrice.BackColor = Color.White;
                 Display(strDisplay);
+            }
         }
     }
 }
