@@ -34,6 +34,7 @@ namespace vaalrusGUIPrototype.Forms
             this.panel5 = new System.Windows.Forms.Panel();
             this.dgView = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lblOutput = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbSearchCustNo = new System.Windows.Forms.ComboBox();
@@ -45,7 +46,6 @@ namespace vaalrusGUIPrototype.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblOutput = new System.Windows.Forms.Label();
             this.btnAll = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -134,6 +134,15 @@ namespace vaalrusGUIPrototype.Forms
             this.panel4.Size = new System.Drawing.Size(325, 513);
             this.panel4.TabIndex = 19;
             // 
+            // lblOutput
+            // 
+            this.lblOutput.AutoSize = true;
+            this.lblOutput.Location = new System.Drawing.Point(23, 488);
+            this.lblOutput.Name = "lblOutput";
+            this.lblOutput.Size = new System.Drawing.Size(39, 13);
+            this.lblOutput.TabIndex = 6;
+            this.lblOutput.Text = "Output";
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panel1);
@@ -166,7 +175,7 @@ namespace vaalrusGUIPrototype.Forms
             this.cbSearchCustNo.Location = new System.Drawing.Point(119, 7);
             this.cbSearchCustNo.Name = "cbSearchCustNo";
             this.cbSearchCustNo.Size = new System.Drawing.Size(142, 21);
-            this.cbSearchCustNo.TabIndex = 8;
+            this.cbSearchCustNo.TabIndex = 0;
             this.cbSearchCustNo.SelectedIndexChanged += new System.EventHandler(this.cbSearchCustNo_SelectedIndexChanged);
             // 
             // txtSearchID
@@ -174,7 +183,7 @@ namespace vaalrusGUIPrototype.Forms
             this.txtSearchID.Location = new System.Drawing.Point(119, 94);
             this.txtSearchID.Name = "txtSearchID";
             this.txtSearchID.Size = new System.Drawing.Size(142, 20);
-            this.txtSearchID.TabIndex = 7;
+            this.txtSearchID.TabIndex = 3;
             this.txtSearchID.TextChanged += new System.EventHandler(this.txtSearchID_TextChanged_1);
             // 
             // txtSearchLastName
@@ -182,7 +191,7 @@ namespace vaalrusGUIPrototype.Forms
             this.txtSearchLastName.Location = new System.Drawing.Point(119, 64);
             this.txtSearchLastName.Name = "txtSearchLastName";
             this.txtSearchLastName.Size = new System.Drawing.Size(142, 20);
-            this.txtSearchLastName.TabIndex = 6;
+            this.txtSearchLastName.TabIndex = 2;
             this.txtSearchLastName.TextChanged += new System.EventHandler(this.txtSearchLastName_TextChanged);
             // 
             // txtSearchFirstName
@@ -190,7 +199,7 @@ namespace vaalrusGUIPrototype.Forms
             this.txtSearchFirstName.Location = new System.Drawing.Point(119, 34);
             this.txtSearchFirstName.Name = "txtSearchFirstName";
             this.txtSearchFirstName.Size = new System.Drawing.Size(142, 20);
-            this.txtSearchFirstName.TabIndex = 5;
+            this.txtSearchFirstName.TabIndex = 1;
             this.txtSearchFirstName.TextChanged += new System.EventHandler(this.txtSearchFirstName_TextChanged);
             // 
             // label4
@@ -236,15 +245,6 @@ namespace vaalrusGUIPrototype.Forms
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(319, 39);
             this.panel2.TabIndex = 16;
-            // 
-            // lblOutput
-            // 
-            this.lblOutput.AutoSize = true;
-            this.lblOutput.Location = new System.Drawing.Point(23, 488);
-            this.lblOutput.Name = "lblOutput";
-            this.lblOutput.Size = new System.Drawing.Size(39, 13);
-            this.lblOutput.TabIndex = 6;
-            this.lblOutput.Text = "Output";
             // 
             // btnAll
             // 
@@ -314,7 +314,7 @@ namespace vaalrusGUIPrototype.Forms
             this.cbOverride.Location = new System.Drawing.Point(17, 252);
             this.cbOverride.Name = "cbOverride";
             this.cbOverride.Size = new System.Drawing.Size(99, 17);
-            this.cbOverride.TabIndex = 20;
+            this.cbOverride.TabIndex = 7;
             this.cbOverride.Text = "Saftey Override";
             this.cbOverride.UseVisualStyleBackColor = true;
             this.cbOverride.CheckedChanged += new System.EventHandler(this.cbOverride_CheckedChanged);
@@ -333,14 +333,14 @@ namespace vaalrusGUIPrototype.Forms
             this.txtContact.Location = new System.Drawing.Point(126, 153);
             this.txtContact.Name = "txtContact";
             this.txtContact.Size = new System.Drawing.Size(142, 20);
-            this.txtContact.TabIndex = 18;
+            this.txtContact.TabIndex = 3;
             // 
             // txtAddress
             // 
             this.txtAddress.Location = new System.Drawing.Point(126, 212);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(142, 20);
-            this.txtAddress.TabIndex = 16;
+            this.txtAddress.TabIndex = 5;
             // 
             // btnUpdate
             // 
@@ -348,7 +348,7 @@ namespace vaalrusGUIPrototype.Forms
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(159, 34);
-            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Update Customer";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -367,21 +367,21 @@ namespace vaalrusGUIPrototype.Forms
             this.txtID.Location = new System.Drawing.Point(127, 115);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(142, 20);
-            this.txtID.TabIndex = 13;
+            this.txtID.TabIndex = 2;
             // 
             // txtLastName
             // 
             this.txtLastName.Location = new System.Drawing.Point(127, 85);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(142, 20);
-            this.txtLastName.TabIndex = 12;
+            this.txtLastName.TabIndex = 1;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(126, 181);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(142, 20);
-            this.txtEmail.TabIndex = 11;
+            this.txtEmail.TabIndex = 4;
             // 
             // label9
             // 
@@ -415,7 +415,7 @@ namespace vaalrusGUIPrototype.Forms
             this.txtFirstName.Location = new System.Drawing.Point(127, 57);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(142, 20);
-            this.txtFirstName.TabIndex = 9;
+            this.txtFirstName.TabIndex = 0;
             // 
             // label5
             // 

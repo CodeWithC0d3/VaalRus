@@ -104,7 +104,7 @@ namespace vaalrusGUIPrototype.Forms
             this.btnClear.Location = new System.Drawing.Point(197, 390);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(102, 38);
-            this.btnClear.TabIndex = 9;
+            this.btnClear.TabIndex = 1;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -152,21 +152,21 @@ namespace vaalrusGUIPrototype.Forms
             this.txtAddress3.Location = new System.Drawing.Point(124, 85);
             this.txtAddress3.Name = "txtAddress3";
             this.txtAddress3.Size = new System.Drawing.Size(191, 20);
-            this.txtAddress3.TabIndex = 10;
+            this.txtAddress3.TabIndex = 2;
             // 
             // txtAddress2
             // 
             this.txtAddress2.Location = new System.Drawing.Point(124, 56);
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.Size = new System.Drawing.Size(191, 20);
-            this.txtAddress2.TabIndex = 9;
+            this.txtAddress2.TabIndex = 1;
             // 
             // txtAddress1
             // 
             this.txtAddress1.Location = new System.Drawing.Point(124, 24);
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.Size = new System.Drawing.Size(191, 20);
-            this.txtAddress1.TabIndex = 8;
+            this.txtAddress1.TabIndex = 0;
             // 
             // label8
             // 
@@ -200,7 +200,7 @@ namespace vaalrusGUIPrototype.Forms
             this.txtEmail.Location = new System.Drawing.Point(148, 37);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(134, 20);
-            this.txtEmail.TabIndex = 4;
+            this.txtEmail.TabIndex = 1;
             // 
             // label6
             // 
@@ -216,7 +216,7 @@ namespace vaalrusGUIPrototype.Forms
             this.txtContactNumber.Location = new System.Drawing.Point(24, 37);
             this.txtContactNumber.Name = "txtContactNumber";
             this.txtContactNumber.Size = new System.Drawing.Size(100, 20);
-            this.txtContactNumber.TabIndex = 3;
+            this.txtContactNumber.TabIndex = 0;
             // 
             // label5
             // 
@@ -304,7 +304,7 @@ namespace vaalrusGUIPrototype.Forms
             this.btnCreate.Location = new System.Drawing.Point(310, 390);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(130, 38);
-            this.btnCreate.TabIndex = 6;
+            this.btnCreate.TabIndex = 0;
             this.btnCreate.Text = "Create customer";
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);

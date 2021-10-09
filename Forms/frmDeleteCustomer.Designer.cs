@@ -164,7 +164,7 @@ namespace vaalrusGUIPrototype
             this.cbOverride.Location = new System.Drawing.Point(25, 102);
             this.cbOverride.Name = "cbOverride";
             this.cbOverride.Size = new System.Drawing.Size(99, 17);
-            this.cbOverride.TabIndex = 21;
+            this.cbOverride.TabIndex = 0;
             this.cbOverride.Text = "Saftey Override";
             this.cbOverride.UseVisualStyleBackColor = true;
             this.cbOverride.CheckedChanged += new System.EventHandler(this.cbOverride_CheckedChanged);
@@ -175,7 +175,7 @@ namespace vaalrusGUIPrototype
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(120, 34);
-            this.button2.TabIndex = 7;
+            this.button2.TabIndex = 1;
             this.button2.Text = "Delete";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.btnDelete_Click);
@@ -261,7 +261,7 @@ namespace vaalrusGUIPrototype
             this.cbSearchCustNo.Location = new System.Drawing.Point(119, 7);
             this.cbSearchCustNo.Name = "cbSearchCustNo";
             this.cbSearchCustNo.Size = new System.Drawing.Size(142, 21);
-            this.cbSearchCustNo.TabIndex = 8;
+            this.cbSearchCustNo.TabIndex = 0;
             this.cbSearchCustNo.SelectedIndexChanged += new System.EventHandler(this.cbSearchCustNo_SelectedIndexChanged);
             // 
             // txtSearchID
@@ -269,7 +269,7 @@ namespace vaalrusGUIPrototype
             this.txtSearchID.Location = new System.Drawing.Point(119, 94);
             this.txtSearchID.Name = "txtSearchID";
             this.txtSearchID.Size = new System.Drawing.Size(142, 20);
-            this.txtSearchID.TabIndex = 7;
+            this.txtSearchID.TabIndex = 3;
             this.txtSearchID.TextChanged += new System.EventHandler(this.txtSearchID_TextChanged);
             // 
             // txtSearchLastName
@@ -277,7 +277,7 @@ namespace vaalrusGUIPrototype
             this.txtSearchLastName.Location = new System.Drawing.Point(119, 64);
             this.txtSearchLastName.Name = "txtSearchLastName";
             this.txtSearchLastName.Size = new System.Drawing.Size(142, 20);
-            this.txtSearchLastName.TabIndex = 6;
+            this.txtSearchLastName.TabIndex = 2;
             this.txtSearchLastName.TextChanged += new System.EventHandler(this.txtSearchLastName_TextChanged);
             // 
             // txtSearchFirstName
@@ -285,7 +285,7 @@ namespace vaalrusGUIPrototype
             this.txtSearchFirstName.Location = new System.Drawing.Point(119, 34);
             this.txtSearchFirstName.Name = "txtSearchFirstName";
             this.txtSearchFirstName.Size = new System.Drawing.Size(142, 20);
-            this.txtSearchFirstName.TabIndex = 5;
+            this.txtSearchFirstName.TabIndex = 1;
             this.txtSearchFirstName.TextChanged += new System.EventHandler(this.txtSearchFirstName_TextChanged);
             // 
             // label4

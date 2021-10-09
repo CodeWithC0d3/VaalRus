@@ -125,7 +125,7 @@ namespace vaalrusGUIPrototype.Forms
             this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(107, 34);
-            this.btnClear.TabIndex = 7;
+            this.btnClear.TabIndex = 4;
             this.btnClear.Text = "Clear Filter";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -136,7 +136,7 @@ namespace vaalrusGUIPrototype.Forms
             this.btnAll.Margin = new System.Windows.Forms.Padding(2);
             this.btnAll.Name = "btnAll";
             this.btnAll.Size = new System.Drawing.Size(107, 34);
-            this.btnAll.TabIndex = 0;
+            this.btnAll.TabIndex = 3;
             this.btnAll.Text = "Reload Data";
             this.btnAll.UseVisualStyleBackColor = true;
             this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
@@ -146,7 +146,7 @@ namespace vaalrusGUIPrototype.Forms
             this.txtID.Location = new System.Drawing.Point(114, 80);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(135, 20);
-            this.txtID.TabIndex = 5;
+            this.txtID.TabIndex = 2;
             this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             // 
             // txtLastName
@@ -154,7 +154,7 @@ namespace vaalrusGUIPrototype.Forms
             this.txtLastName.Location = new System.Drawing.Point(114, 49);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(135, 20);
-            this.txtLastName.TabIndex = 4;
+            this.txtLastName.TabIndex = 1;
             this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
             // 
             // txtFirstName
@@ -162,7 +162,7 @@ namespace vaalrusGUIPrototype.Forms
             this.txtFirstName.Location = new System.Drawing.Point(114, 14);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(135, 20);
-            this.txtFirstName.TabIndex = 3;
+            this.txtFirstName.TabIndex = 0;
             this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // label3
