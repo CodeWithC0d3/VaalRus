@@ -29,6 +29,7 @@ namespace vaalrusGUIPrototype.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dgView = new System.Windows.Forms.DataGridView();
@@ -48,9 +49,11 @@ namespace vaalrusGUIPrototype.Forms
             this.btnAll = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtCustNo = new System.Windows.Forms.TextBox();
+            this.cbOverride = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtContact = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -62,8 +65,11 @@ namespace vaalrusGUIPrototype.Forms
             this.label7 = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtCustNo = new System.Windows.Forms.TextBox();
-            this.cbOverride = new System.Windows.Forms.CheckBox();
+            this.eProviderFN = new System.Windows.Forms.ErrorProvider(this.components);
+            this.eProviderLN = new System.Windows.Forms.ErrorProvider(this.components);
+            this.eProviderID = new System.Windows.Forms.ErrorProvider(this.components);
+            this.eProviderCN = new System.Windows.Forms.ErrorProvider(this.components);
+            this.eProviderEmail = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelChildForm.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
@@ -73,6 +79,11 @@ namespace vaalrusGUIPrototype.Forms
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderFN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderLN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderCN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderEmail)).BeginInit();
             this.SuspendLayout();
             // 
             // panelChildForm
@@ -280,6 +291,34 @@ namespace vaalrusGUIPrototype.Forms
             this.panel3.Size = new System.Drawing.Size(310, 287);
             this.panel3.TabIndex = 0;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 27);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(94, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Customer Number:";
+            // 
+            // txtCustNo
+            // 
+            this.txtCustNo.Location = new System.Drawing.Point(187, 24);
+            this.txtCustNo.Name = "txtCustNo";
+            this.txtCustNo.Size = new System.Drawing.Size(82, 20);
+            this.txtCustNo.TabIndex = 20;
+            this.txtCustNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // cbOverride
+            // 
+            this.cbOverride.AutoSize = true;
+            this.cbOverride.Location = new System.Drawing.Point(17, 252);
+            this.cbOverride.Name = "cbOverride";
+            this.cbOverride.Size = new System.Drawing.Size(99, 17);
+            this.cbOverride.TabIndex = 20;
+            this.cbOverride.Text = "Saftey Override";
+            this.cbOverride.UseVisualStyleBackColor = true;
+            this.cbOverride.CheckedChanged += new System.EventHandler(this.cbOverride_CheckedChanged);
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -295,15 +334,6 @@ namespace vaalrusGUIPrototype.Forms
             this.txtContact.Name = "txtContact";
             this.txtContact.Size = new System.Drawing.Size(142, 20);
             this.txtContact.TabIndex = 18;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 27);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Customer Number:";
             // 
             // txtAddress
             // 
@@ -396,24 +426,25 @@ namespace vaalrusGUIPrototype.Forms
             this.label5.TabIndex = 9;
             this.label5.Text = "First name:";
             // 
-            // txtCustNo
+            // eProviderFN
             // 
-            this.txtCustNo.Location = new System.Drawing.Point(187, 24);
-            this.txtCustNo.Name = "txtCustNo";
-            this.txtCustNo.Size = new System.Drawing.Size(82, 20);
-            this.txtCustNo.TabIndex = 20;
-            this.txtCustNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.eProviderFN.ContainerControl = this;
             // 
-            // cbOverride
+            // eProviderLN
             // 
-            this.cbOverride.AutoSize = true;
-            this.cbOverride.Location = new System.Drawing.Point(17, 252);
-            this.cbOverride.Name = "cbOverride";
-            this.cbOverride.Size = new System.Drawing.Size(66, 17);
-            this.cbOverride.TabIndex = 20;
-            this.cbOverride.Text = "Override";
-            this.cbOverride.UseVisualStyleBackColor = true;
-            this.cbOverride.CheckedChanged += new System.EventHandler(this.cbOverride_CheckedChanged);
+            this.eProviderLN.ContainerControl = this;
+            // 
+            // eProviderID
+            // 
+            this.eProviderID.ContainerControl = this;
+            // 
+            // eProviderCN
+            // 
+            this.eProviderCN.ContainerControl = this;
+            // 
+            // eProviderEmail
+            // 
+            this.eProviderEmail.ContainerControl = this;
             // 
             // frmUpdateCustomer
             // 
@@ -436,6 +467,11 @@ namespace vaalrusGUIPrototype.Forms
             this.groupBox2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderFN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderLN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderCN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eProviderEmail)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -477,5 +513,10 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtCustNo;
         private System.Windows.Forms.CheckBox cbOverride;
+        private System.Windows.Forms.ErrorProvider eProviderFN;
+        private System.Windows.Forms.ErrorProvider eProviderLN;
+        private System.Windows.Forms.ErrorProvider eProviderID;
+        private System.Windows.Forms.ErrorProvider eProviderCN;
+        private System.Windows.Forms.ErrorProvider eProviderEmail;
     }
 }

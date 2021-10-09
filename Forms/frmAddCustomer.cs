@@ -203,231 +203,22 @@ namespace vaalrusGUIPrototype.Forms
         {
             //set
             firstName = txtFirstName.Text;
-
-            //check if empty
-            if (string.IsNullOrEmpty(firstName))
-            {
-                // e.Cancel = true;
-                txtFirstName.Focus();
-                eProviderFN.SetError(txtFirstName, "Customer first name required");
-
-                //set error flag
-                errorFlagFirstName = false;
-            }
-            else
-            {
-                //set error flag
-                errorFlagFirstName = true;
-                eProviderFN.SetError(txtFirstName, "");
-            }
-
-            if (firstName.Length < 2) //check if longer than 2 characters
-            {
-                // e.Cancel = true;
-                txtFirstName.Focus();
-                eProviderFN.SetError(txtFirstName, "Customer first name must be longer than 2 characters");
-
-                //set error flag
-                errorFlagFirstName = false;
-
-            }
-            else
-            {
-                //set error flag
-                errorFlagFirstName = true;
-                eProviderFN.SetError(txtFirstName, "");
-            }
-
-
-            //set
             lastName = txtLastName.Text;
+            idNo = txtID.Text;
+            contactNo = txtContactNumber.Text;
+            email = txtEmail.Text;
 
-            //check if empty
-            if (string.IsNullOrEmpty(lastName))
-            {
-                //e.Cancel = true;
-                txtLastName.Focus();
-                eProviderLN.SetError(txtLastName, "Customer last name required");
-
-                //set error flag
-                errorFlagLastName = false;
-            }
-            else
-            {
-                //set error flag
-                errorFlagLastName = true;
-                eProviderLN.SetError(txtLastName, "");
-            }
+            firstNameValidate(firstName);
+            lastNameValidate(lastName);
+            IDValidate(idNo);
+            contactNoValidate(contactNo);
+            emailValidate(email);
 
 
-                if (lastName.Length < 2) //check if longer than 2 characters
+
+
+            if (conDB() && errorFlagFirstName && errorFlagLastName && errorFlagID && errorFlagEmail && errorFlagContactNo)
                 {
-                    //e.Cancel = true;
-                    txtLastName.Focus();
-                    eProviderLN.SetError(txtLastName, "Customer last name must be longer than 2 characters");
-
-                    //set error flag
-                    errorFlagLastName = false;
-                }
-                else
-                {
-                    //set error flag
-                    errorFlagLastName = true;
-                eProviderLN.SetError(txtLastName, "");
-            }
-
-                idNo = txtID.Text;
-
-                //check if empty
-                if (string.IsNullOrEmpty(idNo))
-                {
-                    //e.Cancel = true;
-                    txtID.Focus();
-                    eProviderID.SetError(txtID, "Customer ID number required");
-
-                    //set error flag
-                    errorFlagID = false;
-                }
-                else
-                {
-                    //set error flag
-                    errorFlagID = true;
-                eProviderID.SetError(txtID, "");
-            }
-                if (idNo.Length != 13) //check if longer than 2 characters
-                {
-                    //e.Cancel = true;
-                    txtID.Focus();
-                    eProviderID.SetError(txtID, "An South African ID needs to be exactly 13 characters");
-
-                    //set error flag
-                    errorFlagID = false;
-                }
-                else
-                {
-                    //set error flag
-                    errorFlagID = true;
-                eProviderID.SetError(txtID, "");
-            }
-
-                contactNo = txtContactNumber.Text;
-
-                string regex = @"^[0-9]+$"; // regular expression for matching only numbers
-
-                //check if empty
-                if (string.IsNullOrEmpty(contactNo))
-                {
-                    //e.Cancel = true;
-                    txtContactNumber.Focus();
-                    eProviderCN.SetError(txtContactNumber, "Customer Contact NUmber required");
-
-                    //set error flag
-                    errorFlagContactNo = false;
-                }
-                else
-                {
-                    //set error flag
-                    errorFlagContactNo = true;
-                eProviderCN.SetError(txtContactNumber, "");
-            }
-
-                if (contactNo.Length < 6) //check if longer than 5 characters
-                {
-                    //e.Cancel = true;
-                    txtContactNumber.Focus();
-                    eProviderCN.SetError(txtContactNumber, "Contact number must be atleast 6 digits");
-
-                    //set error flag
-                    errorFlagContactNo = false;
-                }
-                else
-                {
-                    //set error flag
-                    errorFlagContactNo = true;
-                eProviderCN.SetError(txtContactNumber, "");
-            }
-
-                if (!Regex.IsMatch(contactNo, regex)) //check that input is only numbers
-                {
-                    //e.Cancel = true;
-                    txtContactNumber.Focus();
-                    eProviderCN.SetError(txtContactNumber, "Only numbers for contact numbers");
-
-                    //set error flag
-                    errorFlagContactNo = false;
-                }
-                else
-                {
-                    //set error flag
-                    errorFlagContactNo = true;
-                eProviderCN.SetError(txtContactNumber, "");
-            }
-
-                email = txtEmail.Text;
-
-                //regular expression for matching email valid characters
-                string regex2 = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
-
-                //check if empty
-                if (string.IsNullOrEmpty(email))
-                {
-                    //e.Cancel = true;
-                    txtEmail.Focus();
-                    eProviderEmail.SetError(txtEmail, "Email address required");
-
-                    //set error flag
-                    errorFlagEmail = false;
-                }
-                else
-                {
-                    //set error flag
-                    errorFlagEmail = true;
-                eProviderEmail.SetError(txtEmail, "");
-            }
-                if (email.Length < 4) //check if longer than 4 characters
-                {
-                    //e.Cancel = true;
-                    txtEmail.Focus();
-                    eProviderEmail.SetError(txtEmail, "An email address must be atleast 3 characters long");
-
-                    //set error flag
-                    errorFlagEmail = false;
-                }
-                else
-                {
-                    //set error flag
-                    errorFlagEmail = true;
-                eProviderEmail.SetError(txtEmail, "");
-            }
-
-                if (!Regex.IsMatch(email, regex2)) //check that input is only numbers
-                {
-                    //e.Cancel = true;
-                    txtEmail.Focus();
-                    eProviderEmail.SetError(txtEmail, "Not a valid email address");
-
-                    //set error flag
-                    errorFlagEmail = false;
-                }
-                else
-                {
-                    //set error flag
-                    errorFlagEmail = true;
-                eProviderEmail.SetError(txtEmail, "");
-            }
-
-                if (conDB() && errorFlagFirstName && errorFlagLastName && errorFlagID && errorFlagEmail && errorFlagContactNo)
-                {
-                    /*
-                        //get
-                                bool errorFlagFirstName = false;
-            bool errorFlagLastName = false;
-            bool errorFlagID = false;
-            bool errorFlagEmail = false;
-            bool errorFlagContactNo = false;
-                        s
-                    */
-
 
 
                     //address can be null
@@ -470,56 +261,272 @@ namespace vaalrusGUIPrototype.Forms
 
             }
 
-        /**
-         *  Validation checking
-         */
-        /*
-        private void txtFirstName_Validating(object sender, CancelEventArgs e)
-        {
-            //set
-            firstName = txtFirstName.Text;
 
+        /*
+         * * Validation errors
+         */
+
+        private void firstNameValidate(String firstName)
+        {
             //check if empty
             if (string.IsNullOrEmpty(firstName))
             {
-                e.Cancel = true;
+                // e.Cancel = true;
                 txtFirstName.Focus();
                 eProviderFN.SetError(txtFirstName, "Customer first name required");
 
                 //set error flag
-                errorFlag = false;
-            }
-            else if (firstName.Length < 2) //check if longer than 2 characters
-            {
-                e.Cancel = true;
-                txtFirstName.Focus();
-                eProviderFN.SetError(txtFirstName, "Customer first name must be longer than 2 characters");
-
-                //set error flag
-                errorFlag = false;
-
+                errorFlagFirstName = false;
             }
             else
             {
                 //set error flag
-                errorFlag = true;
+                errorFlagFirstName = true;
+                eProviderFN.SetError(txtFirstName, "");
+
+                if (firstName.Length < 2) //check if longer than 2 characters
+                {
+                    // e.Cancel = true;
+                    txtFirstName.Focus();
+                    eProviderFN.SetError(txtFirstName, "Customer first name must be longer than 2 characters");
+
+                    //set error flag
+                    errorFlagFirstName = false;
+
+                }
+                else
+                {
+                    //set error flag
+                    errorFlagFirstName = true;
+                    eProviderFN.SetError(txtFirstName, "");
+                }
             }
-        }
-*/
 
 
-        private void firstNameValidate()
-        { 
-        
-        
-        
+
+
         }
 
 
+        private void lastNameValidate(String lastName)
+        {
+            //check if empty
+            if (string.IsNullOrEmpty(lastName))
+            {
+                //e.Cancel = true;
+                txtLastName.Focus();
+                eProviderLN.SetError(txtLastName, "Customer last name required");
+
+                //set error flag
+                errorFlagLastName = false;
+            }
+            else
+            {
+                //set error flag
+                errorFlagLastName = true;
+                eProviderLN.SetError(txtLastName, "");
+
+                if (lastName.Length < 2) //check if longer than 2 characters
+                {
+                    //e.Cancel = true;
+                    txtLastName.Focus();
+                    eProviderLN.SetError(txtLastName, "Customer last name must be longer than 2 characters");
+
+                    //set error flag
+                    errorFlagLastName = false;
+                }
+                else
+                {
+                    //set error flag
+                    errorFlagLastName = true;
+                    eProviderLN.SetError(txtLastName, "");
+                }
+            }
 
 
 
-        
+
+        }
+
+
+        private void IDValidate(String idNo)
+        {
+
+            string regex = @"^[0-9]+$"; // regular expression for matching only numbers
+
+            //check if empty
+            if (string.IsNullOrEmpty(idNo))
+            {
+                //e.Cancel = true;
+                txtID.Focus();
+                eProviderID.SetError(txtID, "Customer ID number required");
+
+                //set error flag
+                errorFlagID = false;
+            }
+            else
+            {
+                //set error flag
+                errorFlagID = true;
+                eProviderID.SetError(txtID, "");
+
+                if (idNo.Length != 13) //check if longer than 2 characters
+                {
+                    //e.Cancel = true;
+                    txtID.Focus();
+                    eProviderID.SetError(txtID, "An South African ID needs to be exactly 13 characters");
+
+                    //set error flag
+                    errorFlagID = false;
+                }
+                else
+                {
+                    //set error flag
+                    errorFlagID = true;
+                    eProviderID.SetError(txtID, "");
+
+                    if (!Regex.IsMatch(idNo, regex)) //check that input is only numbers
+                    {
+                        //e.Cancel = true;
+                        txtID.Focus();
+                        eProviderCN.SetError(txtID, "Only numbers for Identity numbers");
+
+                        //set error flag
+                        errorFlagContactNo = false;
+                    }
+                    else
+                    {
+                        //set error flag
+                        errorFlagContactNo = true;
+                        eProviderCN.SetError(txtID, "");
+                    }
+                }
+            }
+
+
+        }
+
+
+        private void contactNoValidate(String contactNo)
+        {
+            string regex = @"^[0-9]+$"; // regular expression for matching only numbers
+
+            //check if empty
+            if (string.IsNullOrEmpty(contactNo))
+            {
+                //e.Cancel = true;
+                txtContactNumber.Focus();
+                eProviderCN.SetError(txtContactNumber, "Customer Contact NUmber required");
+
+                //set error flag
+                errorFlagContactNo = false;
+            }
+            else
+            {
+                //set error flag
+                errorFlagContactNo = true;
+                eProviderCN.SetError(txtContactNumber, "");
+
+                if (contactNo.Length < 6) //check if longer than 5 characters
+                {
+                    //e.Cancel = true;
+                    txtContactNumber.Focus();
+                    eProviderCN.SetError(txtContactNumber, "Contact number must be atleast 6 digits");
+
+                    //set error flag
+                    errorFlagContactNo = false;
+                }
+                else
+                {
+                    //set error flag
+                    errorFlagContactNo = true;
+                    eProviderCN.SetError(txtContactNumber, "");
+
+                    if (!Regex.IsMatch(contactNo, regex)) //check that input is only numbers
+                    {
+                        //e.Cancel = true;
+                        txtContactNumber.Focus();
+                        eProviderCN.SetError(txtContactNumber, "Only numbers for contact numbers");
+
+                        //set error flag
+                        errorFlagContactNo = false;
+                    }
+                    else
+                    {
+                        //set error flag
+                        errorFlagContactNo = true;
+                        eProviderCN.SetError(txtContactNumber, "");
+                    }
+                }
+            }
+
+            
+
+
+
+
+        }
+
+
+        private void emailValidate(String email)
+        {
+            //regular expression for matching email valid characters
+            string regex2 = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+
+            //check if empty
+            if (string.IsNullOrEmpty(email))
+            {
+                //e.Cancel = true;
+                txtEmail.Focus();
+                eProviderEmail.SetError(txtEmail, "Email address required");
+
+                //set error flag
+                errorFlagEmail = false;
+            }
+            else
+            {
+                //set error flag
+                errorFlagEmail = true;
+                eProviderEmail.SetError(txtEmail, "");
+
+                if (email.Length < 4) //check if longer than 4 characters
+                {
+                    //e.Cancel = true;
+                    txtEmail.Focus();
+                    eProviderEmail.SetError(txtEmail, "An email address must be atleast 3 characters long");
+
+                    //set error flag
+                    errorFlagEmail = false;
+                }
+                else
+                {
+                    //set error flag
+                    errorFlagEmail = true;
+                    eProviderEmail.SetError(txtEmail, "");
+
+                    if (!Regex.IsMatch(email, regex2)) //check that input is only numbers
+                    {
+                        //e.Cancel = true;
+                        txtEmail.Focus();
+                        eProviderEmail.SetError(txtEmail, "Not a valid email address");
+
+                        //set error flag
+                        errorFlagEmail = false;
+                    }
+                    else
+                    {
+                        //set error flag
+                        errorFlagEmail = true;
+                        eProviderEmail.SetError(txtEmail, "");
+                    }
+                }
+            }
+            
+
+
+
+        }
+
 
     }
 }
