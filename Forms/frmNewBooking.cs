@@ -133,11 +133,12 @@ namespace vaalrusGUIPrototype.Forms
                         dtgg.ColumnHeadersDefaultCellStyle.SelectionBackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
                         dtgg.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                         dtgg.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                        dtgg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        dtgg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;                        
                         dtgg.AllowUserToAddRows = false;
                         dtgg.AllowUserToDeleteRows = false;
                         dtgg.AllowUserToOrderColumns = false;
                         dtgg.AllowUserToResizeRows = false;
+                        dtgg.AllowUserToResizeColumns = true;
                         dtgg.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
                         dtgg.RowHeadersVisible = false;
                         dtgg.ColumnHeadersHeight = 4;
@@ -196,6 +197,14 @@ namespace vaalrusGUIPrototype.Forms
 
             }
         }
+        private void sizeGrid()
+        {
+            for (int i = 0; i < grid.Columns.Count; i++)
+            {
+                grid.Columns[i].MinimumWidth = 100;
+            }
+
+        }
         private void frmNewBooking_Load(object sender, EventArgs e)
         {
             LoadTheme();
@@ -215,6 +224,7 @@ namespace vaalrusGUIPrototype.Forms
                 grid.DataMember = "Quotation_ID";
                 con.Close();
             }
+            sizeGrid();
         }
 
         private Boolean conDB()
@@ -289,11 +299,11 @@ namespace vaalrusGUIPrototype.Forms
                 grid.DataMember = "Quotation_ID";
                 con.Close();
             }
+            sizeGrid();
         }
         private void createErProviders()
         {
             customerIDErrorProvider = new ErrorProvider();
-
             customerIDErrorProvider.SetIconAlignment(txtFilterID, ErrorIconAlignment.MiddleRight);
             customerIDErrorProvider.SetIconPadding(txtFilterID, 2);
             customerIDErrorProvider.BlinkRate = 1000;
@@ -302,6 +312,7 @@ namespace vaalrusGUIPrototype.Forms
             quoteTextErrorProvider = new ErrorProvider();
             quoteTextErrorProvider.SetIconAlignment(txtFilterQuote, ErrorIconAlignment.MiddleRight);
             quoteTextErrorProvider.SetIconPadding(txtFilterQuote, 2);
+            quoteTextErrorProvider.BlinkRate = 1000;
             quoteTextErrorProvider.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
  
             fromDateErrorProvider = new ErrorProvider();
@@ -422,10 +433,12 @@ namespace vaalrusGUIPrototype.Forms
         }
         private void grid_SelectionChanged(object sender, EventArgs e)
         {
+            if (grid.CurrentRow != null)
+            {
+                qid = int.Parse(grid.CurrentRow.Cells[0].Value.ToString());
 
-            qid = int.Parse(grid.CurrentRow.Cells[0].Value.ToString());
-            
-            fillInFormation();
+                fillInFormation();
+            }           
         }
         private void btnFilter_Click(object sender, EventArgs e)
         {
@@ -433,6 +446,7 @@ namespace vaalrusGUIPrototype.Forms
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            
             if (conDB())
             {
                 sql = "SELECT Customer_ID FROM Quotation WHERE Quotation_ID = @qid";
@@ -665,6 +679,11 @@ namespace vaalrusGUIPrototype.Forms
                 btnCreate.Enabled = true;
                 txtRecievedAmount.BackColor = Color.White;
             }
+        }
+
+        private void grid_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
+        {
+            e.Column.FillWeight = 500;
         }
     }
 }

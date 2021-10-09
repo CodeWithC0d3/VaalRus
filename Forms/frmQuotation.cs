@@ -132,15 +132,17 @@ namespace vaalrusGUIPrototype.Forms
                         dtgg.ColumnHeadersDefaultCellStyle.SelectionBackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
                         dtgg.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                         dtgg.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                        dtgg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        dtgg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;                       
                         dtgg.AllowUserToAddRows = false;
                         dtgg.AllowUserToDeleteRows = false;
                         dtgg.AllowUserToOrderColumns = false;
                         dtgg.AllowUserToResizeRows = false;
+                        dtgg.AllowUserToResizeColumns = true;
                         dtgg.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
                         dtgg.RowHeadersVisible = false;
                         dtgg.ColumnHeadersHeight = 4;
                         dtgg.EnableHeadersVisualStyles = false;
+                        
 
 
                     }
@@ -192,7 +194,6 @@ namespace vaalrusGUIPrototype.Forms
         private void createErProviders()
         {
             userErrorProvider = new ErrorProvider();
-
             userErrorProvider.SetIconAlignment(txtUser, ErrorIconAlignment.MiddleRight);
             userErrorProvider.SetIconPadding(txtUser, 2);
             userErrorProvider.BlinkRate = 1000;
@@ -201,6 +202,7 @@ namespace vaalrusGUIPrototype.Forms
             customerErrorProvider = new ErrorProvider();
             customerErrorProvider.SetIconAlignment(cmbCustomer, ErrorIconAlignment.MiddleRight);
             customerErrorProvider.SetIconPadding(cmbCustomer, 2);
+            customerErrorProvider.BlinkRate = 1000;
             customerErrorProvider.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
 
             fromDateErrorProvider = new ErrorProvider();
@@ -222,11 +224,100 @@ namespace vaalrusGUIPrototype.Forms
             typeErrorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
 
             accListErrorProvider = new ErrorProvider();
-            accListErrorProvider.SetIconAlignment(lstAccommodation, ErrorIconAlignment.MiddleRight);
+            accListErrorProvider.SetIconAlignment(lstAccommodation, ErrorIconAlignment.BottomRight);
             accListErrorProvider.SetIconPadding(lstAccommodation, 2);
             accListErrorProvider.BlinkRate = 1000;
             accListErrorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
 
+        }
+        private void validatetxtUser()
+        {
+            if (txtUser.Text == "")
+            {
+                userErrorProvider.SetError(txtUser, "Please provide User");
+                btnGeneratQuote.Enabled = false;
+                txtUser.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                userErrorProvider.SetError(txtUser, "");
+                btnGeneratQuote.Enabled = true;
+                txtUser.BackColor = Color.White;
+            }
+            if (txtUser.Text.Length < 2 && txtUser.Text != "")
+            {
+                userErrorProvider.SetError(txtUser, "User name must be atleast 2 characters");
+                btnGeneratQuote.Enabled = false;
+                txtUser.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                userErrorProvider.SetError(txtUser, "");
+                btnGeneratQuote.Enabled = true;
+                txtUser.BackColor = Color.White;
+            }
+        }
+        private void validatecmbCustomer()
+        {
+            if (cmbCustomer.SelectedIndex == -1)
+            {
+                customerErrorProvider.SetError(cmbCustomer, "Please Choose a Customer");
+                btnGeneratQuote.Enabled = false;
+                cmbCustomer.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                customerErrorProvider.SetError(cmbCustomer, "2");
+                btnGeneratQuote.Enabled = true;
+                cmbCustomer.BackColor = Color.White;
+            }
+        }
+        private void validateDPFrom()
+        {
+            if (dpFrom.Value > dpTo.Value)
+            {
+                fromDateErrorProvider.SetError(dpFrom, "From Date can not be after TO date");
+                btnGeneratQuote.Enabled = false;
+                dpFrom.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                fromDateErrorProvider.SetError(dpFrom, "");
+                btnGeneratQuote.Enabled = true;
+                dpFrom.BackColor = Color.White;
+            }
+        }
+        private void validateType()
+        {
+            if (cmbFilter.Text == "")
+            {
+                typeErrorProvider.SetError(cmbFilter, "From Date can not be after TO date");
+                btnGeneratQuote.Enabled = false;
+                cmbFilter.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                typeErrorProvider.SetError(cmbFilter, "");
+                btnGeneratQuote.Enabled = true;
+                cmbFilter.BackColor = Color.White;
+            }
+        }
+        private void validateList()
+        {
+            if (lstAccommodation.Items.Count < 1)
+            {
+                accListErrorProvider.SetError(lstAccommodation, "Please select atleast one accommodation");
+                btnGeneratQuote.Enabled = false;
+                lstAccommodation.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                accListErrorProvider.SetError(lstAccommodation, "");
+                btnGeneratQuote.Enabled = true;
+                lstAccommodation.BackColor = Color.White;
+            }
+                
+                
         }
         private void frmQuotation_Load(object sender, EventArgs e)
         {
@@ -253,6 +344,7 @@ namespace vaalrusGUIPrototype.Forms
             this.reportViewer1.RefreshReport();
             this.reportViewer1.RefreshReport();
             txtUser.Focus();
+            //sizeGrid();
 
         }
         private void updateGrid(DateTime startDate,DateTime endDate)
@@ -289,6 +381,7 @@ namespace vaalrusGUIPrototype.Forms
                 grid_main.DataMember = "Booking_ID";
                 con.Close();
             }
+            sizeGrid();
         }
 
         private void pnlMain_Paint(object sender, PaintEventArgs e)
@@ -510,6 +603,12 @@ namespace vaalrusGUIPrototype.Forms
         }
         private void btnGeneratQuote_Click(object sender, EventArgs e)
         {
+            if (txtUser.Text == "" || cmbCustomer.SelectedIndex < 0 || lstAccommodation.Items.Count < 1)
+            {
+                validateList();
+                return;
+            }
+                
             totalPrice = getTotalPrice(accList);
             createdBy = txtUser.Text;
             createdDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
@@ -546,7 +645,7 @@ namespace vaalrusGUIPrototype.Forms
                     DateTime endDate = DateTime.Now.AddDays(14);
                     updateGrid(startDate, endDate);
                 }
-             
+                //sizeGrid();
 
             }
         }
@@ -598,7 +697,7 @@ namespace vaalrusGUIPrototype.Forms
         {
             lstAccommodation.Items.Clear();
             totalPrice = 0;
-            cmbAccommodation.SelectedIndex = -1;
+            cmbAccommodation.SelectedIndex = -1;           
             //selectFirst = false;
         }
 
@@ -607,6 +706,7 @@ namespace vaalrusGUIPrototype.Forms
             if (DateTime.Compare(dp_filterFrom.Value.Date,dp_filterTo.Value.Date) == -1)
             {
                 updateGrid(dp_filterFrom.Value.Date,dp_filterTo.Value.Date);
+                //sizeGrid();
             }
         }
 
@@ -615,34 +715,24 @@ namespace vaalrusGUIPrototype.Forms
             if (DateTime.Compare(dp_filterFrom.Value.Date, dp_filterTo.Value.Date) == -1 && ch_to.Checked)
             {
                 updateGrid(dp_filterFrom.Value.Date, dp_filterTo.Value.Date);
+                //sizeGrid();
             }
         }
 
         private void txtUser_Validated(object sender, EventArgs e)
         {
-            if (txtUser.Text == "")
-            {
-                userErrorProvider.SetError(txtUser,"Please provide User");
-            }
-            else
-            {
-                userErrorProvider.SetError(txtUser,"");
-            }
+            
         }
 
         private void txtUser_TextChanged(object sender, EventArgs e)
         {
-            userErrorProvider.SetError(txtUser, "");
-        }
+            validatetxtUser();
+            
+        }        
 
         private void cmbCustomer_Validated(object sender, EventArgs e)
         {
-            if (cmbCustomer.SelectedIndex == -1)
-            {
-                customerErrorProvider.SetError(cmbCustomer, "Choose a valid customer");
-            }
-           
-                customerErrorProvider.SetError(cmbCustomer, "");
+            
         }
 
         private void rb_quote_CheckedChanged(object sender, EventArgs e)
@@ -704,20 +794,26 @@ namespace vaalrusGUIPrototype.Forms
                 grid_accSet.DataMember = "Quotation_ID";
                 con.Close();
             }
+            sizeAccgrid();
         }
 
         private void grid_main_SelectionChanged(object sender, EventArgs e)
         {
-            try
+
+            if (grid_main.CurrentRow != null)
             {
-                string id = grid_main.CurrentRow.Cells[0].Value.ToString();
-                updateAccGrid(id);
+                try
+                {
+                    string id = grid_main.CurrentRow.Cells[0].Value.ToString();
+                    updateAccGrid(id);
+                }
+                catch (Exception)
+                {
+
+                }
             }
-            catch (Exception)
-            {
-                
-            }
-            
+            //if (grid_main.CurrentRow.Index )    
+    
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -851,6 +947,56 @@ namespace vaalrusGUIPrototype.Forms
         {
             btnQuote.Enabled = true;
             selectedQuoteID = grid_main.SelectedCells[0].Value.ToString();
+        }
+
+        private void cmbCustomer_TextChanged(object sender, EventArgs e)
+        {
+           // validatecmbCustomer();
+        }
+
+        private void dpFrom_ValueChanged(object sender, EventArgs e)
+        {
+            validateDPFrom();
+        }
+
+        private void dpTo_ValueChanged(object sender, EventArgs e)
+        {
+            validateDPFrom();
+        }
+
+        private void lstAccommodation_Validated(object sender, EventArgs e)
+        {
+            validateList();
+        }
+
+        private void cmbAccommodation_Validated(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grid_main_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
+        {
+
+           // e.Column.FillWeight = 500;
+        }
+        private void sizeGrid()
+        {
+            for (int i =0; i< grid_main.Columns.Count;i++)
+            {
+               grid_main.Columns[i].MinimumWidth = 100;
+
+
+            }
+           
+        }
+        private void sizeAccgrid()
+        {
+            for (int i = 0; i < grid_accSet.Columns.Count; i++)
+            {
+                grid_accSet.Columns[i].MinimumWidth = 100;
+
+
+            }
         }
     }
 }

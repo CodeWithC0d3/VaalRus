@@ -32,11 +32,13 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlButtons = new System.Windows.Forms.Panel();
             this.btnCreate = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pnlPayment = new System.Windows.Forms.Panel();
             this.txtRecievedAmount = new System.Windows.Forms.TextBox();
             this.dpRecieved = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pnlBookDetail = new System.Windows.Forms.Panel();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.txtEndDate = new System.Windows.Forms.TextBox();
@@ -48,6 +50,7 @@ namespace vaalrusGUIPrototype.Forms
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pnlCusInformation = new System.Windows.Forms.Panel();
             this.txtemail = new System.Windows.Forms.TextBox();
             this.txtCell = new System.Windows.Forms.TextBox();
@@ -74,21 +77,18 @@ namespace vaalrusGUIPrototype.Forms
             this.label18 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pnlMain.SuspendLayout();
             this.pnlButtons.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.pnlPayment.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.pnlBookDetail.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.pnlCusInformation.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.pnlFilter.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -123,6 +123,17 @@ namespace vaalrusGUIPrototype.Forms
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.pnlPayment);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox3.Location = new System.Drawing.Point(0, 368);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(324, 98);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Confirm Payment";
             // 
             // pnlPayment
             // 
@@ -169,6 +180,17 @@ namespace vaalrusGUIPrototype.Forms
             this.label15.Size = new System.Drawing.Size(79, 13);
             this.label15.TabIndex = 7;
             this.label15.Text = "Date Recieved";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.pnlBookDetail);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.Location = new System.Drawing.Point(0, 166);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(324, 202);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Quote Details";
             // 
             // pnlBookDetail
             // 
@@ -275,6 +297,17 @@ namespace vaalrusGUIPrototype.Forms
             this.label9.Size = new System.Drawing.Size(50, 13);
             this.label9.TabIndex = 0;
             this.label9.Text = "Quote Nr";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.pnlCusInformation);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(324, 166);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Customer Information";
             // 
             // pnlCusInformation
             // 
@@ -407,6 +440,7 @@ namespace vaalrusGUIPrototype.Forms
             this.grid.Name = "grid";
             this.grid.Size = new System.Drawing.Size(852, 462);
             this.grid.TabIndex = 1;
+            this.grid.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.grid_ColumnAdded);
             this.grid.SelectionChanged += new System.EventHandler(this.grid_SelectionChanged);
             // 
             // pnlFilter
@@ -550,39 +584,6 @@ namespace vaalrusGUIPrototype.Forms
             this.label17.TabIndex = 1;
             this.label17.Text = "Filter Options";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.pnlCusInformation);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(324, 166);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Customer Information";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.pnlBookDetail);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(0, 166);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(324, 202);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Quote Details";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.pnlPayment);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(0, 368);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(324, 98);
-            this.groupBox3.TabIndex = 5;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Confirm Payment";
-            // 
             // frmNewBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -598,10 +599,13 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             this.pnlButtons.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.pnlPayment.ResumeLayout(false);
             this.pnlPayment.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.pnlBookDetail.ResumeLayout(false);
             this.pnlBookDetail.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.pnlCusInformation.ResumeLayout(false);
             this.pnlCusInformation.PerformLayout();
             this.pnlGrid.ResumeLayout(false);
@@ -610,9 +614,6 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlFilter.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
