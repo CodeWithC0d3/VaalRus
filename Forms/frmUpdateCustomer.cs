@@ -29,6 +29,12 @@ namespace vaalrusGUIPrototype.Forms
         int qid;
         bool overrideCheck = false;
 
+        bool errorFlagFirstName = false;
+        bool errorFlagLastName = false;
+        bool errorFlagID = false;
+        bool errorFlagEmail = false;
+        bool errorFlagContactNo = false;
+
         public frmUpdateCustomer()
         {
             InitializeComponent();
@@ -221,33 +227,13 @@ namespace vaalrusGUIPrototype.Forms
         private void btnAll_Click(object sender, EventArgs e)
         {
             populateDataGrid();
-            /*
-            if (conDB())
-            {
 
-                string lastName = txtLastName.Text;
+            eProviderFN.SetError(txtFirstName, "");
+            eProviderLN.SetError(txtLastName, "");
+            eProviderCN.SetError(txtID, "");
+            eProviderCN.SetError(txtContact, "");
+            eProviderEmail.SetError(txtEmail, "");
 
-                string queryText = $"SELECT * FROM Customer";
-
-
-                adapter = new SqlDataAdapter();
-                ds = new DataSet();
-
-
-                command = new SqlCommand(queryText, con);
-
-                adapter.SelectCommand = command;
-                adapter.Fill(ds, "Customer");
-
-                dgView.DataSource = ds;
-                dgView.DataMember = "Customer";
-
-
-                con.Close();
-
-
-            }
-            */
         }
 
         
@@ -418,6 +404,9 @@ namespace vaalrusGUIPrototype.Forms
 
             populateTextBoxes(qid);
 
+            //reset the overide checkbox
+            cbOverride.Checked = false;
+            overrideCheck = false;
 
 
         }
@@ -443,7 +432,26 @@ namespace vaalrusGUIPrototype.Forms
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            string firstName = txtFirstName.Text;
+            //string firstName = txtFirstName.Text;
+
+            firstName = txtFirstName.Text;
+            lastName = txtLastName.Text;
+            idNo = txtID.Text;
+            contactNo = txtContact.Text;
+            email = txtEmail.Text;
+            address = txtAddress.Text;
+
+            firstNameValidate(firstName);
+            lastNameValidate(lastName);
+            IDValidate(idNo);
+            contactNoValidate(contactNo);
+            emailValidate(email);
+
+
+
+
+
+
 
 
             //the custoemr number
@@ -454,84 +462,42 @@ namespace vaalrusGUIPrototype.Forms
             {
                 int.Parse(searchCustNo);
             }
-            
 
-            if (conDB())
+
+            if (conDB() && errorFlagFirstName && errorFlagLastName && errorFlagID && errorFlagEmail && errorFlagContactNo && overrideCheck)
             {
-                //string queryText = $"UPDATE Customer SET Customer_FirstName = '" + firstName + "' WHERE Customer_ID = '" + searchCustNo + "'";
-                string queryText = $"UPDATE Customer SET Customer_FirstName = '{firstName }' WHERE Customer_ID = '{searchCustNo}'";
+                DialogResult promptResult = MessageBox.Show("Are you sure you want to update: \"" + lastName + "\", Customer number: " + txtCustNo.Text + " on the system", "Update Customer", MessageBoxButtons.YesNoCancel);
 
-                SqlCommand SQLQuery = new SqlCommand(queryText, con);
-
-                SQLQuery.ExecuteNonQuery();
-
-                //testc to see output
-                //lblOutput.Text = searchCustNo.ToString();
-
-
-                con.Close();
-
-            }
-        }
-
-/*
-        private void cbCustNo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            string firstName = txtFirstName.Text;
-
-
-            //the custoemr number
-            string searchCustNo = cbCustNo.SelectedItem.ToString();
-
-            if (!string.IsNullOrEmpty(searchCustNo))
-            {
-                int.Parse(searchCustNo);
-            }
-
-
-            if (conDB())
-            {
-                
-
-                string queryText = $"SELECT Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address FROM Customer WHERE Customer_ID = '{searchCustNo}'";
-                
-                
-                SqlCommand SQLQuery = new SqlCommand(queryText, con);
-
-                dataReader = SQLQuery.ExecuteReader();
-
-                while (dataReader.Read())
+                if (promptResult == DialogResult.Yes)
                 {
-                   
-                    txtFirstName.Text = dataReader.GetValue(0).ToString();
-                    txtLastName.Text = dataReader.GetValue(1).ToString();
-                    txtID.Text = dataReader.GetValue(2).ToString();
-                    txtEmail.Text = dataReader.GetValue(3).ToString();
-                    txtContact.Text = dataReader.GetValue(4).ToString();
-                    txtAddress.Text = dataReader.GetValue(5).ToString();
 
+                    //string queryText = $"UPDATE Customer SET Customer_FirstName = '" + firstName + "' WHERE Customer_ID = '" + searchCustNo + "'";
+                    string queryText = $"UPDATE Customer " +
+                    $"SET Customer_FirstName = '{firstName }', " +
+                    $"Customer_LastName = '{lastName}', Customer_IDNumber = '{idNo}', Customer_Email = '{email}', Customer_Cell = '{contactNo}', Customer_Address = '{address}'" +
+                    $"WHERE Customer_ID = '{searchCustNo}'";
+
+                    SqlCommand SQLQuery = new SqlCommand(queryText, con);
+
+                    SQLQuery.ExecuteNonQuery();
+
+                    //testc to see output
+                    //lblOutput.Text = searchCustNo.ToString();
+
+
+                    con.Close();
+
+
+
+                    resetTexboxes();
+
+                    //populateDataGrid();
                 }
 
-                //testc to see output
-                //lblOutput.Text = searchCustNo.ToString();
-
-
-                con.Close();
-
             }
-
-
-
-
         }
 
-*/
 
-
-/*
- will populate the various combo boxes
- */
         private void populateCombo(String whichComboBox)
         {
 
@@ -687,6 +653,272 @@ will reset the update texboxes
 
         }
 
+
+
+        /*
+ * * Validation errors
+ */
+
+        private void firstNameValidate(String firstName)
+        {
+            //check if empty
+            if (string.IsNullOrEmpty(firstName))
+            {
+                // e.Cancel = true;
+                txtFirstName.Focus();
+                eProviderFN.SetError(txtFirstName, "Customer first name required");
+
+                //set error flag
+                errorFlagFirstName = false;
+            }
+            else
+            {
+                //set error flag
+                errorFlagFirstName = true;
+                eProviderFN.SetError(txtFirstName, "");
+
+                if (firstName.Length < 2) //check if longer than 2 characters
+                {
+                    // e.Cancel = true;
+                    txtFirstName.Focus();
+                    eProviderFN.SetError(txtFirstName, "Customer first name must be longer than 2 characters");
+
+                    //set error flag
+                    errorFlagFirstName = false;
+
+                }
+                else
+                {
+                    //set error flag
+                    errorFlagFirstName = true;
+                    eProviderFN.SetError(txtFirstName, "");
+                }
+            }
+
+
+
+
+        }
+
+
+        private void lastNameValidate(String lastName)
+        {
+            //check if empty
+            if (string.IsNullOrEmpty(lastName))
+            {
+                //e.Cancel = true;
+                txtLastName.Focus();
+                eProviderLN.SetError(txtLastName, "Customer last name required");
+
+                //set error flag
+                errorFlagLastName = false;
+            }
+            else
+            {
+                //set error flag
+                errorFlagLastName = true;
+                eProviderLN.SetError(txtLastName, "");
+
+                if (lastName.Length < 2) //check if longer than 2 characters
+                {
+                    //e.Cancel = true;
+                    txtLastName.Focus();
+                    eProviderLN.SetError(txtLastName, "Customer last name must be longer than 2 characters");
+
+                    //set error flag
+                    errorFlagLastName = false;
+                }
+                else
+                {
+                    //set error flag
+                    errorFlagLastName = true;
+                    eProviderLN.SetError(txtLastName, "");
+                }
+            }
+
+
+
+
+        }
+
+
+        private void IDValidate(String idNo)
+        {
+
+            string regex = @"^[0-9]+$"; // regular expression for matching only numbers
+
+            //check if empty
+            if (string.IsNullOrEmpty(idNo))
+            {
+                //e.Cancel = true;
+                txtID.Focus();
+                eProviderID.SetError(txtID, "Customer ID number required");
+
+                //set error flag
+                errorFlagID = false;
+            }
+            else
+            {
+                //set error flag
+                errorFlagID = true;
+                eProviderID.SetError(txtID, "");
+
+                if (idNo.Length != 13) //check if longer than 2 characters
+                {
+                    //e.Cancel = true;
+                    txtID.Focus();
+                    eProviderID.SetError(txtID, "An South African ID needs to be exactly 13 characters");
+
+                    //set error flag
+                    errorFlagID = false;
+                }
+                else
+                {
+                    //set error flag
+                    errorFlagID = true;
+                    eProviderID.SetError(txtID, "");
+
+                    if (!Regex.IsMatch(idNo, regex)) //check that input is only numbers
+                    {
+                        //e.Cancel = true;
+                        txtID.Focus();
+                        eProviderCN.SetError(txtID, "Only numbers for Identity numbers");
+
+                        //set error flag
+                        errorFlagContactNo = false;
+                    }
+                    else
+                    {
+                        //set error flag
+                        errorFlagContactNo = true;
+                        eProviderCN.SetError(txtID, "");
+                    }
+                }
+            }
+
+
+        }
+
+
+        private void contactNoValidate(String contactNo)
+        {
+            string regex = @"^[0-9]+$"; // regular expression for matching only numbers
+
+            //check if empty
+            if (string.IsNullOrEmpty(contactNo))
+            {
+                //e.Cancel = true;
+                txtContact.Focus();
+                eProviderCN.SetError(txtContact, "Customer Contact NUmber required");
+
+                //set error flag
+                errorFlagContactNo = false;
+            }
+            else
+            {
+                //set error flag
+                errorFlagContactNo = true;
+                eProviderCN.SetError(txtContact, "");
+
+                if (contactNo.Length < 6) //check if longer than 5 characters
+                {
+                    //e.Cancel = true;
+                    txtContact.Focus();
+                    eProviderCN.SetError(txtContact, "Contact number must be atleast 6 digits");
+
+                    //set error flag
+                    errorFlagContactNo = false;
+                }
+                else
+                {
+                    //set error flag
+                    errorFlagContactNo = true;
+                    eProviderCN.SetError(txtContact, "");
+
+                    if (!Regex.IsMatch(contactNo, regex)) //check that input is only numbers
+                    {
+                        //e.Cancel = true;
+                        txtContact.Focus();
+                        eProviderCN.SetError(txtContact, "Only numbers for contact numbers");
+
+                        //set error flag
+                        errorFlagContactNo = false;
+                    }
+                    else
+                    {
+                        //set error flag
+                        errorFlagContactNo = true;
+                        eProviderCN.SetError(txtContact, "");
+                    }
+                }
+            }
+
+
+
+
+
+
+        }
+
+
+        private void emailValidate(String email)
+        {
+            //regular expression for matching email valid characters
+            string regex2 = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+
+            //check if empty
+            if (string.IsNullOrEmpty(email))
+            {
+                //e.Cancel = true;
+                txtEmail.Focus();
+                eProviderEmail.SetError(txtEmail, "Email address required");
+
+                //set error flag
+                errorFlagEmail = false;
+            }
+            else
+            {
+                //set error flag
+                errorFlagEmail = true;
+                eProviderEmail.SetError(txtEmail, "");
+
+                if (email.Length < 4) //check if longer than 4 characters
+                {
+                    //e.Cancel = true;
+                    txtEmail.Focus();
+                    eProviderEmail.SetError(txtEmail, "An email address must be atleast 3 characters long");
+
+                    //set error flag
+                    errorFlagEmail = false;
+                }
+                else
+                {
+                    //set error flag
+                    errorFlagEmail = true;
+                    eProviderEmail.SetError(txtEmail, "");
+
+                    if (!Regex.IsMatch(email, regex2)) //check that input is only numbers
+                    {
+                        //e.Cancel = true;
+                        txtEmail.Focus();
+                        eProviderEmail.SetError(txtEmail, "Not a valid email address");
+
+                        //set error flag
+                        errorFlagEmail = false;
+                    }
+                    else
+                    {
+                        //set error flag
+                        errorFlagEmail = true;
+                        eProviderEmail.SetError(txtEmail, "");
+                    }
+                }
+            }
+
+
+
+
+        }
 
     }
 }
