@@ -86,6 +86,7 @@ namespace vaalrusGUIPrototype
             aplytheme(panel1);
             aplytheme(panel2);
             aplytheme(panel3);
+            aplytheme(panel4);
             aplytheme(pnlCheckIn);
             //timer1.Start();
         }
@@ -173,7 +174,7 @@ namespace vaalrusGUIPrototype
                     if (co.GetType() == typeof(GroupBox))
                     {
                         GroupBox gpc = (GroupBox)co;
-                        gpc.ForeColor = GlobalSettings.SecondaryColor;
+                        gpc.ForeColor = Color.White;
                         gpc.Font = GlobalSettings.font;
 
                     }
@@ -182,6 +183,13 @@ namespace vaalrusGUIPrototype
                         ListBox lsc = (ListBox)co;
                         lsc.ForeColor = GlobalSettings.SecondaryColor;
                         lsc.Font = GlobalSettings.font;
+
+                    }
+                    if (co.GetType() == typeof(RadioButton))
+                    {
+                        RadioButton rd = (RadioButton)co;
+                        rd.ForeColor = Color.White;
+                        rd.Font = GlobalSettings.font;
 
                     }
                 }
@@ -303,6 +311,11 @@ namespace vaalrusGUIPrototype
         private void dtgCheckIn_SelectionChanged(object sender, EventArgs e)
         {
             tbBookID.Text = dtgCheckIn.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
     

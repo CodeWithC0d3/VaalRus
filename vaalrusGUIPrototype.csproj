@@ -546,6 +546,7 @@
     <None Include="Resources\expand.png" />
     <None Include="Resources\corner1.png" />
     <None Include="Resources\expand2.png" />
+    <None Include="Resources\MAX.png" />
     <Content Include="_SQL\older queries\Initial Data Population.sql" />
     <Content Include="_SQL\older queries\SQL setup with Foreign keys.sql" />
     <Content Include="_SQL\older queries\SQL setup.sql" />

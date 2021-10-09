@@ -11,6 +11,7 @@ using vaalrusGUIPrototype.Forms;
 using System.Runtime.InteropServices;
 using System.Data.SqlClient;
 
+
 namespace vaalrusGUIPrototype
 {
     public partial class MainForm : Form
@@ -178,6 +179,11 @@ namespace vaalrusGUIPrototype
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            //pictureBoxMax.SizeMode = PictureBoxSizeMode.StretchImage;
+            //Bitmap bt = Properties.Resources.expand2; 
+           
+            //pictureBoxMax.Image = bt;
+            
             this.StartPosition = FormStartPosition.CenterScreen;
             Color color = Color.FromArgb(54, 77, 91);
             GlobalSettings.PrimaryColor = color;
@@ -187,6 +193,9 @@ namespace vaalrusGUIPrototype
             GlobalSettings.thirdColor = GlobalSettings.ChangeColorBrightness(Color.FromArgb(236, 236, 225), -0.2);
             GlobalSettings.font = new Font("Microsoft Sans Serif", 10);
             removeOldQuotes();
+
+
+           
         }
 
         
@@ -376,6 +385,11 @@ namespace vaalrusGUIPrototype
             {
                 MessageBox.Show(sqlx.ToString());
             }
+        }
+
+        private void pictureBoxMax_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

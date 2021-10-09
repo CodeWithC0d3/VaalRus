@@ -55,29 +55,29 @@ namespace vaalrusGUIPrototype
             this.btnViewBookings = new System.Windows.Forms.Button();
             this.btnBookings = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.pictureBoxCorner = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.pnlLabelHeading = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxMax = new System.Windows.Forms.PictureBox();
-            this.pictureBoxMin = new System.Windows.Forms.PictureBox();
             this.lblHeading = new System.Windows.Forms.Label();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBoxMainFormBackground = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMax = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMin = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCorner = new System.Windows.Forms.PictureBox();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelSideBar.SuspendLayout();
             this.panelSubReports.SuspendLayout();
             this.panelSubMenuAccommodation.SuspendLayout();
             this.panelSubMenuCustomer.SuspendLayout();
             this.panelSubMenuBooking.SuspendLayout();
             this.panelMain.SuspendLayout();
+            this.pnlLabelHeading.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainFormBackground)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCorner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
-            this.pnlLabelHeading.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMax)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainFormBackground)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSideBar
@@ -488,16 +488,6 @@ namespace vaalrusGUIPrototype
             this.panelMain.Size = new System.Drawing.Size(231, 98);
             this.panelMain.TabIndex = 0;
             // 
-            // pictureBoxCorner
-            // 
-            this.pictureBoxCorner.Image = global::vaalrusGUIPrototype.Properties.Resources.corner1;
-            this.pictureBoxCorner.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxCorner.Name = "pictureBoxCorner";
-            this.pictureBoxCorner.Size = new System.Drawing.Size(67, 61);
-            this.pictureBoxCorner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxCorner.TabIndex = 4;
-            this.pictureBoxCorner.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -512,25 +502,11 @@ namespace vaalrusGUIPrototype
             this.label1.Text = "LOGO";
             this.label1.Visible = false;
             // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(70)))));
-            this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxLogo.Image = global::vaalrusGUIPrototype.Properties.Resources.Logotest;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(231, 98);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxLogo.TabIndex = 0;
-            this.pictureBoxLogo.TabStop = false;
-            this.pictureBoxLogo.Click += new System.EventHandler(this.pictureBoxLogo_Click);
-            // 
             // pnlLabelHeading
             // 
             this.pnlLabelHeading.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(70)))));
-            this.pnlLabelHeading.Controls.Add(this.pictureBox3);
             this.pnlLabelHeading.Controls.Add(this.pictureBoxMax);
+            this.pnlLabelHeading.Controls.Add(this.pictureBox3);
             this.pnlLabelHeading.Controls.Add(this.pictureBoxMin);
             this.pnlLabelHeading.Controls.Add(this.lblHeading);
             this.pnlLabelHeading.Dock = System.Windows.Forms.DockStyle.Top;
@@ -540,46 +516,6 @@ namespace vaalrusGUIPrototype
             this.pnlLabelHeading.Size = new System.Drawing.Size(1116, 98);
             this.pnlLabelHeading.TabIndex = 11;
             this.pnlLabelHeading.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlLabelHeading_MouseMove);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox3.Image = global::vaalrusGUIPrototype.Properties.Resources.close;
-            this.pictureBox3.Location = new System.Drawing.Point(1077, 4);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(35, 26);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // pictureBoxMax
-            // 
-            this.pictureBoxMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxMax.BackgroundImage = global::vaalrusGUIPrototype.Properties.Resources.expand2;
-            this.pictureBoxMax.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxMax.Location = new System.Drawing.Point(1035, 4);
-            this.pictureBoxMax.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxMax.Name = "pictureBoxMax";
-            this.pictureBoxMax.Size = new System.Drawing.Size(35, 26);
-            this.pictureBoxMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxMax.TabIndex = 2;
-            this.pictureBoxMax.TabStop = false;
-            this.pictureBoxMax.Click += new System.EventHandler(this.pictureBoxMax_Click);
-            // 
-            // pictureBoxMin
-            // 
-            this.pictureBoxMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxMin.Image = global::vaalrusGUIPrototype.Properties.Resources.minimize__1_;
-            this.pictureBoxMin.Location = new System.Drawing.Point(992, 4);
-            this.pictureBoxMin.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxMin.Name = "pictureBoxMin";
-            this.pictureBoxMin.Size = new System.Drawing.Size(35, 26);
-            this.pictureBoxMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxMin.TabIndex = 1;
-            this.pictureBoxMin.TabStop = false;
-            this.pictureBoxMin.Click += new System.EventHandler(this.pictureBoxMin_Click);
             // 
             // lblHeading
             // 
@@ -619,6 +555,69 @@ namespace vaalrusGUIPrototype
             this.pictureBoxMainFormBackground.Visible = false;
             this.pictureBoxMainFormBackground.Click += new System.EventHandler(this.pictureBoxMainFormBackground_Click);
             // 
+            // pictureBoxMax
+            // 
+            this.pictureBoxMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxMax.Image = global::vaalrusGUIPrototype.Properties.Resources.MAX;
+            this.pictureBoxMax.Location = new System.Drawing.Point(1035, 4);
+            this.pictureBoxMax.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxMax.Name = "pictureBoxMax";
+            this.pictureBoxMax.Size = new System.Drawing.Size(35, 26);
+            this.pictureBoxMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMax.TabIndex = 4;
+            this.pictureBoxMax.TabStop = false;
+            this.pictureBoxMax.Click += new System.EventHandler(this.pictureBoxMax_Click_1);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.Image = global::vaalrusGUIPrototype.Properties.Resources.close;
+            this.pictureBox3.Location = new System.Drawing.Point(1077, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(35, 26);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pictureBoxMin
+            // 
+            this.pictureBoxMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxMin.Image = global::vaalrusGUIPrototype.Properties.Resources.minimize__1_;
+            this.pictureBoxMin.Location = new System.Drawing.Point(992, 4);
+            this.pictureBoxMin.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxMin.Name = "pictureBoxMin";
+            this.pictureBoxMin.Size = new System.Drawing.Size(35, 26);
+            this.pictureBoxMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMin.TabIndex = 1;
+            this.pictureBoxMin.TabStop = false;
+            this.pictureBoxMin.Click += new System.EventHandler(this.pictureBoxMin_Click);
+            // 
+            // pictureBoxCorner
+            // 
+            this.pictureBoxCorner.Image = global::vaalrusGUIPrototype.Properties.Resources.corner1;
+            this.pictureBoxCorner.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxCorner.Name = "pictureBoxCorner";
+            this.pictureBoxCorner.Size = new System.Drawing.Size(67, 61);
+            this.pictureBoxCorner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCorner.TabIndex = 4;
+            this.pictureBoxCorner.TabStop = false;
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(70)))));
+            this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxLogo.Image = global::vaalrusGUIPrototype.Properties.Resources.Logotest;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(231, 98);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxLogo.TabIndex = 0;
+            this.pictureBoxLogo.TabStop = false;
+            this.pictureBoxLogo.Click += new System.EventHandler(this.pictureBoxLogo_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -641,14 +640,14 @@ namespace vaalrusGUIPrototype
             this.panelSubMenuBooking.ResumeLayout(false);
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCorner)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.pnlLabelHeading.ResumeLayout(false);
             this.pnlLabelHeading.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainFormBackground)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCorner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -688,9 +687,9 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Button btnTop10Accom;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBoxMax;
         private System.Windows.Forms.PictureBox pictureBoxMin;
         private System.Windows.Forms.PictureBox pictureBoxCorner;
+        private System.Windows.Forms.PictureBox pictureBoxMax;
         //private System.Windows.Forms.Button btnSettings;
     }
 }
