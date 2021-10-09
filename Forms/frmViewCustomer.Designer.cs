@@ -30,26 +30,26 @@ namespace vaalrusGUIPrototype.Forms
         private void InitializeComponent()
         {
             this.panelChildForm = new System.Windows.Forms.Panel();
-            this.dgView = new System.Windows.Forms.DataGridView();
-            this.btnAll = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblOutput = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.btnClear = new System.Windows.Forms.Button();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblOutput = new System.Windows.Forms.Label();
+            this.btnAll = new System.Windows.Forms.Button();
+            this.dgView = new System.Windows.Forms.DataGridView();
             this.panelChildForm.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             this.SuspendLayout();
             // 
             // panelChildForm
@@ -65,46 +65,6 @@ namespace vaalrusGUIPrototype.Forms
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(800, 450);
             this.panelChildForm.TabIndex = 13;
-            // 
-            // dgView
-            // 
-            this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgView.Location = new System.Drawing.Point(36, 11);
-            this.dgView.Margin = new System.Windows.Forms.Padding(2);
-            this.dgView.Name = "dgView";
-            this.dgView.RowHeadersWidth = 51;
-            this.dgView.RowTemplate.Height = 24;
-            this.dgView.Size = new System.Drawing.Size(721, 228);
-            this.dgView.TabIndex = 14;
-            // 
-            // btnAll
-            // 
-            this.btnAll.Location = new System.Drawing.Point(549, 9);
-            this.btnAll.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAll.Name = "btnAll";
-            this.btnAll.Size = new System.Drawing.Size(159, 34);
-            this.btnAll.TabIndex = 0;
-            this.btnAll.Text = "Display ALL Customers";
-            this.btnAll.UseVisualStyleBackColor = true;
-            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.lblOutput);
-            this.panel1.Controls.Add(this.btnAll);
-            this.panel1.Location = new System.Drawing.Point(36, 254);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(720, 52);
-            this.panel1.TabIndex = 15;
-            // 
-            // lblOutput
-            // 
-            this.lblOutput.AutoSize = true;
-            this.lblOutput.Location = new System.Drawing.Point(49, 20);
-            this.lblOutput.Name = "lblOutput";
-            this.lblOutput.Size = new System.Drawing.Size(39, 13);
-            this.lblOutput.TabIndex = 6;
-            this.lblOutput.Text = "Output";
             // 
             // panel2
             // 
@@ -139,23 +99,40 @@ namespace vaalrusGUIPrototype.Forms
             this.panel3.Size = new System.Drawing.Size(607, 90);
             this.panel3.TabIndex = 0;
             // 
-            // label1
+            // btnClear
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "First name:";
+            this.btnClear.Location = new System.Drawing.Point(482, 49);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(107, 34);
+            this.btnClear.TabIndex = 7;
+            this.btnClear.Text = "Clear Filter";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // label2
+            // txtID
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Last name:";
+            this.txtID.Location = new System.Drawing.Point(454, 14);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(135, 20);
+            this.txtID.TabIndex = 5;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.Location = new System.Drawing.Point(114, 49);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(135, 20);
+            this.txtLastName.TabIndex = 4;
+            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Location = new System.Drawing.Point(114, 14);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(135, 20);
+            this.txtFirstName.TabIndex = 3;
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // label3
             // 
@@ -166,36 +143,63 @@ namespace vaalrusGUIPrototype.Forms
             this.label3.TabIndex = 2;
             this.label3.Text = "ID Number:";
             // 
-            // txtFirstName
+            // label2
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(114, 14);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(135, 20);
-            this.txtFirstName.TabIndex = 3;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Last name:";
             // 
-            // txtLastName
+            // label1
             // 
-            this.txtLastName.Location = new System.Drawing.Point(114, 49);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(135, 20);
-            this.txtLastName.TabIndex = 4;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "First name:";
             // 
-            // txtID
+            // panel1
             // 
-            this.txtID.Location = new System.Drawing.Point(454, 14);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(135, 20);
-            this.txtID.TabIndex = 5;
+            this.panel1.Controls.Add(this.lblOutput);
+            this.panel1.Controls.Add(this.btnAll);
+            this.panel1.Location = new System.Drawing.Point(36, 254);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(720, 52);
+            this.panel1.TabIndex = 15;
             // 
-            // btnClear
+            // lblOutput
             // 
-            this.btnClear.Location = new System.Drawing.Point(482, 49);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(107, 34);
-            this.btnClear.TabIndex = 7;
-            this.btnClear.Text = "Clear Filter";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.lblOutput.AutoSize = true;
+            this.lblOutput.Location = new System.Drawing.Point(49, 20);
+            this.lblOutput.Name = "lblOutput";
+            this.lblOutput.Size = new System.Drawing.Size(39, 13);
+            this.lblOutput.TabIndex = 6;
+            this.lblOutput.Text = "Output";
+            // 
+            // btnAll
+            // 
+            this.btnAll.Location = new System.Drawing.Point(549, 9);
+            this.btnAll.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAll.Name = "btnAll";
+            this.btnAll.Size = new System.Drawing.Size(159, 34);
+            this.btnAll.TabIndex = 0;
+            this.btnAll.Text = "Display ALL Customers";
+            this.btnAll.UseVisualStyleBackColor = true;
+            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
+            // 
+            // dgView
+            // 
+            this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgView.Location = new System.Drawing.Point(36, 11);
+            this.dgView.Margin = new System.Windows.Forms.Padding(2);
+            this.dgView.Name = "dgView";
+            this.dgView.RowHeadersWidth = 51;
+            this.dgView.RowTemplate.Height = 24;
+            this.dgView.Size = new System.Drawing.Size(721, 228);
+            this.dgView.TabIndex = 14;
             // 
             // frmViewCustomer
             // 
@@ -206,13 +210,13 @@ namespace vaalrusGUIPrototype.Forms
             this.Name = "frmViewCustomer";
             this.Text = "frmViewCustomer";
             this.panelChildForm.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgView)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgView)).EndInit();
             this.ResumeLayout(false);
 
         }
