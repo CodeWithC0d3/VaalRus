@@ -31,74 +31,13 @@ namespace vaalrusGUIPrototype.Forms
         {
             InitializeComponent();
 
-            //populate the customer number drop down search box
-            if (conDB())
-            {
-                
+            populateCombo("search");
+
+            populateCombo("update");
 
 
-                SqlCommand SQLQuery = new SqlCommand(@"Select Distinct Customer_ID FROM Customer ORDER BY Customer_ID", con);
-                dataReader = SQLQuery.ExecuteReader();
+            populateDataGrid();
 
-                //loop through the data
-                while (dataReader.Read())
-                {
-                    //add to the combo box
-                    cbSearchCustNo.Items.Add(dataReader.GetValue(0));
-
-                }
-
-                con.Close();
-
-            }
-
-            //populate the customer number drop down search box
-            if (conDB())
-            {
-
-
-
-                SqlCommand SQLQuery2 = new SqlCommand(@"Select Distinct Customer_ID FROM Customer ORDER BY Customer_ID", con);
-                dataReader = SQLQuery2.ExecuteReader();
-
-                //loop through the data
-                while (dataReader.Read())
-                {
-                    //add to the combo box
-                    cbCustNo.Items.Add(dataReader.GetValue(0));
-
-                }
-
-                con.Close();
-
-            }
-
-            //populate the data grid
-            if (conDB())
-            {
-
-                //string lastName = txtLastName.Text;
-
-                string queryText = $"SELECT * FROM Customer";
-
-
-                adapter = new SqlDataAdapter();
-                ds = new DataSet();
-
-
-                command = new SqlCommand(queryText, con);
-
-                adapter.SelectCommand = command;
-                adapter.Fill(ds, "Customer");
-
-                dgView.DataSource = ds;
-                dgView.DataMember = "Customer";
-
-
-                con.Close();
-
-
-            }
 
 
         }
@@ -120,6 +59,8 @@ namespace vaalrusGUIPrototype.Forms
 
         private void btnAll_Click(object sender, EventArgs e)
         {
+            populateDataGrid();
+            /*
             if (conDB())
             {
 
@@ -145,6 +86,7 @@ namespace vaalrusGUIPrototype.Forms
 
 
             }
+            */
         }
 
         
@@ -178,6 +120,11 @@ namespace vaalrusGUIPrototype.Forms
 
 
             }
+
+            //reset the textboxes sothat 
+
+
+
         }
 
         private void txtSearchLastName_TextChanged(object sender, EventArgs e)
@@ -209,6 +156,7 @@ namespace vaalrusGUIPrototype.Forms
 
 
             }
+
         }
 
         private void txtSearchID_TextChanged_1(object sender, EventArgs e)
@@ -240,6 +188,11 @@ namespace vaalrusGUIPrototype.Forms
 
 
             }
+
+            resetTexboxes();
+            populateCombo("update");
+
+
         }
 
         private void cbSearchCustNo_SelectedIndexChanged(object sender, EventArgs e)
@@ -359,6 +312,131 @@ namespace vaalrusGUIPrototype.Forms
 
 
         }
+
+
+
+
+/*
+ will populate the various combo boxes
+ */
+        private void populateCombo(String whichComboBox)
+        {
+
+            
+            if (whichComboBox == "search")
+            {
+
+                //populate the customer number drop down search box
+                if (conDB() && string.IsNullOrEmpty(cbSearchCustNo.Text))
+                {
+
+
+
+                    SqlCommand SQLQuery = new SqlCommand(@"Select Distinct Customer_ID FROM Customer ORDER BY Customer_ID", con);
+                    dataReader = SQLQuery.ExecuteReader();
+
+                    //loop through the data
+                    while (dataReader.Read())
+                    {
+                        //add to the combo box
+                        cbSearchCustNo.Items.Add(dataReader.GetValue(0));
+
+                    }
+
+                    con.Close();
+
+                }
+            }
+
+
+            if (whichComboBox == "update")
+            {
+
+                //populate the customer number drop down search box
+                if (conDB() && string.IsNullOrEmpty(cbCustNo.Text))
+                {
+
+
+
+                    SqlCommand SQLQuery2 = new SqlCommand(@"Select Distinct Customer_ID FROM Customer ORDER BY Customer_ID", con);
+                    dataReader = SQLQuery2.ExecuteReader();
+
+                    //loop through the data
+                    while (dataReader.Read())
+                    {
+                        //add to the combo box
+                        cbCustNo.Items.Add(dataReader.GetValue(0));
+
+                    }
+
+                    con.Close();
+
+                }
+
+
+
+
+            }
+
+
+
+
+
+        }
+
+
+
+/*
+will reset the update texboxes
+*/
+        private void resetTexboxes()
+        {
+
+
+            txtFirstName.Text = "";
+            txtLastName.Text = ""; ;
+            txtID.Text = ""; ;
+            txtEmail.Text = ""; ;
+            txtContact.Text = ""; ;
+            txtAddress.Text = "";
+
+
+
+        }
+
+        private void populateDataGrid()
+        {
+            //populate the data grid
+            if (conDB())
+            {
+
+                //string lastName = txtLastName.Text;
+
+                string queryText = $"SELECT * FROM Customer";
+
+
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+
+
+                command = new SqlCommand(queryText, con);
+
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Customer");
+
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
+
+
+                con.Close();
+
+
+            }
+
+
+        }
+
+
 
 
     }
