@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 //SQL
 using System.Data.SqlClient;
+//RGX
+using System.Text.RegularExpressions;
 
 namespace vaalrusGUIPrototype
 {
