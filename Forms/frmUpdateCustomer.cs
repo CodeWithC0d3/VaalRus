@@ -156,7 +156,8 @@ namespace vaalrusGUIPrototype.Forms
 
 
             }
-
+            resetTexboxes();
+            populateCombo("update");
         }
 
         private void txtSearchID_TextChanged_1(object sender, EventArgs e)
@@ -225,8 +226,9 @@ namespace vaalrusGUIPrototype.Forms
                     con.Close();
 
                 }
+            resetTexboxes();
+            populateCombo("update");
 
-            
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
