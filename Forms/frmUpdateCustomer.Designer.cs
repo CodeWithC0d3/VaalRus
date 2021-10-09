@@ -36,7 +36,7 @@ namespace vaalrusGUIPrototype.Forms
             this.cbCustNo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
@@ -60,6 +60,8 @@ namespace vaalrusGUIPrototype.Forms
             this.lblOutput = new System.Windows.Forms.Label();
             this.btnAll = new System.Windows.Forms.Button();
             this.dgView = new System.Windows.Forms.DataGridView();
+            this.txtContact = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panelChildForm.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -82,7 +84,7 @@ namespace vaalrusGUIPrototype.Forms
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(0, 0);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(934, 515);
+            this.panelChildForm.Size = new System.Drawing.Size(926, 515);
             this.panelChildForm.TabIndex = 14;
             // 
             // groupBox2
@@ -90,16 +92,18 @@ namespace vaalrusGUIPrototype.Forms
             this.groupBox2.Controls.Add(this.panel3);
             this.groupBox2.Location = new System.Drawing.Point(373, 302);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(516, 189);
+            this.groupBox2.Size = new System.Drawing.Size(516, 201);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update Customer Details:";
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label11);
+            this.panel3.Controls.Add(this.txtContact);
             this.panel3.Controls.Add(this.groupBox3);
             this.panel3.Controls.Add(this.txtAddress);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.btnUpdate);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.txtID);
             this.panel3.Controls.Add(this.txtLastName);
@@ -112,7 +116,7 @@ namespace vaalrusGUIPrototype.Forms
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 16);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(510, 170);
+            this.panel3.Size = new System.Drawing.Size(510, 182);
             this.panel3.TabIndex = 0;
             // 
             // groupBox3
@@ -133,6 +137,7 @@ namespace vaalrusGUIPrototype.Forms
             this.cbCustNo.Name = "cbCustNo";
             this.cbCustNo.Size = new System.Drawing.Size(142, 21);
             this.cbCustNo.TabIndex = 9;
+            this.cbCustNo.SelectedIndexChanged += new System.EventHandler(this.cbCustNo_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -145,25 +150,26 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(356, 88);
+            this.txtAddress.Location = new System.Drawing.Point(354, 116);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(142, 20);
             this.txtAddress.TabIndex = 16;
             // 
-            // button1
+            // btnUpdate
             // 
-            this.button1.Location = new System.Drawing.Point(342, 123);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 34);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Update";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnUpdate.Location = new System.Drawing.Point(342, 146);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(159, 34);
+            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(289, 91);
+            this.label10.Location = new System.Drawing.Point(287, 119);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(48, 13);
             this.label10.TabIndex = 15;
@@ -185,7 +191,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(356, 57);
+            this.txtEmail.Location = new System.Drawing.Point(354, 85);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(142, 20);
             this.txtEmail.TabIndex = 11;
@@ -193,7 +199,7 @@ namespace vaalrusGUIPrototype.Forms
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(289, 64);
+            this.label9.Location = new System.Drawing.Point(287, 92);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(34, 13);
             this.label9.TabIndex = 10;
@@ -368,11 +374,27 @@ namespace vaalrusGUIPrototype.Forms
             this.dgView.Size = new System.Drawing.Size(856, 228);
             this.dgView.TabIndex = 15;
             // 
+            // txtContact
+            // 
+            this.txtContact.Location = new System.Drawing.Point(354, 57);
+            this.txtContact.Name = "txtContact";
+            this.txtContact.Size = new System.Drawing.Size(142, 20);
+            this.txtContact.TabIndex = 18;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(287, 60);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(25, 13);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "Tel:";
+            // 
             // frmUpdateCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 515);
+            this.ClientSize = new System.Drawing.Size(926, 515);
             this.Controls.Add(this.panelChildForm);
             this.Name = "frmUpdateCustomer";
             this.Text = "frmUpdateCustomer";
@@ -420,10 +442,12 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.ComboBox cbCustNo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtContact;
+        private System.Windows.Forms.Label label11;
     }
 }

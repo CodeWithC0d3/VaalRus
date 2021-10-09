@@ -25,6 +25,8 @@ namespace vaalrusGUIPrototype.Forms
         SqlDataReader dataReader;
         DataSet ds;
 
+        string firstName, lastName, idNo, contactNo, email, address;
+
         public frmUpdateCustomer()
         {
             InitializeComponent();
@@ -145,7 +147,7 @@ namespace vaalrusGUIPrototype.Forms
             }
         }
 
-
+        
 
         private void txtSearchFirstName_TextChanged(object sender, EventArgs e)
         {
@@ -274,8 +276,90 @@ namespace vaalrusGUIPrototype.Forms
             
         }
 
-       
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            string firstName = txtFirstName.Text;
 
-        
+
+            //the custoemr number
+            string searchCustNo = cbCustNo.SelectedItem.ToString();
+
+            if (!string.IsNullOrEmpty(searchCustNo))
+            {
+                int.Parse(searchCustNo);
+            }
+            
+
+            if (conDB())
+            {
+                //string queryText = $"UPDATE Customer SET Customer_FirstName = '" + firstName + "' WHERE Customer_ID = '" + searchCustNo + "'";
+                string queryText = $"UPDATE Customer SET Customer_FirstName = '{firstName }' WHERE Customer_ID = '{searchCustNo}'";
+
+                SqlCommand SQLQuery = new SqlCommand(queryText, con);
+
+                SQLQuery.ExecuteNonQuery();
+
+                //testc to see output
+                //lblOutput.Text = searchCustNo.ToString();
+
+
+                con.Close();
+
+            }
+        }
+
+
+        private void cbCustNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string firstName = txtFirstName.Text;
+
+
+            //the custoemr number
+            string searchCustNo = cbCustNo.SelectedItem.ToString();
+
+            if (!string.IsNullOrEmpty(searchCustNo))
+            {
+                int.Parse(searchCustNo);
+            }
+
+
+            if (conDB())
+            {
+                
+
+                string queryText = $"SELECT Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address FROM Customer WHERE Customer_ID = '{searchCustNo}'";
+                
+                
+                SqlCommand SQLQuery = new SqlCommand(queryText, con);
+
+                dataReader = SQLQuery.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                   
+                    txtFirstName.Text = dataReader.GetValue(0).ToString();
+                    txtLastName.Text = dataReader.GetValue(1).ToString();
+                    txtID.Text = dataReader.GetValue(2).ToString();
+                    txtEmail.Text = dataReader.GetValue(3).ToString();
+                    txtContact.Text = dataReader.GetValue(4).ToString();
+                    txtAddress.Text = dataReader.GetValue(5).ToString();
+
+                }
+
+                //testc to see output
+                //lblOutput.Text = searchCustNo.ToString();
+
+
+                con.Close();
+
+            }
+
+
+
+
+        }
+
+
     }
 }
