@@ -39,8 +39,8 @@ namespace vaalrusGUIPrototype.Forms
                 // if (co.GetType() == typeof(Panel))
                 // {
                 //    co.Parent = this;
-                //    co.BackColor = Color.Transparent;
-                // }
+                //   co.BackColor = Color.FromArgb(58, 93, 117);
+                //}
                 if (co.GetType() == typeof(Label))
                 {
                     Label lbl = (Label)co;
@@ -67,34 +67,18 @@ namespace vaalrusGUIPrototype.Forms
             //pnlMain.BackColor = Color.Transparent;
 
             aplytheme(panel1);
-            //aplytheme(panel2);
-            //aplytheme(pn_grid);
+            aplytheme(panel2);
+            aplytheme(panel3);
+            aplytheme(panel4);
+
             //aplytheme(pnl_accSet);
             //timer1.Start();
         }
-
-
-        private Boolean conDB()
-        {
-            try
-            {
-                con = new SqlConnection(constr);
-                con.Open();
-                return true;
-
-            }
-            catch (Exception)
-            {
-
-                return false;
-            }
-        }
-
-
         private void aplytheme(Control pn)
         {
             if (pn.GetType() == typeof(Panel))
             {
+                pn.BackColor = Color.FromArgb(58, 93, 117);
                 foreach (Control co in pn.Controls)
                 {
                     if (co.GetType() == typeof(Button))
@@ -131,7 +115,16 @@ namespace vaalrusGUIPrototype.Forms
                         dtgg.ColumnHeadersDefaultCellStyle.SelectionBackColor = GlobalSettings.ChangeColorBrightness(GlobalSettings.PrimaryColor, -0.2);
                         dtgg.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                         dtgg.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                        dtgg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        dtgg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                        dtgg.AllowUserToAddRows = false;
+                        dtgg.AllowUserToDeleteRows = false;
+                        dtgg.AllowUserToOrderColumns = false;
+                        dtgg.AllowUserToResizeRows = false;
+                        dtgg.AllowUserToResizeColumns = true;
+                        dtgg.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+                        dtgg.RowHeadersVisible = false;
+                        dtgg.ColumnHeadersHeight = 4;
+                        dtgg.EnableHeadersVisualStyles = false;
 
 
                     }
@@ -164,7 +157,7 @@ namespace vaalrusGUIPrototype.Forms
                     if (co.GetType() == typeof(GroupBox))
                     {
                         GroupBox gpc = (GroupBox)co;
-                        gpc.ForeColor = GlobalSettings.SecondaryColor;
+                        gpc.ForeColor = Color.White;
                         gpc.Font = GlobalSettings.font;
 
                     }
@@ -175,20 +168,46 @@ namespace vaalrusGUIPrototype.Forms
                         lsc.Font = GlobalSettings.font;
 
                     }
+                    if (co.GetType() == typeof(CheckBox))
+                    {
+                        CheckBox ch = (CheckBox)co;
+                        ch.ForeColor = Color.White;
+                        ch.Font = GlobalSettings.font;
+
+                    }
                 }
 
             }
         }
-
-
-        private void frmDeleteCustomer_Load(object sender, EventArgs e)
+        private void sizeGrid()
         {
-            LoadTheme();
-
+            for (int i = 0; i < dgView.Columns.Count; i++)
+            {
+                dgView.Columns[i].MinimumWidth = 100;
+            }
 
         }
 
-       
+        private void frmViewCustomer_Load(object sender, EventArgs e)
+        {
+            LoadTheme();
+        }
+
+        private Boolean conDB()
+        {
+            try
+            {
+                con = new SqlConnection(constr);
+                con.Open();
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
 
         private void btnAll_Click(object sender, EventArgs e)
         {
@@ -333,8 +352,11 @@ namespace vaalrusGUIPrototype.Forms
 
 
             }
+            //sizeGrid();
 
 
         }
+
+
     }
 }

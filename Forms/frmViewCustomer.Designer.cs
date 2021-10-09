@@ -30,10 +30,12 @@ namespace vaalrusGUIPrototype.Forms
         private void InitializeComponent()
         {
             this.panelChildForm = new System.Windows.Forms.Panel();
+            this.dgView = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnAll = new System.Windows.Forms.Button();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
@@ -42,14 +44,14 @@ namespace vaalrusGUIPrototype.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblOutput = new System.Windows.Forms.Label();
-            this.btnAll = new System.Windows.Forms.Button();
-            this.dgView = new System.Windows.Forms.DataGridView();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panelChildForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelChildForm
@@ -57,14 +59,24 @@ namespace vaalrusGUIPrototype.Forms
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(219)))), ((int)(((byte)(168)))));
             this.panelChildForm.BackgroundImage = global::vaalrusGUIPrototype.Properties.Resources.backgroundImage;
             this.panelChildForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelChildForm.Controls.Add(this.dgView);
+            this.panelChildForm.Controls.Add(this.panel4);
             this.panelChildForm.Controls.Add(this.panel2);
             this.panelChildForm.Controls.Add(this.panel1);
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(0, 0);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(905, 455);
+            this.panelChildForm.Size = new System.Drawing.Size(940, 472);
             this.panelChildForm.TabIndex = 13;
+            // 
+            // dgView
+            // 
+            this.dgView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgView.Location = new System.Drawing.Point(0, 0);
+            this.dgView.Name = "dgView";
+            this.dgView.Size = new System.Drawing.Size(537, 415);
+            this.dgView.TabIndex = 17;
             // 
             // panel2
             // 
@@ -110,6 +122,17 @@ namespace vaalrusGUIPrototype.Forms
             this.btnClear.Text = "Clear Filter";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnAll
+            // 
+            this.btnAll.Location = new System.Drawing.Point(142, 126);
+            this.btnAll.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAll.Name = "btnAll";
+            this.btnAll.Size = new System.Drawing.Size(107, 34);
+            this.btnAll.TabIndex = 0;
+            this.btnAll.Text = "Reload";
+            this.btnAll.UseVisualStyleBackColor = true;
+            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
             // txtID
             // 
@@ -179,42 +202,34 @@ namespace vaalrusGUIPrototype.Forms
             this.lblOutput.TabIndex = 6;
             this.lblOutput.Text = "Output";
             // 
-            // btnAll
+            // panel4
             // 
-            this.btnAll.Location = new System.Drawing.Point(142, 126);
-            this.btnAll.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAll.Name = "btnAll";
-            this.btnAll.Size = new System.Drawing.Size(107, 34);
-            this.btnAll.TabIndex = 0;
-            this.btnAll.Text = "Reload";
-            this.btnAll.UseVisualStyleBackColor = true;
-            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
-            // 
-            // dgView
-            // 
-            this.dgView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgView.Location = new System.Drawing.Point(342, 26);
-            this.dgView.Name = "dgView";
-            this.dgView.Size = new System.Drawing.Size(514, 417);
-            this.dgView.TabIndex = 17;
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.Controls.Add(this.dgView);
+            this.panel4.Location = new System.Drawing.Point(369, 30);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(537, 415);
+            this.panel4.TabIndex = 18;
             // 
             // frmViewCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 455);
+            this.ClientSize = new System.Drawing.Size(940, 472);
             this.Controls.Add(this.panelChildForm);
             this.Name = "frmViewCustomer";
             this.Text = "frmViewCustomer";
+            this.Load += new System.EventHandler(this.frmViewCustomer_Load);
             this.panelChildForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgView)).EndInit();
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgView)).EndInit();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -236,5 +251,6 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgView;
+        private System.Windows.Forms.Panel panel4;
     }
 }
