@@ -258,7 +258,7 @@ namespace vaalrusGUIPrototype
                 }
             }
 
-            if (rbIDnum.Checked == true)
+            else if (rbIDnum.Checked == true)
 
             {
                 if (tbIDNum.Text.Length == 13)
@@ -273,8 +273,12 @@ namespace vaalrusGUIPrototype
                 }
 
             }
-           
-           
+            else
+            {
+                MessageBox.Show("ENTER CUSTOMER LAST NAME OR ID NUMBER");
+            }
+
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
