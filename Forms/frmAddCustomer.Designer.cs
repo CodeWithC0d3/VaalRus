@@ -101,7 +101,6 @@ namespace vaalrusGUIPrototype.Forms
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(144, 20);
             this.txtID.TabIndex = 2;
-            this.txtID.Validating += new System.ComponentModel.CancelEventHandler(this.txtID_Validating);
             // 
             // label4
             // 
@@ -128,7 +127,6 @@ namespace vaalrusGUIPrototype.Forms
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(134, 20);
             this.txtEmail.TabIndex = 4;
-            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // label3
             // 
@@ -154,7 +152,6 @@ namespace vaalrusGUIPrototype.Forms
             this.txtContactNumber.Name = "txtContactNumber";
             this.txtContactNumber.Size = new System.Drawing.Size(100, 20);
             this.txtContactNumber.TabIndex = 3;
-            this.txtContactNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtContactNumber_Validating);
             // 
             // txtLastName
             // 
@@ -162,7 +159,6 @@ namespace vaalrusGUIPrototype.Forms
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(100, 20);
             this.txtLastName.TabIndex = 1;
-            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtLastName_Validating);
             // 
             // label6
             // 
@@ -197,7 +193,6 @@ namespace vaalrusGUIPrototype.Forms
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(100, 20);
             this.txtFirstName.TabIndex = 0;
-            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtFirstName_Validating);
             // 
             // eProviderFN
             // 
