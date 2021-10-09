@@ -18,42 +18,6 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet2">
-      <Query>
-        <DataSourceName>VaalrusDataSet</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="Quotation_ID">
-          <DataField>Quotation_ID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Accommodation_ID">
-          <DataField>Accommodation_ID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Number_Of_Occupants">
-          <DataField>Number_Of_Occupants</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="startDate">
-          <DataField>startDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="endDate">
-          <DataField>endDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>VaalrusDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\JMX\Desktop\Reposit\VaalRus\VaalrusDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>Accommodationset</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>AccommodationsetTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
     <DataSet Name="DataSet3">
       <Query>
         <DataSourceName>VaalrusDataSet6</DataSourceName>
@@ -160,8 +124,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox10</rd:DefaultName>
-            <Top>7.76138cm</Top>
-            <Left>3.2112cm</Left>
+            <Top>13.92555cm</Top>
+            <Left>7.70912cm</Left>
             <Height>0.60854cm</Height>
             <Width>2.64583cm</Width>
             <ZIndex>1</ZIndex>
@@ -619,14 +583,14 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Chart Title</Caption>
+                <Caption>Top 10 Accommodations</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextAlign>Left</TextAlign>
                   <VerticalAlign>Top</VerticalAlign>
-                  <Color>#a6a6a6</Color>
+                  <Color>Teal</Color>
                 </Style>
                 <Position>TopLeft</Position>
               </ChartTitle>
@@ -648,9 +612,8 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>DataSet2</DataSetName>
-            <Top>8.74916cm</Top>
-            <Left>0.45666cm</Left>
+            <Top>7.2593cm</Top>
+            <Left>0.85703cm</Left>
             <Height>5cm</Height>
             <Width>7.5cm</Width>
             <ZIndex>7</ZIndex>
@@ -745,6 +708,8 @@
                         <Color>#5c5c5c</Color>
                       </Style>
                     </ChartAxisTitle>
+                    <Margin>False</Margin>
+                    <IntervalType>Default</IntervalType>
                     <ChartMajorGridLines>
                       <Enabled>False</Enabled>
                       <Style>
@@ -843,6 +808,7 @@
                 </ChartCategoryAxes>
                 <ChartValueAxes>
                   <ChartAxis Name="Primary">
+                    <Visible>False</Visible>
                     <Style>
                       <Border>
                         <Color>Gainsboro</Color>
@@ -986,7 +952,7 @@
                   <FontWeight>Normal</FontWeight>
                   <TextAlign>Left</TextAlign>
                   <VerticalAlign>Top</VerticalAlign>
-                  <Color>#a6a6a6</Color>
+                  <Color>Teal</Color>
                 </Style>
                 <Position>TopLeft</Position>
               </ChartTitle>
@@ -1008,7 +974,6 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>DataSet2</DataSetName>
             <Top>5.45951cm</Top>
             <Left>9.86361cm</Left>
             <Height>8.28965cm</Height>
@@ -1253,7 +1218,7 @@
             <Top>5.45951cm</Top>
             <Left>0.26458cm</Left>
             <Height>1.64979cm</Height>
-            <Width>9.45792cm</Width>
+            <Width>9.45791cm</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
