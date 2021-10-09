@@ -122,7 +122,7 @@ namespace vaalrusGUIPrototype
             // dgView
             // 
             this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgView.Location = new System.Drawing.Point(31, 11);
+            this.dgView.Location = new System.Drawing.Point(30, 11);
             this.dgView.Margin = new System.Windows.Forms.Padding(2);
             this.dgView.Name = "dgView";
             this.dgView.RowHeadersWidth = 51;
