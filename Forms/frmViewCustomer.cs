@@ -17,6 +17,9 @@ namespace vaalrusGUIPrototype.Forms
     {
         string constr = Properties.Settings.Default.conString;
         SqlConnection con;
+        SqlCommand command;
+        SqlDataAdapter adapter;
+        DataSet ds;
 
         public frmViewCustomer()
         {
@@ -180,9 +183,140 @@ namespace vaalrusGUIPrototype.Forms
 
         private void btnAll_Click(object sender, EventArgs e)
         {
+            if (conDB())
+            {
 
+                string lastName = txtLastName.Text;
+
+                string queryText = $"SELECT Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address FROM Customer";
+
+
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+
+
+                command = new SqlCommand(queryText, con);
+
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Customer");
+
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
+
+
+                con.Close();
+
+
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtFirstName.Text = "";
+            txtLastName.Text = "";
+            txtID.Text = "";
         }
 
 
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+
+            if (conDB())
+            {
+
+                //con.Open();
+
+                string firstName = txtFirstName.Text;
+
+                string queryText = $"SELECT Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address " +
+                    $"FROM Customer WHERE Customer_FirstName LIKE '%{firstName}%'";
+
+                SqlCommand SQLQuery = new SqlCommand(queryText, con);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+
+
+                adapter.SelectCommand = SQLQuery;
+                adapter.Fill(ds, "Customer");
+
+
+                //display in the datagrid
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
+
+                con.Close();
+
+
+            }
+
+
+        }
+
+        private void txtLastName_TextChanged(object sender, EventArgs e)
+        {
+            if (conDB())
+            {
+
+                //con.Open();
+
+                string lastName = txtLastName.Text;
+
+                string queryText = $"SELECT Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address " +
+                    $"FROM Customer WHERE Customer_LastName LIKE '%{lastName}%'";
+
+                SqlCommand SQLQuery = new SqlCommand(queryText, con);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+
+
+                adapter.SelectCommand = SQLQuery;
+                adapter.Fill(ds, "Customer");
+
+
+                //display in the datagrid
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
+
+                con.Close();
+
+
+            }
+        }
+
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
+
+            if (conDB())
+            {
+
+                //con.Open();
+
+                string IdNo = txtID.Text;
+
+                string queryText = $"SELECT Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address " +
+                    $"FROM Customer WHERE Customer_IDNumber LIKE '%{IdNo}%'";
+
+                SqlCommand SQLQuery = new SqlCommand(queryText, con);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+
+
+                adapter.SelectCommand = SQLQuery;
+                adapter.Fill(ds, "Customer");
+
+
+                //display in the datagrid
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
+
+                con.Close();
+
+
+            }
+
+
+
+        }
     }
 }
