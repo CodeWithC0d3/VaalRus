@@ -557,7 +557,8 @@ namespace vaalrusGUIPrototype
             // pictureBoxMax
             // 
             this.pictureBoxMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxMax.Image = global::vaalrusGUIPrototype.Properties.Resources.expand;
+            this.pictureBoxMax.BackgroundImage = global::vaalrusGUIPrototype.Properties.Resources.expand2;
+            this.pictureBoxMax.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxMax.Location = new System.Drawing.Point(1035, 4);
             this.pictureBoxMax.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxMax.Name = "pictureBoxMax";
