@@ -32,6 +32,9 @@ namespace vaalrusGUIPrototype.Forms
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbCustNo = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -42,8 +45,6 @@ namespace vaalrusGUIPrototype.Forms
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.cbCustNo = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -59,15 +60,14 @@ namespace vaalrusGUIPrototype.Forms
             this.lblOutput = new System.Windows.Forms.Label();
             this.btnAll = new System.Windows.Forms.Button();
             this.dgView = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panelChildForm.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelChildForm
@@ -114,6 +114,34 @@ namespace vaalrusGUIPrototype.Forms
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(510, 170);
             this.panel3.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.cbCustNo);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Location = new System.Drawing.Point(3, 10);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(495, 44);
+            this.groupBox3.TabIndex = 17;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "NB";
+            // 
+            // cbCustNo
+            // 
+            this.cbCustNo.FormattingEnabled = true;
+            this.cbCustNo.Location = new System.Drawing.Point(124, 13);
+            this.cbCustNo.Name = "cbCustNo";
+            this.cbCustNo.Size = new System.Drawing.Size(142, 21);
+            this.cbCustNo.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(11, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(94, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Customer Number:";
             // 
             // txtAddress
             // 
@@ -196,23 +224,6 @@ namespace vaalrusGUIPrototype.Forms
             this.txtFirstName.Size = new System.Drawing.Size(142, 20);
             this.txtFirstName.TabIndex = 9;
             // 
-            // cbCustNo
-            // 
-            this.cbCustNo.FormattingEnabled = true;
-            this.cbCustNo.Location = new System.Drawing.Point(124, 13);
-            this.cbCustNo.Name = "cbCustNo";
-            this.cbCustNo.Size = new System.Drawing.Size(142, 21);
-            this.cbCustNo.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Customer Number:";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -255,7 +266,7 @@ namespace vaalrusGUIPrototype.Forms
             this.cbSearchCustNo.Name = "cbSearchCustNo";
             this.cbSearchCustNo.Size = new System.Drawing.Size(142, 21);
             this.cbSearchCustNo.TabIndex = 8;
-            this.cbSearchCustNo.SelectedValueChanged += new System.EventHandler(this.cbSearchCustNo_SelectedValueChanged);
+            this.cbSearchCustNo.SelectedIndexChanged += new System.EventHandler(this.cbSearchCustNo_SelectedIndexChanged);
             // 
             // txtSearchID
             // 
@@ -263,6 +274,7 @@ namespace vaalrusGUIPrototype.Forms
             this.txtSearchID.Name = "txtSearchID";
             this.txtSearchID.Size = new System.Drawing.Size(142, 20);
             this.txtSearchID.TabIndex = 7;
+            this.txtSearchID.TextChanged += new System.EventHandler(this.txtSearchID_TextChanged_1);
             // 
             // txtSearchLastName
             // 
@@ -270,6 +282,7 @@ namespace vaalrusGUIPrototype.Forms
             this.txtSearchLastName.Name = "txtSearchLastName";
             this.txtSearchLastName.Size = new System.Drawing.Size(142, 20);
             this.txtSearchLastName.TabIndex = 6;
+            this.txtSearchLastName.TextChanged += new System.EventHandler(this.txtSearchLastName_TextChanged);
             // 
             // txtSearchFirstName
             // 
@@ -277,6 +290,7 @@ namespace vaalrusGUIPrototype.Forms
             this.txtSearchFirstName.Name = "txtSearchFirstName";
             this.txtSearchFirstName.Size = new System.Drawing.Size(142, 20);
             this.txtSearchFirstName.TabIndex = 5;
+            this.txtSearchFirstName.TextChanged += new System.EventHandler(this.txtSearchFirstName_TextChanged);
             // 
             // label4
             // 
@@ -354,17 +368,6 @@ namespace vaalrusGUIPrototype.Forms
             this.dgView.Size = new System.Drawing.Size(856, 228);
             this.dgView.TabIndex = 15;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.cbCustNo);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Location = new System.Drawing.Point(3, 10);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(495, 44);
-            this.groupBox3.TabIndex = 17;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "NB";
-            // 
             // frmUpdateCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,14 +380,14 @@ namespace vaalrusGUIPrototype.Forms
             this.groupBox2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }

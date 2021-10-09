@@ -327,7 +327,7 @@ namespace vaalrusGUIPrototype.Forms
                 string IdNo = txtID.Text;
 
                 string queryText = $"SELECT Customer_FirstName, Customer_LastName, Customer_IDNumber, Customer_Email, Customer_Cell, Customer_Address " +
-                    $"FROM Customer WHERE Customer_IDNumber LIKE '%{IdNo}%'";
+                    $"FROM Customer WHERE Customer_IDNumber LIKE '{IdNo}%'";
 
                 SqlCommand SQLQuery = new SqlCommand(queryText, con);
                 adapter = new SqlDataAdapter();

@@ -145,10 +145,137 @@ namespace vaalrusGUIPrototype.Forms
             }
         }
 
-        private void cbSearchCustNo_SelectedValueChanged(object sender, EventArgs e)
+
+
+        private void txtSearchFirstName_TextChanged(object sender, EventArgs e)
+        {
+            if (conDB())
+            {
+
+                //con.Open();
+
+                string firstName = txtSearchFirstName.Text;
+
+                string queryText = $"SELECT * " +
+                    $"FROM Customer WHERE Customer_FirstName LIKE '%{firstName}%'";
+
+                SqlCommand SQLQuery = new SqlCommand(queryText, con);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+
+
+                adapter.SelectCommand = SQLQuery;
+                adapter.Fill(ds, "Customer");
+
+
+                //display in the datagrid
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
+
+                con.Close();
+
+
+            }
+        }
+
+        private void txtSearchLastName_TextChanged(object sender, EventArgs e)
+        {
+            if (conDB())
+            {
+
+                //con.Open();
+
+                string lastName = txtSearchLastName.Text;
+
+                string queryText = $"SELECT * " +
+                    $"FROM Customer WHERE Customer_LastName LIKE '%{lastName}%'";
+
+                SqlCommand SQLQuery = new SqlCommand(queryText, con);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+
+
+                adapter.SelectCommand = SQLQuery;
+                adapter.Fill(ds, "Customer");
+
+
+                //display in the datagrid
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
+
+                con.Close();
+
+
+            }
+        }
+
+        private void txtSearchID_TextChanged_1(object sender, EventArgs e)
+        {
+            if (conDB())
+            {
+
+                //con.Open();
+
+                string IdNo = txtSearchID.Text;
+
+                string queryText = $"SELECT * " +
+                    $"FROM Customer WHERE Customer_IDNumber LIKE '{IdNo}%'";
+
+                SqlCommand SQLQuery = new SqlCommand(queryText, con);
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+
+
+                adapter.SelectCommand = SQLQuery;
+                adapter.Fill(ds, "Customer");
+
+
+                //display in the datagrid
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
+
+                con.Close();
+
+
+            }
+        }
+
+        private void cbSearchCustNo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+                
+                string searchCustNo = cbSearchCustNo.SelectedItem.ToString(); 
 
+                lblOutput.Text = searchCustNo.ToString();
+
+                if (conDB())
+                {
+                    string queryText = $"SELECT * FROM Customer WHERE Customer_ID = '{searchCustNo}'";
+
+                    SqlCommand SQLQuery = new SqlCommand(queryText, con);
+
+                    adapter = new SqlDataAdapter();
+                    ds = new DataSet();
+
+
+                    command = new SqlCommand(queryText, con);
+
+                    adapter.SelectCommand = command;
+                    adapter.Fill(ds, "Customer");
+
+                    dgView.DataSource = ds;
+                    dgView.DataMember = "Customer";
+
+
+                    con.Close();
+
+                }
+
+            
         }
+
+       
+
+        
     }
 }
