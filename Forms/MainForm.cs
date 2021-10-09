@@ -9,11 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using vaalrusGUIPrototype.Forms;
 using System.Runtime.InteropServices;
+using System.Data.SqlClient;
 
 namespace vaalrusGUIPrototype
 {
     public partial class MainForm : Form
     {
+        public SqlConnection sqlConnection;
+        public SqlCommand sqlCmd;
+        //public string sqlCommand;
+        //public string dataFDB;
+        public string connString = Properties.Settings.Default.conString;
+
         Button currentButton;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -179,7 +186,8 @@ namespace vaalrusGUIPrototype
             //GlobalSettings.thirdColor = Color.FromArgb(236, 236, 225);
             GlobalSettings.thirdColor = GlobalSettings.ChangeColorBrightness(Color.FromArgb(236, 236, 225), -0.2);
             GlobalSettings.font = new Font("Microsoft Sans Serif", 10);
-    }
+            removeOldQuotes();
+        }
 
         
 
@@ -351,6 +359,23 @@ namespace vaalrusGUIPrototype
                 this.WindowState = FormWindowState.Normal;
             }
             //this.WindowState = FormWindowState.Maximized;
+        }
+        public void removeOldQuotes()
+        {
+            try
+            {
+                sqlConnection = new SqlConnection(connString);
+                if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();//UPDATE table1 SET table1.name = table2.nameFROM table1, table2WHERE table1.id = table2.idAND table2.foobar = 'stuff';
+                sqlCmd = new SqlCommand($"Update Quotation SET PaymentStatus = '" + 3 + "' where Reservation_Date < '" + DateTime.Today + "' OR QuoteCreated_DateTime < '" + DateTime.Today.AddDays(-3) + "' ", sqlConnection);
+                sqlCmd.ExecuteNonQuery();
+                sqlCmd.Dispose();
+                sqlConnection.Close();
+
+                
+            }catch(SqlException sqlx)
+            {
+                MessageBox.Show(sqlx.ToString());
+            }
         }
     }
 }
