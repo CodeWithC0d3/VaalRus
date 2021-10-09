@@ -28,6 +28,77 @@ namespace vaalrusGUIPrototype.Forms
         public frmUpdateCustomer()
         {
             InitializeComponent();
+
+            //populate the customer number drop down search box
+            if (conDB())
+            {
+                
+
+
+                SqlCommand SQLQuery = new SqlCommand(@"Select Distinct Customer_ID FROM Customer ORDER BY Customer_ID", con);
+                dataReader = SQLQuery.ExecuteReader();
+
+                //loop through the data
+                while (dataReader.Read())
+                {
+                    //add to the combo box
+                    cbSearchCustNo.Items.Add(dataReader.GetValue(0));
+
+                }
+
+                con.Close();
+
+            }
+
+            //populate the customer number drop down search box
+            if (conDB())
+            {
+
+
+
+                SqlCommand SQLQuery2 = new SqlCommand(@"Select Distinct Customer_ID FROM Customer ORDER BY Customer_ID", con);
+                dataReader = SQLQuery2.ExecuteReader();
+
+                //loop through the data
+                while (dataReader.Read())
+                {
+                    //add to the combo box
+                    cbCustNo.Items.Add(dataReader.GetValue(0));
+
+                }
+
+                con.Close();
+
+            }
+
+            //populate the data grid
+            if (conDB())
+            {
+
+                //string lastName = txtLastName.Text;
+
+                string queryText = $"SELECT * FROM Customer";
+
+
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+
+
+                command = new SqlCommand(queryText, con);
+
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Customer");
+
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
+
+
+                con.Close();
+
+
+            }
+
+
         }
         private Boolean conDB()
         {
@@ -47,6 +118,36 @@ namespace vaalrusGUIPrototype.Forms
 
         private void btnAll_Click(object sender, EventArgs e)
         {
+            if (conDB())
+            {
+
+                string lastName = txtLastName.Text;
+
+                string queryText = $"SELECT * FROM Customer";
+
+
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+
+
+                command = new SqlCommand(queryText, con);
+
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Customer");
+
+                dgView.DataSource = ds;
+                dgView.DataMember = "Customer";
+
+
+                con.Close();
+
+
+            }
+        }
+
+        private void cbSearchCustNo_SelectedValueChanged(object sender, EventArgs e)
+        {
+
 
         }
     }

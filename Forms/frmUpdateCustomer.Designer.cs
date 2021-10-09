@@ -32,6 +32,10 @@ namespace vaalrusGUIPrototype.Forms
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -55,10 +59,7 @@ namespace vaalrusGUIPrototype.Forms
             this.lblOutput = new System.Windows.Forms.Label();
             this.btnAll = new System.Windows.Forms.Button();
             this.dgView = new System.Windows.Forms.DataGridView();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panelChildForm.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -66,6 +67,7 @@ namespace vaalrusGUIPrototype.Forms
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelChildForm
@@ -95,6 +97,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.groupBox3);
             this.panel3.Controls.Add(this.txtAddress);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.label10);
@@ -105,8 +108,6 @@ namespace vaalrusGUIPrototype.Forms
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.txtFirstName);
-            this.panel3.Controls.Add(this.cbCustNo);
-            this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 16);
@@ -114,16 +115,49 @@ namespace vaalrusGUIPrototype.Forms
             this.panel3.Size = new System.Drawing.Size(510, 170);
             this.panel3.TabIndex = 0;
             // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(356, 88);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(142, 20);
+            this.txtAddress.TabIndex = 16;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(342, 123);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(159, 34);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Update";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(289, 91);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(48, 13);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "Address:";
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(127, 115);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(142, 20);
+            this.txtID.TabIndex = 13;
+            // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(127, 60);
+            this.txtLastName.Location = new System.Drawing.Point(127, 85);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(142, 20);
             this.txtLastName.TabIndex = 12;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(359, 5);
+            this.txtEmail.Location = new System.Drawing.Point(356, 57);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(142, 20);
             this.txtEmail.TabIndex = 11;
@@ -131,7 +165,7 @@ namespace vaalrusGUIPrototype.Forms
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(292, 12);
+            this.label9.Location = new System.Drawing.Point(289, 64);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(34, 13);
             this.label9.TabIndex = 10;
@@ -140,7 +174,7 @@ namespace vaalrusGUIPrototype.Forms
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(14, 97);
+            this.label8.Location = new System.Drawing.Point(14, 122);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(61, 13);
             this.label8.TabIndex = 9;
@@ -149,7 +183,7 @@ namespace vaalrusGUIPrototype.Forms
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(14, 67);
+            this.label7.Location = new System.Drawing.Point(14, 92);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 13);
             this.label7.TabIndex = 9;
@@ -157,7 +191,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(127, 32);
+            this.txtFirstName.Location = new System.Drawing.Point(127, 57);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(142, 20);
             this.txtFirstName.TabIndex = 9;
@@ -165,7 +199,7 @@ namespace vaalrusGUIPrototype.Forms
             // cbCustNo
             // 
             this.cbCustNo.FormattingEnabled = true;
-            this.cbCustNo.Location = new System.Drawing.Point(127, 4);
+            this.cbCustNo.Location = new System.Drawing.Point(124, 13);
             this.cbCustNo.Name = "cbCustNo";
             this.cbCustNo.Size = new System.Drawing.Size(142, 21);
             this.cbCustNo.TabIndex = 9;
@@ -173,7 +207,7 @@ namespace vaalrusGUIPrototype.Forms
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 12);
+            this.label6.Location = new System.Drawing.Point(11, 16);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(94, 13);
             this.label6.TabIndex = 9;
@@ -182,7 +216,7 @@ namespace vaalrusGUIPrototype.Forms
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 39);
+            this.label5.Location = new System.Drawing.Point(14, 64);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 9;
@@ -221,6 +255,7 @@ namespace vaalrusGUIPrototype.Forms
             this.cbSearchCustNo.Name = "cbSearchCustNo";
             this.cbSearchCustNo.Size = new System.Drawing.Size(142, 21);
             this.cbSearchCustNo.TabIndex = 8;
+            this.cbSearchCustNo.SelectedValueChanged += new System.EventHandler(this.cbSearchCustNo_SelectedValueChanged);
             // 
             // txtSearchID
             // 
@@ -304,7 +339,7 @@ namespace vaalrusGUIPrototype.Forms
             this.btnAll.Name = "btnAll";
             this.btnAll.Size = new System.Drawing.Size(159, 34);
             this.btnAll.TabIndex = 0;
-            this.btnAll.Text = "Display ALL Customers";
+            this.btnAll.Text = "Reload";
             this.btnAll.UseVisualStyleBackColor = true;
             this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
@@ -319,38 +354,16 @@ namespace vaalrusGUIPrototype.Forms
             this.dgView.Size = new System.Drawing.Size(856, 228);
             this.dgView.TabIndex = 15;
             // 
-            // txtID
+            // groupBox3
             // 
-            this.txtID.Location = new System.Drawing.Point(127, 90);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(142, 20);
-            this.txtID.TabIndex = 13;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(292, 39);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(48, 13);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "Address:";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(342, 76);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 34);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Update";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Location = new System.Drawing.Point(359, 36);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(142, 20);
-            this.txtAddress.TabIndex = 16;
+            this.groupBox3.Controls.Add(this.cbCustNo);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Location = new System.Drawing.Point(3, 10);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(495, 44);
+            this.groupBox3.TabIndex = 17;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "NB";
             // 
             // frmUpdateCustomer
             // 
@@ -370,6 +383,8 @@ namespace vaalrusGUIPrototype.Forms
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -406,5 +421,6 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
