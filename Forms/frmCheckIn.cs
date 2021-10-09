@@ -56,8 +56,8 @@ namespace vaalrusGUIPrototype
                 // if (co.GetType() == typeof(Panel))
                 // {
                 //    co.Parent = this;
-                //    co.BackColor = Color.Transparent;
-                // }
+                //   co.BackColor = Color.FromArgb(58, 93, 117);
+                //}
                 if (co.GetType() == typeof(Label))
                 {
                     Label lbl = (Label)co;
@@ -83,17 +83,17 @@ namespace vaalrusGUIPrototype
             }
             //pnlMain.BackColor = Color.Transparent;
 
-            aplytheme(pnlDisplay);
+            aplytheme(panel1);
+            aplytheme(panel2);
+            aplytheme(panel3);
             aplytheme(pnlCheckIn);
-            aplytheme(pnlSearch);
-            aplytheme(dtgCheckIn);
-            //aplytheme(pnl_accSet);
-
+            //timer1.Start();
         }
         private void aplytheme(Control pn)
         {
             if (pn.GetType() == typeof(Panel))
             {
+                pn.BackColor = Color.FromArgb(58, 93, 117);
                 foreach (Control co in pn.Controls)
                 {
                     if (co.GetType() == typeof(Button))
@@ -131,6 +131,16 @@ namespace vaalrusGUIPrototype
                         dtgg.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                         dtgg.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                         dtgg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        dtgg.AllowUserToAddRows = false;
+                        dtgg.AllowUserToDeleteRows = false;
+                        dtgg.AllowUserToOrderColumns = false;
+                        dtgg.AllowUserToResizeRows = false;
+                        dtgg.AllowUserToResizeColumns = true;
+                        dtgg.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+                        dtgg.RowHeadersVisible = false;
+                        dtgg.ColumnHeadersHeight = 4;
+                        dtgg.EnableHeadersVisualStyles = false;
+
 
 
                     }
@@ -178,6 +188,7 @@ namespace vaalrusGUIPrototype
 
             }
         }
+
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {

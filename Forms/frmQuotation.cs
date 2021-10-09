@@ -21,6 +21,7 @@ namespace vaalrusGUIPrototype.Forms
         SqlDataAdapter adapter;
         SqlDataReader dataReader;
         DataSet ds;
+        //Boolean isLoad =false;
         string sql = "";
         private int customerID;
         private List<int> accList = new List<int>();
@@ -304,18 +305,21 @@ namespace vaalrusGUIPrototype.Forms
         }
         private void validateList()
         {
-            if (lstAccommodation.Items.Count < 1)
-            {
-                accListErrorProvider.SetError(lstAccommodation, "Please select atleast one accommodation");
-                btnGeneratQuote.Enabled = false;
-                lstAccommodation.BackColor = Color.IndianRed;
-            }
-            else
-            {
-                accListErrorProvider.SetError(lstAccommodation, "");
-                btnGeneratQuote.Enabled = true;
-                lstAccommodation.BackColor = Color.White;
-            }
+           
+                if (lstAccommodation.Items.Count == 0)
+                {
+                    accListErrorProvider.SetError(lstAccommodation, "Please select atleast one accommodation");
+                    btnGeneratQuote.Enabled = false;
+                    lstAccommodation.BackColor = Color.IndianRed;
+                }
+                else
+                {
+                    accListErrorProvider.SetError(lstAccommodation, "");
+                    btnGeneratQuote.Enabled = true;
+                    lstAccommodation.BackColor = Color.White;
+                }
+           
+            
                 
                 
         }
@@ -945,8 +949,12 @@ namespace vaalrusGUIPrototype.Forms
 
         private void grid_main_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            btnQuote.Enabled = true;
-            selectedQuoteID = grid_main.SelectedCells[0].Value.ToString();
+            if (grid_main.CurrentCell != null)
+            {
+                btnQuote.Enabled = true;
+                selectedQuoteID = grid_main.SelectedCells[0].Value.ToString();
+            }
+            
         }
 
         private void cmbCustomer_TextChanged(object sender, EventArgs e)
@@ -966,7 +974,7 @@ namespace vaalrusGUIPrototype.Forms
 
         private void lstAccommodation_Validated(object sender, EventArgs e)
         {
-            validateList();
+            //validateList();
         }
 
         private void cmbAccommodation_Validated(object sender, EventArgs e)
@@ -996,6 +1004,21 @@ namespace vaalrusGUIPrototype.Forms
                 grid_accSet.Columns[i].MinimumWidth = 100;
 
 
+            }
+        }
+
+        private void lstAccommodation_SizeChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void lstAccommodation_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(lstAccommodation.Items.Count > 0)
+            {
+                accListErrorProvider.SetError(lstAccommodation, "");
+                btnGeneratQuote.Enabled = true;
+                lstAccommodation.BackColor = Color.White;
             }
         }
     }
