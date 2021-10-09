@@ -412,7 +412,8 @@ will reset the update texboxes
 
                 //string lastName = txtLastName.Text;
 
-                string queryText = $"SELECT * FROM Customer";
+                string queryText = $"SELECT Customer_ID AS 'Customer Number',Customer_FirstName AS 'First name', Customer_LastName AS 'Last name'" +
+                    $",Customer_IDNumber AS 'Identity Number', Customer_Email AS 'email', Customer_Cell AS 'Contact number', Customer_Address AS 'Address' FROM Customer";
 
 
                 adapter = new SqlDataAdapter();
