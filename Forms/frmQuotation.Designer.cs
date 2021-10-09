@@ -383,9 +383,9 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // ch_to
             // 
-            this.ch_to.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ch_to.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ch_to.AutoSize = true;
-            this.ch_to.Location = new System.Drawing.Point(267, 28);
+            this.ch_to.Location = new System.Drawing.Point(193, 28);
             this.ch_to.Name = "ch_to";
             this.ch_to.Size = new System.Drawing.Size(41, 17);
             this.ch_to.TabIndex = 7;
@@ -395,9 +395,9 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // rb_booking
             // 
-            this.rb_booking.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rb_booking.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.rb_booking.AutoSize = true;
-            this.rb_booking.Location = new System.Drawing.Point(81, 32);
+            this.rb_booking.Location = new System.Drawing.Point(7, 32);
             this.rb_booking.Name = "rb_booking";
             this.rb_booking.Size = new System.Drawing.Size(106, 17);
             this.rb_booking.TabIndex = 6;
@@ -408,9 +408,9 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // rb_quote
             // 
-            this.rb_quote.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rb_quote.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.rb_quote.AutoSize = true;
-            this.rb_quote.Location = new System.Drawing.Point(81, 8);
+            this.rb_quote.Location = new System.Drawing.Point(7, 8);
             this.rb_quote.Name = "rb_quote";
             this.rb_quote.Size = new System.Drawing.Size(59, 17);
             this.rb_quote.TabIndex = 5;
@@ -421,9 +421,9 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // dp_filterTo
             // 
-            this.dp_filterTo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dp_filterTo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dp_filterTo.Enabled = false;
-            this.dp_filterTo.Location = new System.Drawing.Point(323, 28);
+            this.dp_filterTo.Location = new System.Drawing.Point(249, 28);
             this.dp_filterTo.Name = "dp_filterTo";
             this.dp_filterTo.Size = new System.Drawing.Size(218, 20);
             this.dp_filterTo.TabIndex = 3;
@@ -431,9 +431,9 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // dp_filterFrom
             // 
-            this.dp_filterFrom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dp_filterFrom.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dp_filterFrom.Enabled = false;
-            this.dp_filterFrom.Location = new System.Drawing.Point(323, 4);
+            this.dp_filterFrom.Location = new System.Drawing.Point(249, 4);
             this.dp_filterFrom.Name = "dp_filterFrom";
             this.dp_filterFrom.Size = new System.Drawing.Size(218, 20);
             this.dp_filterFrom.TabIndex = 1;
