@@ -129,6 +129,8 @@ namespace vaalrusGUIPrototype.Forms
             this.lstAccommodation.Name = "lstAccommodation";
             this.lstAccommodation.Size = new System.Drawing.Size(274, 121);
             this.lstAccommodation.TabIndex = 30;
+            this.lstAccommodation.SelectedValueChanged += new System.EventHandler(this.lstAccommodation_SelectedValueChanged);
+            this.lstAccommodation.SizeChanged += new System.EventHandler(this.lstAccommodation_SizeChanged);
             this.lstAccommodation.Validated += new System.EventHandler(this.lstAccommodation_Validated);
             // 
             // dpTo
