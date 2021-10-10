@@ -205,7 +205,7 @@ namespace vaalrusGUIPrototype
             adapter.SelectCommand = command;
             adapter.Fill(ds1,"Accommodation_ID");
 
-            sql = $"SELECT 	Accommodation_ID, AccommodationType FROM accAvailibility WHERE StartDate >= '{startDT.Date.ToString("yyyy/MM/dd")}' and EndDate <= '{endDT.Date.ToString("yyyy/MM/dd")}'";
+           sql = $"SELECT 	Accommodation_ID, AccommodationType FROM accAvailibility WHERE StartDate >= '{startDT.Date.ToString("yyyy/MM/dd")}' and EndDate <= '{endDT.Date.ToString("yyyy/MM/dd")}'";
             command = new SqlCommand(sql, con);
             adapter = new SqlDataAdapter();
             ds = new DataSet();
@@ -255,21 +255,6 @@ namespace vaalrusGUIPrototype
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            sqlConnection = new SqlConnection(connString);
-            try
-            {
-                sqlConnection.Open();
-                //MessageBox.Show("Connected to db");
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Connection unsuccesful");
-            }
-            Display("Select * from Booking ");
-        
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -284,11 +269,11 @@ namespace vaalrusGUIPrototype
                 sqlConnection.Open();
                 //MessageBox.Show("Connected to db");
             }
-            catch (SqlException sqlx)
+            catch (SqlException)
             {
                 MessageBox.Show("Connection unsuccesful");
             }
-            Display("Select * from Accommodation ");
+            Display("SELECT Accommodation.Accommodation_ID AS[Accommodation Number], Accommodationtype.AccommodationType AS Type, Accommodation.Number_Of_Occupants AS [Occupants Number], Accommodation.Accommodation_Price AS Price, Accommodation.Active AS Status FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID ");
         }
 
         private void button2_Click_1(object sender, EventArgs e)
