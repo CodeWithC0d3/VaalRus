@@ -505,7 +505,10 @@ namespace vaalrusGUIPrototype
             dIndex++;
             if (dataGridViewAccom.RowCount > dIndex)
             {
-                
+                comboBoxSearchType.SelectedItem = null;
+                txtSearchID.Clear();
+                txtSearchOccupants.Clear();
+                txtsearchPrice.Clear();
                 readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");//'" + dIndex+"'");//'"+dIndex+"'");
                 dataGridViewAccom.ClearSelection();
                 dataGridViewAccom.Rows[dIndex-1].Selected = true;
@@ -516,6 +519,10 @@ namespace vaalrusGUIPrototype
         {
             if(dIndex>1)
                 dIndex--;
+            comboBoxSearchType.SelectedItem = null;
+            txtSearchID.Clear();
+            txtSearchOccupants.Clear();
+            txtsearchPrice.Clear();
             readData("WITH myTableWithRows AS (SELECT(ROW_NUMBER() OVER(ORDER BY Accommodation.Accommodation_ID)) as row, *FROM Accommodation)SELECT* FROM myTableWithRows WHERE row = '" + dIndex + "'");
             dataGridViewAccom.ClearSelection();
             if(dIndex<1)
