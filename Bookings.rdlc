@@ -1033,11 +1033,6 @@
                       <GroupExpression>=Fields!Booking_ID.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!Booking_ID.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
                   <TablixHeader>
                     <Size>1.57467cm</Size>
                     <CellContents>
@@ -1067,6 +1062,7 @@
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
+                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
@@ -1076,11 +1072,6 @@
                           <GroupExpression>=Fields!Customer_FirstName.Value</GroupExpression>
                         </GroupExpressions>
                       </Group>
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!Customer_FirstName.Value</Value>
-                        </SortExpression>
-                      </SortExpressions>
                       <TablixHeader>
                         <Size>2.5cm</Size>
                         <CellContents>
@@ -1119,11 +1110,6 @@
                               <GroupExpression>=Fields!Customer_LastName.Value</GroupExpression>
                             </GroupExpressions>
                           </Group>
-                          <SortExpressions>
-                            <SortExpression>
-                              <Value>=Fields!Customer_LastName.Value</Value>
-                            </SortExpression>
-                          </SortExpressions>
                           <TablixHeader>
                             <Size>2.5cm</Size>
                             <CellContents>
@@ -1162,11 +1148,6 @@
                                   <GroupExpression>=Fields!startDate.Value</GroupExpression>
                                 </GroupExpressions>
                               </Group>
-                              <SortExpressions>
-                                <SortExpression>
-                                  <Value>=Fields!startDate.Value</Value>
-                                </SortExpression>
-                              </SortExpressions>
                               <TablixHeader>
                                 <Size>2.5cm</Size>
                                 <CellContents>
@@ -1205,11 +1186,6 @@
                                       <GroupExpression>=Fields!endDate.Value</GroupExpression>
                                     </GroupExpressions>
                                   </Group>
-                                  <SortExpressions>
-                                    <SortExpression>
-                                      <Value>=Fields!endDate.Value</Value>
-                                    </SortExpression>
-                                  </SortExpressions>
                                   <TablixHeader>
                                     <Size>2.5cm</Size>
                                     <CellContents>
@@ -1248,11 +1224,6 @@
                                           <GroupExpression>=Fields!Booking_ID.Value</GroupExpression>
                                         </GroupExpressions>
                                       </Group>
-                                      <SortExpressions>
-                                        <SortExpression>
-                                          <Value>=Fields!Booking_ID.Value</Value>
-                                        </SortExpression>
-                                      </SortExpressions>
                                       <TablixMembers>
                                         <TablixMember>
                                           <Group Name="Details" />
@@ -1275,6 +1246,11 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSetFull</DataSetName>
+            <SortExpressions>
+              <SortExpression>
+                <Value>=Fields!startDate.Value</Value>
+              </SortExpression>
+            </SortExpressions>
             <Top>5.73828cm</Top>
             <Left>1.21727cm</Left>
             <Height>2.87542cm</Height>
