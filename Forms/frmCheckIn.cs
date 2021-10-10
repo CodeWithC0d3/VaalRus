@@ -317,6 +317,11 @@ namespace vaalrusGUIPrototype
         {
 
         }
+
+        private void dtgCheckIn_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
     
 }

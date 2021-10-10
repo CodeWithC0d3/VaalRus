@@ -33,80 +33,92 @@ namespace vaalrusGUIPrototype
             this.dtgCheckOut = new System.Windows.Forms.DataGridView();
             this.pnlCheckOut = new System.Windows.Forms.Panel();
             this.tbBookID = new System.Windows.Forms.TextBox();
+            this.btnCheckOut = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnCheckout = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.btnDisplayBook = new System.Windows.Forms.Button();
-            this.pnlSearch = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.rbIDnum = new System.Windows.Forms.RadioButton();
             this.rbLastName = new System.Windows.Forms.RadioButton();
             this.tbIDNum = new System.Windows.Forms.TextBox();
-            this.pnlDisplay = new System.Windows.Forms.Panel();
             this.epLastName = new System.Windows.Forms.ErrorProvider(this.components);
             this.epIDNumber = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlDisplay = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pnlSearch = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCheckOut)).BeginInit();
             this.pnlCheckOut.SuspendLayout();
-            this.pnlSearch.SuspendLayout();
-            this.pnlDisplay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.epLastName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epIDNumber)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.pnlDisplay.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.pnlSearch.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtgCheckOut
             // 
             this.dtgCheckOut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgCheckOut.Location = new System.Drawing.Point(433, 229);
+            this.dtgCheckOut.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgCheckOut.Location = new System.Drawing.Point(0, 0);
+            this.dtgCheckOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgCheckOut.Name = "dtgCheckOut";
             this.dtgCheckOut.RowHeadersWidth = 51;
             this.dtgCheckOut.RowTemplate.Height = 24;
-            this.dtgCheckOut.Size = new System.Drawing.Size(548, 341);
+            this.dtgCheckOut.Size = new System.Drawing.Size(812, 506);
             this.dtgCheckOut.TabIndex = 0;
-            this.dtgCheckOut.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgCheckOut_CellContentClick);
-            this.dtgCheckOut.SelectionChanged += new System.EventHandler(this.dtgCheckOut_SelectionChanged);
+            this.dtgCheckOut.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgCheckIn_CellContentClick);
+            this.dtgCheckOut.SelectionChanged += new System.EventHandler(this.dtgCheckOut_SelectionChanged_1);
             // 
             // pnlCheckOut
             // 
             this.pnlCheckOut.Controls.Add(this.tbBookID);
+            this.pnlCheckOut.Controls.Add(this.btnCheckOut);
             this.pnlCheckOut.Controls.Add(this.label2);
-            this.pnlCheckOut.Controls.Add(this.btnCheckout);
-            this.pnlCheckOut.Location = new System.Drawing.Point(12, 239);
+            this.pnlCheckOut.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlCheckOut.Location = new System.Drawing.Point(0, 171);
+            this.pnlCheckOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlCheckOut.Name = "pnlCheckOut";
-            this.pnlCheckOut.Size = new System.Drawing.Size(378, 292);
+            this.pnlCheckOut.Size = new System.Drawing.Size(381, 233);
             this.pnlCheckOut.TabIndex = 1;
             // 
             // tbBookID
             // 
-            this.tbBookID.Location = new System.Drawing.Point(159, 80);
+            this.tbBookID.Location = new System.Drawing.Point(159, 68);
+            this.tbBookID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbBookID.Name = "tbBookID";
             this.tbBookID.Size = new System.Drawing.Size(47, 22);
             this.tbBookID.TabIndex = 5;
             // 
+            // btnCheckOut
+            // 
+            this.btnCheckOut.Location = new System.Drawing.Point(99, 134);
+            this.btnCheckOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCheckOut.Name = "btnCheckOut";
+            this.btnCheckOut.Size = new System.Drawing.Size(151, 66);
+            this.btnCheckOut.TabIndex = 2;
+            this.btnCheckOut.Text = "Check Out";
+            this.btnCheckOut.UseVisualStyleBackColor = true;
+            this.btnCheckOut.Click += new System.EventHandler(this.button2_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(105, 35);
+            this.label2.Location = new System.Drawing.Point(105, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(159, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Verify Select Booking ID";
             // 
-            // btnCheckout
-            // 
-            this.btnCheckout.Location = new System.Drawing.Point(113, 146);
-            this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Size = new System.Drawing.Size(151, 66);
-            this.btnCheckout.TabIndex = 2;
-            this.btnCheckout.Text = "Check Out";
-            this.btnCheckout.UseVisualStyleBackColor = true;
-            this.btnCheckout.Click += new System.EventHandler(this.button2_Click);
-            // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(809, 10);
+            this.btnSearch.Location = new System.Drawing.Point(3, 86);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(141, 92);
+            this.btnSearch.Size = new System.Drawing.Size(367, 54);
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "Filter";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -114,83 +126,56 @@ namespace vaalrusGUIPrototype
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(602, 10);
+            this.tbLastName.Location = new System.Drawing.Point(199, 46);
+            this.tbLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(170, 22);
+            this.tbLastName.Size = new System.Drawing.Size(169, 22);
             this.tbLastName.TabIndex = 7;
             // 
             // btnDisplayBook
             // 
-            this.btnDisplayBook.Location = new System.Drawing.Point(187, 22);
+            this.btnDisplayBook.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDisplayBook.Location = new System.Drawing.Point(7, 18);
+            this.btnDisplayBook.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDisplayBook.Name = "btnDisplayBook";
-            this.btnDisplayBook.Size = new System.Drawing.Size(302, 48);
+            this.btnDisplayBook.Size = new System.Drawing.Size(367, 54);
             this.btnDisplayBook.TabIndex = 1;
-            this.btnDisplayBook.Text = "Display Bookings";
+            this.btnDisplayBook.Text = "Display Bookings ?";
             this.btnDisplayBook.UseVisualStyleBackColor = true;
             this.btnDisplayBook.Click += new System.EventHandler(this.btnDisplayBook_Click);
-            // 
-            // pnlSearch
-            // 
-            this.pnlSearch.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlSearch.Controls.Add(this.label1);
-            this.pnlSearch.Controls.Add(this.rbIDnum);
-            this.pnlSearch.Controls.Add(this.rbLastName);
-            this.pnlSearch.Controls.Add(this.tbIDNum);
-            this.pnlSearch.Controls.Add(this.btnSearch);
-            this.pnlSearch.Controls.Add(this.tbLastName);
-            this.pnlSearch.Location = new System.Drawing.Point(12, 109);
-            this.pnlSearch.Name = "pnlSearch";
-            this.pnlSearch.Size = new System.Drawing.Size(976, 114);
-            this.pnlSearch.TabIndex = 9;
-            this.pnlSearch.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Location = new System.Drawing.Point(13, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(279, 19);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "SEARCH BY LAST NAME OR ID NUMBER:";
             // 
             // rbIDnum
             // 
             this.rbIDnum.AutoSize = true;
-            this.rbIDnum.Location = new System.Drawing.Point(419, 58);
+            this.rbIDnum.Location = new System.Drawing.Point(15, 2);
+            this.rbIDnum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbIDnum.Name = "rbIDnum";
             this.rbIDnum.Size = new System.Drawing.Size(138, 21);
             this.rbIDnum.TabIndex = 12;
             this.rbIDnum.TabStop = true;
             this.rbIDnum.Text = "Enter ID Number:";
             this.rbIDnum.UseVisualStyleBackColor = true;
+            this.rbIDnum.CheckedChanged += new System.EventHandler(this.rbIDnum_CheckedChanged);
             // 
             // rbLastName
             // 
             this.rbLastName.AutoSize = true;
-            this.rbLastName.Location = new System.Drawing.Point(419, 11);
+            this.rbLastName.Location = new System.Drawing.Point(15, 49);
+            this.rbLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbLastName.Name = "rbLastName";
             this.rbLastName.Size = new System.Drawing.Size(139, 21);
             this.rbLastName.TabIndex = 11;
             this.rbLastName.TabStop = true;
             this.rbLastName.Text = "Enter Last Name:";
             this.rbLastName.UseVisualStyleBackColor = true;
-            this.rbLastName.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // tbIDNum
             // 
-            this.tbIDNum.Location = new System.Drawing.Point(602, 58);
+            this.tbIDNum.Location = new System.Drawing.Point(199, 2);
+            this.tbIDNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbIDNum.Name = "tbIDNum";
-            this.tbIDNum.Size = new System.Drawing.Size(170, 22);
+            this.tbIDNum.Size = new System.Drawing.Size(169, 22);
             this.tbIDNum.TabIndex = 9;
-            // 
-            // pnlDisplay
-            // 
-            this.pnlDisplay.Controls.Add(this.btnDisplayBook);
-            this.pnlDisplay.Location = new System.Drawing.Point(145, 3);
-            this.pnlDisplay.Name = "pnlDisplay";
-            this.pnlDisplay.Size = new System.Drawing.Size(651, 100);
-            this.pnlDisplay.TabIndex = 6;
             // 
             // epLastName
             // 
@@ -200,27 +185,90 @@ namespace vaalrusGUIPrototype
             // 
             this.epIDNumber.ContainerControl = this;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.pnlDisplay);
+            this.panel1.Controls.Add(this.pnlCheckOut);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Location = new System.Drawing.Point(16, 15);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(381, 506);
+            this.panel1.TabIndex = 10;
+            // 
+            // pnlDisplay
+            // 
+            this.pnlDisplay.Controls.Add(this.btnDisplayBook);
+            this.pnlDisplay.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlDisplay.Location = new System.Drawing.Point(0, 404);
+            this.pnlDisplay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDisplay.Name = "pnlDisplay";
+            this.pnlDisplay.Size = new System.Drawing.Size(381, 86);
+            this.pnlDisplay.TabIndex = 8;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.pnlSearch);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(381, 171);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "SEARCH BY LAST NAME OR ID NUMBER:";
+            // 
+            // pnlSearch
+            // 
+            this.pnlSearch.Controls.Add(this.btnSearch);
+            this.pnlSearch.Controls.Add(this.tbIDNum);
+            this.pnlSearch.Controls.Add(this.rbLastName);
+            this.pnlSearch.Controls.Add(this.rbIDnum);
+            this.pnlSearch.Controls.Add(this.tbLastName);
+            this.pnlSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSearch.Location = new System.Drawing.Point(4, 19);
+            this.pnlSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlSearch.Name = "pnlSearch";
+            this.pnlSearch.Size = new System.Drawing.Size(373, 148);
+            this.pnlSearch.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.dtgCheckOut);
+            this.panel2.Location = new System.Drawing.Point(405, 15);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(812, 506);
+            this.panel2.TabIndex = 11;
+            // 
             // frmCheckOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(93)))), ((int)(((byte)(117)))));
-            this.ClientSize = new System.Drawing.Size(1000, 598);
-            this.Controls.Add(this.pnlDisplay);
-            this.Controls.Add(this.pnlSearch);
-            this.Controls.Add(this.pnlCheckOut);
-            this.Controls.Add(this.dtgCheckOut);
+            this.BackgroundImage = global::vaalrusGUIPrototype.Properties.Resources.backgroundImage;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1233, 687);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmCheckOut";
-            this.Text = "frmCheckOut";
+            this.Text = "frmCheckIn";
             this.Load += new System.EventHandler(this.frmCheckOut_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgCheckOut)).EndInit();
             this.pnlCheckOut.ResumeLayout(false);
             this.pnlCheckOut.PerformLayout();
-            this.pnlSearch.ResumeLayout(false);
-            this.pnlSearch.PerformLayout();
-            this.pnlDisplay.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.epLastName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epIDNumber)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.pnlDisplay.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.pnlSearch.ResumeLayout(false);
+            this.pnlSearch.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -229,19 +277,21 @@ namespace vaalrusGUIPrototype
 
         private System.Windows.Forms.DataGridView dtgCheckOut;
         private System.Windows.Forms.Panel pnlCheckOut;
-        private System.Windows.Forms.Button btnCheckout;
+        private System.Windows.Forms.Button btnCheckOut;
         private System.Windows.Forms.Button btnDisplayBook;
         private System.Windows.Forms.TextBox tbBookID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Panel pnlSearch;
         private System.Windows.Forms.RadioButton rbIDnum;
         private System.Windows.Forms.RadioButton rbLastName;
         private System.Windows.Forms.TextBox tbIDNum;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel pnlDisplay;
         private System.Windows.Forms.ErrorProvider epLastName;
         private System.Windows.Forms.ErrorProvider epIDNumber;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlDisplay;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel pnlSearch;
     }
 }
