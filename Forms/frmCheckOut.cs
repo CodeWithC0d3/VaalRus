@@ -64,8 +64,8 @@ namespace vaalrusGUIPrototype
             aplytheme(pnlCheckOut);
             aplytheme(pnlSearch);
             aplytheme(pnlDisplay);
-            //aplytheme(dtgCheckOut);
-            //aplytheme(pnl_accSet);
+            aplytheme(dtgCheckOut);
+            
 
         }
         private void aplytheme(Control pn)
@@ -220,7 +220,7 @@ namespace vaalrusGUIPrototype
             {
                 MessageBox.Show("Connection unsuccesful");
             }
-            Display("SELECT Booking.Booking_ID AS[Booking Number], Customer.Customer_FirstName AS[First Name], Customer.Customer_LastName AS[Last Name], Customer.Customer_IDNumber AS[South African ID], Booking.StartDate, Booking.EndDate, Booking.Checkin_Time, Booking.Checkin_Out FROM Customer INNER JOIN Booking ON Customer.Customer_ID = Booking.Customer_ID WHERE Booking.Checkin_Out=Null");
+            Display("SELECT Booking.Booking_ID AS[Booking Number], Customer.Customer_FirstName AS[First Name], Customer.Customer_LastName AS[Last Name], Customer.Customer_IDNumber AS[South African ID], Booking.StartDate, Booking.EndDate, Booking.Checkin_Time, Booking.Checkin_Out FROM Customer INNER JOIN Booking ON Customer.Customer_ID = Booking.Customer_ID WHERE Booking.Checkin_Out IS NULL");
             
 
         }
