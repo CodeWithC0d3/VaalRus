@@ -200,6 +200,7 @@ namespace vaalrusGUIPrototype
                 //changeButtonBrightness(sender);
             }
         }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             //pictureBoxMax.SizeMode = PictureBoxSizeMode.StretchImage;
