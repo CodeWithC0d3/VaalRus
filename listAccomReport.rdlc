@@ -139,9 +139,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>0.01228cm</Top>
             <Left>0.66495cm</Left>
             <Height>2.34626cm</Height>
-            <Width>7.69208cm</Width>
+            <Width>7.90375cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -167,7 +168,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox10</rd:DefaultName>
-            <Top>12.46208cm</Top>
+            <Top>12.47436cm</Top>
             <Left>7.70912cm</Left>
             <Height>0.60854cm</Height>
             <Width>2.64583cm</Width>
@@ -186,9 +187,9 @@
             <Source>Embedded</Source>
             <Value>vaalrusInfoLogo</Value>
             <Sizing>FitProportional</Sizing>
-            <Left>8.53342cm</Left>
+            <Left>8.74509cm</Left>
             <Height>2.34626cm</Height>
-            <Width>8.37695cm</Width>
+            <Width>7.58002cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -197,10 +198,10 @@
             </Style>
           </Image>
           <Line Name="Line1">
-            <Top>5.06264cm</Top>
+            <Top>5.07492cm</Top>
             <Left>0.26458cm</Left>
             <Height>0cm</Height>
-            <Width>17.19792cm</Width>
+            <Width>16.41475cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -228,7 +229,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>2.52264cm</Top>
+            <Top>2.53492cm</Top>
             <Left>0.66495cm</Left>
             <Height>1.00196cm</Height>
             <Width>10.45104cm</Width>
@@ -260,7 +261,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>3.2512cm</Top>
+            <Top>3.26348cm</Top>
             <Left>12.3299cm</Left>
             <Height>0.56444cm</Height>
             <Width>3.99521cm</Width>
@@ -296,7 +297,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
-            <Top>2.51037cm</Top>
+            <Top>2.52265cm</Top>
             <Left>12.3299cm</Left>
             <Height>0.59972cm</Height>
             <Width>3.99521cm</Width>
@@ -318,7 +319,7 @@
                   <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.39958cm</Width>
+                  <Width>3.10325cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>3.55833cm</Width>
@@ -538,10 +539,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet3</DataSetName>
-            <Top>5.45951cm</Top>
+            <Top>5.47179cm</Top>
             <Left>0.26458cm</Left>
             <Height>1.64979cm</Height>
-            <Width>9.45791cm</Width>
+            <Width>9.16158cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -564,7 +565,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>4.09787cm</Top>
+            <Top>4.11015cm</Top>
             <Left>0.66495cm</Left>
             <Height>0.6cm</Height>
             <Width>3.15617cm</Width>
@@ -594,7 +595,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>4.09787cm</Top>
+            <Top>4.11015cm</Top>
             <Left>4.22487cm</Left>
             <Height>0.6cm</Height>
             <Width>8.04567cm</Width>
@@ -955,10 +956,10 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet1</DataSetName>
-            <Top>5.45951cm</Top>
-            <Left>9.89888cm</Left>
+            <Top>5.47179cm</Top>
+            <Left>9.60255cm</Left>
             <Height>6.79979cm</Height>
-            <Width>7.56362cm</Width>
+            <Width>7.07679cm</Width>
             <ZIndex>10</ZIndex>
             <Style>
               <Border>
@@ -1314,10 +1315,10 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet1</DataSetName>
-            <Top>7.28569cm</Top>
+            <Top>7.29797cm</Top>
             <Left>0.26458cm</Left>
             <Height>5cm</Height>
-            <Width>9.45791cm</Width>
+            <Width>9.16158cm</Width>
             <ZIndex>11</ZIndex>
             <Style>
               <Border>
@@ -1329,7 +1330,7 @@
             </Style>
           </Chart>
         </ReportItems>
-        <Height>7.84709in</Height>
+        <Height>7.85192in</Height>
         <Style />
       </Body>
       <Width>7.30567in</Width>
