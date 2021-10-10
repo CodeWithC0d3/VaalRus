@@ -482,11 +482,12 @@ namespace vaalrusGUIPrototype.Forms
             if (conDB() && cmbFilter.SelectedIndex != -1)
             {
                 if (cmbAccommodation.DataSource == null)
-                {                   
+                {                      
                     cmbAccommodation.Items.Clear();
                 }
                 else
                 {
+                    
                     cmbAccommodation.DataSource = null;
                     cmbAccommodation.Items.Clear();
                 }
@@ -530,8 +531,16 @@ namespace vaalrusGUIPrototype.Forms
                     }
                   
                 }
-                ds1.AcceptChanges();               
-              
+                ds1.AcceptChanges();
+                foreach (var it in lstAccommodation.Items)
+                {
+                    foreach (DataRow row2 in ds1.Tables[0].Rows)
+                    {
+                        if (row2.ItemArray[0].ToString() == it.ToString())
+                            row2.Delete();
+                    }
+                }
+                ds1.AcceptChanges();
                 cmbAccommodation.DisplayMember = "accmerge";
                 cmbAccommodation.ValueMember = "Accommodation_ID";
                 cmbAccommodation.DataSource = ds1.Tables[0];
@@ -546,8 +555,7 @@ namespace vaalrusGUIPrototype.Forms
         private void cmbAccommodation_Enter(object sender, EventArgs e)
         {
             //loadCmbAcc();
-        }
-
+        }        
         private void cmbAccommodation_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -561,22 +569,23 @@ namespace vaalrusGUIPrototype.Forms
                     //string substring = st.Substring(0,st.IndexOf(' '));
                     string t = cmbAccommodation.SelectedValue.ToString();
                     accList.Add(int.Parse(t));
-                }
+                }               
                 else
                     selectFirst = true;
+                loadCmbAcc();
             }
+
             
-               
         }
 
         private void cmbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cmbAccommodation.SelectedIndex = -1;
+           // cmbAccommodation.SelectedIndex = -1;
             selectFirst = false;
             loadCmbAcc();
             cmbAccommodation.Enabled = true;
-            
-            
+
+           
         }
         private decimal getTotalPrice(List<int> ls)
         {
@@ -1019,7 +1028,9 @@ namespace vaalrusGUIPrototype.Forms
                 accListErrorProvider.SetError(lstAccommodation, "");
                 btnGeneratQuote.Enabled = true;
                 lstAccommodation.BackColor = Color.White;
+                
             }
+            
         }
     }
 }
