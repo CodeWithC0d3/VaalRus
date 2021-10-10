@@ -203,8 +203,8 @@ namespace vaalrusGUIPrototype
             {
                 fromDateErrorProvider.SetError(dpFrom, "");
                 button1.Enabled = true;
-                button3.Enabled = false;
-                btnBooked.Enabled = false;
+                button3.Enabled = true;
+                btnBooked.Enabled = true;
                 dpFrom.BackColor = Color.White;
             }
         }
