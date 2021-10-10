@@ -249,7 +249,8 @@ namespace vaalrusGUIPrototype
                 StartDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
                 EndDate = new DateTime();
                 EndDate = DateTime.Today.AddMonths(1);
-                SqlCommand myComm4 = new SqlCommand("SELECT * FROM viewBookingReport1 where startDate >= '" + selectStart + "' AND startDate < '" + selectEnd + "' ORDER BY startDate ASC ;", conn);//ORDER BY Booking_ID DESC;", conn);
+                //selectStart
+                SqlCommand myComm4 = new SqlCommand("SELECT * FROM viewBookingReport1 where startDate >= '" + selectStart.Date + "' AND startDate <= '" + selectEnd.Date + "' ORDER BY startDate ASC ;", conn);//ORDER BY Booking_ID DESC;", conn);
                 SqlDataAdapter adapter4 = new SqlDataAdapter(myComm4);
                 DataTable dt4 = new DataTable();
                 adapter4.Fill(dt4);
