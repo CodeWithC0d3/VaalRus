@@ -263,6 +263,11 @@ namespace vaalrusGUIPrototype
                 this.reportViewer1.LocalReport.DataSources.Add(rds4);
                 this.reportViewer1.LocalReport.DataSources.Add(rds5);
                 this.reportViewer1.LocalReport.DataSources.Add(rds6);
+                ReportParameterCollection reportParameters = new ReportParameterCollection();
+                reportParameters.Add(new ReportParameter("sDate", dpStart.Value.Date.ToShortDateString()));
+                reportParameters.Add(new ReportParameter("eDate", dpEnd.Value.Date.ToShortDateString()));
+                this.reportViewer1.LocalReport.SetParameters(reportParameters);
+                this.reportViewer1.RefreshReport();
                 this.reportViewer1.RefreshReport();
                 conn.Close();
             }
