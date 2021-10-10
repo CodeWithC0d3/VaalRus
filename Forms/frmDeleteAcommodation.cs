@@ -15,11 +15,12 @@ namespace vaalrusGUIPrototype.Forms
     {
         string constr = Properties.Settings.Default.conString;
         SqlConnection con;
-
         SqlCommand command;
         SqlDataAdapter adapter;
         SqlDataReader dataReader;
         DataSet ds;
+        Boolean firstrun = true;
+        int accid;
 
         public frmDeleteAccommodation()
         {
@@ -63,10 +64,10 @@ namespace vaalrusGUIPrototype.Forms
             }
             //pnlMain.BackColor = Color.Transparent;
 
-            aplytheme(panel1);
-            //aplytheme(panel2);
+            aplytheme(pnlDelete);
+            aplytheme(pnlFilter);
             //aplytheme(panel3);
-            aplytheme(panel4);
+            aplytheme(pnlGrid);
             //aplytheme(panel5);
             //aplytheme(panel6);
 
@@ -186,10 +187,7 @@ namespace vaalrusGUIPrototype.Forms
             }
 
         }
-        private void frmDeleteAccommodation_Load(object sender, EventArgs e)
-        {
-            LoadTheme();
-        }
+       
 
         private Boolean conDB()
         {
@@ -209,22 +207,93 @@ namespace vaalrusGUIPrototype.Forms
         private void populateDataGrid()
         {
             //populate the data grid
-            /*if (conDB())
+            if (conDB())
             {
 
-                string queryText = $"SELECT Accommodation_ID AS 'ID', Accommodation_Type AS 'Type'";
+                string queryText = $"SELECT Accommodation.Accommodation_ID, Accommodationtype.AccommodationType, Accommodation.Number_Of_Occupants FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID";
 
                 adapter = new SqlDataAdapter();
                 ds = new DataSet();
                 command = new SqlCommand(queryText, con);
                 adapter.SelectCommand = command;
-                adapter.Fill(ds, "Customer");
+                adapter.Fill(ds, "Accommodation_ID");
                 dgView.DataSource = ds;
-                dgView.DataMember = "Customer";
+                dgView.DataMember = "Accommodation_ID";
 
                 con.Close();
             }
-            sizeGrid();*/
+            //sizeGrid();
+        }
+        private void fillcmbtype()
+        {
+            string queryText = "select AccommodationType from Accommodationtype";
+
+            adapter = new SqlDataAdapter();
+            ds = new DataSet();
+            command = new SqlCommand(queryText, con);
+            adapter.SelectCommand = command;
+            adapter.Fill(ds, "Accommodation_ID");
+            cmbType.DisplayMember = "AccommodationType";
+            cmbType.ValueMember = "AccommodationType";
+            cmbType.DataSource = ds.Tables[0];
+            cmbType.SelectedIndex = -1;
+        }
+
+        private void frmDeleteAccommodation_Load_1(object sender, EventArgs e)
+        {
+            LoadTheme();
+            fillcmbtype();
+            populateDataGrid();
+        }
+
+        private void cmbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!firstrun && cmbType.SelectedItem != null)
+            {
+                if (conDB())
+                {
+                    string type = cmbType.SelectedValue.ToString();
+                    string queryText = $"SELECT Accommodation.Accommodation_ID, Accommodationtype.AccommodationType, Accommodation.Number_Of_Occupants FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID WHERE (Accommodationtype.AccommodationType = @accid)";
+
+                    adapter = new SqlDataAdapter();
+                    ds = new DataSet();
+                    command = new SqlCommand(queryText, con);
+                    command.Parameters.AddWithValue("@accid", type);
+                    adapter.SelectCommand = command;
+                    adapter.Fill(ds, "Accommodation_ID");
+                    dgView.DataSource = ds;
+                    dgView.DataMember = "Accommodation_ID";
+
+                    con.Close();
+                }
+            }
+            else
+                firstrun = false;
+            
+        }
+
+        private void dgView_SelectionChanged(object sender, EventArgs e)
+        {
+            accid = int.Parse(dgView.CurrentRow.Cells[0].Value.ToString());
+            txtAccNr.Text = accid.ToString();
+            txtType.Text = dgView.CurrentRow.Cells[1].Value.ToString();
+            txtNrOcc.Text = dgView.CurrentRow.Cells[2].Value.ToString();
+        }
+
+        private void btnDeleteAccomm_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to remove the accommodation from Vaalrus database", "Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                string sql = "DELETE FROM Accommodation WHERE Accommodation_ID = @accid";
+                if (conDB())
+                {
+                    command = new SqlCommand(sql, con);
+                    command.Parameters.AddWithValue("@accid", accid);
+                    command.ExecuteNonQuery();
+                    populateDataGrid();
+                }
+            }
+            
         }
     }
 }
