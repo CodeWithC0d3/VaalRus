@@ -22,6 +22,7 @@ namespace vaalrusGUIPrototype
         public DateTime selectYear = new DateTime();
         public DateTime selectStart = new DateTime();
         public DateTime selectEnd = new DateTime();
+        public string sqlQuery = "";
         public frmReportBookings()
         {
             InitializeComponent();
@@ -178,6 +179,7 @@ namespace vaalrusGUIPrototype
             //comboBoxMonth.Items.Add(i);
             //}
             //comboBoxYear
+            radioButtonAsc.Checked = true;
             LoadTheme();
             this.reportViewer1.RefreshReport();
             
@@ -250,7 +252,7 @@ namespace vaalrusGUIPrototype
                 EndDate = new DateTime();
                 EndDate = DateTime.Today.AddMonths(1);
                 //selectStart
-                SqlCommand myComm4 = new SqlCommand("SELECT * FROM viewBookingReport1 where startDate >= '" + selectStart.Date + "' AND startDate <= '" + selectEnd.Date + "' ORDER BY startDate ASC ;", conn);//ORDER BY Booking_ID DESC;", conn);
+                SqlCommand myComm4 = new SqlCommand(sqlQuery, conn);//ORDER BY Booking_ID DESC;", conn);
                 SqlDataAdapter adapter4 = new SqlDataAdapter(myComm4);
                 DataTable dt4 = new DataTable();
                 adapter4.Fill(dt4);
@@ -286,6 +288,9 @@ namespace vaalrusGUIPrototype
                 this.reportViewer1.RefreshReport();
                 selectStart = dpStart.Value;
                 selectEnd = dpEnd.Value;
+                
+                if (radioButtonAsc.Checked == true) sqlQuery = "SELECT * FROM viewBookingReport1 where startDate >= '" + selectStart.Date + "' AND startDate <= '" + selectEnd.Date + "' ORDER BY startDate ASC ;";
+                else sqlQuery = "SELECT * FROM viewBookingReport1 where startDate >= '" + selectStart.Date + "' AND startDate <= '" + selectEnd.Date + "' ORDER BY startDate DESC ;"; 
                 loadDataSet3();
             }
             else

@@ -1062,7 +1062,6 @@
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
-                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
@@ -1246,11 +1245,6 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSetFull</DataSetName>
-            <SortExpressions>
-              <SortExpression>
-                <Value>=Fields!startDate.Value</Value>
-              </SortExpression>
-            </SortExpressions>
             <Top>5.73828cm</Top>
             <Left>1.21727cm</Left>
             <Height>2.87542cm</Height>

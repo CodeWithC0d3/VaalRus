@@ -38,9 +38,13 @@ namespace vaalrusGUIPrototype
             this.lblStartDate = new System.Windows.Forms.Label();
             this.panelReportViewer = new System.Windows.Forms.Panel();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.groupBoxOrderBy = new System.Windows.Forms.GroupBox();
+            this.radioButtonAsc = new System.Windows.Forms.RadioButton();
+            this.radioButtonDesc = new System.Windows.Forms.RadioButton();
             this.panelInput.SuspendLayout();
             this.groupBoxDisplay.SuspendLayout();
             this.panelReportViewer.SuspendLayout();
+            this.groupBoxOrderBy.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelInput
@@ -49,43 +53,50 @@ namespace vaalrusGUIPrototype
             this.panelInput.Controls.Add(this.groupBoxDisplay);
             this.panelInput.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelInput.Location = new System.Drawing.Point(0, 0);
+            this.panelInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelInput.Name = "panelInput";
-            this.panelInput.Size = new System.Drawing.Size(800, 60);
+            this.panelInput.Size = new System.Drawing.Size(1067, 99);
             this.panelInput.TabIndex = 1;
             // 
             // groupBoxDisplay
             // 
+            this.groupBoxDisplay.Controls.Add(this.groupBoxOrderBy);
             this.groupBoxDisplay.Controls.Add(this.dpEnd);
             this.groupBoxDisplay.Controls.Add(this.dpStart);
             this.groupBoxDisplay.Controls.Add(this.btnDisplayReport);
             this.groupBoxDisplay.Controls.Add(this.lblEnd);
             this.groupBoxDisplay.Controls.Add(this.lblStartDate);
-            this.groupBoxDisplay.Location = new System.Drawing.Point(12, 3);
+            this.groupBoxDisplay.Location = new System.Drawing.Point(16, 4);
+            this.groupBoxDisplay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxDisplay.Name = "groupBoxDisplay";
-            this.groupBoxDisplay.Size = new System.Drawing.Size(776, 54);
+            this.groupBoxDisplay.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxDisplay.Size = new System.Drawing.Size(704, 87);
             this.groupBoxDisplay.TabIndex = 0;
             this.groupBoxDisplay.TabStop = false;
             this.groupBoxDisplay.Text = "Display report per time period:";
             // 
             // dpEnd
             // 
-            this.dpEnd.Location = new System.Drawing.Point(388, 19);
+            this.dpEnd.Location = new System.Drawing.Point(111, 53);
+            this.dpEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dpEnd.Name = "dpEnd";
-            this.dpEnd.Size = new System.Drawing.Size(198, 20);
+            this.dpEnd.Size = new System.Drawing.Size(263, 22);
             this.dpEnd.TabIndex = 6;
             // 
             // dpStart
             // 
-            this.dpStart.Location = new System.Drawing.Point(83, 19);
+            this.dpStart.Location = new System.Drawing.Point(111, 23);
+            this.dpStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dpStart.Name = "dpStart";
-            this.dpStart.Size = new System.Drawing.Size(198, 20);
+            this.dpStart.Size = new System.Drawing.Size(263, 22);
             this.dpStart.TabIndex = 5;
             // 
             // btnDisplayReport
             // 
-            this.btnDisplayReport.Location = new System.Drawing.Point(614, 13);
+            this.btnDisplayReport.Location = new System.Drawing.Point(557, 16);
+            this.btnDisplayReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDisplayReport.Name = "btnDisplayReport";
-            this.btnDisplayReport.Size = new System.Drawing.Size(146, 30);
+            this.btnDisplayReport.Size = new System.Drawing.Size(128, 63);
             this.btnDisplayReport.TabIndex = 4;
             this.btnDisplayReport.Text = "Display";
             this.btnDisplayReport.UseVisualStyleBackColor = true;
@@ -94,18 +105,20 @@ namespace vaalrusGUIPrototype
             // lblEnd
             // 
             this.lblEnd.AutoSize = true;
-            this.lblEnd.Location = new System.Drawing.Point(309, 22);
+            this.lblEnd.Location = new System.Drawing.Point(13, 58);
+            this.lblEnd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEnd.Name = "lblEnd";
-            this.lblEnd.Size = new System.Drawing.Size(55, 13);
+            this.lblEnd.Size = new System.Drawing.Size(71, 17);
             this.lblEnd.TabIndex = 3;
             this.lblEnd.Text = "End Date:";
             // 
             // lblStartDate
             // 
             this.lblStartDate.AutoSize = true;
-            this.lblStartDate.Location = new System.Drawing.Point(6, 22);
+            this.lblStartDate.Location = new System.Drawing.Point(8, 27);
+            this.lblStartDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(58, 13);
+            this.lblStartDate.Size = new System.Drawing.Size(76, 17);
             this.lblStartDate.TabIndex = 2;
             this.lblStartDate.Text = "Start Date:";
             // 
@@ -113,27 +126,63 @@ namespace vaalrusGUIPrototype
             // 
             this.panelReportViewer.Controls.Add(this.reportViewer1);
             this.panelReportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelReportViewer.Location = new System.Drawing.Point(0, 60);
+            this.panelReportViewer.Location = new System.Drawing.Point(0, 99);
+            this.panelReportViewer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelReportViewer.Name = "panelReportViewer";
-            this.panelReportViewer.Size = new System.Drawing.Size(800, 390);
+            this.panelReportViewer.Size = new System.Drawing.Size(1067, 455);
             this.panelReportViewer.TabIndex = 2;
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(800, 390);
+            this.reportViewer1.Size = new System.Drawing.Size(1067, 455);
             this.reportViewer1.TabIndex = 1;
+            // 
+            // groupBoxOrderBy
+            // 
+            this.groupBoxOrderBy.Controls.Add(this.radioButtonDesc);
+            this.groupBoxOrderBy.Controls.Add(this.radioButtonAsc);
+            this.groupBoxOrderBy.Location = new System.Drawing.Point(381, 12);
+            this.groupBoxOrderBy.Name = "groupBoxOrderBy";
+            this.groupBoxOrderBy.Size = new System.Drawing.Size(160, 68);
+            this.groupBoxOrderBy.TabIndex = 7;
+            this.groupBoxOrderBy.TabStop = false;
+            this.groupBoxOrderBy.Text = "Order By StartDate:";
+            // 
+            // radioButtonAsc
+            // 
+            this.radioButtonAsc.AutoSize = true;
+            this.radioButtonAsc.Location = new System.Drawing.Point(29, 21);
+            this.radioButtonAsc.Name = "radioButtonAsc";
+            this.radioButtonAsc.Size = new System.Drawing.Size(95, 21);
+            this.radioButtonAsc.TabIndex = 0;
+            this.radioButtonAsc.TabStop = true;
+            this.radioButtonAsc.Text = "Ascending";
+            this.radioButtonAsc.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonDesc
+            // 
+            this.radioButtonDesc.AutoSize = true;
+            this.radioButtonDesc.Location = new System.Drawing.Point(29, 41);
+            this.radioButtonDesc.Name = "radioButtonDesc";
+            this.radioButtonDesc.Size = new System.Drawing.Size(104, 21);
+            this.radioButtonDesc.TabIndex = 1;
+            this.radioButtonDesc.TabStop = true;
+            this.radioButtonDesc.Text = "Descending";
+            this.radioButtonDesc.UseVisualStyleBackColor = true;
             // 
             // frmReportBookings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.panelReportViewer);
             this.Controls.Add(this.panelInput);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmReportBookings";
             this.Text = "frmReportBookings";
             this.Load += new System.EventHandler(this.frmReportBookings_Load);
@@ -141,6 +190,8 @@ namespace vaalrusGUIPrototype
             this.groupBoxDisplay.ResumeLayout(false);
             this.groupBoxDisplay.PerformLayout();
             this.panelReportViewer.ResumeLayout(false);
+            this.groupBoxOrderBy.ResumeLayout(false);
+            this.groupBoxOrderBy.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -156,5 +207,8 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Label lblStartDate;
         private System.Windows.Forms.DateTimePicker dpEnd;
         private System.Windows.Forms.DateTimePicker dpStart;
+        private System.Windows.Forms.GroupBox groupBoxOrderBy;
+        private System.Windows.Forms.RadioButton radioButtonDesc;
+        private System.Windows.Forms.RadioButton radioButtonAsc;
     }
 }
