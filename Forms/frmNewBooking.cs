@@ -464,7 +464,7 @@ namespace vaalrusGUIPrototype.Forms
                 command.Parameters.AddWithValue("@endDate", endDate);
                 command.ExecuteNonQuery();
 
-                sql = "UPDATE Quotation SET PaymentStatus = @complete WHERE Quotation_ID = @qid";
+                sql = "UPDATE Quotation SET QuoteStatus = @complete WHERE Quotation_ID = @qid";
                 command = new SqlCommand(sql, con);
                 command.Parameters.AddWithValue("@complete", 2);
                 command.Parameters.AddWithValue("@qid",qid);
