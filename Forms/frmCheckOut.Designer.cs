@@ -45,7 +45,7 @@ namespace vaalrusGUIPrototype
             this.epIDNumber = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlDisplay = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbSearch = new System.Windows.Forms.GroupBox();
             this.pnlSearch = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -55,7 +55,7 @@ namespace vaalrusGUIPrototype
             ((System.ComponentModel.ISupportInitialize)(this.epIDNumber)).BeginInit();
             this.panel1.SuspendLayout();
             this.pnlDisplay.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbSearch.SuspendLayout();
             this.pnlSearch.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -110,9 +110,9 @@ namespace vaalrusGUIPrototype
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(105, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 17);
+            this.label2.Size = new System.Drawing.Size(223, 21);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Verify Select Booking ID";
+            this.label2.Text = "Verify Slelected Booking ID";
             // 
             // btnSearch
             // 
@@ -190,7 +190,7 @@ namespace vaalrusGUIPrototype
             // 
             this.panel1.Controls.Add(this.pnlDisplay);
             this.panel1.Controls.Add(this.pnlCheckOut);
-            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.gbSearch);
             this.panel1.Location = new System.Drawing.Point(16, 15);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
@@ -207,18 +207,20 @@ namespace vaalrusGUIPrototype
             this.pnlDisplay.Size = new System.Drawing.Size(381, 86);
             this.pnlDisplay.TabIndex = 8;
             // 
-            // groupBox1
+            // gbSearch
             // 
-            this.groupBox1.Controls.Add(this.pnlSearch);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(381, 171);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "SEARCH BY LAST NAME OR ID NUMBER:";
+            this.gbSearch.Controls.Add(this.pnlSearch);
+            this.gbSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbSearch.ForeColor = System.Drawing.Color.White;
+            this.gbSearch.Location = new System.Drawing.Point(0, 0);
+            this.gbSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.gbSearch.Name = "gbSearch";
+            this.gbSearch.Padding = new System.Windows.Forms.Padding(4);
+            this.gbSearch.Size = new System.Drawing.Size(381, 171);
+            this.gbSearch.TabIndex = 7;
+            this.gbSearch.TabStop = false;
+            this.gbSearch.Text = "SEARCH BY LAST NAME OR ID NUMBER:";
+            this.gbSearch.Enter += new System.EventHandler(this.gbSearch_Enter);
             // 
             // pnlSearch
             // 
@@ -233,6 +235,7 @@ namespace vaalrusGUIPrototype
             this.pnlSearch.Name = "pnlSearch";
             this.pnlSearch.Size = new System.Drawing.Size(373, 148);
             this.pnlSearch.TabIndex = 0;
+            this.pnlSearch.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSearch_Paint);
             // 
             // panel2
             // 
@@ -274,7 +277,7 @@ namespace vaalrusGUIPrototype
             ((System.ComponentModel.ISupportInitialize)(this.epIDNumber)).EndInit();
             this.panel1.ResumeLayout(false);
             this.pnlDisplay.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.gbSearch.ResumeLayout(false);
             this.pnlSearch.ResumeLayout(false);
             this.pnlSearch.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -300,7 +303,7 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlDisplay;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbSearch;
         private System.Windows.Forms.Panel pnlSearch;
         private System.Windows.Forms.Panel panel3;
     }
