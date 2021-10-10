@@ -317,9 +317,6 @@ C:\Users\W Heyneke\Documents\GitHub\VaalRus\bin\Debug\_SQL\Views.txt
 C:\Users\W Heyneke\Documents\GitHub\VaalRus\bin\Debug\Bookings.rdlc
 C:\Users\W Heyneke\Documents\GitHub\VaalRus\bin\Debug\listAccomReport.rdlc
 C:\Users\W Heyneke\Documents\GitHub\VaalRus\bin\Debug\Reports\Quote.rdlc
-C:\Users\W Heyneke\Documents\GitHub\VaalRus\bin\Debug\vaalrusGUIPrototype.exe.config
-C:\Users\W Heyneke\Documents\GitHub\VaalRus\bin\Debug\vaalrusGUIPrototype.exe
-C:\Users\W Heyneke\Documents\GitHub\VaalRus\bin\Debug\vaalrusGUIPrototype.pdb
 C:\Users\W Heyneke\Documents\GitHub\VaalRus\bin\Debug\Microsoft.Data.ConnectionUI.Dialog.dll
 C:\Users\W Heyneke\Documents\GitHub\VaalRus\bin\Debug\Microsoft.Data.ConnectionUI.dll
 C:\Users\W Heyneke\Documents\GitHub\VaalRus\bin\Debug\Microsoft.ReportViewer.Common.dll
@@ -450,5 +447,8 @@ C:\Users\W Heyneke\Documents\GitHub\VaalRus\obj\Debug\vaalrusGUIPrototype.testTh
 C:\Users\W Heyneke\Documents\GitHub\VaalRus\obj\Debug\vaalrusGUIPrototype.csproj.GenerateResource.cache
 C:\Users\W Heyneke\Documents\GitHub\VaalRus\obj\Debug\vaalrusGUIPrototype.csproj.CoreCompileInputs.cache
 C:\Users\W Heyneke\Documents\GitHub\VaalRus\obj\Debug\vaalrusGUIPrototype.csproj.CopyComplete
-C:\Users\W Heyneke\Documents\GitHub\VaalRus\obj\Debug\vaalrusGUIPrototype.exe
-C:\Users\W Heyneke\Documents\GitHub\VaalRus\obj\Debug\vaalrusGUIPrototype.pdb
+C:\Users\W Heyneke\Documents\GitHub\VaalRus\bin\Debug\Vaalrus.exe.config
+C:\Users\W Heyneke\Documents\GitHub\VaalRus\bin\Debug\Vaalrus.exe
+C:\Users\W Heyneke\Documents\GitHub\VaalRus\bin\Debug\Vaalrus.pdb
+C:\Users\W Heyneke\Documents\GitHub\VaalRus\obj\Debug\Vaalrus.exe
+C:\Users\W Heyneke\Documents\GitHub\VaalRus\obj\Debug\Vaalrus.pdb
