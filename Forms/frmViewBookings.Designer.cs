@@ -36,8 +36,6 @@ namespace vaalrusGUIPrototype.Forms
             this.rdbSelectPeriod = new System.Windows.Forms.RadioButton();
             this.grpBoxSelectPeriod = new System.Windows.Forms.GroupBox();
             this.btnReset = new System.Windows.Forms.Button();
-            this.chkBoxPayed = new System.Windows.Forms.CheckBox();
-            this.chkBoxPending = new System.Windows.Forms.CheckBox();
             this.lblEndDate = new System.Windows.Forms.Label();
             this.lblStartDate = new System.Windows.Forms.Label();
             this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
@@ -45,6 +43,8 @@ namespace vaalrusGUIPrototype.Forms
             this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.lblViewCurrentBookings = new System.Windows.Forms.Label();
             this.pictureBoxViewAllBookingsBackground = new System.Windows.Forms.PictureBox();
+            this.rdPending = new System.Windows.Forms.RadioButton();
+            this.rdPayed = new System.Windows.Forms.RadioButton();
             this.pnlViewBookings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookings)).BeginInit();
             this.grpBoxSelectPeriod.SuspendLayout();
@@ -103,9 +103,9 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // grpBoxSelectPeriod
             // 
+            this.grpBoxSelectPeriod.Controls.Add(this.rdPayed);
+            this.grpBoxSelectPeriod.Controls.Add(this.rdPending);
             this.grpBoxSelectPeriod.Controls.Add(this.btnReset);
-            this.grpBoxSelectPeriod.Controls.Add(this.chkBoxPayed);
-            this.grpBoxSelectPeriod.Controls.Add(this.chkBoxPending);
             this.grpBoxSelectPeriod.Controls.Add(this.lblEndDate);
             this.grpBoxSelectPeriod.Controls.Add(this.lblStartDate);
             this.grpBoxSelectPeriod.Controls.Add(this.dateTimePickerEnd);
@@ -131,26 +131,6 @@ namespace vaalrusGUIPrototype.Forms
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // chkBoxPayed
-            // 
-            this.chkBoxPayed.AutoSize = true;
-            this.chkBoxPayed.Location = new System.Drawing.Point(36, 218);
-            this.chkBoxPayed.Name = "chkBoxPayed";
-            this.chkBoxPayed.Size = new System.Drawing.Size(70, 21);
-            this.chkBoxPayed.TabIndex = 9;
-            this.chkBoxPayed.Text = "Payed";
-            this.chkBoxPayed.UseVisualStyleBackColor = true;
-            // 
-            // chkBoxPending
-            // 
-            this.chkBoxPending.AutoSize = true;
-            this.chkBoxPending.Location = new System.Drawing.Point(36, 191);
-            this.chkBoxPending.Name = "chkBoxPending";
-            this.chkBoxPending.Size = new System.Drawing.Size(82, 21);
-            this.chkBoxPending.TabIndex = 8;
-            this.chkBoxPending.Text = "Pending";
-            this.chkBoxPending.UseVisualStyleBackColor = true;
             // 
             // lblEndDate
             // 
@@ -223,6 +203,28 @@ namespace vaalrusGUIPrototype.Forms
             this.pictureBoxViewAllBookingsBackground.TabIndex = 3;
             this.pictureBoxViewAllBookingsBackground.TabStop = false;
             // 
+            // rdPending
+            // 
+            this.rdPending.AutoSize = true;
+            this.rdPending.Location = new System.Drawing.Point(41, 191);
+            this.rdPending.Name = "rdPending";
+            this.rdPending.Size = new System.Drawing.Size(81, 21);
+            this.rdPending.TabIndex = 11;
+            this.rdPending.TabStop = true;
+            this.rdPending.Text = "Pending";
+            this.rdPending.UseVisualStyleBackColor = true;
+            // 
+            // rdPayed
+            // 
+            this.rdPayed.AutoSize = true;
+            this.rdPayed.Location = new System.Drawing.Point(41, 218);
+            this.rdPayed.Name = "rdPayed";
+            this.rdPayed.Size = new System.Drawing.Size(93, 21);
+            this.rdPayed.TabIndex = 12;
+            this.rdPayed.TabStop = true;
+            this.rdPayed.Text = "Confirmed";
+            this.rdPayed.UseVisualStyleBackColor = true;
+            // 
             // frmViewBookings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -257,8 +259,8 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.DateTimePicker dateTimePickerStart;
         private System.Windows.Forms.DataGridView dataGridViewBookings;
         private System.Windows.Forms.RadioButton radbViewAllBookings;
-        private System.Windows.Forms.CheckBox chkBoxPayed;
-        private System.Windows.Forms.CheckBox chkBoxPending;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.RadioButton rdPayed;
+        private System.Windows.Forms.RadioButton rdPending;
     }
 }
