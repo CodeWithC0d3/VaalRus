@@ -324,7 +324,7 @@ namespace vaalrusGUIPrototype
         {
             openChildForm(new frmReport());
             lblHeading.Text = "Reports";
-            hideSubMenu();
+            //hideSubMenu();
             changeButtonBrightness(sender);
         }
 
@@ -332,7 +332,7 @@ namespace vaalrusGUIPrototype
         {
             openChildForm(new frmReportBookings());
             lblHeading.Text = "Reports";
-            hideSubMenu();
+            //hideSubMenu();
             changeButtonBrightness(sender);
         }
 

@@ -111,7 +111,7 @@ namespace vaalrusGUIPrototype
 
             aplytheme(panelInput);
             aplytheme(groupBoxInput);
-
+            aplytheme(panel1);
         }
         private void aplytheme(Control pn)
         {
@@ -195,7 +195,7 @@ namespace vaalrusGUIPrototype
                     if (co.GetType() == typeof(GroupBox))
                     {
                         GroupBox gpc = (GroupBox)co;
-                        gpc.ForeColor = GlobalSettings.SecondaryColor;
+                        gpc.ForeColor = Color.White;
                         gpc.Font = GlobalSettings.font;
 
                     }
