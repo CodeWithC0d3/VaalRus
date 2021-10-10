@@ -62,8 +62,7 @@ namespace vaalrusGUIPrototype
             //pnlMain.BackColor = Color.Transparent;
 
             aplytheme(pnlView);
-            aplytheme(pnlDate);
-            aplytheme(pnlDisplay);
+           
             aplytheme(dtgViewAcc);
             //aplytheme(pnl_accSet);
 
@@ -334,6 +333,11 @@ namespace vaalrusGUIPrototype
         private void dpto_ValueChanged(object sender, EventArgs e)
         {
            // dtgViewAcc.DataSource = null;
+        }
+
+        private void pnlDate_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 
