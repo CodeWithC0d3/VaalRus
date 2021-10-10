@@ -368,7 +368,7 @@ namespace vaalrusGUIPrototype.Forms
                    
                 if (rb_quote.Checked)
                 {
-                    sql = $"SELECT Quotation.Quotation_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Quotation.Reservation_Date AS [Reservation Date], Quotation.Duration, Quotation.TotalPrice, Quotationstatus.Status_Type AS Status FROM Quotation INNER JOIN Customer ON dbo.Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE Quotation.Reservation_Date > @stdate {strduration}";
+                    sql = $"SELECT Quotation.Quotation_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Quotation.Reservation_Date AS [Reservation Date], Quotation.Duration, Quotation.TotalPrice, Quotationstatus.Status_Type AS Status FROM Quotation INNER JOIN Customer ON dbo.Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.QuoteStatus = Quotationstatus.Status_ID WHERE Quotation.Reservation_Date > @stdate {strduration}";
                 }
                    
                 command = new SqlCommand(sql, con);
@@ -621,7 +621,7 @@ namespace vaalrusGUIPrototype.Forms
             Bookdays = (dpTo.Value.Date - dpFrom.Value.Date).Days;
             if (conDB())
             {
-                sql = "Insert Into Quotation(Customer_ID, Reservation_Date, Duration,TotalPrice,PaymentStatus,QuoteCreated_DateTime,CreatedBy) Values(@cid, @rdate, @duration,@tp,@ps,@Qdate,@cBy)";
+                sql = "Insert Into Quotation(Customer_ID, Reservation_Date, Duration,TotalPrice,QuoteStatus,QuoteCreated_DateTime,CreatedBy) Values(@cid, @rdate, @duration,@tp,@ps,@Qdate,@cBy)";
                 command = new SqlCommand(sql, con);
                 command.Parameters.AddWithValue("@cid", customerID);
                 command.Parameters.AddWithValue("@rdate", startDate);

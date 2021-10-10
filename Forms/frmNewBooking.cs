@@ -211,7 +211,7 @@ namespace vaalrusGUIPrototype.Forms
             createErProviders();
             if(conDB())
             {
-                sql = $"SELECT Quotation.Quotation_ID, Customer.Customer_FirstName AS [First name], Customer.Customer_LastName AS [Last name],Customer.Customer_IDNumber AS [ID], Quotation.Reservation_Date AS [Start date], Quotation.TotalPrice AS [Total price], Quotationstatus.Status_Type AS [Status] FROM Quotation INNER JOIN Customer ON Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE (Quotation.PaymentStatus = 1)";
+                sql = $"SELECT Quotation.Quotation_ID, Customer.Customer_FirstName AS [First name], Customer.Customer_LastName AS [Last name],Customer.Customer_IDNumber AS [ID], Quotation.Reservation_Date AS [Start date], Quotation.TotalPrice AS [Total price], Quotationstatus.Status_Type AS [Status] FROM Quotation INNER JOIN Customer ON Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.QuoteStatus = Quotationstatus.Status_ID WHERE (Quotation.QuoteStatus = 1)";
                 command = new SqlCommand(sql, con);
                 //command.Parameters.AddWithValue("@stdate", stDate);
                 
@@ -284,7 +284,7 @@ namespace vaalrusGUIPrototype.Forms
 
 
                 //sql = $"select * from Booking where StartDate >@stdate and EndDate < @edate ";                
-                sql = $"SELECT Quotation.Quotation_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name],Customer.Customer_IDNumber AS [ID], Quotation.Reservation_Date AS [Start date], Quotation.Duration, Quotation.TotalPrice AS [TotalPrice], Quotationstatus.Status_Type AS Status FROM Quotation INNER JOIN Customer ON dbo.Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE PaymentStatus = 1 {andd} {fdate} {qID} {cusID} {strduration} ";
+                sql = $"SELECT Quotation.Quotation_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name],Customer.Customer_IDNumber AS [ID], Quotation.Reservation_Date AS [Start date], Quotation.Duration, Quotation.TotalPrice AS [TotalPrice], Quotationstatus.Status_Type AS Status FROM Quotation INNER JOIN Customer ON dbo.Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.QuoteStatus = Quotationstatus.Status_ID WHERE QuoteStatus = 1 {andd} {fdate} {qID} {cusID} {strduration} ";
                 command = new SqlCommand(sql, con);
                 command.Parameters.AddWithValue("@stdate", stDate);
                 //command.Parameters.AddWithValue("@edate", eDate);
@@ -392,7 +392,7 @@ namespace vaalrusGUIPrototype.Forms
 
                 //int duration = 0;
                 DateTime sdate = DateTime.Now.Date;
-                sql = $" SELECT Quotation.Quotation_ID, Customer.Customer_FirstName, Customer.Customer_LastName, Customer.Customer_IDNumber, Customer.Customer_Cell, Customer.Customer_Email, Quotation.Reservation_Date, Quotation.Duration, Quotation.TotalPrice FROM Quotation INNER JOIN Customer ON Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE Quotation_ID = @qid";
+                sql = $" SELECT Quotation.Quotation_ID, Customer.Customer_FirstName, Customer.Customer_LastName, Customer.Customer_IDNumber, Customer.Customer_Cell, Customer.Customer_Email, Quotation.Reservation_Date, Quotation.Duration, Quotation.TotalPrice FROM Quotation INNER JOIN Customer ON Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.QuoteStatus = Quotationstatus.Status_ID WHERE Quotation_ID = @qid";
                 command = new SqlCommand(sql, con);
                 command.Parameters.AddWithValue("@qid", qid);
                 //command.Parameters.AddWithValue("@edate", eDate);

@@ -35,13 +35,13 @@ CREATE TABLE Quotation (
     Reservation_Date DATE NOT NULL,
     Duration INT NOT NULL,
     TotalPrice SMALLMONEY NOT NULL,
-    PaymentStatus INT NOT NULL, -- Status seems to be a keyword in SQL
+    QuoteStatus INT NOT NULL, -- Status seems to be a keyword in SQL
     QuoteCreated_DateTime DATETIME NOT NULL,
     CreatedBy VARCHAR(50) NOT NULL,
     CONSTRAINT FK_CustomerQuote FOREIGN KEY (Customer_ID)
     REFERENCES Customer(Customer_ID)
     ON DELETE CASCADE,
-    CONSTRAINT FK_QuoteStatus FOREIGN KEY (PaymentStatus)
+    CONSTRAINT FK_QuoteStatus FOREIGN KEY (QuoteStatus)
     REFERENCES Quotationstatus (Status_ID)  
    -- ON DELETE No Action --IS same as D:R
 );
