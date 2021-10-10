@@ -29,8 +29,10 @@ namespace vaalrusGUIPrototype
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dtgViewAcc = new System.Windows.Forms.DataGridView();
             this.pnlView = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -39,10 +41,11 @@ namespace vaalrusGUIPrototype
             this.btnBooked = new System.Windows.Forms.Button();
             this.dpFrom = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.fromDateErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtgViewAcc)).BeginInit();
             this.pnlView.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fromDateErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // dtgViewAcc
@@ -70,6 +73,13 @@ namespace vaalrusGUIPrototype
             this.pnlView.Name = "pnlView";
             this.pnlView.Size = new System.Drawing.Size(432, 429);
             this.pnlView.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(410, 408);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 100);
+            this.panel2.TabIndex = 9;
             // 
             // button1
             // 
@@ -113,7 +123,7 @@ namespace vaalrusGUIPrototype
             // 
             this.dpto.Location = new System.Drawing.Point(90, 165);
             this.dpto.Name = "dpto";
-            this.dpto.Size = new System.Drawing.Size(326, 22);
+            this.dpto.Size = new System.Drawing.Size(291, 22);
             this.dpto.TabIndex = 8;
             this.dpto.ValueChanged += new System.EventHandler(this.dpto_ValueChanged);
             // 
@@ -131,7 +141,7 @@ namespace vaalrusGUIPrototype
             // 
             this.dpFrom.Location = new System.Drawing.Point(90, 105);
             this.dpFrom.Name = "dpFrom";
-            this.dpFrom.Size = new System.Drawing.Size(326, 22);
+            this.dpFrom.Size = new System.Drawing.Size(291, 22);
             this.dpFrom.TabIndex = 7;
             this.dpFrom.ValueChanged += new System.EventHandler(this.dpFrom_ValueChanged);
             // 
@@ -143,12 +153,9 @@ namespace vaalrusGUIPrototype
             this.panel1.Size = new System.Drawing.Size(623, 533);
             this.panel1.TabIndex = 2;
             // 
-            // panel2
+            // fromDateErrorProvider
             // 
-            this.panel2.Location = new System.Drawing.Point(410, 408);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 100);
-            this.panel2.TabIndex = 9;
+            this.fromDateErrorProvider.ContainerControl = this;
             // 
             // frmViewAccommodations
             // 
@@ -166,6 +173,7 @@ namespace vaalrusGUIPrototype
             this.pnlView.ResumeLayout(false);
             this.pnlView.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.fromDateErrorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -183,5 +191,6 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.DateTimePicker dpFrom;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ErrorProvider fromDateErrorProvider;
     }
 }
