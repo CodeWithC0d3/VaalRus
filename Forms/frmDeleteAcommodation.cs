@@ -186,7 +186,7 @@ namespace vaalrusGUIPrototype.Forms
             }
 
         }
-        private void frmDeleteAccommodation_1__Load(object sender, EventArgs e)
+        private void frmDeleteAccommodation_Load(object sender, EventArgs e)
         {
             LoadTheme();
         }
@@ -225,11 +225,6 @@ namespace vaalrusGUIPrototype.Forms
                 con.Close();
             }
             sizeGrid();*/
-        }
-
-        private void frmDeleteAccommodation_1__Load_1(object sender, EventArgs e)
-        {
-
         }
     }
 }
