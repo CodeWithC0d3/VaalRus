@@ -58,7 +58,8 @@ namespace vaalrusGUIPrototype
             aplytheme(pnlView);
             aplytheme(panel1);
             aplytheme(dtgViewAcc);
-          
+            aplytheme(panel3);
+            aplytheme(groupBox1);
 
         }
         private void aplytheme(Control pn)
