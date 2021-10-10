@@ -241,13 +241,7 @@ namespace vaalrusGUIPrototype.Forms
                 btnGeneratQuote.Enabled = false;
                 txtUser.BackColor = Color.IndianRed;
             }
-            else
-            {
-                userErrorProvider.SetError(txtUser, "");
-                btnGeneratQuote.Enabled = true;
-                txtUser.BackColor = Color.White;
-            }
-            if (txtUser.Text.Length < 2 && txtUser.Text != "")
+            else if (txtUser.Text.Length < 2 && txtUser.Text != "")
             {
                 userErrorProvider.SetError(txtUser, "User name must be atleast 2 characters");
                 btnGeneratQuote.Enabled = false;
@@ -258,7 +252,8 @@ namespace vaalrusGUIPrototype.Forms
                 userErrorProvider.SetError(txtUser, "");
                 btnGeneratQuote.Enabled = true;
                 txtUser.BackColor = Color.White;
-            }
+            }            
+           
         }
         private void validatecmbCustomer()
         {
@@ -365,7 +360,7 @@ namespace vaalrusGUIPrototype.Forms
                 //sql = $"select * from Booking where StartDate >@stdate and EndDate < @edate ";
                 if (rb_booking.Checked)
                 {
-                    sql = $"SELECT Booking.Booking_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Booking.StartDate, Booking.EndDate, Accommodationset.Quotation_ID FROM Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID INNER JOIN Accommodationset ON Booking.Quotation_ID = Accommodationset.Quotation_ID where Booking.StartDate > @stdate {strto}";
+                    sql = $"SELECT Booking.Booking_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Booking.StartDate, Booking.EndDate FROM Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID where Booking.StartDate > @stdate {strto}";
                 }
                    
                 if (rb_quote.Checked)
@@ -380,11 +375,11 @@ namespace vaalrusGUIPrototype.Forms
                 adapter = new SqlDataAdapter();
                 ds = new DataSet();
                 adapter.SelectCommand = command;
-                adapter.Fill(ds, "Booking_ID");
+                adapter.Fill(ds, rb_booking.Checked ? "Booking_ID":"Quotation_ID");
                 //adapter.Fill(ds, "CustomerID");
                
                 grid_main.DataSource = ds;
-                grid_main.DataMember = "Booking_ID";
+                grid_main.DataMember = rb_booking.Checked ? "Booking_ID" : "Quotation_ID";
                 con.Close();
             }
             sizeGrid();
@@ -643,6 +638,7 @@ namespace vaalrusGUIPrototype.Forms
         {
             if (txtUser.Text == "" || cmbCustomer.SelectedIndex < 0 || lstAccommodation.Items.Count < 1)
             {
+                validatetxtUser();
                 validateList();
                 return;
             }
