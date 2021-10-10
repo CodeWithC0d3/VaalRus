@@ -110,7 +110,7 @@ namespace vaalrusGUIPrototype
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(105, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(223, 21);
+            this.label2.Size = new System.Drawing.Size(178, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Verify Slelected Booking ID";
             // 
@@ -229,7 +229,6 @@ namespace vaalrusGUIPrototype
             this.pnlSearch.Controls.Add(this.rbLastName);
             this.pnlSearch.Controls.Add(this.rbIDnum);
             this.pnlSearch.Controls.Add(this.tbLastName);
-            this.pnlSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlSearch.Location = new System.Drawing.Point(4, 19);
             this.pnlSearch.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSearch.Name = "pnlSearch";
