@@ -195,7 +195,25 @@ namespace vaalrusGUIPrototype
             sqlConnection.Close();
         }
 
-
+        private void validateDPFrom()
+        {
+            if (dpFrom.Value > dpto.Value)
+            {
+                fromDateErrorProvider.SetError(dpFrom, "From Date can not be after To Date");
+                button1.Enabled = false;
+                button3.Enabled = false;
+                btnBooked.Enabled = false;
+                dpFrom.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                fromDateErrorProvider.SetError(dpFrom, "");
+                button1.Enabled = true;
+                button3.Enabled = false;
+                btnBooked.Enabled = false;
+                dpFrom.BackColor = Color.White;
+            }
+        }
         private void frmViewAccommodations_Load(object sender, EventArgs e)
         {
             LoadTheme();
@@ -329,11 +347,13 @@ namespace vaalrusGUIPrototype
         private void dpFrom_ValueChanged(object sender, EventArgs e)
         {
             //dtgViewAcc.DataSource = null;
+            validateDPFrom();
         }
 
         private void dpto_ValueChanged(object sender, EventArgs e)
         {
-           // dtgViewAcc.DataSource = null;
+            // dtgViewAcc.DataSource = null;
+            validateDPFrom();
         }
 
         private void pnlDate_Paint(object sender, PaintEventArgs e)
