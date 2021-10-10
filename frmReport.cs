@@ -33,7 +33,11 @@ namespace vaalrusGUIPrototype
         public void loadDSet()
         {
             this.reportViewer.RefreshReport();
-
+            //ReportParameterCollection reportParameters = new ReportParameterCollection();
+            //reportParameters.Add(new ReportParameter("sDate", dpStart.Value.ToString()));
+            //reportParameters.Add(new ReportParameter("sDate", "test"));
+            //this.reportViewer.LocalReport.SetParameters(reportParameters);
+            //this.reportViewer.RefreshReport();
             SqlConnection conn = new SqlConnection(connString);
             conn.Open();
             //SqlCommand myComm = new SqlCommand("Select * from Accommodation", conn);
@@ -53,6 +57,13 @@ namespace vaalrusGUIPrototype
             ReportDataSource rds2 = new ReportDataSource("DataSet3", dt2);
             //this.reportViewer.LocalReport.DataSources.Add(rds);
             this.reportViewer.LocalReport.DataSources.Add(rds2);
+
+            ReportParameterCollection reportParameters = new ReportParameterCollection();
+            reportParameters.Add(new ReportParameter("sDate", dpStart.Value.Date.ToShortDateString()));
+            reportParameters.Add(new ReportParameter("eDate", dpEnd.Value.Date.ToShortDateString()));
+            this.reportViewer.LocalReport.SetParameters(reportParameters);
+            this.reportViewer.RefreshReport();
+
             this.reportViewer.RefreshReport();
             conn.Close();
 
@@ -194,6 +205,10 @@ namespace vaalrusGUIPrototype
                 selectStart = dpStart.Value;
                 selectEnd = dpEnd.Value;
                 loadDSet();
+                
+                //ReportParameter p1 = new ReportParameter("sDate", dpStart.Value.ToString());
+                //ReportParameter p2 = new ReportParameter("eDate", selectEnd.ToString());
+                //this.reportViewer.LocalReport.SetParameters(new ReportParameter[] { p1, p2 });
                 //loadDataSet3();
             }
             else
