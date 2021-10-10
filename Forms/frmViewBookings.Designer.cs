@@ -31,8 +31,13 @@ namespace vaalrusGUIPrototype.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmViewBookings));
             this.pnlViewBookings = new System.Windows.Forms.Panel();
+            this.dataGridViewBookings = new System.Windows.Forms.DataGridView();
+            this.radbViewAllBookings = new System.Windows.Forms.RadioButton();
             this.rdbSelectPeriod = new System.Windows.Forms.RadioButton();
             this.grpBoxSelectPeriod = new System.Windows.Forms.GroupBox();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.chkBoxPayed = new System.Windows.Forms.CheckBox();
+            this.chkBoxPending = new System.Windows.Forms.CheckBox();
             this.lblEndDate = new System.Windows.Forms.Label();
             this.lblStartDate = new System.Windows.Forms.Label();
             this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
@@ -40,15 +45,10 @@ namespace vaalrusGUIPrototype.Forms
             this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.lblViewCurrentBookings = new System.Windows.Forms.Label();
             this.pictureBoxViewAllBookingsBackground = new System.Windows.Forms.PictureBox();
-            this.radbViewAllBookings = new System.Windows.Forms.RadioButton();
-            this.dataGridViewBookings = new System.Windows.Forms.DataGridView();
-            this.chkBoxPending = new System.Windows.Forms.CheckBox();
-            this.chkBoxPayed = new System.Windows.Forms.CheckBox();
-            this.btnReset = new System.Windows.Forms.Button();
             this.pnlViewBookings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookings)).BeginInit();
             this.grpBoxSelectPeriod.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxViewAllBookingsBackground)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookings)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlViewBookings
@@ -64,6 +64,28 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlViewBookings.Name = "pnlViewBookings";
             this.pnlViewBookings.Size = new System.Drawing.Size(1065, 507);
             this.pnlViewBookings.TabIndex = 4;
+            // 
+            // dataGridViewBookings
+            // 
+            this.dataGridViewBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBookings.Location = new System.Drawing.Point(337, 79);
+            this.dataGridViewBookings.Name = "dataGridViewBookings";
+            this.dataGridViewBookings.RowHeadersWidth = 51;
+            this.dataGridViewBookings.RowTemplate.Height = 24;
+            this.dataGridViewBookings.Size = new System.Drawing.Size(690, 396);
+            this.dataGridViewBookings.TabIndex = 12;
+            // 
+            // radbViewAllBookings
+            // 
+            this.radbViewAllBookings.AutoSize = true;
+            this.radbViewAllBookings.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.radbViewAllBookings.Location = new System.Drawing.Point(68, 79);
+            this.radbViewAllBookings.Name = "radbViewAllBookings";
+            this.radbViewAllBookings.Size = new System.Drawing.Size(137, 21);
+            this.radbViewAllBookings.TabIndex = 11;
+            this.radbViewAllBookings.TabStop = true;
+            this.radbViewAllBookings.Text = "View all bookings\r\n";
+            this.radbViewAllBookings.UseVisualStyleBackColor = true;
             // 
             // rdbSelectPeriod
             // 
@@ -94,6 +116,37 @@ namespace vaalrusGUIPrototype.Forms
             this.grpBoxSelectPeriod.TabIndex = 9;
             this.grpBoxSelectPeriod.TabStop = false;
             this.grpBoxSelectPeriod.Text = "Filter bookings to time period";
+            // 
+            // btnReset
+            // 
+            this.btnReset.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnReset.Location = new System.Drawing.Point(159, 246);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(120, 47);
+            this.btnReset.TabIndex = 10;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            // 
+            // chkBoxPayed
+            // 
+            this.chkBoxPayed.AutoSize = true;
+            this.chkBoxPayed.Location = new System.Drawing.Point(36, 218);
+            this.chkBoxPayed.Name = "chkBoxPayed";
+            this.chkBoxPayed.Size = new System.Drawing.Size(70, 21);
+            this.chkBoxPayed.TabIndex = 9;
+            this.chkBoxPayed.Text = "Payed";
+            this.chkBoxPayed.UseVisualStyleBackColor = true;
+            // 
+            // chkBoxPending
+            // 
+            this.chkBoxPending.AutoSize = true;
+            this.chkBoxPending.Location = new System.Drawing.Point(36, 191);
+            this.chkBoxPending.Name = "chkBoxPending";
+            this.chkBoxPending.Size = new System.Drawing.Size(82, 21);
+            this.chkBoxPending.TabIndex = 8;
+            this.chkBoxPending.Text = "Pending";
+            this.chkBoxPending.UseVisualStyleBackColor = true;
             // 
             // lblEndDate
             // 
@@ -135,7 +188,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // dateTimePickerStart
             // 
-            this.dateTimePickerStart.Location = new System.Drawing.Point(36, 83);
+            this.dateTimePickerStart.Location = new System.Drawing.Point(36, 84);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
             this.dateTimePickerStart.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerStart.TabIndex = 0;
@@ -165,59 +218,6 @@ namespace vaalrusGUIPrototype.Forms
             this.pictureBoxViewAllBookingsBackground.TabIndex = 3;
             this.pictureBoxViewAllBookingsBackground.TabStop = false;
             // 
-            // radbViewAllBookings
-            // 
-            this.radbViewAllBookings.AutoSize = true;
-            this.radbViewAllBookings.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radbViewAllBookings.Location = new System.Drawing.Point(68, 79);
-            this.radbViewAllBookings.Name = "radbViewAllBookings";
-            this.radbViewAllBookings.Size = new System.Drawing.Size(137, 21);
-            this.radbViewAllBookings.TabIndex = 11;
-            this.radbViewAllBookings.TabStop = true;
-            this.radbViewAllBookings.Text = "View all bookings\r\n";
-            this.radbViewAllBookings.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewBookings
-            // 
-            this.dataGridViewBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewBookings.Location = new System.Drawing.Point(337, 79);
-            this.dataGridViewBookings.Name = "dataGridViewBookings";
-            this.dataGridViewBookings.RowHeadersWidth = 51;
-            this.dataGridViewBookings.RowTemplate.Height = 24;
-            this.dataGridViewBookings.Size = new System.Drawing.Size(690, 396);
-            this.dataGridViewBookings.TabIndex = 12;
-            // 
-            // chkBoxPending
-            // 
-            this.chkBoxPending.AutoSize = true;
-            this.chkBoxPending.Location = new System.Drawing.Point(36, 191);
-            this.chkBoxPending.Name = "chkBoxPending";
-            this.chkBoxPending.Size = new System.Drawing.Size(82, 21);
-            this.chkBoxPending.TabIndex = 8;
-            this.chkBoxPending.Text = "Pending";
-            this.chkBoxPending.UseVisualStyleBackColor = true;
-            // 
-            // chkBoxPayed
-            // 
-            this.chkBoxPayed.AutoSize = true;
-            this.chkBoxPayed.Location = new System.Drawing.Point(36, 218);
-            this.chkBoxPayed.Name = "chkBoxPayed";
-            this.chkBoxPayed.Size = new System.Drawing.Size(70, 21);
-            this.chkBoxPayed.TabIndex = 9;
-            this.chkBoxPayed.Text = "Payed";
-            this.chkBoxPayed.UseVisualStyleBackColor = true;
-            // 
-            // btnReset
-            // 
-            this.btnReset.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnReset.Location = new System.Drawing.Point(159, 246);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(4);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(120, 47);
-            this.btnReset.TabIndex = 10;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            // 
             // frmViewBookings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -230,10 +230,10 @@ namespace vaalrusGUIPrototype.Forms
             this.Load += new System.EventHandler(this.frmViewBookings_Load);
             this.pnlViewBookings.ResumeLayout(false);
             this.pnlViewBookings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookings)).EndInit();
             this.grpBoxSelectPeriod.ResumeLayout(false);
             this.grpBoxSelectPeriod.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxViewAllBookingsBackground)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookings)).EndInit();
             this.ResumeLayout(false);
 
         }
