@@ -48,6 +48,7 @@ namespace vaalrusGUIPrototype
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCheckIn)).BeginInit();
             this.pnlCheckIn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.epLastName)).BeginInit();
@@ -57,6 +58,7 @@ namespace vaalrusGUIPrototype
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtgCheckIn
@@ -75,11 +77,10 @@ namespace vaalrusGUIPrototype
             // 
             // pnlCheckIn
             // 
-            this.pnlCheckIn.Controls.Add(this.tbBookID);
-            this.pnlCheckIn.Controls.Add(this.btnCheckIn);
+            this.pnlCheckIn.Controls.Add(this.groupBox1);
             this.pnlCheckIn.Controls.Add(this.label2);
             this.pnlCheckIn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlCheckIn.Location = new System.Drawing.Point(0, 171);
+            this.pnlCheckIn.Location = new System.Drawing.Point(0, 0);
             this.pnlCheckIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlCheckIn.Name = "pnlCheckIn";
             this.pnlCheckIn.Size = new System.Drawing.Size(381, 233);
@@ -87,7 +88,7 @@ namespace vaalrusGUIPrototype
             // 
             // tbBookID
             // 
-            this.tbBookID.Location = new System.Drawing.Point(159, 68);
+            this.tbBookID.Location = new System.Drawing.Point(152, 12);
             this.tbBookID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbBookID.Name = "tbBookID";
             this.tbBookID.Size = new System.Drawing.Size(47, 22);
@@ -95,7 +96,7 @@ namespace vaalrusGUIPrototype
             // 
             // btnCheckIn
             // 
-            this.btnCheckIn.Location = new System.Drawing.Point(99, 134);
+            this.btnCheckIn.Location = new System.Drawing.Point(92, 78);
             this.btnCheckIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCheckIn.Name = "btnCheckIn";
             this.btnCheckIn.Size = new System.Drawing.Size(151, 66);
@@ -118,7 +119,7 @@ namespace vaalrusGUIPrototype
             this.btnSearch.Location = new System.Drawing.Point(3, 86);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(367, 54);
+            this.btnSearch.Size = new System.Drawing.Size(347, 54);
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "Filter";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -129,7 +130,7 @@ namespace vaalrusGUIPrototype
             this.tbLastName.Location = new System.Drawing.Point(190, 46);
             this.tbLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(169, 22);
+            this.tbLastName.Size = new System.Drawing.Size(149, 22);
             this.tbLastName.TabIndex = 7;
             // 
             // btnDisplayBook
@@ -174,7 +175,7 @@ namespace vaalrusGUIPrototype
             this.tbIDNum.Location = new System.Drawing.Point(190, 2);
             this.tbIDNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbIDNum.Name = "tbIDNum";
-            this.tbIDNum.Size = new System.Drawing.Size(169, 22);
+            this.tbIDNum.Size = new System.Drawing.Size(149, 22);
             this.tbIDNum.TabIndex = 9;
             // 
             // epLastName
@@ -187,9 +188,9 @@ namespace vaalrusGUIPrototype
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.pnlCheckIn);
-            this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(16, 15);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
@@ -199,7 +200,6 @@ namespace vaalrusGUIPrototype
             // panel3
             // 
             this.panel3.Controls.Add(this.btnDisplayBook);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 404);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
@@ -209,12 +209,11 @@ namespace vaalrusGUIPrototype
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panel4);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Location = new System.Drawing.Point(12, 4);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(381, 171);
+            this.groupBox1.Size = new System.Drawing.Size(362, 171);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "SEARCH BY LAST NAME OR ID NUMBER:";
@@ -231,7 +230,7 @@ namespace vaalrusGUIPrototype
             this.panel4.Location = new System.Drawing.Point(4, 19);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(373, 148);
+            this.panel4.Size = new System.Drawing.Size(354, 148);
             this.panel4.TabIndex = 0;
             // 
             // panel2
@@ -244,6 +243,15 @@ namespace vaalrusGUIPrototype
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(812, 506);
             this.panel2.TabIndex = 11;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.btnCheckIn);
+            this.panel5.Controls.Add(this.tbBookID);
+            this.panel5.Location = new System.Drawing.Point(16, 238);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(347, 159);
+            this.panel5.TabIndex = 1;
             // 
             // frmCheckIn
             // 
@@ -270,6 +278,8 @@ namespace vaalrusGUIPrototype
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -294,5 +304,6 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
     }
 }
