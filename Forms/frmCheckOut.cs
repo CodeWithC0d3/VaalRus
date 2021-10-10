@@ -64,7 +64,7 @@ namespace vaalrusGUIPrototype
             aplytheme(pnlCheckOut);
             aplytheme(pnlSearch);
             aplytheme(pnlDisplay);
-            aplytheme(dtgCheckOut);
+            //aplytheme(dtgCheckOut);
             //aplytheme(pnl_accSet);
 
         }
@@ -198,10 +198,6 @@ namespace vaalrusGUIPrototype
             LoadTheme();
         }
 
-        private void dtgCheckOut_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void btnDisplayBook_Click(object sender, EventArgs e)
         {
@@ -218,12 +214,6 @@ namespace vaalrusGUIPrototype
             Display("SELECT Booking.Booking_ID AS[Booking Number], Customer.Customer_FirstName AS[First Name], Customer.Customer_LastName AS[Last Name], Customer.Customer_IDNumber AS[South African ID], Booking.StartDate, Booking.EndDate, Booking.Checkin_Time, Booking.Checkin_Out FROM Customer INNER JOIN Booking ON Customer.Customer_ID = Booking.Customer_ID WHERE Booking.Checkin_Out=Null");
             
 
-        }
-
-
-        private void dtgCheckOut_SelectionChanged(object sender, EventArgs e)
-        {
-            tbBookID.Text = dtgCheckOut.CurrentRow.Cells[0].Value.ToString();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -281,12 +271,12 @@ namespace vaalrusGUIPrototype
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void dtgCheckIn_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void rbIDnum_CheckedChanged(object sender, EventArgs e)
         {
             if (rbLastName.Checked)
             {
@@ -296,7 +286,11 @@ namespace vaalrusGUIPrototype
             else
                 tbLastName.Text = "";
             epLastName.Clear();
+        }
 
+        private void dtgCheckOut_SelectionChanged_1(object sender, EventArgs e)
+        {
+            tbBookID.Text = dtgCheckOut.CurrentRow.Cells[0].Value.ToString();
         }
     }
 }
