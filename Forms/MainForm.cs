@@ -408,7 +408,14 @@ namespace vaalrusGUIPrototype
         }
         private void pictureBoxMax_Click_1(object sender, EventArgs e)
         {
-
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
         }
     }
 }
