@@ -127,7 +127,7 @@ namespace vaalrusGUIPrototype
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(199, 46);
+            this.tbLastName.Location = new System.Drawing.Point(190, 46);
             this.tbLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(169, 22);
@@ -141,7 +141,7 @@ namespace vaalrusGUIPrototype
             this.btnDisplayBook.Name = "btnDisplayBook";
             this.btnDisplayBook.Size = new System.Drawing.Size(367, 54);
             this.btnDisplayBook.TabIndex = 1;
-            this.btnDisplayBook.Text = "Display Bookings ?";
+            this.btnDisplayBook.Text = "Refresh Booking List";
             this.btnDisplayBook.UseVisualStyleBackColor = true;
             this.btnDisplayBook.Click += new System.EventHandler(this.btnDisplayBook_Click);
             // 
@@ -172,7 +172,7 @@ namespace vaalrusGUIPrototype
             // 
             // tbIDNum
             // 
-            this.tbIDNum.Location = new System.Drawing.Point(199, 2);
+            this.tbIDNum.Location = new System.Drawing.Point(190, 2);
             this.tbIDNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbIDNum.Name = "tbIDNum";
             this.tbIDNum.Size = new System.Drawing.Size(169, 22);

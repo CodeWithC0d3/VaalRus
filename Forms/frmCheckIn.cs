@@ -205,7 +205,21 @@ namespace vaalrusGUIPrototype
 
         private void frmCheckIn_Load(object sender, EventArgs e)
         {
-            LoadTheme(); 
+            LoadTheme();
+
+            sqlConnection = new SqlConnection(connString);
+            try
+            {
+                sqlConnection.Open();
+
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Connection unsuccesful");
+            }
+            Display("SELECT Booking.Booking_ID AS[Booking Number], Customer.Customer_FirstName AS[First Name], Customer.Customer_LastName AS[Last Name], Customer.Customer_IDNumber AS[South African ID], Booking.StartDate, Booking.EndDate, Booking.Checkin_Time, Booking.Checkin_Out FROM Customer INNER JOIN Booking ON Customer.Customer_ID = Booking.Customer_ID WHERE Booking.Checkin_Time IS NULL");
+
+            tbBookID.Text = "";
         }
 
         private void button2_Click(object sender, EventArgs e)
