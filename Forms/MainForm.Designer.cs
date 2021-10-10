@@ -517,7 +517,7 @@ namespace vaalrusGUIPrototype
             // 
             this.pictureBoxLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(70)))));
             this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxLogo.Image = global::vaalrusGUIPrototype.Properties.Resources.Logo;
+            this.pictureBoxLogo.Image = global::vaalrusGUIPrototype.Properties.Resources.LOGO15;
             this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
