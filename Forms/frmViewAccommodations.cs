@@ -31,11 +31,7 @@ namespace vaalrusGUIPrototype
             foreach (Control co in this.Controls)
             {
 
-                // if (co.GetType() == typeof(Panel))
-                // {
-                //    co.Parent = this;
-                //    co.BackColor = Color.Transparent;
-                // }
+               
                 if (co.GetType() == typeof(Label))
                 {
                     Label lbl = (Label)co;
@@ -50,21 +46,19 @@ namespace vaalrusGUIPrototype
                 {
                     Button btn = (Button)co;
                     btn.FlatStyle = FlatStyle.Flat;
-                    //btn.Parent = pictureBox1;
                     btn.BackColor = GlobalSettings.PrimaryColor;
                     btn.ForeColor = Color.White;
                     btn.Font = GlobalSettings.font;
-                    //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                
                     btn.FlatAppearance.BorderColor = Color.White;
                     btn.FlatAppearance.BorderSize = 2;
                 }
             }
-            //pnlMain.BackColor = Color.Transparent;
-
+            
             aplytheme(pnlView);
             aplytheme(panel1);
             aplytheme(dtgViewAcc);
-            //aplytheme(pnl_accSet);
+          
 
         }
         private void aplytheme(Control pn)
@@ -301,9 +295,9 @@ namespace vaalrusGUIPrototype
             try
             {
                 sqlConnection.Open();
-                //MessageBox.Show("Connected to db");
+              
             }
-            catch (SqlException sqlx)
+            catch (SqlException)
             {
                 MessageBox.Show("Connection unsuccesful");
             }
@@ -346,13 +340,13 @@ namespace vaalrusGUIPrototype
 
         private void dpFrom_ValueChanged(object sender, EventArgs e)
         {
-            //dtgViewAcc.DataSource = null;
+           
             validateDPFrom();
         }
 
         private void dpto_ValueChanged(object sender, EventArgs e)
         {
-            // dtgViewAcc.DataSource = null;
+            
             validateDPFrom();
         }
 

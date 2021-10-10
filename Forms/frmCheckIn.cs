@@ -13,12 +13,9 @@ namespace vaalrusGUIPrototype
 {
     public partial class frmCheckIn : Form
     {
-        private DataSet ds;
-        private SqlDataAdapter myAdapter;
+       
         private SqlConnection sqlConnection;
         private SqlCommand sqlCmd;
-        private string sqlCommand;
-        private string dataFDB;
         private string connString = Properties.Settings.Default.conString;
 
         public frmCheckIn()
@@ -53,11 +50,7 @@ namespace vaalrusGUIPrototype
             foreach (Control co in this.Controls)
             {
 
-                // if (co.GetType() == typeof(Panel))
-                // {
-                //    co.Parent = this;
-                //   co.BackColor = Color.FromArgb(58, 93, 117);
-                //}
+             
                 if (co.GetType() == typeof(Label))
                 {
                     Label lbl = (Label)co;
@@ -72,23 +65,22 @@ namespace vaalrusGUIPrototype
                 {
                     Button btn = (Button)co;
                     btn.FlatStyle = FlatStyle.Flat;
-                    //btn.Parent = pictureBox1;
+                
                     btn.BackColor = GlobalSettings.PrimaryColor;
                     btn.ForeColor = Color.White;
                     btn.Font = GlobalSettings.font;
-                    //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+           
                     btn.FlatAppearance.BorderColor = Color.White;
                     btn.FlatAppearance.BorderSize = 2;
                 }
             }
-            //pnlMain.BackColor = Color.Transparent;
-
+     
             aplytheme(panel1);
             aplytheme(panel2);
             aplytheme(panel3);
             aplytheme(panel4);
             aplytheme(pnlCheckIn);
-            //timer1.Start();
+       
         }
         private void aplytheme(Control pn)
         {
@@ -101,20 +93,16 @@ namespace vaalrusGUIPrototype
                     {
                         Button btn = (Button)co;
                         btn.FlatStyle = FlatStyle.Flat;
-                        //btn.Parent = pictureBox1;
                         btn.BackColor = GlobalSettings.PrimaryColor;
                         btn.ForeColor = Color.White;
                         btn.Font = GlobalSettings.font;
-                        //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                         btn.FlatAppearance.BorderColor = Color.White;
                         btn.FlatAppearance.BorderSize = 2;
                     }
                     if (co.GetType() == typeof(Label))
                     {
                         Label lbl = (Label)co;
-                        lbl.Font = GlobalSettings.font;
-                        //lbl.Parent = picBackground;
-                        //lbl.ForeColor = GlobalSettings.SecondaryColor;
+                        lbl.Font = GlobalSettings.font;             
                         lbl.ForeColor = Color.White;
                         lbl.BackColor = Color.Transparent;
 
@@ -236,11 +224,6 @@ namespace vaalrusGUIPrototype
             //this.Close();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             sqlConnection = new SqlConnection(connString);
@@ -249,7 +232,7 @@ namespace vaalrusGUIPrototype
                 sqlConnection.Open();
            
             }
-            catch (SqlException sqlx)
+            catch (SqlException)
             {
                 MessageBox.Show("Connection unsuccesful");
             }

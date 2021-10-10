@@ -13,12 +13,10 @@ namespace vaalrusGUIPrototype
 {
     public partial class frmCheckOut : Form
     {
-        private DataSet ds;
-        private SqlDataAdapter myAdapter;
+       
         private SqlConnection sqlConnection;
         private SqlCommand sqlCmd;
-        private string sqlCommand;
-        private string dataFDB;
+       
         private string connString = Properties.Settings.Default.conString;
 
         public frmCheckOut()
@@ -209,7 +207,7 @@ namespace vaalrusGUIPrototype
             try
             {
                 sqlConnection.Open();
-                //MessageBox.Show("Connected to db");
+              
             }
             catch (SqlException)
             {
@@ -231,7 +229,7 @@ namespace vaalrusGUIPrototype
             try
             {
                 sqlConnection.Open();
-                //MessageBox.Show("Connected to db");
+               
             }
             catch (SqlException)
             {
@@ -249,9 +247,9 @@ namespace vaalrusGUIPrototype
             try
             {
                 sqlConnection.Open();
-                //MessageBox.Show("Connected to db");
+             
             }
-            catch (SqlException sqlx)
+            catch (SqlException)
             {
                 MessageBox.Show("Connection unsuccesful");
             }
@@ -261,10 +259,8 @@ namespace vaalrusGUIPrototype
                 if (string.IsNullOrEmpty(tbLastName.Text))
                 {
 
-                    // e.Cancel = true;
                     tbLastName.Focus();
                     epLastName.SetError(tbLastName, "Customer Last name required");
-
 
                 }
                 else
