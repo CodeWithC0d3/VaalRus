@@ -275,30 +275,49 @@ namespace vaalrusGUIPrototype.Forms
         private void dataGridViewBookings_SelectionChanged(object sender, EventArgs e)
         {
             string id = "";
-            if (rdPending.Checked)
+            try
             {
-                id = dataGridViewBookings.CurrentRow.Cells[0].Value.ToString();
+              
+                if (rdPending.Checked)
+                {
+                    id = dataGridViewBookings.CurrentRow.Cells[0].Value.ToString();
+                }
+                else if (rdPayed.Checked)
+                {
+                    id = dataGridViewBookings.CurrentRow.Cells[1].Value.ToString();
+                }
+                else
+                {
+                    //id = dataGridViewBookings.CurrentRow.Cells[1].Value.ToString();
+                }
             }
-            else if (rdPayed.Checked)
+            catch (Exception)
             {
-                id = dataGridViewBookings.CurrentRow.Cells[1].Value.ToString();
+
+           
             }
-            else
+            
+            if (conDB() && id.All(Char.IsDigit) )
             {
-                id = dataGridViewBookings.CurrentRow.Cells[1].Value.ToString();
-            }
-            if (conDB())
-            {
-                string sql = "SELECT Accommodation.Accommodation_ID, Accommodationtype.AccommodationType, Accommodationset.startDate AS [Start Date], Accommodationset.endDate AS [End Date] FROM Accommodation INNER JOIN Accommodationset ON Accommodation.Accommodation_ID = Accommodationset.Accommodation_ID INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID INNER JOIN Quotation ON dbo.Accommodationset.Quotation_ID = Quotation.Quotation_ID WHERE (Accommodationset.Quotation_ID = @id)";
-                command = new SqlCommand(sql,con);
-                command.Parameters.AddWithValue("@id",id);
-                ds = new DataSet();
-                adapter = new SqlDataAdapter();
-                adapter.SelectCommand = command;
-                adapter.Fill(ds,"Accommodation_ID");
-                gridACC.DataMember = "Accommodation_ID";
-                gridACC.DataSource = ds;
-                con.Close();
+                try
+                {
+                    string sql = "SELECT Accommodation.Accommodation_ID, Accommodationtype.AccommodationType, Accommodationset.startDate AS [Start Date], Accommodationset.endDate AS [End Date] FROM Accommodation INNER JOIN Accommodationset ON Accommodation.Accommodation_ID = Accommodationset.Accommodation_ID INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID INNER JOIN Quotation ON dbo.Accommodationset.Quotation_ID = Quotation.Quotation_ID WHERE (Accommodationset.Quotation_ID = @id)";
+                    command = new SqlCommand(sql, con);
+                    command.Parameters.AddWithValue("@id", id);
+                    ds = new DataSet();
+                    adapter = new SqlDataAdapter();
+                    adapter.SelectCommand = command;
+                    adapter.Fill(ds, "Accommodation_ID");
+                    gridACC.DataMember = "Accommodation_ID";
+                    gridACC.DataSource = ds;
+                    con.Close();
+                }
+                catch (Exception)
+                {
+
+                   
+                }
+                
             }
         }
     }
