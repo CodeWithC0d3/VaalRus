@@ -133,6 +133,16 @@ namespace vaalrusGUIPrototype.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LOGO15 {
+            get {
+                object obj = ResourceManager.GetObject("LOGO15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logotest {
             get {
                 object obj = ResourceManager.GetObject("Logotest", resourceCulture);
@@ -166,6 +176,16 @@ namespace vaalrusGUIPrototype.Properties {
         internal static System.Drawing.Bitmap minimize__1_ {
             get {
                 object obj = ResourceManager.GetObject("minimize (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NewLOGO {
+            get {
+                object obj = ResourceManager.GetObject("NewLOGO", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -381,7 +381,7 @@ namespace vaalrusGUIPrototype
                 sqlConnection.Close();
 
                 
-            }catch(SqlException sqlx)
+            }catch(Exception sqlx)
             {
                 MessageBox.Show(sqlx.ToString());
             }

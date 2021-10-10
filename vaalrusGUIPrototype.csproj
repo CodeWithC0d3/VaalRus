@@ -7,7 +7,7 @@
     <ProjectGuid>{32714B26-B1E3-47D3-AE6C-08E566448DC7}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>vaalrusGUIPrototype</RootNamespace>
-    <AssemblyName>vaalrusGUIPrototype</AssemblyName>
+    <AssemblyName>Vaalrus</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,6 +48,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>LOGO15 %281%29.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Data.ConnectionUI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=f4ca07f51760da93, processorArchitecture=MSIL">
@@ -548,6 +551,10 @@
     <None Include="Resources\expand2.png" />
     <None Include="Resources\MAX.png" />
     <None Include="Resources\expand2jpg.jpg" />
+    <Content Include="LOGO15 %281%29.ico" />
+    <Content Include="NewLOGOicon.ico" />
+    <None Include="Resources\NewLOGO.png" />
+    <None Include="Resources\LOGO15.png" />
     <Content Include="_SQL\older queries\Initial Data Population.sql" />
     <Content Include="_SQL\older queries\SQL setup with Foreign keys.sql" />
     <Content Include="_SQL\older queries\SQL setup.sql" />
