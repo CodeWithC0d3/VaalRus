@@ -167,7 +167,6 @@ namespace vaalrusGUIPrototype.Forms
 
                     }
                 }
-
             }
         }
         private void sizeGrid()
@@ -176,11 +175,12 @@ namespace vaalrusGUIPrototype.Forms
             {
                 dataGridViewBookings.Columns[i].MinimumWidth = 100;
             }
-
         }
-        private void frmViewCustomer_Load(object sender, EventArgs e)
+        private void frmViewBookings_Load(object sender, EventArgs e)
         {
             LoadTheme();
+
+            populateDataGrid();
         }
         private Boolean conDB()
         {
@@ -194,13 +194,6 @@ namespace vaalrusGUIPrototype.Forms
             {
                 return false;
             }
-
-
-        }
-
-        private void frmViewBookings_Load(object sender, EventArgs e)
-        {
-            populateDataGrid();
         }
 
         private void populateDataGrid()
@@ -208,17 +201,14 @@ namespace vaalrusGUIPrototype.Forms
             //populate the data grid
             if (conDB())
             {
-
                 //string Booking = Booking.Text;
 
                 string queryText = $"SELECT Booking.Booking_ID, Customer.Customer_FirstName, Customer.Customer_LastName, Booking.StartDate, Booking.EndDate, Quotationstatus.Status_Type FROM + " +
                     $"Booking INNER JOIN Quotation ON Booking.Quotation_ID = Quotation.Quotation_ID INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID AND Quotation.Customer_ID = Customer.Customer_ID +" +
                     $" INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE (Quotation.PaymentStatus = 1)";
 
-
                 adapter = new SqlDataAdapter();
                 ds = new DataSet();
-
 
                 command = new SqlCommand(queryText, con);
 
@@ -228,10 +218,7 @@ namespace vaalrusGUIPrototype.Forms
                 dataGridViewBookings.DataSource = ds;
                 dataGridViewBookings.DataMember = "Bookings";
 
-
                 con.Close();
-
-
             }
             //sizeGrid();
         }

@@ -44,6 +44,7 @@ namespace vaalrusGUIPrototype.Forms
             this.dataGridViewBookings = new System.Windows.Forms.DataGridView();
             this.chkBoxPending = new System.Windows.Forms.CheckBox();
             this.chkBoxPayed = new System.Windows.Forms.CheckBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.pnlViewBookings.SuspendLayout();
             this.grpBoxSelectPeriod.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxViewAllBookingsBackground)).BeginInit();
@@ -78,6 +79,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // grpBoxSelectPeriod
             // 
+            this.grpBoxSelectPeriod.Controls.Add(this.btnReset);
             this.grpBoxSelectPeriod.Controls.Add(this.chkBoxPayed);
             this.grpBoxSelectPeriod.Controls.Add(this.chkBoxPending);
             this.grpBoxSelectPeriod.Controls.Add(this.lblEndDate);
@@ -123,10 +125,10 @@ namespace vaalrusGUIPrototype.Forms
             // btnViewBookings
             // 
             this.btnViewBookings.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnViewBookings.Location = new System.Drawing.Point(80, 256);
+            this.btnViewBookings.Location = new System.Drawing.Point(36, 246);
             this.btnViewBookings.Margin = new System.Windows.Forms.Padding(4);
             this.btnViewBookings.Name = "btnViewBookings";
-            this.btnViewBookings.Size = new System.Drawing.Size(120, 47);
+            this.btnViewBookings.Size = new System.Drawing.Size(115, 47);
             this.btnViewBookings.TabIndex = 7;
             this.btnViewBookings.Text = "View Bookings";
             this.btnViewBookings.UseVisualStyleBackColor = true;
@@ -205,6 +207,17 @@ namespace vaalrusGUIPrototype.Forms
             this.chkBoxPayed.Text = "Payed";
             this.chkBoxPayed.UseVisualStyleBackColor = true;
             // 
+            // btnReset
+            // 
+            this.btnReset.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnReset.Location = new System.Drawing.Point(159, 246);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(120, 47);
+            this.btnReset.TabIndex = 10;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            // 
             // frmViewBookings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -241,5 +254,6 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.RadioButton radbViewAllBookings;
         private System.Windows.Forms.CheckBox chkBoxPayed;
         private System.Windows.Forms.CheckBox chkBoxPending;
+        private System.Windows.Forms.Button btnReset;
     }
 }
