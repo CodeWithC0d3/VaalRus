@@ -79,6 +79,7 @@ namespace vaalrusGUIPrototype
             aplytheme(panel2);
             aplytheme(panel3);
             aplytheme(panel4);
+            aplytheme(panel5);
             aplytheme(pnlCheckIn);
        
         }

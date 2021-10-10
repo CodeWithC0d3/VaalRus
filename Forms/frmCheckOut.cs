@@ -56,6 +56,7 @@ namespace vaalrusGUIPrototype
             aplytheme(pnlSearch);
             aplytheme(pnlDisplay);
             aplytheme(panel2);
+            aplytheme(panel4);
             aplytheme(gbSearch);
 
         }
