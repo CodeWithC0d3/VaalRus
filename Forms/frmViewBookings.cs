@@ -244,7 +244,7 @@ namespace vaalrusGUIPrototype.Forms
 
                 chkBoxPending.Checked = false;
 
-                string queryText = $"SELECT dbo.Booking.Booking_ID, dbo.Customer.Customer_FirstName, dbo.Customer.Customer_LastName, dbo.Booking.StartDate, dbo.Booking.EndDate, dbo.Quotationstatus.Status_Type FROM dbo.Booking INNER JOIN Quotation ON dbo.Booking.Quotation_ID = dbo.Quotation.Quotation_ID INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID AND Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE (Quotation.PaymentStatus = 1)";
+                string queryText = $"SELECT dbo.Booking.Booking_ID, dbo.Customer.Customer_FirstName, dbo.Customer.Customer_LastName, dbo.Booking.StartDate, dbo.Booking.EndDate, dbo.Quotationstatus.Status_Type FROM dbo.Booking INNER JOIN Quotation ON dbo.Booking.Quotation_ID = dbo.Quotation.Quotation_ID INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID AND Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE (Quotation.PaymentStatus = 2)";
                 adapter = new SqlDataAdapter();
                 ds = new DataSet();
                 command = new SqlCommand(queryText, con);
