@@ -170,5 +170,17 @@ namespace vaalrusGUIPrototype.Forms
 
             }
         }
+        private void sizeGrid()
+        {
+            for (int i = 0; i < dataGridViewBookings.Columns.Count; i++)
+            {
+                dataGridViewBookings.Columns[i].MinimumWidth = 100;
+            }
+
+        }
+        private void frmViewCustomer_Load(object sender, EventArgs e)
+        {
+            LoadTheme();
+        }
     }
 }
