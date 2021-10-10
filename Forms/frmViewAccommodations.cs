@@ -190,14 +190,14 @@ namespace vaalrusGUIPrototype
             SqlConnection con = new SqlConnection(constr);
             SqlCommand command;
             SqlDataAdapter adapter;
-           // SqlDataReader dataReader;
+          
             DataSet ds;
             string sql = "";
             
                 
             DateTime startDT  = dpFrom.Value.Date;
             DateTime endDT = dpto.Value.Date;
-            sql = "SELECT * FROM Accommodation";
+            sql = "Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID";
              
             command = new SqlCommand(sql, con);
             adapter = new SqlDataAdapter();
@@ -288,7 +288,7 @@ namespace vaalrusGUIPrototype
             {
                 MessageBox.Show("Connection unsuccesful");
             }
-            Display("Select * from Accommodation ");
+            Display("Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID ");
         }
 
         private void button2_Click_1(object sender, EventArgs e)
