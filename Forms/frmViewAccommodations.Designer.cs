@@ -42,10 +42,14 @@ namespace vaalrusGUIPrototype
             this.dpFrom = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.fromDateErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dtgViewAcc)).BeginInit();
             this.pnlView.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fromDateErrorProvider)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtgViewAcc
@@ -61,14 +65,9 @@ namespace vaalrusGUIPrototype
             // 
             // pnlView
             // 
+            this.pnlView.Controls.Add(this.groupBox1);
             this.pnlView.Controls.Add(this.panel2);
             this.pnlView.Controls.Add(this.button1);
-            this.pnlView.Controls.Add(this.label2);
-            this.pnlView.Controls.Add(this.button3);
-            this.pnlView.Controls.Add(this.label1);
-            this.pnlView.Controls.Add(this.dpto);
-            this.pnlView.Controls.Add(this.btnBooked);
-            this.pnlView.Controls.Add(this.dpFrom);
             this.pnlView.Location = new System.Drawing.Point(12, 12);
             this.pnlView.Name = "pnlView";
             this.pnlView.Size = new System.Drawing.Size(432, 429);
@@ -94,7 +93,7 @@ namespace vaalrusGUIPrototype
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 170);
+            this.label2.Location = new System.Drawing.Point(4, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 17);
             this.label2.TabIndex = 6;
@@ -102,9 +101,9 @@ namespace vaalrusGUIPrototype
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(16, 259);
+            this.button3.Location = new System.Drawing.Point(7, 110);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(185, 85);
+            this.button3.Size = new System.Drawing.Size(166, 85);
             this.button3.TabIndex = 2;
             this.button3.Text = "Available Accommodation";
             this.button3.UseVisualStyleBackColor = true;
@@ -113,7 +112,7 @@ namespace vaalrusGUIPrototype
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 110);
+            this.label1.Location = new System.Drawing.Point(4, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 17);
             this.label1.TabIndex = 5;
@@ -121,7 +120,7 @@ namespace vaalrusGUIPrototype
             // 
             // dpto
             // 
-            this.dpto.Location = new System.Drawing.Point(90, 165);
+            this.dpto.Location = new System.Drawing.Point(81, 63);
             this.dpto.Name = "dpto";
             this.dpto.Size = new System.Drawing.Size(291, 22);
             this.dpto.TabIndex = 8;
@@ -129,9 +128,9 @@ namespace vaalrusGUIPrototype
             // 
             // btnBooked
             // 
-            this.btnBooked.Location = new System.Drawing.Point(231, 259);
+            this.btnBooked.Location = new System.Drawing.Point(206, 110);
             this.btnBooked.Name = "btnBooked";
-            this.btnBooked.Size = new System.Drawing.Size(185, 85);
+            this.btnBooked.Size = new System.Drawing.Size(166, 85);
             this.btnBooked.TabIndex = 1;
             this.btnBooked.Text = "Booked Accommodation";
             this.btnBooked.UseVisualStyleBackColor = true;
@@ -139,7 +138,7 @@ namespace vaalrusGUIPrototype
             // 
             // dpFrom
             // 
-            this.dpFrom.Location = new System.Drawing.Point(90, 105);
+            this.dpFrom.Location = new System.Drawing.Point(81, 3);
             this.dpFrom.Name = "dpFrom";
             this.dpFrom.Size = new System.Drawing.Size(291, 22);
             this.dpFrom.TabIndex = 7;
@@ -157,6 +156,29 @@ namespace vaalrusGUIPrototype
             // 
             this.fromDateErrorProvider.ContainerControl = this;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.panel3);
+            this.groupBox1.Location = new System.Drawing.Point(16, 97);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(400, 238);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Search Details:";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dpFrom);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.button3);
+            this.panel3.Controls.Add(this.btnBooked);
+            this.panel3.Controls.Add(this.dpto);
+            this.panel3.Location = new System.Drawing.Point(6, 21);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(388, 210);
+            this.panel3.TabIndex = 9;
+            // 
             // frmViewAccommodations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -171,9 +193,11 @@ namespace vaalrusGUIPrototype
             this.Load += new System.EventHandler(this.frmViewAccommodations_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgViewAcc)).EndInit();
             this.pnlView.ResumeLayout(false);
-            this.pnlView.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fromDateErrorProvider)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -192,5 +216,7 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ErrorProvider fromDateErrorProvider;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel3;
     }
 }
