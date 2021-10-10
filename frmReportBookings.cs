@@ -190,7 +190,7 @@ namespace vaalrusGUIPrototype
         {
             if (dpStart.Value > dpEnd.Value)
             {
-                fromDateErrorProvider.SetError(dpStart, "From Date can not be after TO date");
+                fromDateErrorProvider.SetError(dpStart, "Start Date can not be after End Date");
                 btnDisplayReport.Enabled = false;
                 dpStart.BackColor = Color.IndianRed;
             }
