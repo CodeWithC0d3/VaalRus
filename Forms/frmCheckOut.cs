@@ -13,14 +13,13 @@ namespace vaalrusGUIPrototype
 {
     public partial class frmCheckOut : Form
     {
-        public DataSet ds;
-        public SqlDataAdapter myAdapter;
-
-        public SqlConnection sqlConnection;
-        public SqlCommand sqlCmd;
-        public string sqlCommand;
-        public string dataFDB;
-        public string connString = Properties.Settings.Default.conString;
+        private DataSet ds;
+        private SqlDataAdapter myAdapter;
+        private SqlConnection sqlConnection;
+        private SqlCommand sqlCmd;
+        private string sqlCommand;
+        private string dataFDB;
+        private string connString = Properties.Settings.Default.conString;
 
         public frmCheckOut()
         {
@@ -223,6 +222,11 @@ namespace vaalrusGUIPrototype
 
         private void btnDisplayBook_Click(object sender, EventArgs e)
         {
+            rbIDnum.Checked = false;
+            rbLastName.Checked = false;
+            tbIDNum.Text = "";
+            tbLastName.Text = "";
+
             sqlConnection = new SqlConnection(connString);
             try
             {

@@ -13,14 +13,14 @@ namespace vaalrusGUIPrototype
 {
     public partial class frmCheckIn : Form
     {
-        public DataSet ds;
-        public SqlDataAdapter myAdapter;
+        private DataSet ds;
+        private SqlDataAdapter myAdapter;
+        private SqlConnection sqlConnection;
+        private SqlCommand sqlCmd;
+        private string sqlCommand;
+        private string dataFDB;
+        private string connString = Properties.Settings.Default.conString;
 
-        public SqlConnection sqlConnection;
-        public SqlCommand sqlCmd;
-        public string sqlCommand;
-        public string dataFDB;
-        public string connString = Properties.Settings.Default.conString;
         public frmCheckIn()
         {
             InitializeComponent();
@@ -297,6 +297,11 @@ namespace vaalrusGUIPrototype
 
         private void btnDisplayBook_Click(object sender, EventArgs e)
         {
+            rbIDnum.Checked = false;
+            rbLastName.Checked = false;
+            tbIDNum.Text = "";
+            tbLastName.Text = "";
+
             sqlConnection = new SqlConnection(connString);
             try
             {
