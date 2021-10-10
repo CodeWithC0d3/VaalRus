@@ -179,7 +179,7 @@ namespace vaalrusGUIPrototype.Forms
         private void frmViewBookings_Load(object sender, EventArgs e)
         {
             LoadTheme();
-
+            rdPending.Checked = true;
         }
         private Boolean conDB()
         {
