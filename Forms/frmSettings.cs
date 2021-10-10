@@ -241,8 +241,16 @@ namespace vaalrusGUIPrototype
         {
             //buildDatabse();
             CreateDBStuff();
+            //Form.ActiveForm.Refresh();
             MainForm frm = new MainForm();
+            frm.Refresh();
+            //frm.Show();
             frm.dbRequired();
+            //this.Close();
+            //Refresh();
+            Application.Restart();
+            Environment.Exit(0);
+            
         }
 
         private void btnCreateDatabAse_Click(object sender, EventArgs e)
@@ -362,7 +370,15 @@ namespace vaalrusGUIPrototype
                 MessageBox.Show("Local Vaalrus database is now created");
             }
             Properties.Settings.Default.Save();
-
+            //Form.ActiveForm.Refresh();
+            //MainForm frm = new MainForm();
+            //frm.Refresh();
+            Application.Restart();
+            Environment.Exit(0);
+            //frm.Show();
+            //frm.dbRequired();
+            //this.Close();
+            //Refresh();
         }
         private void loadTestData()
         {
@@ -382,6 +398,10 @@ namespace vaalrusGUIPrototype
                     server.ConnectionContext.ExecuteNonQuery(str);
 
                     con.Close();
+                    MainForm frm = new MainForm();
+                    frm.dbRequired();
+                    //this.Close();
+                    //Refresh();
                 }
                 MessageBox.Show("Data Loaded");
             }
