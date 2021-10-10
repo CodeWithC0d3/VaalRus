@@ -180,7 +180,6 @@ namespace vaalrusGUIPrototype.Forms
         {
             LoadTheme();
 
-            populateDataGrid();
         }
         private Boolean conDB()
         {
@@ -196,31 +195,75 @@ namespace vaalrusGUIPrototype.Forms
             }
         }
 
+        private void radbViewAllBookings_CheckedChanged(object sender, EventArgs e)
+        {
+            populateDataGrid();
+        }
+
         private void populateDataGrid()
         {
             //populate the data grid
             if (conDB())
             {
-                //string Booking = Booking.Text;
-
-                string queryText = $"SELECT Booking.Booking_ID, Customer.Customer_FirstName, Customer.Customer_LastName, Booking.StartDate, Booking.EndDate, Quotationstatus.Status_Type FROM + " +
-                    "Booking INNER JOIN Quotation ON Booking.Quotation_ID = Quotation.Quotation_ID INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID AND Quotation.Customer_ID = Customer.Customer_ID +" +
-                    " INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE (Quotation.PaymentStatus = 1)";
-
+                string queryText = $"SELECT dbo.Booking.Booking_ID, dbo.Customer.Customer_FirstName, dbo.Customer.Customer_LastName, dbo.Booking.StartDate, dbo.Booking.EndDate, dbo.Quotationstatus.Status_Type FROM dbo.Booking INNER JOIN Quotation ON dbo.Booking.Quotation_ID = dbo.Quotation.Quotation_ID INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID AND Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE (Quotation.PaymentStatus = 1)";
                 adapter = new SqlDataAdapter();
                 ds = new DataSet();
-
                 command = new SqlCommand(queryText, con);
-
                 adapter.SelectCommand = command;
-                adapter.Fill(ds, "Bookings");
-
+                adapter.Fill(ds, "Booking");
                 dataGridViewBookings.DataSource = ds;
-                dataGridViewBookings.DataMember = "Bookings";
-
+                dataGridViewBookings.DataMember = "Booking";
                 con.Close();
             }
-            //sizeGrid();
+        }
+
+        private void rdbSelectPeriod_CheckedChanged(object sender, EventArgs e)
+        {
+            grpBoxSelectPeriod.Enabled = true;
+        }
+
+        private void btnViewBookings_Click(object sender, EventArgs e)
+        {
+            if (chkBoxPending.Checked)
+            {
+                chkBoxPayed.Checked = false;
+
+                string queryText = $"SELECT dbo.Booking.Booking_ID, dbo.Customer.Customer_FirstName, dbo.Customer.Customer_LastName, dbo.Booking.StartDate, dbo.Booking.EndDate, dbo.Quotationstatus.Status_Type FROM dbo.Booking INNER JOIN Quotation ON dbo.Booking.Quotation_ID = dbo.Quotation.Quotation_ID INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID AND Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE (Quotation.PaymentStatus = 1)";
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+                command = new SqlCommand(queryText, con);
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Booking");
+                dataGridViewBookings.DataSource = ds;
+                dataGridViewBookings.DataMember = "Booking";
+                con.Close();
+            }
+
+            if (chkBoxPayed.Checked)
+            {
+
+                chkBoxPending.Checked = false;
+
+                string queryText = $"SELECT dbo.Booking.Booking_ID, dbo.Customer.Customer_FirstName, dbo.Customer.Customer_LastName, dbo.Booking.StartDate, dbo.Booking.EndDate, dbo.Quotationstatus.Status_Type FROM dbo.Booking INNER JOIN Quotation ON dbo.Booking.Quotation_ID = dbo.Quotation.Quotation_ID INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID AND Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE (Quotation.PaymentStatus = 1)";
+                adapter = new SqlDataAdapter();
+                ds = new DataSet();
+                command = new SqlCommand(queryText, con);
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Booking");
+                dataGridViewBookings.DataSource = ds;
+                dataGridViewBookings.DataMember = "Booking";
+                con.Close();
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            populateDataGrid();
+            chkBoxPayed.Checked = false;
+            chkBoxPending.Checked = false;
+            dateTimePickerStart.Enabled = true;
+            dateTimePickerEnd.Enabled = true;
+
         }
     }
 }
