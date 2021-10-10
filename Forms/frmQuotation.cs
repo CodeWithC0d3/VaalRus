@@ -948,12 +948,12 @@ namespace vaalrusGUIPrototype.Forms
                 command.Parameters.AddWithValue("@qID", selectedQuoteID);
                 dataReader = command.ExecuteReader();
                 dataReader.Read();
-                selectedCustomerID = dataReader.GetValue(0).ToString();
+                selectedCustomerID = dataReader.GetValue(1).ToString();
                 con.Close();
                 con.Open();
                 sql = $"SELECT Customer_FirstName, Customer_LastName, Customer_Cell, Customer_Email FROM Customer WHERE Customer_ID = @cID";
                 command = new SqlCommand(sql, con);
-                command.Parameters.AddWithValue("@cID", selectedQuoteID);
+                command.Parameters.AddWithValue("@cID", selectedCustomerID);
                 //command.Parameters.AddWithValue("@edate", eDate);
                 //command.Parameters.AddWithValue("@to", strto);
                 adapter = new SqlDataAdapter();

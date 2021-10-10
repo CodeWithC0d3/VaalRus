@@ -57,20 +57,24 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Address</Value>
-                <Style>
-                  <Color>#0f6066</Color>
-                </Style>
+                <Value>Vaalrus banking details
+Kris Adelia holdings
+FNB ACCOUNT
+62804440246
+BR 251255</Value>
+                <Style />
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>21.5998cm</Top>
-        <Left>2.9778cm</Left>
-        <Height>0.6cm</Height>
-        <Width>1.5875cm</Width>
+        <Top>16.11266cm</Top>
+        <Left>0.69113cm</Left>
+        <Height>3.08532cm</Height>
+        <Width>3.13889cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -83,8 +87,8 @@
         </Style>
       </Textbox>
       <Line Name="Line1">
-        <Top>19.18183cm</Top>
-        <Left>0.65341cm</Left>
+        <Top>16.00683cm</Top>
+        <Left>0.69113cm</Left>
         <Height>0cm</Height>
         <Width>19.29688cm</Width>
         <ZIndex>3</ZIndex>
@@ -131,7 +135,7 @@
         </Style>
       </Textbox>
       <Line Name="Line2">
-        <Top>7.87589cm</Top>
+        <Top>9.46339cm</Top>
         <Left>0.72885cm</Left>
         <Height>0cm</Height>
         <Width>19.29688cm</Width>
@@ -145,7 +149,7 @@
         </Style>
       </Line>
       <Line Name="Line3">
-        <Top>23.39604cm</Top>
+        <Top>19.26854cm</Top>
         <Left>0.69113cm</Left>
         <Height>0cm</Height>
         <Width>19.29688cm</Width>
@@ -159,7 +163,7 @@
         </Style>
       </Line>
       <Line Name="Line5">
-        <Top>9.79948cm</Top>
+        <Top>11.38698cm</Top>
         <Left>0.76657cm</Left>
         <Height>0cm</Height>
         <Width>19.29688cm</Width>
@@ -189,7 +193,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox36</rd:DefaultName>
-        <Top>9.90532cm</Top>
+        <Top>11.49282cm</Top>
         <Left>16.20941cm</Left>
         <Height>0.6cm</Height>
         <Width>3.74088cm</Width>
@@ -224,7 +228,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox37</rd:DefaultName>
-        <Top>9.93177cm</Top>
+        <Top>11.51927cm</Top>
         <Left>13.79288cm</Left>
         <Height>0.57354cm</Height>
         <Width>2.27542cm</Width>
@@ -260,8 +264,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox38</rd:DefaultName>
-        <Top>4.91836cm</Top>
-        <Left>16.61261cm</Left>
+        <Top>4.97841cm</Top>
+        <Left>16.5107cm</Left>
         <Height>0.53331cm</Height>
         <Width>3.48856cm</Width>
         <ZIndex>10</ZIndex>
@@ -296,8 +300,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox40</rd:DefaultName>
-        <Top>5.62806cm</Top>
-        <Left>14.96825cm</Left>
+        <Top>5.68811cm</Top>
+        <Left>14.86634cm</Left>
         <Height>0.6cm</Height>
         <Width>5.13292cm</Width>
         <ZIndex>11</ZIndex>
@@ -336,8 +340,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox41</rd:DefaultName>
-        <Top>6.40445cm</Top>
-        <Left>15.40291cm</Left>
+        <Top>6.4645cm</Top>
+        <Left>15.301cm</Left>
         <Height>0.6cm</Height>
         <Width>4.69826cm</Width>
         <ZIndex>12</ZIndex>
@@ -793,10 +797,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Accl</DataSetName>
-        <Top>8.51641cm</Top>
+        <Top>10.10391cm</Top>
         <Left>0.72885cm</Left>
         <Height>1.2cm</Height>
-        <Width>19.22144cm</Width>
+        <Width>19.22145cm</Width>
         <ZIndex>16</ZIndex>
         <Style>
           <Border>
@@ -804,6 +808,52 @@
           </Border>
         </Style>
       </Tablix>
+      <Textbox Name="Textbox5">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Cash of balance on arrival.*NO REFUNDS ON DEPOSITS* No card facilities available on resort. All keys to be collected after 3pm on day of arrival and handed in before 10am on day of departure. Tent and caravan stands can come in anytime as they pay perday. No tent or caravan stands are on the river bank. Bring own bedding for Charlets. Own bedding and kitchen wear bungalows and bungalows have to use ablution blocks. No fishing spots guaranteed Supertubes tickets available at slide. 4km gravel road to resort All other fasillities including fishing are free there for you only pay for accomodation. WE FOLLOW  OVID RULES. WEAR MASK IF NOT IN SOCIAL DISTANCING. </Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox5</rd:DefaultName>
+        <Top>16.11266cm</Top>
+        <Left>4.0064cm</Left>
+        <Height>3.13824cm</Height>
+        <Width>15.94389cm</Width>
+        <ZIndex>17</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line4">
+        <Top>16.11266cm</Top>
+        <Left>3.93585cm</Left>
+        <Height>3.15588cm</Height>
+        <Width>0cm</Width>
+        <ZIndex>18</ZIndex>
+        <Style>
+          <Border>
+            <Color>MidnightBlue</Color>
+            <Style>Solid</Style>
+            <Width>2pt</Width>
+          </Border>
+        </Style>
+      </Line>
     </ReportItems>
     <Height>297mm</Height>
     <Style>
@@ -917,7 +967,7 @@
       <rd:DataSetInfo>
         <rd:DataSetName>vaalrusGUIPrototype</rd:DataSetName>
         <rd:TableName>CustomerDetail</rd:TableName>
-        <rd:ObjectDataSourceType>vaalrusGUIPrototype.CustomerDetail, vaalrusGUIPrototype, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:ObjectDataSourceType>vaalrusGUIPrototype.CustomerDetail, Vaalrus, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
     <DataSet Name="Accl">
