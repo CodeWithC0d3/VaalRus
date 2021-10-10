@@ -214,6 +214,7 @@ namespace vaalrusGUIPrototype.Forms
             this.Controls.Add(this.pictureBoxViewAllBookingsBackground);
             this.Name = "frmViewBookings";
             this.Text = "frmViewBookings";
+            this.Load += new System.EventHandler(this.frmViewBookings_Load);
             this.pnlViewBookings.ResumeLayout(false);
             this.pnlViewBookings.PerformLayout();
             this.grpBoxSelectPeriod.ResumeLayout(false);
