@@ -198,6 +198,8 @@ namespace vaalrusGUIPrototype.Forms
         private void radbViewAllBookings_CheckedChanged(object sender, EventArgs e)
         {
             populateDataGrid();
+            grpBoxSelectPeriod.Enabled = false;
+
         }
 
         private void populateDataGrid()
@@ -205,7 +207,7 @@ namespace vaalrusGUIPrototype.Forms
             //populate the data grid
             if (conDB())
             {
-                string queryText = $"SELECT dbo.Booking.Booking_ID, dbo.Customer.Customer_FirstName, dbo.Customer.Customer_LastName, dbo.Booking.StartDate, dbo.Booking.EndDate, dbo.Quotationstatus.Status_Type FROM dbo.Booking INNER JOIN Quotation ON dbo.Booking.Quotation_ID = dbo.Quotation.Quotation_ID INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID AND Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE (Quotation.PaymentStatus = 1)";
+                string queryText = $"SELECT Booking.Booking_ID, Booking.Quotation_ID, Customer.Customer_FirstName AS Name, Customer.Customer_LastName AS Surname, Booking.StartDate, Booking.EndDate,Booking.Checkin_Time AS [Check in], Booking.Checkin_Out AS [Check out] FROM Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID";
                 adapter = new SqlDataAdapter();
                 ds = new DataSet();
                 command = new SqlCommand(queryText, con);
@@ -224,30 +226,31 @@ namespace vaalrusGUIPrototype.Forms
 
         private void btnViewBookings_Click(object sender, EventArgs e)
         {
-            if (chkBoxPending.Checked)
-            {
-                chkBoxPayed.Checked = false;
+            string queryText2 = $"SELECT Quotation.Quotation_ID, Quotation.Reservation_Date AS [Start date], Customer.Customer_FirstName AS Name, Customer.Customer_LastName AS Surname, Quotationstatus.Status_Type AS Status FROM Quotation INNER JOIN Customer ON Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.QuoteStatus = Quotationstatus.Status_ID WHERE  (Quotation.QuoteStatus = @status) AND (Quotation.Reservation_Date >= @frDate) AND (Quotation.Duration <= @duration)";
+            string queryText = $"SELECT Booking.Booking_ID, Quotation.Quotation_ID, Customer.Customer_FirstName AS Name, Customer.Customer_LastName AS Surname, Booking.StartDate, Booking.EndDate, Booking.Checkin_Time AS [Check in], Booking.Checkin_Out AS [Check out], Quotationstatus.Status_Type AS Status FROM Booking INNER JOIN Quotation ON Booking.Quotation_ID = Quotation.Quotation_ID INNER JOIN Quotationstatus ON Quotation.QuoteStatus = Quotationstatus.Status_ID INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID AND Quotation.Customer_ID = Customer.Customer_ID WHERE  (Booking.StartDate >= @frDate) AND (Booking.EndDate <= @toDate) AND (Quotation.QuoteStatus = @status)";
+            
+            adapter = new SqlDataAdapter();
 
-                string queryText = $"SELECT dbo.Booking.Booking_ID, dbo.Customer.Customer_FirstName, dbo.Customer.Customer_LastName, dbo.Booking.StartDate, dbo.Booking.EndDate, dbo.Quotationstatus.Status_Type FROM dbo.Booking INNER JOIN Quotation ON dbo.Booking.Quotation_ID = dbo.Quotation.Quotation_ID INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID AND Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE (Quotation.PaymentStatus = 1)";
-                adapter = new SqlDataAdapter();
+            if (rdPending.Checked)
+            {
                 ds = new DataSet();
-                command = new SqlCommand(queryText, con);
+                command = new SqlCommand(queryText2, con);
+                command.Parameters.AddWithValue("@frDate", dateTimePickerStart.Value.Date.ToString("yyyy/MM/dd"));
+                command.Parameters.AddWithValue("@duration", (dateTimePickerEnd.Value.Date-dateTimePickerStart.Value.Date).Days);
+                command.Parameters.AddWithValue("@status", rdPending.Checked ? 1 : rdPayed.Checked ? 2 : 3);
                 adapter.SelectCommand = command;
-                adapter.Fill(ds, "Booking");
+                adapter.Fill(ds, "Quotation_ID");
                 dataGridViewBookings.DataSource = ds;
-                dataGridViewBookings.DataMember = "Booking";
+                dataGridViewBookings.DataMember = "Quotation_ID";
                 con.Close();
             }
-
-            if (chkBoxPayed.Checked)
+            else if(rdPayed.Checked)
             {
-
-                chkBoxPending.Checked = false;
-
-                string queryText = $"SELECT dbo.Booking.Booking_ID, dbo.Customer.Customer_FirstName, dbo.Customer.Customer_LastName, dbo.Booking.StartDate, dbo.Booking.EndDate, dbo.Quotationstatus.Status_Type FROM dbo.Booking INNER JOIN Quotation ON dbo.Booking.Quotation_ID = dbo.Quotation.Quotation_ID INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID AND Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.PaymentStatus = Quotationstatus.Status_ID WHERE (Quotation.PaymentStatus = 2)";
-                adapter = new SqlDataAdapter();
                 ds = new DataSet();
                 command = new SqlCommand(queryText, con);
+                command.Parameters.AddWithValue("@frDate", dateTimePickerStart.Value.Date.ToString("yyyy/MM/dd"));
+                command.Parameters.AddWithValue("@toDate", dateTimePickerEnd.Value.Date.ToString("yyyy/MM/dd"));
+                command.Parameters.AddWithValue("@status", rdPending.Checked ? 1 : rdPayed.Checked ? 2 : 3);
                 adapter.SelectCommand = command;
                 adapter.Fill(ds, "Booking");
                 dataGridViewBookings.DataSource = ds;
@@ -259,11 +262,10 @@ namespace vaalrusGUIPrototype.Forms
         private void btnReset_Click(object sender, EventArgs e)
         {
             populateDataGrid();
-            chkBoxPayed.Checked = false;
-            chkBoxPending.Checked = false;
-            dateTimePickerStart.Enabled = true;
-            dateTimePickerEnd.Enabled = true;
-
+            rdPending.Checked = true;
+            rdPayed.Checked = false;
+            dateTimePickerStart.Value = DateTime.Today.Date;
+            dateTimePickerEnd.Value = DateTime.Today.Date;
         }
     }
 }
