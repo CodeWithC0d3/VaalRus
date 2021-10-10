@@ -193,6 +193,12 @@
     <Compile Include="Forms\frmDBSetup.Designer.cs">
       <DependentUpon>frmDBSetup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmDeleteAccommodation%281%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDeleteAccommodation%281%29.Designer.cs">
+      <DependentUpon>frmDeleteAccommodation%281%29.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmDeleteAcommodation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -350,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDBSetup.resx">
       <DependentUpon>frmDBSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDeleteAccommodation%281%29.resx">
+      <DependentUpon>frmDeleteAccommodation%281%29.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDeleteAcommodation.resx">
       <DependentUpon>frmDeleteAcommodation.cs</DependentUpon>
