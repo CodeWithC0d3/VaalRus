@@ -59,10 +59,10 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlViewBookings.Controls.Add(this.rdbSelectPeriod);
             this.pnlViewBookings.Controls.Add(this.grpBoxSelectPeriod);
             this.pnlViewBookings.Controls.Add(this.lblViewCurrentBookings);
-            this.pnlViewBookings.Location = new System.Drawing.Point(36, 28);
+            this.pnlViewBookings.Location = new System.Drawing.Point(37, 28);
             this.pnlViewBookings.Margin = new System.Windows.Forms.Padding(4);
             this.pnlViewBookings.Name = "pnlViewBookings";
-            this.pnlViewBookings.Size = new System.Drawing.Size(1065, 507);
+            this.pnlViewBookings.Size = new System.Drawing.Size(1081, 507);
             this.pnlViewBookings.TabIndex = 4;
             // 
             // dataGridViewBookings
@@ -86,6 +86,7 @@ namespace vaalrusGUIPrototype.Forms
             this.radbViewAllBookings.TabStop = true;
             this.radbViewAllBookings.Text = "View all bookings\r\n";
             this.radbViewAllBookings.UseVisualStyleBackColor = true;
+            this.radbViewAllBookings.CheckedChanged += new System.EventHandler(this.radbViewAllBookings_CheckedChanged);
             // 
             // rdbSelectPeriod
             // 
@@ -98,6 +99,7 @@ namespace vaalrusGUIPrototype.Forms
             this.rdbSelectPeriod.TabStop = true;
             this.rdbSelectPeriod.Text = "Filter bookings to time period";
             this.rdbSelectPeriod.UseVisualStyleBackColor = true;
+            this.rdbSelectPeriod.CheckedChanged += new System.EventHandler(this.rdbSelectPeriod_CheckedChanged);
             // 
             // grpBoxSelectPeriod
             // 
@@ -109,6 +111,7 @@ namespace vaalrusGUIPrototype.Forms
             this.grpBoxSelectPeriod.Controls.Add(this.dateTimePickerEnd);
             this.grpBoxSelectPeriod.Controls.Add(this.btnViewBookings);
             this.grpBoxSelectPeriod.Controls.Add(this.dateTimePickerStart);
+            this.grpBoxSelectPeriod.Enabled = false;
             this.grpBoxSelectPeriod.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.grpBoxSelectPeriod.Location = new System.Drawing.Point(32, 165);
             this.grpBoxSelectPeriod.Name = "grpBoxSelectPeriod";
@@ -127,6 +130,7 @@ namespace vaalrusGUIPrototype.Forms
             this.btnReset.TabIndex = 10;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // chkBoxPayed
             // 
@@ -185,6 +189,7 @@ namespace vaalrusGUIPrototype.Forms
             this.btnViewBookings.TabIndex = 7;
             this.btnViewBookings.Text = "View Bookings";
             this.btnViewBookings.UseVisualStyleBackColor = true;
+            this.btnViewBookings.Click += new System.EventHandler(this.btnViewBookings_Click);
             // 
             // dateTimePickerStart
             // 
