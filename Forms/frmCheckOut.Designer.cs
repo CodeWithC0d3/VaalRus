@@ -48,6 +48,7 @@ namespace vaalrusGUIPrototype
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pnlSearch = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCheckOut)).BeginInit();
             this.pnlCheckOut.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.epLastName)).BeginInit();
@@ -191,7 +192,7 @@ namespace vaalrusGUIPrototype
             this.panel1.Controls.Add(this.pnlCheckOut);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(16, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(381, 506);
             this.panel1.TabIndex = 10;
@@ -201,7 +202,7 @@ namespace vaalrusGUIPrototype
             this.pnlDisplay.Controls.Add(this.btnDisplayBook);
             this.pnlDisplay.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlDisplay.Location = new System.Drawing.Point(0, 404);
-            this.pnlDisplay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDisplay.Margin = new System.Windows.Forms.Padding(4);
             this.pnlDisplay.Name = "pnlDisplay";
             this.pnlDisplay.Size = new System.Drawing.Size(381, 86);
             this.pnlDisplay.TabIndex = 8;
@@ -211,9 +212,9 @@ namespace vaalrusGUIPrototype
             this.groupBox1.Controls.Add(this.pnlSearch);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(381, 171);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
@@ -228,7 +229,7 @@ namespace vaalrusGUIPrototype
             this.pnlSearch.Controls.Add(this.tbLastName);
             this.pnlSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlSearch.Location = new System.Drawing.Point(4, 19);
-            this.pnlSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlSearch.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSearch.Name = "pnlSearch";
             this.pnlSearch.Size = new System.Drawing.Size(373, 148);
             this.pnlSearch.TabIndex = 0;
@@ -238,11 +239,19 @@ namespace vaalrusGUIPrototype
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.dtgCheckOut);
+            this.panel2.Controls.Add(this.panel3);
             this.panel2.Location = new System.Drawing.Point(405, 15);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(812, 506);
             this.panel2.TabIndex = 11;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(-2, -13);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(818, 528);
+            this.panel3.TabIndex = 1;
             // 
             // frmCheckOut
             // 
@@ -293,5 +302,6 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Panel pnlDisplay;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel pnlSearch;
+        private System.Windows.Forms.Panel panel3;
     }
 }

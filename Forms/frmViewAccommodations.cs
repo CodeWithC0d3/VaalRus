@@ -62,7 +62,7 @@ namespace vaalrusGUIPrototype
             //pnlMain.BackColor = Color.Transparent;
 
             aplytheme(pnlView);
-           
+            aplytheme(panel1);
             aplytheme(dtgViewAcc);
             //aplytheme(pnl_accSet);
 
