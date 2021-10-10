@@ -38,39 +38,40 @@ namespace vaalrusGUIPrototype
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.pnlDate = new System.Windows.Forms.Panel();
-            this.pnlDisplay = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dtgViewAcc)).BeginInit();
             this.pnlView.SuspendLayout();
-            this.pnlDate.SuspendLayout();
-            this.pnlDisplay.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtgViewAcc
             // 
             this.dtgViewAcc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgViewAcc.Location = new System.Drawing.Point(438, 128);
+            this.dtgViewAcc.Location = new System.Drawing.Point(475, 12);
             this.dtgViewAcc.Name = "dtgViewAcc";
             this.dtgViewAcc.RowHeadersWidth = 51;
             this.dtgViewAcc.RowTemplate.Height = 24;
-            this.dtgViewAcc.Size = new System.Drawing.Size(576, 340);
+            this.dtgViewAcc.Size = new System.Drawing.Size(567, 528);
             this.dtgViewAcc.TabIndex = 0;
             this.dtgViewAcc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // pnlView
             // 
+            this.pnlView.Controls.Add(this.button1);
+            this.pnlView.Controls.Add(this.label2);
             this.pnlView.Controls.Add(this.button3);
+            this.pnlView.Controls.Add(this.label1);
+            this.pnlView.Controls.Add(this.dpto);
             this.pnlView.Controls.Add(this.btnBooked);
-            this.pnlView.Location = new System.Drawing.Point(39, 175);
+            this.pnlView.Controls.Add(this.dpFrom);
+            this.pnlView.Location = new System.Drawing.Point(12, 12);
             this.pnlView.Name = "pnlView";
-            this.pnlView.Size = new System.Drawing.Size(342, 293);
+            this.pnlView.Size = new System.Drawing.Size(432, 424);
             this.pnlView.TabIndex = 1;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(100, 39);
+            this.button3.Location = new System.Drawing.Point(16, 259);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(164, 85);
+            this.button3.Size = new System.Drawing.Size(185, 85);
             this.button3.TabIndex = 2;
             this.button3.Text = "Available Accommodation";
             this.button3.UseVisualStyleBackColor = true;
@@ -78,9 +79,9 @@ namespace vaalrusGUIPrototype
             // 
             // btnBooked
             // 
-            this.btnBooked.Location = new System.Drawing.Point(100, 181);
+            this.btnBooked.Location = new System.Drawing.Point(231, 259);
             this.btnBooked.Name = "btnBooked";
-            this.btnBooked.Size = new System.Drawing.Size(164, 82);
+            this.btnBooked.Size = new System.Drawing.Size(185, 85);
             this.btnBooked.TabIndex = 1;
             this.btnBooked.Text = "Booked Accommodation";
             this.btnBooked.UseVisualStyleBackColor = true;
@@ -88,15 +89,15 @@ namespace vaalrusGUIPrototype
             // 
             // dpto
             // 
-            this.dpto.Location = new System.Drawing.Point(677, 15);
+            this.dpto.Location = new System.Drawing.Point(90, 165);
             this.dpto.Name = "dpto";
-            this.dpto.Size = new System.Drawing.Size(322, 22);
+            this.dpto.Size = new System.Drawing.Size(326, 22);
             this.dpto.TabIndex = 8;
             this.dpto.ValueChanged += new System.EventHandler(this.dpto_ValueChanged);
             // 
             // dpFrom
             // 
-            this.dpFrom.Location = new System.Drawing.Point(127, 15);
+            this.dpFrom.Location = new System.Drawing.Point(90, 105);
             this.dpFrom.Name = "dpFrom";
             this.dpFrom.Size = new System.Drawing.Size(326, 22);
             this.dpFrom.TabIndex = 7;
@@ -105,7 +106,7 @@ namespace vaalrusGUIPrototype
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(579, 20);
+            this.label2.Location = new System.Drawing.Point(13, 170);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 17);
             this.label2.TabIndex = 6;
@@ -114,7 +115,7 @@ namespace vaalrusGUIPrototype
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 20);
+            this.label1.Location = new System.Drawing.Point(13, 110);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 17);
             this.label1.TabIndex = 5;
@@ -122,41 +123,21 @@ namespace vaalrusGUIPrototype
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(403, 3);
+            this.button1.Location = new System.Drawing.Point(16, 21);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(208, 40);
+            this.button1.Size = new System.Drawing.Size(400, 60);
             this.button1.TabIndex = 0;
             this.button1.Text = "Display All Accommodations";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // pnlDate
-            // 
-            this.pnlDate.Controls.Add(this.label2);
-            this.pnlDate.Controls.Add(this.dpto);
-            this.pnlDate.Controls.Add(this.dpFrom);
-            this.pnlDate.Controls.Add(this.label1);
-            this.pnlDate.Location = new System.Drawing.Point(12, 71);
-            this.pnlDate.Name = "pnlDate";
-            this.pnlDate.Size = new System.Drawing.Size(1002, 51);
-            this.pnlDate.TabIndex = 2;
-            // 
-            // pnlDisplay
-            // 
-            this.pnlDisplay.Controls.Add(this.button1);
-            this.pnlDisplay.Location = new System.Drawing.Point(12, 12);
-            this.pnlDisplay.Name = "pnlDisplay";
-            this.pnlDisplay.Size = new System.Drawing.Size(1002, 53);
-            this.pnlDisplay.TabIndex = 0;
             // 
             // frmViewAccommodations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(117)))));
+            this.BackgroundImage = global::vaalrusGUIPrototype.Properties.Resources.backgroundImage;
             this.ClientSize = new System.Drawing.Size(1054, 574);
-            this.Controls.Add(this.pnlDisplay);
-            this.Controls.Add(this.pnlDate);
             this.Controls.Add(this.pnlView);
             this.Controls.Add(this.dtgViewAcc);
             this.Name = "frmViewAccommodations";
@@ -164,9 +145,7 @@ namespace vaalrusGUIPrototype
             this.Load += new System.EventHandler(this.frmViewAccommodations_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgViewAcc)).EndInit();
             this.pnlView.ResumeLayout(false);
-            this.pnlDate.ResumeLayout(false);
-            this.pnlDate.PerformLayout();
-            this.pnlDisplay.ResumeLayout(false);
+            this.pnlView.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -182,7 +161,5 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dpto;
         private System.Windows.Forms.DateTimePicker dpFrom;
-        private System.Windows.Forms.Panel pnlDate;
-        private System.Windows.Forms.Panel pnlDisplay;
     }
 }
