@@ -126,7 +126,7 @@ namespace vaalrusGUIPrototype
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(199, 46);
+            this.tbLastName.Location = new System.Drawing.Point(190, 46);
             this.tbLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(169, 22);
@@ -140,7 +140,7 @@ namespace vaalrusGUIPrototype
             this.btnDisplayBook.Name = "btnDisplayBook";
             this.btnDisplayBook.Size = new System.Drawing.Size(367, 54);
             this.btnDisplayBook.TabIndex = 1;
-            this.btnDisplayBook.Text = "Display Bookings ?";
+            this.btnDisplayBook.Text = "Refresh Booking List";
             this.btnDisplayBook.UseVisualStyleBackColor = true;
             this.btnDisplayBook.Click += new System.EventHandler(this.btnDisplayBook_Click);
             // 
@@ -171,7 +171,7 @@ namespace vaalrusGUIPrototype
             // 
             // tbIDNum
             // 
-            this.tbIDNum.Location = new System.Drawing.Point(199, 2);
+            this.tbIDNum.Location = new System.Drawing.Point(190, 2);
             this.tbIDNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbIDNum.Name = "tbIDNum";
             this.tbIDNum.Size = new System.Drawing.Size(169, 22);
@@ -191,7 +191,7 @@ namespace vaalrusGUIPrototype
             this.panel1.Controls.Add(this.pnlCheckIn);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(16, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(381, 506);
             this.panel1.TabIndex = 10;
@@ -201,7 +201,7 @@ namespace vaalrusGUIPrototype
             this.panel3.Controls.Add(this.btnDisplayBook);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 404);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(381, 86);
             this.panel3.TabIndex = 8;
@@ -211,9 +211,9 @@ namespace vaalrusGUIPrototype
             this.groupBox1.Controls.Add(this.panel4);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(381, 171);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
@@ -229,7 +229,7 @@ namespace vaalrusGUIPrototype
             this.panel4.Controls.Add(this.tbLastName);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(4, 19);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(373, 148);
             this.panel4.TabIndex = 0;
@@ -240,7 +240,7 @@ namespace vaalrusGUIPrototype
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.dtgCheckIn);
             this.panel2.Location = new System.Drawing.Point(405, 15);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(812, 506);
             this.panel2.TabIndex = 11;
