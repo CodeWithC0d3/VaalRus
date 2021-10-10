@@ -241,6 +241,8 @@ namespace vaalrusGUIPrototype
         {
             //buildDatabse();
             CreateDBStuff();
+            MainForm frm = new MainForm();
+            frm.dbRequired();
         }
 
         private void btnCreateDatabAse_Click(object sender, EventArgs e)

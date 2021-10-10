@@ -176,7 +176,30 @@ namespace vaalrusGUIPrototype
             lblHeading.Text = "Check - Out";
             changeButtonBrightness(sender);
         }
+        public void dbRequired()
+        {
+            if (conDB())
+            {
+                btnAccomodations.Enabled = true;
+                btnBookings.Enabled = true;
+                btnCustomers.Enabled = true;
+                btnQoutation.Enabled = true;
+                btnReports.Enabled = true;
 
+            }
+            else
+            {
+                btnAccomodations.Enabled = false;
+                btnBookings.Enabled = false;
+                btnCustomers.Enabled = false;
+                btnQoutation.Enabled = false;
+                btnReports.Enabled = false;
+                openChildForm(new frmSettings());
+                hideSubMenu();
+                lblHeading.Text = "Settings";
+                //changeButtonBrightness(sender);
+            }
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
             //pictureBoxMax.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -192,6 +215,7 @@ namespace vaalrusGUIPrototype
             //GlobalSettings.thirdColor = Color.FromArgb(236, 236, 225);
             GlobalSettings.thirdColor = GlobalSettings.ChangeColorBrightness(Color.FromArgb(236, 236, 225), -0.2);
             GlobalSettings.font = new Font("Microsoft Sans Serif", 10);
+            dbRequired();
             removeOldQuotes();
 
 
@@ -375,7 +399,7 @@ namespace vaalrusGUIPrototype
             {
                 try
                 {
-                    //sqlConnection = new SqlConnection(connString);
+                    sqlConnection = new SqlConnection(connString);
                     if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();//UPDATE table1 SET table1.name = table2.nameFROM table1, table2WHERE table1.id = table2.idAND table2.foobar = 'stuff';
                     sqlCmd = new SqlCommand($"Update Quotation SET QuoteStatus = '" + 3 + "' where Reservation_Date < '" + DateTime.Today + "' OR QuoteCreated_DateTime < '" + DateTime.Today.AddDays(-3) + "' ", sqlConnection);
                     sqlCmd.ExecuteNonQuery();
