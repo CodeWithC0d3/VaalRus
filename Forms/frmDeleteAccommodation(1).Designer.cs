@@ -68,9 +68,11 @@ namespace vaalrusGUIPrototype.Forms
             this.panel1.Controls.Add(this.txtBoxType);
             this.panel1.Controls.Add(this.lblSearchType);
             this.panel1.Controls.Add(this.btnDisplayAccomm);
-            this.panel1.Location = new System.Drawing.Point(12, 37);
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(424, 360);
+            this.panel1.Size = new System.Drawing.Size(424, 553);
             this.panel1.TabIndex = 19;
             // 
             // lblSearchNumber
