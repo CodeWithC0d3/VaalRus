@@ -21,6 +21,8 @@ namespace vaalrusGUIPrototype.Forms
         SqlDataAdapter adapter;
         SqlDataReader dataReader;
         DataSet ds;
+        DataSet ds1;
+        DataSet ds2;
         //Boolean isLoad =false;
         string sql = "";
         private int customerID;
@@ -506,20 +508,20 @@ namespace vaalrusGUIPrototype.Forms
  
                 command = new SqlCommand(sql,con);
                 adapter = new SqlDataAdapter();
-                DataSet ds1 = new DataSet();
+                ds1 = new DataSet();
                 adapter.SelectCommand = command;
                 adapter.Fill(ds1);
 
                 sql = $"SELECT 	Accommodation_ID, AccommodationType FROM accAvailibility WHERE StartDate >= '{startDT.Date.ToString("yyyy/MM/dd")}' and EndDate <= '{endDT.Date.ToString("yyyy/MM/dd")}'";
                 command = new SqlCommand(sql, con);
                 adapter = new SqlDataAdapter();
-                ds = new DataSet();
+                ds2 = new DataSet();
                 adapter.SelectCommand = command;
-                adapter.Fill(ds);
+                adapter.Fill(ds2);
 
                 foreach (DataRow row1 in ds1.Tables[0].Rows) 
                 {
-                    foreach (DataRow row2 in ds.Tables[0].Rows)
+                    foreach (DataRow row2 in ds2.Tables[0].Rows)
                     {
                         string st1 = row1.ItemArray[0].ToString();
                         string st2 = row2.ItemArray[0].ToString();
@@ -530,16 +532,7 @@ namespace vaalrusGUIPrototype.Forms
                         }
                     }
                   
-                }
-                ds1.AcceptChanges();
-                foreach (var it in lstAccommodation.Items)
-                {
-                    foreach (DataRow row2 in ds1.Tables[0].Rows)
-                    {
-                        if (row2.ItemArray[0].ToString() == it.ToString())
-                            row2.Delete();
-                    }
-                }
+                }                
                 ds1.AcceptChanges();
                 cmbAccommodation.DisplayMember = "accmerge";
                 cmbAccommodation.ValueMember = "Accommodation_ID";
@@ -550,6 +543,33 @@ namespace vaalrusGUIPrototype.Forms
                 con.Close();
 
             }
+        }
+        private void filtercmbList()
+        {
+            //ds1.AcceptChanges();
+            try
+            {
+                foreach (var it in lstAccommodation.Items)
+                {
+                    foreach (DataRow row2 in ds1.Tables[0].Rows)
+                    {
+                        string k = row2.ItemArray[1].ToString();
+                        if (row2.ItemArray[1].ToString() == it.ToString())
+                            row2.Delete();
+                    }
+                }
+                ds1.AcceptChanges();
+                cmbAccommodation.DisplayMember = "accmerge";
+                cmbAccommodation.ValueMember = "Accommodation_ID";
+                cmbAccommodation.DataSource = ds1.Tables[0];
+                cmbAccommodation.SelectedIndex = -1;
+            }
+            catch (Exception)
+            {
+
+               
+            }
+            
         }
 
         private void cmbAccommodation_Enter(object sender, EventArgs e)
@@ -569,10 +589,14 @@ namespace vaalrusGUIPrototype.Forms
                     //string substring = st.Substring(0,st.IndexOf(' '));
                     string t = cmbAccommodation.SelectedValue.ToString();
                     accList.Add(int.Parse(t));
+                    filtercmbList();
                 }               
                 else
                     selectFirst = true;
-                loadCmbAcc();
+                if (lstAccommodation.Items.Count > 0)
+                {
+                    filtercmbList();
+                }
             }
 
             
@@ -584,6 +608,7 @@ namespace vaalrusGUIPrototype.Forms
             selectFirst = false;
             loadCmbAcc();
             cmbAccommodation.Enabled = true;
+            
 
            
         }
