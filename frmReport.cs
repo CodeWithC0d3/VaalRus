@@ -51,12 +51,18 @@ namespace vaalrusGUIPrototype
             SqlDataAdapter adapter2 = new SqlDataAdapter(myComm2);
             DataTable dt2 = new DataTable();
             adapter2.Fill(dt2);
+            SqlCommand myComm3 = new SqlCommand("SELECT Accommodation_ID FROM viewBookingReport1 where startDate >= '" + selectStart + "' AND startDate < '" + selectEnd + "';", conn);
+            SqlDataAdapter adapter3 = new SqlDataAdapter(myComm3);
+            DataTable dt3 = new DataTable();
+            adapter3.Fill(dt3);
 
             this.reportViewer.LocalReport.ReportPath = @"listAccomReport.rdlc";
             //ReportDataSource rds = new ReportDataSource("DataSet1", dt);
             ReportDataSource rds2 = new ReportDataSource("DataSet3", dt2);
+            ReportDataSource rds3 = new ReportDataSource("DataSet1", dt3);
             //this.reportViewer.LocalReport.DataSources.Add(rds);
             this.reportViewer.LocalReport.DataSources.Add(rds2);
+            this.reportViewer.LocalReport.DataSources.Add(rds3);
 
             ReportParameterCollection reportParameters = new ReportParameterCollection();
             reportParameters.Add(new ReportParameter("sDate", dpStart.Value.Date.ToShortDateString()));
