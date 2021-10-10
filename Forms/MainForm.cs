@@ -331,7 +331,7 @@ namespace vaalrusGUIPrototype
         {
             openChildForm(new frmViewAccommodations());
             lblHeading.Text = "View Accommodation";
-            hideSubMenu();
+            //hideSubMenu();
             changeButtonBrightness(sender);
 
         }

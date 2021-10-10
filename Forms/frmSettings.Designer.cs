@@ -29,7 +29,6 @@ namespace vaalrusGUIPrototype
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
             this.btnConString = new System.Windows.Forms.Button();
             this.pnlConnetionControls = new System.Windows.Forms.Panel();
             this.txtConString = new System.Windows.Forms.TextBox();
@@ -118,7 +117,7 @@ namespace vaalrusGUIPrototype
             // picBackground
             // 
             this.picBackground.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picBackground.Image = ((System.Drawing.Image)(resources.GetObject("picBackground.Image")));
+            this.picBackground.Image = global::vaalrusGUIPrototype.Properties.Resources.backgroundImage;
             this.picBackground.Location = new System.Drawing.Point(0, 0);
             this.picBackground.Name = "picBackground";
             this.picBackground.Size = new System.Drawing.Size(1099, 584);
