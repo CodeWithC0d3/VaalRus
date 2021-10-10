@@ -371,22 +371,41 @@ namespace vaalrusGUIPrototype
         }
         public void removeOldQuotes()
         {
+            if (conDB())
+            {
+                try
+                {
+                    //sqlConnection = new SqlConnection(connString);
+                    if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();//UPDATE table1 SET table1.name = table2.nameFROM table1, table2WHERE table1.id = table2.idAND table2.foobar = 'stuff';
+                    sqlCmd = new SqlCommand($"Update Quotation SET QuoteStatus = '" + 3 + "' where Reservation_Date < '" + DateTime.Today + "' OR QuoteCreated_DateTime < '" + DateTime.Today.AddDays(-3) + "' ", sqlConnection);
+                    sqlCmd.ExecuteNonQuery();
+                    sqlCmd.Dispose();
+                    sqlConnection.Close();
+
+
+                }
+                catch (Exception sqlx)
+                {
+                    MessageBox.Show(sqlx.ToString());
+                }
+            }
+            
+        }
+        private Boolean conDB()
+        {
             try
             {
                 sqlConnection = new SqlConnection(connString);
-                if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();//UPDATE table1 SET table1.name = table2.nameFROM table1, table2WHERE table1.id = table2.idAND table2.foobar = 'stuff';
-                sqlCmd = new SqlCommand($"Update Quotation SET QuoteStatus = '" + 3 + "' where Reservation_Date < '" + DateTime.Today + "' OR QuoteCreated_DateTime < '" + DateTime.Today.AddDays(-3) + "' ", sqlConnection);
-                sqlCmd.ExecuteNonQuery();
-                sqlCmd.Dispose();
-                sqlConnection.Close();
+                sqlConnection.Open();
+                return true;
 
-                
-            }catch(Exception sqlx)
+            }
+            catch (Exception)
             {
-                MessageBox.Show(sqlx.ToString());
+
+                return false;
             }
         }
-
         private void pictureBoxMax_Click_1(object sender, EventArgs e)
         {
 
