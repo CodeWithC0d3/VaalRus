@@ -29,24 +29,27 @@ namespace vaalrusGUIPrototype
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelInput = new System.Windows.Forms.Panel();
             this.groupBoxDisplay = new System.Windows.Forms.GroupBox();
+            this.panelInner = new System.Windows.Forms.Panel();
             this.groupBoxOrderBy = new System.Windows.Forms.GroupBox();
             this.radioButtonDesc = new System.Windows.Forms.RadioButton();
             this.radioButtonAsc = new System.Windows.Forms.RadioButton();
+            this.lblStartDate = new System.Windows.Forms.Label();
             this.dpEnd = new System.Windows.Forms.DateTimePicker();
+            this.lblEnd = new System.Windows.Forms.Label();
             this.dpStart = new System.Windows.Forms.DateTimePicker();
             this.btnDisplayReport = new System.Windows.Forms.Button();
-            this.lblEnd = new System.Windows.Forms.Label();
-            this.lblStartDate = new System.Windows.Forms.Label();
             this.panelReportViewer = new System.Windows.Forms.Panel();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.panelInner = new System.Windows.Forms.Panel();
+            this.fromDateErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelInput.SuspendLayout();
             this.groupBoxDisplay.SuspendLayout();
+            this.panelInner.SuspendLayout();
             this.groupBoxOrderBy.SuspendLayout();
             this.panelReportViewer.SuspendLayout();
-            this.panelInner.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fromDateErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panelInput
@@ -67,16 +70,29 @@ namespace vaalrusGUIPrototype
             this.groupBoxDisplay.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxDisplay.Name = "groupBoxDisplay";
             this.groupBoxDisplay.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxDisplay.Size = new System.Drawing.Size(704, 87);
+            this.groupBoxDisplay.Size = new System.Drawing.Size(739, 87);
             this.groupBoxDisplay.TabIndex = 0;
             this.groupBoxDisplay.TabStop = false;
             this.groupBoxDisplay.Text = "Display report per time period:";
+            // 
+            // panelInner
+            // 
+            this.panelInner.Controls.Add(this.groupBoxOrderBy);
+            this.panelInner.Controls.Add(this.lblStartDate);
+            this.panelInner.Controls.Add(this.dpEnd);
+            this.panelInner.Controls.Add(this.lblEnd);
+            this.panelInner.Controls.Add(this.dpStart);
+            this.panelInner.Controls.Add(this.btnDisplayReport);
+            this.panelInner.Location = new System.Drawing.Point(7, 15);
+            this.panelInner.Name = "panelInner";
+            this.panelInner.Size = new System.Drawing.Size(726, 65);
+            this.panelInner.TabIndex = 1;
             // 
             // groupBoxOrderBy
             // 
             this.groupBoxOrderBy.Controls.Add(this.radioButtonDesc);
             this.groupBoxOrderBy.Controls.Add(this.radioButtonAsc);
-            this.groupBoxOrderBy.Location = new System.Drawing.Point(373, -3);
+            this.groupBoxOrderBy.Location = new System.Drawing.Point(400, -3);
             this.groupBoxOrderBy.Name = "groupBoxOrderBy";
             this.groupBoxOrderBy.Size = new System.Drawing.Size(160, 68);
             this.groupBoxOrderBy.TabIndex = 7;
@@ -107,6 +123,16 @@ namespace vaalrusGUIPrototype
             this.radioButtonAsc.Text = "Ascending";
             this.radioButtonAsc.UseVisualStyleBackColor = true;
             // 
+            // lblStartDate
+            // 
+            this.lblStartDate.AutoSize = true;
+            this.lblStartDate.Location = new System.Drawing.Point(0, 12);
+            this.lblStartDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStartDate.Name = "lblStartDate";
+            this.lblStartDate.Size = new System.Drawing.Size(76, 17);
+            this.lblStartDate.TabIndex = 2;
+            this.lblStartDate.Text = "Start Date:";
+            // 
             // dpEnd
             // 
             this.dpEnd.Location = new System.Drawing.Point(103, 38);
@@ -114,25 +140,7 @@ namespace vaalrusGUIPrototype
             this.dpEnd.Name = "dpEnd";
             this.dpEnd.Size = new System.Drawing.Size(263, 22);
             this.dpEnd.TabIndex = 6;
-            // 
-            // dpStart
-            // 
-            this.dpStart.Location = new System.Drawing.Point(103, 8);
-            this.dpStart.Margin = new System.Windows.Forms.Padding(4);
-            this.dpStart.Name = "dpStart";
-            this.dpStart.Size = new System.Drawing.Size(263, 22);
-            this.dpStart.TabIndex = 5;
-            // 
-            // btnDisplayReport
-            // 
-            this.btnDisplayReport.Location = new System.Drawing.Point(549, 1);
-            this.btnDisplayReport.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDisplayReport.Name = "btnDisplayReport";
-            this.btnDisplayReport.Size = new System.Drawing.Size(128, 63);
-            this.btnDisplayReport.TabIndex = 4;
-            this.btnDisplayReport.Text = "Display";
-            this.btnDisplayReport.UseVisualStyleBackColor = true;
-            this.btnDisplayReport.Click += new System.EventHandler(this.btnDisplayReport_Click);
+            this.dpEnd.ValueChanged += new System.EventHandler(this.dpEnd_ValueChanged);
             // 
             // lblEnd
             // 
@@ -144,15 +152,25 @@ namespace vaalrusGUIPrototype
             this.lblEnd.TabIndex = 3;
             this.lblEnd.Text = "End Date:";
             // 
-            // lblStartDate
+            // dpStart
             // 
-            this.lblStartDate.AutoSize = true;
-            this.lblStartDate.Location = new System.Drawing.Point(0, 12);
-            this.lblStartDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(76, 17);
-            this.lblStartDate.TabIndex = 2;
-            this.lblStartDate.Text = "Start Date:";
+            this.dpStart.Location = new System.Drawing.Point(103, 8);
+            this.dpStart.Margin = new System.Windows.Forms.Padding(4);
+            this.dpStart.Name = "dpStart";
+            this.dpStart.Size = new System.Drawing.Size(263, 22);
+            this.dpStart.TabIndex = 5;
+            this.dpStart.ValueChanged += new System.EventHandler(this.dpStart_ValueChanged);
+            // 
+            // btnDisplayReport
+            // 
+            this.btnDisplayReport.Location = new System.Drawing.Point(590, 1);
+            this.btnDisplayReport.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDisplayReport.Name = "btnDisplayReport";
+            this.btnDisplayReport.Size = new System.Drawing.Size(128, 63);
+            this.btnDisplayReport.TabIndex = 4;
+            this.btnDisplayReport.Text = "Display";
+            this.btnDisplayReport.UseVisualStyleBackColor = true;
+            this.btnDisplayReport.Click += new System.EventHandler(this.btnDisplayReport_Click);
             // 
             // panelReportViewer
             // 
@@ -174,18 +192,9 @@ namespace vaalrusGUIPrototype
             this.reportViewer1.Size = new System.Drawing.Size(1067, 455);
             this.reportViewer1.TabIndex = 1;
             // 
-            // panelInner
+            // fromDateErrorProvider
             // 
-            this.panelInner.Controls.Add(this.groupBoxOrderBy);
-            this.panelInner.Controls.Add(this.lblStartDate);
-            this.panelInner.Controls.Add(this.dpEnd);
-            this.panelInner.Controls.Add(this.lblEnd);
-            this.panelInner.Controls.Add(this.dpStart);
-            this.panelInner.Controls.Add(this.btnDisplayReport);
-            this.panelInner.Location = new System.Drawing.Point(7, 15);
-            this.panelInner.Name = "panelInner";
-            this.panelInner.Size = new System.Drawing.Size(690, 65);
-            this.panelInner.TabIndex = 1;
+            this.fromDateErrorProvider.ContainerControl = this;
             // 
             // frmReportBookings
             // 
@@ -200,11 +209,12 @@ namespace vaalrusGUIPrototype
             this.Load += new System.EventHandler(this.frmReportBookings_Load);
             this.panelInput.ResumeLayout(false);
             this.groupBoxDisplay.ResumeLayout(false);
+            this.panelInner.ResumeLayout(false);
+            this.panelInner.PerformLayout();
             this.groupBoxOrderBy.ResumeLayout(false);
             this.groupBoxOrderBy.PerformLayout();
             this.panelReportViewer.ResumeLayout(false);
-            this.panelInner.ResumeLayout(false);
-            this.panelInner.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fromDateErrorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -224,5 +234,6 @@ namespace vaalrusGUIPrototype
         private System.Windows.Forms.RadioButton radioButtonDesc;
         private System.Windows.Forms.RadioButton radioButtonAsc;
         private System.Windows.Forms.Panel panelInner;
+        private System.Windows.Forms.ErrorProvider fromDateErrorProvider;
     }
 }

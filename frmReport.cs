@@ -30,6 +30,21 @@ namespace vaalrusGUIPrototype
             //loadDataSet2();
             //loadDataSet3();
         }
+        private void validateDPFrom()
+        {
+            if (dpStart.Value > dpEnd.Value)
+            {
+                fromDateErrorProvider.SetError(dpStart, "From Date can not be after TO date");
+                btnDisplay.Enabled = false;
+                dpStart.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                fromDateErrorProvider.SetError(dpStart, "");
+                btnDisplay.Enabled = true;
+                dpStart.BackColor = Color.White;
+            }
+        }
         public void loadDSet()
         {
             this.reportViewer.RefreshReport();
@@ -238,6 +253,16 @@ namespace vaalrusGUIPrototype
             {
                 MessageBox.Show("Please select Year and Month paramaters for the report");
             }
+        }
+
+        private void dpStart_ValueChanged(object sender, EventArgs e)
+        {
+            validateDPFrom();
+        }
+
+        private void dpEnd_ValueChanged(object sender, EventArgs e)
+        {
+            validateDPFrom();
         }
     }
 }

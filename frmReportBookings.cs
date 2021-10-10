@@ -186,6 +186,21 @@ namespace vaalrusGUIPrototype
 
             }
         }
+        private void validateDPFrom()
+        {
+            if (dpStart.Value > dpEnd.Value)
+            {
+                fromDateErrorProvider.SetError(dpStart, "From Date can not be after TO date");
+                btnDisplayReport.Enabled = false;
+                dpStart.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                fromDateErrorProvider.SetError(dpStart, "");
+                btnDisplayReport.Enabled = true;
+                dpStart.BackColor = Color.White;
+            }
+        }
         private void frmReportBookings_Load(object sender, EventArgs e)
         {
             //DateTime year = new DateTime();
@@ -316,6 +331,16 @@ namespace vaalrusGUIPrototype
             {
                 MessageBox.Show("Please select Year and Month paramaters for the report");
             }
+        }
+
+        private void dpStart_ValueChanged(object sender, EventArgs e)
+        {
+            validateDPFrom();
+        }
+
+        private void dpEnd_ValueChanged(object sender, EventArgs e)
+        {
+            validateDPFrom();
         }
     }
 }
