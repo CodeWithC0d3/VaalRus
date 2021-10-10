@@ -230,33 +230,37 @@ namespace vaalrusGUIPrototype.Forms
             string queryText = $"SELECT Booking.Booking_ID, Quotation.Quotation_ID, Customer.Customer_FirstName AS Name, Customer.Customer_LastName AS Surname, Booking.StartDate, Booking.EndDate, Booking.Checkin_Time AS [Check in], Booking.Checkin_Out AS [Check out], Quotationstatus.Status_Type AS Status FROM Booking INNER JOIN Quotation ON Booking.Quotation_ID = Quotation.Quotation_ID INNER JOIN Quotationstatus ON Quotation.QuoteStatus = Quotationstatus.Status_ID INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID AND Quotation.Customer_ID = Customer.Customer_ID WHERE  (Booking.StartDate >= @frDate) AND (Booking.EndDate <= @toDate) AND (Quotation.QuoteStatus = @status)";
             
             adapter = new SqlDataAdapter();
-
-            if (rdPending.Checked)
+            if (conDB())
             {
-                ds = new DataSet();
-                command = new SqlCommand(queryText2, con);
-                command.Parameters.AddWithValue("@frDate", dateTimePickerStart.Value.Date.ToString("yyyy/MM/dd"));
-                command.Parameters.AddWithValue("@duration", (dateTimePickerEnd.Value.Date-dateTimePickerStart.Value.Date).Days);
-                command.Parameters.AddWithValue("@status", rdPending.Checked ? 1 : rdPayed.Checked ? 2 : 3);
-                adapter.SelectCommand = command;
-                adapter.Fill(ds, "Quotation_ID");
-                dataGridViewBookings.DataSource = ds;
-                dataGridViewBookings.DataMember = "Quotation_ID";
-                con.Close();
+                if (rdPending.Checked)
+                {
+                    ds = new DataSet();
+                    command = new SqlCommand(queryText2, con);
+                    command.Parameters.AddWithValue("@frDate", dateTimePickerStart.Value.Date.ToString("yyyy/MM/dd"));
+                    command.Parameters.AddWithValue("@duration", (dateTimePickerEnd.Value.Date - dateTimePickerStart.Value.Date).Days);
+                    command.Parameters.AddWithValue("@status", 1);
+                    adapter = new SqlDataAdapter();
+                    adapter.SelectCommand = command;
+                    adapter.Fill(ds, "Quotation_ID");
+                    dataGridViewBookings.DataSource = ds;
+                    dataGridViewBookings.DataMember = "Quotation_ID";
+                    con.Close();
+                }
+                else if (rdPayed.Checked)
+                {
+                    ds = new DataSet();
+                    command = new SqlCommand(queryText, con);
+                    command.Parameters.AddWithValue("@frDate", dateTimePickerStart.Value.Date.ToString("yyyy/MM/dd"));
+                    command.Parameters.AddWithValue("@toDate", dateTimePickerEnd.Value.Date.ToString("yyyy/MM/dd"));
+                    command.Parameters.AddWithValue("@status", 2);
+                    adapter.SelectCommand = command;
+                    adapter.Fill(ds, "Booking");
+                    dataGridViewBookings.DataSource = ds;
+                    dataGridViewBookings.DataMember = "Booking";
+                    con.Close();
+                }
             }
-            else if(rdPayed.Checked)
-            {
-                ds = new DataSet();
-                command = new SqlCommand(queryText, con);
-                command.Parameters.AddWithValue("@frDate", dateTimePickerStart.Value.Date.ToString("yyyy/MM/dd"));
-                command.Parameters.AddWithValue("@toDate", dateTimePickerEnd.Value.Date.ToString("yyyy/MM/dd"));
-                command.Parameters.AddWithValue("@status", rdPending.Checked ? 1 : rdPayed.Checked ? 2 : 3);
-                adapter.SelectCommand = command;
-                adapter.Fill(ds, "Booking");
-                dataGridViewBookings.DataSource = ds;
-                dataGridViewBookings.DataMember = "Booking";
-                con.Close();
-            }
+            
         }
 
         private void btnReset_Click(object sender, EventArgs e)
