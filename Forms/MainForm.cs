@@ -251,7 +251,7 @@ namespace vaalrusGUIPrototype
 
         private void btnDeleteAccommodation_Click(object sender, EventArgs e)
         {
-            openChildForm(new frmDeleteAccommodation_1_());
+            openChildForm(new frmDeleteAccommodation());
             lblHeading.Text = "Delete Accommodation";
 
             changeButtonBrightness(sender);

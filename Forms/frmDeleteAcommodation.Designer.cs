@@ -3,6 +3,7 @@ namespace vaalrusGUIPrototype.Forms
 {
     partial class frmDeleteAccommodation
     {
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -29,44 +30,67 @@ namespace vaalrusGUIPrototype.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvDeleteAccomm = new System.Windows.Forms.DataGridView();
+            this.panelChildForm = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblSearchNumber = new System.Windows.Forms.Label();
+            this.txtBoxNumber = new System.Windows.Forms.TextBox();
             this.btnDeleteAccomm = new System.Windows.Forms.Button();
             this.txtBoxType = new System.Windows.Forms.TextBox();
             this.lblSearchType = new System.Windows.Forms.Label();
             this.btnDisplayAccomm = new System.Windows.Forms.Button();
-            this.txtBoxNumber = new System.Windows.Forms.TextBox();
-            this.lblSearchNumber = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDeleteAccomm)).BeginInit();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.dgView = new System.Windows.Forms.DataGridView();
+            this.panelChildForm.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvDeleteAccomm
+            // panelChildForm
             // 
-            this.dgvDeleteAccomm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDeleteAccomm.Location = new System.Drawing.Point(467, 21);
-            this.dgvDeleteAccomm.Name = "dgvDeleteAccomm";
-            this.dgvDeleteAccomm.RowHeadersWidth = 51;
-            this.dgvDeleteAccomm.RowTemplate.Height = 24;
-            this.dgvDeleteAccomm.Size = new System.Drawing.Size(586, 520);
-            this.dgvDeleteAccomm.TabIndex = 1;
-            this.dgvDeleteAccomm.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(219)))), ((int)(((byte)(168)))));
+            this.panelChildForm.BackgroundImage = global::vaalrusGUIPrototype.Properties.Resources.backgroundImage;
+            this.panelChildForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelChildForm.Controls.Add(this.panel1);
+            this.panelChildForm.Controls.Add(this.panel4);
+            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChildForm.Location = new System.Drawing.Point(0, 0);
+            this.panelChildForm.Margin = new System.Windows.Forms.Padding(4);
+            this.panelChildForm.Name = "panelChildForm";
+            this.panelChildForm.Size = new System.Drawing.Size(1242, 553);
+            this.panelChildForm.TabIndex = 14;
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Silver;
             this.panel1.Controls.Add(this.lblSearchNumber);
             this.panel1.Controls.Add(this.txtBoxNumber);
             this.panel1.Controls.Add(this.btnDeleteAccomm);
             this.panel1.Controls.Add(this.txtBoxType);
             this.panel1.Controls.Add(this.lblSearchType);
             this.panel1.Controls.Add(this.btnDisplayAccomm);
-            this.panel1.Location = new System.Drawing.Point(12, 21);
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(436, 386);
-            this.panel1.TabIndex = 2;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.Size = new System.Drawing.Size(424, 553);
+            this.panel1.TabIndex = 19;
+            // 
+            // lblSearchNumber
+            // 
+            this.lblSearchNumber.AutoSize = true;
+            this.lblSearchNumber.Location = new System.Drawing.Point(42, 124);
+            this.lblSearchNumber.Name = "lblSearchNumber";
+            this.lblSearchNumber.Size = new System.Drawing.Size(234, 17);
+            this.lblSearchNumber.TabIndex = 6;
+            this.lblSearchNumber.Text = "Search by Accommodation Number:";
+            // 
+            // txtBoxNumber
+            // 
+            this.txtBoxNumber.Location = new System.Drawing.Point(45, 155);
+            this.txtBoxNumber.Name = "txtBoxNumber";
+            this.txtBoxNumber.Size = new System.Drawing.Size(344, 22);
+            this.txtBoxNumber.TabIndex = 5;
             // 
             // btnDeleteAccomm
             // 
@@ -92,7 +116,6 @@ namespace vaalrusGUIPrototype.Forms
             this.lblSearchType.Size = new System.Drawing.Size(216, 17);
             this.lblSearchType.TabIndex = 2;
             this.lblSearchType.Text = "Search by Accommodation Type:";
-            this.lblSearchType.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnDisplayAccomm
             // 
@@ -103,62 +126,58 @@ namespace vaalrusGUIPrototype.Forms
             this.btnDisplayAccomm.Text = "Display Accommodation";
             this.btnDisplayAccomm.UseVisualStyleBackColor = true;
             // 
-            // txtBoxNumber
+            // panel4
             // 
-            this.txtBoxNumber.Location = new System.Drawing.Point(45, 155);
-            this.txtBoxNumber.Name = "txtBoxNumber";
-            this.txtBoxNumber.Size = new System.Drawing.Size(344, 22);
-            this.txtBoxNumber.TabIndex = 5;
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.Controls.Add(this.dgView);
+            this.panel4.Location = new System.Drawing.Point(443, 37);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(764, 511);
+            this.panel4.TabIndex = 18;
             // 
-            // lblSearchNumber
+            // dgView
             // 
-            this.lblSearchNumber.AutoSize = true;
-            this.lblSearchNumber.Location = new System.Drawing.Point(42, 124);
-            this.lblSearchNumber.Name = "lblSearchNumber";
-            this.lblSearchNumber.Size = new System.Drawing.Size(234, 17);
-            this.lblSearchNumber.TabIndex = 6;
-            this.lblSearchNumber.Text = "Search by Accommodation Number:";
+            this.dgView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgView.Location = new System.Drawing.Point(0, 0);
+            this.dgView.Margin = new System.Windows.Forms.Padding(4);
+            this.dgView.Name = "dgView";
+            this.dgView.ReadOnly = true;
+            this.dgView.RowHeadersWidth = 51;
+            this.dgView.Size = new System.Drawing.Size(764, 511);
+            this.dgView.TabIndex = 17;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.Image = global::vaalrusGUIPrototype.Properties.Resources.backgroundImage;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1077, 598);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // frmDeleteAccommodation
+            // frmDeleteAccommodation_1_
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 598);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dgvDeleteAccomm);
-            this.Controls.Add(this.pictureBox1);
-            this.Name = "frmDeleteAccommodation";
-            this.Text = "frmDeleteAccommodation";
-            this.Load += new System.EventHandler(this.frmDeleteAccommodation_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDeleteAccomm)).EndInit();
+            this.ClientSize = new System.Drawing.Size(1242, 553);
+            this.Controls.Add(this.panelChildForm);
+            this.Name = "frmDeleteAccommodation_1_";
+            this.Text = "frmDeleteAccommodation_1_";
+            this.panelChildForm.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dgvDeleteAccomm;
+
+        private System.Windows.Forms.Panel panelChildForm;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridView dgView;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblSearchNumber;
+        private System.Windows.Forms.TextBox txtBoxNumber;
         private System.Windows.Forms.Button btnDeleteAccomm;
         private System.Windows.Forms.TextBox txtBoxType;
         private System.Windows.Forms.Label lblSearchType;
         private System.Windows.Forms.Button btnDisplayAccomm;
-        private System.Windows.Forms.Label lblSearchNumber;
-        private System.Windows.Forms.TextBox txtBoxNumber;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
