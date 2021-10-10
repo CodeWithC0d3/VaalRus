@@ -59,10 +59,10 @@ namespace vaalrusGUIPrototype.Forms
             }
             //pnlMain.BackColor = Color.Transparent;
 
-            //aplytheme(pnlViewBookings);
+            aplytheme(panel1);
             aplytheme(pnlViewBookings);
 
-            //aplytheme(pnl_accSet);
+            aplytheme(panel2);
             //timer1.Start();
         }
         private void aplytheme(Control pn)
@@ -266,6 +266,36 @@ namespace vaalrusGUIPrototype.Forms
             rdPayed.Checked = false;
             dateTimePickerStart.Value = DateTime.Today.Date;
             dateTimePickerEnd.Value = DateTime.Today.Date;
+        }
+       
+        private void dataGridViewBookings_SelectionChanged(object sender, EventArgs e)
+        {
+            string id = "";
+            if (rdPending.Checked)
+            {
+                id = dataGridViewBookings.CurrentRow.Cells[0].Value.ToString();
+            }
+            else if (rdPayed.Checked)
+            {
+                id = dataGridViewBookings.CurrentRow.Cells[1].Value.ToString();
+            }
+            else
+            {
+                id = dataGridViewBookings.CurrentRow.Cells[1].Value.ToString();
+            }
+            if (conDB())
+            {
+                string sql = "SELECT Accommodation.Accommodation_ID, Accommodationtype.AccommodationType, Accommodationset.startDate AS [Start Date], Accommodationset.endDate AS [End Date] FROM Accommodation INNER JOIN Accommodationset ON Accommodation.Accommodation_ID = Accommodationset.Accommodation_ID INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID INNER JOIN Quotation ON dbo.Accommodationset.Quotation_ID = Quotation.Quotation_ID WHERE (Accommodationset.Quotation_ID = @id)";
+                command = new SqlCommand(sql,con);
+                command.Parameters.AddWithValue("@id",id);
+                ds = new DataSet();
+                adapter = new SqlDataAdapter();
+                adapter.SelectCommand = command;
+                adapter.Fill(ds,"Accommodation_ID");
+                gridACC.DataMember = "Accommodation_ID";
+                gridACC.DataSource = ds;
+                con.Close();
+            }
         }
     }
 }
