@@ -24,26 +24,30 @@ namespace vaalrusGUIPrototype
         }
         public void Display(string command)
         {
-            if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
-            try
+            //if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
+            if (conDB())
             {
-                using (SqlCommand cmd = new SqlCommand(command, sqlConnection))
+                try
                 {
-                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    using (SqlCommand cmd = new SqlCommand(command, sqlConnection))
+                    {
+                        SqlDataAdapter adapter = new SqlDataAdapter();
 
-                    DataSet ds = new DataSet();
-                    adapter.SelectCommand = cmd;
-                    adapter.Fill(ds, "Accommodation");
+                        DataSet ds = new DataSet();
+                        adapter.SelectCommand = cmd;
+                        adapter.Fill(ds, "Accommodation");
 
-                    dtgCheckIn.DataSource = ds;
-                    dtgCheckIn.DataMember = "Accommodation";
+                        dtgCheckIn.DataSource = ds;
+                        dtgCheckIn.DataMember = "Accommodation";
+                    }
                 }
+                catch (SqlException sqle)
+                {
+                    MessageBox.Show(sqle.Message.ToString());
+                }
+                sqlConnection.Close();
             }
-            catch (SqlException sqle)
-            {
-                MessageBox.Show(sqle.Message.ToString());                
-            }
-            sqlConnection.Close();
+            
         }
         private void LoadTheme()
         {
@@ -191,22 +195,36 @@ namespace vaalrusGUIPrototype
         {
 
         }
+        private Boolean conDB()
+        {
+            try
+            {
+                sqlConnection = new SqlConnection(connString);
+                sqlConnection.Open();
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
 
         private void frmCheckIn_Load(object sender, EventArgs e)
         {
             LoadTheme();
-
-            sqlConnection = new SqlConnection(connString);
+            
             try
             {
-                sqlConnection.Open();
+                Display("SELECT Booking.Booking_ID AS[Booking Number], Customer.Customer_FirstName AS[First Name], Customer.Customer_LastName AS[Last Name], Customer.Customer_IDNumber AS[South African ID], Booking.StartDate AS [Arrival Date], Booking.EndDate AS [Departure Date], Booking.Checkin_Time AS [Check in Time], Booking.Checkin_Out AS [Checkout Time] FROM Customer INNER JOIN Booking ON Customer.Customer_ID = Booking.Customer_ID WHERE Booking.Checkin_Time IS NULL");
 
             }
             catch (SqlException)
             {
                 MessageBox.Show("Connection unsuccesful");
             }
-            Display("SELECT Booking.Booking_ID AS[Booking Number], Customer.Customer_FirstName AS[First Name], Customer.Customer_LastName AS[Last Name], Customer.Customer_IDNumber AS[South African ID], Booking.StartDate AS [Arrival Date], Booking.EndDate AS [Departure Date], Booking.Checkin_Time AS [Check in Time], Booking.Checkin_Out AS [Checkout Time] FROM Customer INNER JOIN Booking ON Customer.Customer_ID = Booking.Customer_ID WHERE Booking.Checkin_Time IS NULL");
+            
 
             tbBookID.Text = "";
         }
@@ -214,15 +232,27 @@ namespace vaalrusGUIPrototype
         private void button2_Click(object sender, EventArgs e)
         {
             DateTime Chekin = DateTime.Now;
-            sqlConnection = new SqlConnection(connString);
-            sqlConnection.Open();
+            if (conDB())
+            {
+                try
+                {
+                    sqlCmd = new SqlCommand($"Update Booking Set Checkin_Time ='" + Chekin + "'  where Booking_ID = " + Convert.ToInt32(tbBookID.Text) + "", sqlConnection);
 
-            sqlCmd = new SqlCommand($"Update Booking Set Checkin_Time ='" + Chekin + "'  where Booking_ID = " + Convert.ToInt32(tbBookID.Text) + "", sqlConnection);
+                    sqlCmd.ExecuteNonQuery();
+                    sqlConnection.Close();
+                    MessageBox.Show("Successfully Checked In");
+                    //this.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Select a booking to check in");
+                    sqlConnection.Close();
 
-            sqlCmd.ExecuteNonQuery();
-            sqlConnection.Close();
-            MessageBox.Show("Successfully Checked In");
-            //this.Close();
+                }
+                
+            }
+
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

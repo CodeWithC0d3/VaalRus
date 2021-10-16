@@ -205,6 +205,7 @@ namespace vaalrusGUIPrototype.Forms
             }
 
         }
+
         private void frmNewBooking_Load(object sender, EventArgs e)
         {
             LoadTheme();
