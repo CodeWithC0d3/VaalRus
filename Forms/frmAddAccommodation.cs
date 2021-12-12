@@ -22,7 +22,7 @@ namespace vaalrusGUIPrototype.Forms
         public string dataFDB;
         public string connString = Properties.Settings.Default.conString;
         public int dIndex;
-        public string strDisplay = "Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID;";
+        public string strDisplay = "Select Accommodation.Accommodation_ID as [ID],Accommodation.Common_Name as [Name], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID;";
         public Boolean err = false;
         public frmAddAccommodation()
         {
@@ -296,8 +296,9 @@ namespace vaalrusGUIPrototype.Forms
                         //if(cbAccomType.SelectedIndex==0)
                         sqlConnection = new SqlConnection(connString);
                         sqlConnection.Open();
-                        sqlCmd = new SqlCommand($"Insert Into Accommodation (Accommodation_TypeID,Number_Of_Occupants,Accommodation_Price,Active) Values (@type,@noo,@price,@act)", sqlConnection);
+                        sqlCmd = new SqlCommand($"Insert Into Accommodation (Common_Name,Accommodation_TypeID,Number_Of_Occupants,Accommodation_Price,Active) Values (@name,@type,@noo,@price,@act)", sqlConnection);
                         //sqlCmd.Parameters.AddWithValue("@id", cbAccomType.SelectedIndex + 1);
+                        sqlCmd.Parameters.AddWithValue("@name", txtAccName.Text);
                         sqlCmd.Parameters.AddWithValue("@type", cbAccomType.SelectedIndex + 1);
                         sqlCmd.Parameters.AddWithValue("@noo", numOfOccupants.Value);
                         sqlCmd.Parameters.AddWithValue("@price", Convert.ToInt32(txtAccomPrice.Text));

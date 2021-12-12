@@ -226,7 +226,7 @@ namespace vaalrusGUIPrototype
                 
             DateTime startDT  = dpFrom.Value.Date;
             DateTime endDT = dpto.Value.Date;
-            sql = "Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID";
+            sql = "Select Accommodation.Common_Name as [Name], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID";
              
             command = new SqlCommand(sql, con);
             adapter = new SqlDataAdapter();
@@ -234,12 +234,12 @@ namespace vaalrusGUIPrototype
             adapter.SelectCommand = command;
             adapter.Fill(ds1,"Accommodation_ID");
 
-           sql = $"SELECT 	Accommodation_ID, AccommodationType FROM accAvailibility WHERE StartDate >= '{startDT.Date.ToString("yyyy/MM/dd")}' and EndDate <= '{endDT.Date.ToString("yyyy/MM/dd")}'";
+           sql = $"SELECT 	Common_Name, AccommodationType FROM accAvailibility WHERE StartDate >= '{startDT.Date.ToString("yyyy/MM/dd")}' and EndDate <= '{endDT.Date.ToString("yyyy/MM/dd")}'";
             command = new SqlCommand(sql, con);
             adapter = new SqlDataAdapter();
             ds = new DataSet();
             adapter.SelectCommand = command;
-            adapter.Fill(ds,"Accommodation_ID");
+            adapter.Fill(ds,"Common_Name");
 
             foreach (DataRow row1 in ds1.Tables[0].Rows)
             {
@@ -302,7 +302,7 @@ namespace vaalrusGUIPrototype
             {
                 MessageBox.Show("Connection unsuccesful");
             }
-            Display("SELECT Accommodation.Accommodation_ID AS[Accommodation Number], Accommodationtype.AccommodationType AS Type, Accommodation.Number_Of_Occupants AS [Occupants Number], Accommodation.Accommodation_Price AS Price, Accommodation.Active AS Status FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID ");
+            Display("SELECT Accommodation.Accommodation_ID AS[Accommodation Number],Accommodation.Common_Name AS[Accommodation Name], Accommodationtype.AccommodationType AS Type, Accommodation.Number_Of_Occupants AS [Occupants Number], Accommodation.Accommodation_Price AS Price, Accommodation.Active AS Status FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID ");
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -315,7 +315,7 @@ namespace vaalrusGUIPrototype
             {
                 sqlConnection = new SqlConnection(connString);
                 if (sqlConnection.State == ConnectionState.Closed) sqlConnection.Open();
-                using (SqlCommand myComm = new SqlCommand("SELECT Accommodationset.Accommodation_ID AS[Accommodation Number], Accommodationtype.AccommodationType AS Type, Accommodation.Accommodation_Price AS Price, Booking.StartDate AS[Arrival Date],Booking.EndDate AS[Departure Date] FROM Booking INNER JOIN Accommodationset ON Booking.Quotation_ID = Accommodationset.Quotation_ID INNER JOIN Accommodation ON Accommodationset.Accommodation_ID = Accommodation.Accommodation_ID INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Booking.StartDate >= '" + startDT.Date.ToString("yyyy/MM/dd") + "'AND Booking.EndDate<='"+ endDT.Date.ToString("yyyy/MM/dd") + "' ", sqlConnection))
+                using (SqlCommand myComm = new SqlCommand("SELECT Accommodation.Common_Name AS[Accommodation Number], Accommodationtype.AccommodationType AS Type, Accommodation.Accommodation_Price AS Price, Booking.StartDate AS[Arrival Date],Booking.EndDate AS[Departure Date] FROM Booking INNER JOIN Accommodationset ON Booking.Quotation_ID = Accommodationset.Quotation_ID INNER JOIN Accommodation ON Accommodationset.Accommodation_ID = Accommodation.Accommodation_ID INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID where Booking.StartDate >= '" + startDT.Date.ToString("yyyy/MM/dd") + "'AND Booking.EndDate<='"+ endDT.Date.ToString("yyyy/MM/dd") + "' ", sqlConnection))
                 {
                     SqlDataAdapter adapter = new SqlDataAdapter();
 

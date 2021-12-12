@@ -301,7 +301,7 @@ namespace vaalrusGUIPrototype.Forms
             {
                 try
                 {
-                    string sql = "SELECT Accommodation.Accommodation_ID, Accommodationtype.AccommodationType, Accommodationset.startDate AS [Start Date], Accommodationset.endDate AS [End Date] FROM Accommodation INNER JOIN Accommodationset ON Accommodation.Accommodation_ID = Accommodationset.Accommodation_ID INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID INNER JOIN Quotation ON dbo.Accommodationset.Quotation_ID = Quotation.Quotation_ID WHERE (Accommodationset.Quotation_ID = @id)";
+                    string sql = "SELECT Accommodation.Accommodation_ID AS [ID],Accommodation.Common_Name AS [Name], Accommodationtype.AccommodationType AS [Type], Accommodationset.startDate AS [Start Date], Accommodationset.endDate AS [End Date] FROM Accommodation INNER JOIN Accommodationset ON Accommodation.Accommodation_ID = Accommodationset.Accommodation_ID INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID INNER JOIN Quotation ON dbo.Accommodationset.Quotation_ID = Quotation.Quotation_ID WHERE (Accommodationset.Quotation_ID = @id)";
                     command = new SqlCommand(sql, con);
                     command.Parameters.AddWithValue("@id", id);
                     ds = new DataSet();

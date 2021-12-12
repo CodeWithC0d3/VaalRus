@@ -47,6 +47,8 @@ namespace vaalrusGUIPrototype.Forms
             this.errorProviderType = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderOccupants = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderPrice = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtAccName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxViewAllBookingsBackground)).BeginInit();
             this.pnlNewAccom.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -79,12 +81,12 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlNewAccom.Controls.Add(this.groupBox1);
             this.pnlNewAccom.Location = new System.Drawing.Point(12, 12);
             this.pnlNewAccom.Name = "pnlNewAccom";
-            this.pnlNewAccom.Size = new System.Drawing.Size(256, 273);
+            this.pnlNewAccom.Size = new System.Drawing.Size(256, 316);
             this.pnlNewAccom.TabIndex = 2;
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(42, 218);
+            this.btnCreate.Location = new System.Drawing.Point(41, 254);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(170, 43);
             this.btnCreate.TabIndex = 1;
@@ -97,13 +99,15 @@ namespace vaalrusGUIPrototype.Forms
             this.groupBox1.Controls.Add(this.pnlNewAccomDetails);
             this.groupBox1.Location = new System.Drawing.Point(16, 17);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(223, 195);
+            this.groupBox1.Size = new System.Drawing.Size(223, 231);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "New Accommodation details:";
             // 
             // pnlNewAccomDetails
             // 
+            this.pnlNewAccomDetails.Controls.Add(this.txtAccName);
+            this.pnlNewAccomDetails.Controls.Add(this.label5);
             this.pnlNewAccomDetails.Controls.Add(this.label4);
             this.pnlNewAccomDetails.Controls.Add(this.txtAccomPrice);
             this.pnlNewAccomDetails.Controls.Add(this.label3);
@@ -113,13 +117,13 @@ namespace vaalrusGUIPrototype.Forms
             this.pnlNewAccomDetails.Controls.Add(this.label1);
             this.pnlNewAccomDetails.Location = new System.Drawing.Point(6, 19);
             this.pnlNewAccomDetails.Name = "pnlNewAccomDetails";
-            this.pnlNewAccomDetails.Size = new System.Drawing.Size(211, 163);
+            this.pnlNewAccomDetails.Size = new System.Drawing.Size(211, 206);
             this.pnlNewAccomDetails.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(69, 130);
+            this.label4.Location = new System.Drawing.Point(69, 176);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(15, 13);
             this.label4.TabIndex = 13;
@@ -127,7 +131,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // txtAccomPrice
             // 
-            this.txtAccomPrice.Location = new System.Drawing.Point(90, 127);
+            this.txtAccomPrice.Location = new System.Drawing.Point(90, 173);
             this.txtAccomPrice.Name = "txtAccomPrice";
             this.txtAccomPrice.Size = new System.Drawing.Size(100, 20);
             this.txtAccomPrice.TabIndex = 12;
@@ -137,7 +141,7 @@ namespace vaalrusGUIPrototype.Forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(30, 111);
+            this.label3.Location = new System.Drawing.Point(30, 157);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 13);
             this.label3.TabIndex = 11;
@@ -145,7 +149,7 @@ namespace vaalrusGUIPrototype.Forms
             // 
             // numOfOccupants
             // 
-            this.numOfOccupants.Location = new System.Drawing.Point(130, 77);
+            this.numOfOccupants.Location = new System.Drawing.Point(130, 123);
             this.numOfOccupants.Name = "numOfOccupants";
             this.numOfOccupants.Size = new System.Drawing.Size(60, 20);
             this.numOfOccupants.TabIndex = 10;
@@ -155,7 +159,7 @@ namespace vaalrusGUIPrototype.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 61);
+            this.label2.Location = new System.Drawing.Point(30, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 13);
             this.label2.TabIndex = 9;
@@ -164,7 +168,7 @@ namespace vaalrusGUIPrototype.Forms
             // cbAccomType
             // 
             this.cbAccomType.FormattingEnabled = true;
-            this.cbAccomType.Location = new System.Drawing.Point(68, 25);
+            this.cbAccomType.Location = new System.Drawing.Point(68, 71);
             this.cbAccomType.Name = "cbAccomType";
             this.cbAccomType.Size = new System.Drawing.Size(121, 21);
             this.cbAccomType.TabIndex = 8;
@@ -174,7 +178,7 @@ namespace vaalrusGUIPrototype.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 9);
+            this.label1.Location = new System.Drawing.Point(17, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 13);
             this.label1.TabIndex = 7;
@@ -219,6 +223,22 @@ namespace vaalrusGUIPrototype.Forms
             // errorProviderPrice
             // 
             this.errorProviderPrice.ContainerControl = this;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(117, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Accommodation Name:";
+            // 
+            // txtAccName
+            // 
+            this.txtAccName.Location = new System.Drawing.Point(68, 32);
+            this.txtAccName.Name = "txtAccName";
+            this.txtAccName.Size = new System.Drawing.Size(121, 20);
+            this.txtAccName.TabIndex = 15;
             // 
             // frmAddAccommodation
             // 
@@ -265,5 +285,7 @@ namespace vaalrusGUIPrototype.Forms
         private System.Windows.Forms.ErrorProvider errorProviderType;
         private System.Windows.Forms.ErrorProvider errorProviderOccupants;
         private System.Windows.Forms.ErrorProvider errorProviderPrice;
+        private System.Windows.Forms.TextBox txtAccName;
+        private System.Windows.Forms.Label label5;
     }
 }

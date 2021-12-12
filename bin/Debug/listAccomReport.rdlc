@@ -71,10 +71,14 @@
           <DataField>Accommodation_Price</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="Common_Name">
+          <DataField>Common_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>VaalrusDataSet6</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\JMX\Desktop\Reposit\VaalRus\VaalrusDataSet6.xsd</rd:SchemaPath>
+        <rd:DataSetName>VaalrusDataSet5</rd:DataSetName>
+        <rd:SchemaPath>D:\NWU\CMPG223\VaalRus\VaalRus\VaalrusDataSet5.xsd</rd:SchemaPath>
         <rd:TableName>viewBookingReport1</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -485,6 +489,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>

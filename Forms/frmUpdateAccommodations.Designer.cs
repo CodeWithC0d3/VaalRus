@@ -94,7 +94,7 @@ namespace vaalrusGUIPrototype
             this.picBackground.Image = global::vaalrusGUIPrototype.Properties.Resources.backgroundImage;
             this.picBackground.Location = new System.Drawing.Point(0, 0);
             this.picBackground.Name = "picBackground";
-            this.picBackground.Size = new System.Drawing.Size(945, 562);
+            this.picBackground.Size = new System.Drawing.Size(945, 548);
             this.picBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBackground.TabIndex = 3;
             this.picBackground.TabStop = false;
@@ -107,7 +107,7 @@ namespace vaalrusGUIPrototype
             this.pnlDatagrid.Controls.Add(this.dataGridViewAccom);
             this.pnlDatagrid.Location = new System.Drawing.Point(391, 12);
             this.pnlDatagrid.Name = "pnlDatagrid";
-            this.pnlDatagrid.Size = new System.Drawing.Size(542, 538);
+            this.pnlDatagrid.Size = new System.Drawing.Size(542, 524);
             this.pnlDatagrid.TabIndex = 4;
             // 
             // dataGridViewAccom
@@ -122,7 +122,7 @@ namespace vaalrusGUIPrototype
             this.dataGridViewAccom.ReadOnly = true;
             this.dataGridViewAccom.RowHeadersVisible = false;
             this.dataGridViewAccom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewAccom.Size = new System.Drawing.Size(542, 538);
+            this.dataGridViewAccom.Size = new System.Drawing.Size(542, 524);
             this.dataGridViewAccom.TabIndex = 2;
             this.dataGridViewAccom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAccom_CellClick);
             this.dataGridViewAccom.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAccom_CellContentClick);
@@ -298,13 +298,13 @@ namespace vaalrusGUIPrototype
             this.pnlConnetionControls.Controls.Add(this.gBoxAccom);
             this.pnlConnetionControls.Location = new System.Drawing.Point(12, 227);
             this.pnlConnetionControls.Name = "pnlConnetionControls";
-            this.pnlConnetionControls.Size = new System.Drawing.Size(373, 323);
+            this.pnlConnetionControls.Size = new System.Drawing.Size(373, 309);
             this.pnlConnetionControls.TabIndex = 6;
             // 
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(262, 237);
+            this.btnNext.Location = new System.Drawing.Point(262, 223);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(90, 72);
             this.btnNext.TabIndex = 6;
@@ -315,7 +315,7 @@ namespace vaalrusGUIPrototype
             // btnUpdate
             // 
             this.btnUpdate.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnUpdate.Location = new System.Drawing.Point(115, 273);
+            this.btnUpdate.Location = new System.Drawing.Point(115, 259);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(137, 36);
             this.btnUpdate.TabIndex = 2;
@@ -326,7 +326,7 @@ namespace vaalrusGUIPrototype
             // btnPrev
             // 
             this.btnPrev.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrev.Location = new System.Drawing.Point(16, 237);
+            this.btnPrev.Location = new System.Drawing.Point(16, 223);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(90, 72);
             this.btnPrev.TabIndex = 5;
@@ -337,7 +337,7 @@ namespace vaalrusGUIPrototype
             // btnReset
             // 
             this.btnReset.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnReset.Location = new System.Drawing.Point(115, 237);
+            this.btnReset.Location = new System.Drawing.Point(115, 223);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(137, 36);
             this.btnReset.TabIndex = 3;
@@ -466,7 +466,7 @@ namespace vaalrusGUIPrototype
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(945, 562);
+            this.ClientSize = new System.Drawing.Size(945, 548);
             this.Controls.Add(this.pnlConnetionControls);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlDatagrid);

@@ -24,9 +24,9 @@ namespace vaalrusGUIPrototype
         public string connString = Properties.Settings.Default.conString;
         public int dIndex;
         public string tempID, tempType, tempOccupants, tempPrice;
-        public string strDisplay2 = "Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID";
+        public string strDisplay2 = "Select Accommodation.Accommodation_ID as [ID],Accommodation.Common_Name as [Name], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID";
 
-        public string strDisplay = "Select Accommodation.Accommodation_ID as [ID], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID;";
+        public string strDisplay = "Select Accommodation.Accommodation_ID as [ID],Accommodation.Common_Name as [Name], Accommodationtype.AccommodationType as [Type], Accommodation.Number_Of_Occupants as [Occupants], Accommodation.Accommodation_Price as [Price], Accommodation.Active as [Active] from Accommodation INNER JOIN Accommodationtype on Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID;";
         public frmUpdateAccommodations()
         {
             InitializeComponent();
@@ -413,12 +413,12 @@ namespace vaalrusGUIPrototype
                     while (dReader.Read())
                     {
                         txtAID.Text = dReader.GetValue(1).ToString();
-                        typeID = (int)dReader.GetValue(2);
+                        typeID = (int)dReader.GetValue(3);
                         
                         //txtAType.Text = dReader.GetValue(2).ToString();
                         txtAOccupants.Text = dReader.GetValue(3).ToString();
-                        txtAPrice.Text = Convert.ToDecimal(String.Format("{0:0}", Convert.ToDecimal(dReader.GetValue(4).ToString()))).ToString();
-                        active = (Boolean)dReader.GetValue(5);
+                        txtAPrice.Text = Convert.ToDecimal(String.Format("{0:0}", Convert.ToDecimal(dReader.GetValue(5).ToString()))).ToString();
+                        active = (Boolean)dReader.GetValue(6);
                         if (active == true) checkBoxActive.Checked = true;
                         else checkBoxActive.Checked = false;
                     }
@@ -452,12 +452,12 @@ namespace vaalrusGUIPrototype
                     while (dReader.Read())
                     {
                         txtAID.Text = dReader.GetValue(0).ToString();
-                        typeID = (int)dReader.GetValue(1);
+                        typeID = (int)dReader.GetValue(2);
 
                         //txtAType.Text = dReader.GetValue(2).ToString();
                         txtAOccupants.Text = dReader.GetValue(2).ToString();
-                        txtAPrice.Text = Convert.ToDecimal(String.Format("{0:0}", Convert.ToDecimal(dReader.GetValue(3).ToString()))).ToString();
-                        active = (Boolean)dReader.GetValue(4);
+                        txtAPrice.Text = Convert.ToDecimal(String.Format("{0:0}", Convert.ToDecimal(dReader.GetValue(4).ToString()))).ToString();
+                        active = (Boolean)dReader.GetValue(5);
                         if (active == true) checkBoxActive.Checked = true;
                         else checkBoxActive.Checked = false;
                     }

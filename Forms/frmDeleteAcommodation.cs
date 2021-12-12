@@ -210,7 +210,7 @@ namespace vaalrusGUIPrototype.Forms
             if (conDB())
             {
 
-                string queryText = $"SELECT Accommodation.Accommodation_ID, Accommodationtype.AccommodationType, Accommodation.Number_Of_Occupants FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID";
+                string queryText = $"SELECT Accommodation.Accommodation_ID,Accommodation.Common_Name as [Name], Accommodationtype.AccommodationType, Accommodation.Number_Of_Occupants FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID";
 
                 adapter = new SqlDataAdapter();
                 ds = new DataSet();
@@ -253,7 +253,7 @@ namespace vaalrusGUIPrototype.Forms
                 if (conDB())
                 {
                     string type = cmbType.SelectedValue.ToString();
-                    string queryText = $"SELECT Accommodation.Accommodation_ID, Accommodationtype.AccommodationType, Accommodation.Number_Of_Occupants FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID WHERE (Accommodationtype.AccommodationType = @accid)";
+                    string queryText = $"SELECT Accommodation.Accommodation_ID,Accommodation.Common_Name as [Name], Accommodationtype.AccommodationType, Accommodation.Number_Of_Occupants FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID WHERE (Accommodationtype.AccommodationType = @accid)";
 
                     adapter = new SqlDataAdapter();
                     ds = new DataSet();
@@ -275,9 +275,11 @@ namespace vaalrusGUIPrototype.Forms
         private void dgView_SelectionChanged(object sender, EventArgs e)
         {
             accid = int.Parse(dgView.CurrentRow.Cells[0].Value.ToString());
+            //accid = dgView.CurrentRow.Cells[1].Value.ToString());
             txtAccNr.Text = accid.ToString();
-            txtType.Text = dgView.CurrentRow.Cells[1].Value.ToString();
-            txtNrOcc.Text = dgView.CurrentRow.Cells[2].Value.ToString();
+            txtAccNr.Text = dgView.CurrentRow.Cells[1].Value.ToString();
+            txtType.Text = dgView.CurrentRow.Cells[2].Value.ToString();
+            txtNrOcc.Text = dgView.CurrentRow.Cells[3].Value.ToString();
         }
 
         private void btnDeleteAccomm_Click(object sender, EventArgs e)
