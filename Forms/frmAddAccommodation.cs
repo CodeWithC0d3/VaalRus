@@ -402,76 +402,17 @@ namespace vaalrusGUIPrototype.Forms
 
         private void numOfOccupants_Validating(object sender, CancelEventArgs e)
         {
-            int parsedValue;
-            if (string.IsNullOrWhiteSpace(numOfOccupants.Text))
-            {
-                e.Cancel = true;
-                //txtAType.Focus();
-                numOfOccupants.Focus();
-                err = true;
-                errorProviderOccupants.SetError(numOfOccupants, "Occupants can not be blank!");
-                
-            }
-            else if (int.TryParse(numOfOccupants.Text, out parsedValue))
-            {
-                if (parsedValue == 0)
-                {
-                    e.Cancel = true;
-                    numOfOccupants.Focus();
-                    err = true;
-                    errorProviderOccupants.SetError(numOfOccupants, "Occupants can not be 0");
-                }
-                
-            }
-            else if (!int.TryParse(numOfOccupants.Text, out parsedValue))
-            {
-                e.Cancel = true;
-                //txtAType.Focus();
-                numOfOccupants.Focus();
-                err = true;
-                errorProviderOccupants.SetError(numOfOccupants, "Can not contain letters!");
-                
-            }
-            else
-            {
-                e.Cancel = false;
-                err = false;
-                errorProviderOccupants.SetError(numOfOccupants, "");
-                
-            }
+           
         }
 
         private void txtAccomPrice_Validating(object sender, CancelEventArgs e)
         {
-            int parsedValue;
-            if (string.IsNullOrWhiteSpace(txtAccomPrice.Text))
-            {
-                e.Cancel = true;
-                txtAccomPrice.Focus();
-                err = true;
-                errorProviderPrice.SetError(txtAccomPrice, "Price can not be blank!");
-                
-            }
-            else if (!int.TryParse(txtAccomPrice.Text, out parsedValue))
-            {
-                e.Cancel = true;
-                txtAccomPrice.Focus();
-                err = true;
-                errorProviderPrice.SetError(txtAccomPrice, "Can not contain letters!");
-                
-            }
-            else
-            {
-                e.Cancel = false;
-                err = false;
-                errorProviderPrice.SetError(txtAccomPrice, "");
-                
-            }
+           
         }
 
         private void cbAccomType_Validating(object sender, CancelEventArgs e)
         {
-            //int parsedValue;
+           /* //int parsedValue;
             if (string.IsNullOrWhiteSpace(cbAccomType.Text))
             {
                 e.Cancel = true;
@@ -493,6 +434,101 @@ namespace vaalrusGUIPrototype.Forms
                 err = false;
                 errorProviderPrice.SetError(cbAccomType, "");
                 
+            }*/
+        }
+
+        private void cbAccomType_Validated(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cbAccomType.Text))
+            {
+                //e.Cancel = true;
+                cbAccomType.Focus();
+                err = true;
+                errorProviderPrice.SetError(cbAccomType, "Type can not be blank!");
+
+            }
+            //else if (!int.TryParse(cbAccomType.Text, out parsedValue))
+            //{
+            //    e.Cancel = true;
+            //    cbAccomType.Focus();
+            //    errorProviderPrice.SetError(cbAccomType, "Can not contain letters!");
+            //    err = true;
+            //}
+            else
+            {
+               //e.Cancel = false;
+                err = false;
+                errorProviderPrice.SetError(cbAccomType, "");
+
+            }
+        }
+
+        private void numOfOccupants_Validated(object sender, EventArgs e)
+        {
+            int parsedValue;
+            if (string.IsNullOrWhiteSpace(numOfOccupants.Text))
+            {
+                //e.Cancel = true;
+                //txtAType.Focus();
+                numOfOccupants.Focus();
+                err = true;
+                errorProviderOccupants.SetError(numOfOccupants, "Occupants can not be blank!");
+
+            }
+            else if (int.TryParse(numOfOccupants.Text, out parsedValue))
+            {
+                if (parsedValue == 0)
+                {
+                    //e.Cancel = true;
+                    numOfOccupants.Focus();
+                    err = true;
+                    errorProviderOccupants.SetError(numOfOccupants, "Occupants can not be 0");
+                }
+
+            }
+            else if (!int.TryParse(numOfOccupants.Text, out parsedValue))
+            {
+                //e.Cancel = true;
+                //txtAType.Focus();
+                numOfOccupants.Focus();
+                err = true;
+                errorProviderOccupants.SetError(numOfOccupants, "Can not contain letters!");
+
+            }
+            else
+            {
+                //e.Cancel = false;
+                err = false;
+                errorProviderOccupants.SetError(numOfOccupants, "");
+
+            }
+        }
+
+        private void txtAccomPrice_Validated(object sender, EventArgs e)
+        {
+            int parsedValue;
+            if (string.IsNullOrWhiteSpace(txtAccomPrice.Text))
+            {
+                //e.Cancel = true;
+                txtAccomPrice.Focus();
+                err = true;
+                errorProviderPrice.SetError(txtAccomPrice, "Price can not be blank!");
+
+            }
+            else if (!int.TryParse(txtAccomPrice.Text, out parsedValue))
+            {
+                //e.Cancel = true;
+                txtAccomPrice.Focus();
+                err = true;
+                errorProviderPrice.SetError(txtAccomPrice, "Can not contain letters!");
+
+            }
+            else
+            {
+                //.Cancel = false;
+                err = false;
+                errorProviderPrice.SetError(txtAccomPrice, "");
+
             }
         }
     }

@@ -424,6 +424,7 @@ namespace vaalrusGUIPrototype
             this.txtAPrice.Size = new System.Drawing.Size(134, 20);
             this.txtAPrice.TabIndex = 13;
             this.txtAPrice.Validating += new System.ComponentModel.CancelEventHandler(this.txtAPrice_Validating);
+            this.txtAPrice.Validated += new System.EventHandler(this.txtAPrice_Validated);
             // 
             // txtAOccupants
             // 
@@ -432,6 +433,7 @@ namespace vaalrusGUIPrototype
             this.txtAOccupants.Size = new System.Drawing.Size(134, 20);
             this.txtAOccupants.TabIndex = 12;
             this.txtAOccupants.Validating += new System.ComponentModel.CancelEventHandler(this.txtAOccupants_Validating);
+            this.txtAOccupants.Validated += new System.EventHandler(this.txtAOccupants_Validated);
             // 
             // lblAccomType
             // 
@@ -458,6 +460,7 @@ namespace vaalrusGUIPrototype
             this.txtAID.Size = new System.Drawing.Size(134, 20);
             this.txtAID.TabIndex = 8;
             this.txtAID.Validating += new System.ComponentModel.CancelEventHandler(this.txtAID_Validating);
+            this.txtAID.Validated += new System.EventHandler(this.txtAID_Validated);
             // 
             // frmUpdateAccommodations
             // 

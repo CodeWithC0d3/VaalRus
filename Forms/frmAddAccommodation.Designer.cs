@@ -132,6 +132,7 @@ namespace vaalrusGUIPrototype.Forms
             this.txtAccomPrice.Size = new System.Drawing.Size(100, 20);
             this.txtAccomPrice.TabIndex = 12;
             this.txtAccomPrice.Validating += new System.ComponentModel.CancelEventHandler(this.txtAccomPrice_Validating);
+            this.txtAccomPrice.Validated += new System.EventHandler(this.txtAccomPrice_Validated);
             // 
             // label3
             // 
@@ -149,6 +150,7 @@ namespace vaalrusGUIPrototype.Forms
             this.numOfOccupants.Size = new System.Drawing.Size(60, 20);
             this.numOfOccupants.TabIndex = 10;
             this.numOfOccupants.Validating += new System.ComponentModel.CancelEventHandler(this.numOfOccupants_Validating);
+            this.numOfOccupants.Validated += new System.EventHandler(this.numOfOccupants_Validated);
             // 
             // label2
             // 
@@ -167,6 +169,7 @@ namespace vaalrusGUIPrototype.Forms
             this.cbAccomType.Size = new System.Drawing.Size(121, 21);
             this.cbAccomType.TabIndex = 8;
             this.cbAccomType.Validating += new System.ComponentModel.CancelEventHandler(this.cbAccomType_Validating);
+            this.cbAccomType.Validated += new System.EventHandler(this.cbAccomType_Validated);
             // 
             // label1
             // 

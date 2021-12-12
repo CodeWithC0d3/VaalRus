@@ -595,27 +595,7 @@ namespace vaalrusGUIPrototype
         public Boolean err = false;
         private void txtAID_Validating(object sender, CancelEventArgs e)
         {
-            int parsedValue;
-            if (string.IsNullOrWhiteSpace(txtAID.Text))
-            {
-                e.Cancel = true;
-                txtAID.Focus();
-                errorProviderID.SetError(txtAID, "ID can not be blank!");
-                err = true;
-            }
-            else if(!int.TryParse(txtAID.Text, out parsedValue))
-            {
-                e.Cancel = true;
-                txtAID.Focus();
-                errorProviderID.SetError(txtAID, "Can not contain letters!");
-                err = true;
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProviderID.SetError(txtAID, "");
-                err = false;
-            }
+           
         }
 
         /*private void txtAType_Validating(object sender, CancelEventArgs e)
@@ -645,54 +625,12 @@ namespace vaalrusGUIPrototype
 
         private void txtAOccupants_Validating(object sender, CancelEventArgs e)
         {
-            int parsedValue;
-            if (string.IsNullOrWhiteSpace(txtAOccupants.Text))
-            {
-                e.Cancel = true;
-                //txtAType.Focus();
-                txtAOccupants.Focus();
-                errorProviderOccupants.SetError(txtAOccupants, "Occupants can not be blank!");
-                err = true;
-            }
-            else if (!int.TryParse(txtAOccupants.Text, out parsedValue))
-            {
-                e.Cancel = true;
-                //txtAType.Focus();
-                txtAOccupants.Focus();
-                errorProviderOccupants.SetError(txtAOccupants, "Can not contain letters!");
-                err = true;
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProviderOccupants.SetError(txtAOccupants, "");
-                err = false;
-            }
+           
         }
 
         private void txtAPrice_Validating(object sender, CancelEventArgs e)
         {
-            int parsedValue;
-            if (string.IsNullOrWhiteSpace(txtAPrice.Text))
-            {
-                e.Cancel = true;
-                txtAPrice.Focus();
-                errorProviderPrice.SetError(txtAPrice, "Type can not be blank!");
-                err = true;
-            }
-            else if (!int.TryParse(txtAPrice.Text, out parsedValue))
-            {
-                e.Cancel = true;
-                txtAPrice.Focus();
-                errorProviderPrice.SetError(txtAPrice, "Can not contain letters!");
-                err = true;
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProviderPrice.SetError(txtAPrice, "");
-                err = false;
-            }
+            
         }
 
         private void dataGridViewAccom_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -775,6 +713,83 @@ namespace vaalrusGUIPrototype
         private void txtSearchID_TextChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtAID_Validated(object sender, EventArgs e)
+        {
+            int parsedValue;
+            if (string.IsNullOrWhiteSpace(txtAID.Text))
+            {
+                //e.Cancel = true;
+                txtAID.Focus();
+                errorProviderID.SetError(txtAID, "ID can not be blank!");
+                err = true;
+            }
+            else if (!int.TryParse(txtAID.Text, out parsedValue))
+            {
+                //e.Cancel = true;
+                txtAID.Focus();
+                errorProviderID.SetError(txtAID, "Can not contain letters!");
+                err = true;
+            }
+            else
+            {
+               // e.Cancel = false;
+                errorProviderID.SetError(txtAID, "");
+                err = false;
+            }
+        }
+
+        private void txtAOccupants_Validated(object sender, EventArgs e)
+        {
+            int parsedValue;
+            if (string.IsNullOrWhiteSpace(txtAOccupants.Text))
+            {
+               // e.Cancel = true;
+                //txtAType.Focus();
+                txtAOccupants.Focus();
+                errorProviderOccupants.SetError(txtAOccupants, "Occupants can not be blank!");
+                err = true;
+            }
+            else if (!int.TryParse(txtAOccupants.Text, out parsedValue))
+            {
+                //e.Cancel = true;
+                //txtAType.Focus();
+                txtAOccupants.Focus();
+                errorProviderOccupants.SetError(txtAOccupants, "Can not contain letters!");
+                err = true;
+            }
+            else
+            {
+                //e.Cancel = false;
+                errorProviderOccupants.SetError(txtAOccupants, "");
+                err = false;
+            }
+        }
+
+        private void txtAPrice_Validated(object sender, EventArgs e)
+        {
+            int parsedValue;
+            if (string.IsNullOrWhiteSpace(txtAPrice.Text))
+            {
+               //e.Cancel = true;
+                txtAPrice.Focus();
+                errorProviderPrice.SetError(txtAPrice, "Type can not be blank!");
+                err = true;
+            }
+            else if (!int.TryParse(txtAPrice.Text, out parsedValue))
+            {
+                //e.Cancel = true;
+                txtAPrice.Focus();
+                errorProviderPrice.SetError(txtAPrice, "Can not contain letters!");
+                err = true;
+            }
+            else
+            {
+                //e.Cancel = false;
+                errorProviderPrice.SetError(txtAPrice, "");
+                err = false;
+            }
         }
 
         private void txtSearchType_TextChanged(object sender, EventArgs e)
