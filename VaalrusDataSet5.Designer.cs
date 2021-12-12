@@ -299,6 +299,8 @@ namespace vaalrusGUIPrototype {
             
             private global::System.Data.DataColumn columnAccommodation_Price;
             
+            private global::System.Data.DataColumn columnCommon_Name;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public viewBookingReport1DataTable() {
@@ -414,6 +416,14 @@ namespace vaalrusGUIPrototype {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Common_NameColumn {
+                get {
+                    return this.columnCommon_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -449,7 +459,7 @@ namespace vaalrusGUIPrototype {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public viewBookingReport1Row AddviewBookingReport1Row(int Booking_ID, int Customer_ID, string Customer_FirstName, string Customer_LastName, System.DateTime startDate, System.DateTime endDate, int Accommodation_ID, string AccommodationType, int Number_Of_Occupants, decimal Accommodation_Price) {
+            public viewBookingReport1Row AddviewBookingReport1Row(int Booking_ID, int Customer_ID, string Customer_FirstName, string Customer_LastName, System.DateTime startDate, System.DateTime endDate, int Accommodation_ID, string AccommodationType, int Number_Of_Occupants, decimal Accommodation_Price, string Common_Name) {
                 viewBookingReport1Row rowviewBookingReport1Row = ((viewBookingReport1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Booking_ID,
@@ -461,7 +471,8 @@ namespace vaalrusGUIPrototype {
                         Accommodation_ID,
                         AccommodationType,
                         Number_Of_Occupants,
-                        Accommodation_Price};
+                        Accommodation_Price,
+                        Common_Name};
                 rowviewBookingReport1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowviewBookingReport1Row);
                 return rowviewBookingReport1Row;
@@ -494,6 +505,7 @@ namespace vaalrusGUIPrototype {
                 this.columnAccommodationType = base.Columns["AccommodationType"];
                 this.columnNumber_Of_Occupants = base.Columns["Number_Of_Occupants"];
                 this.columnAccommodation_Price = base.Columns["Accommodation_Price"];
+                this.columnCommon_Name = base.Columns["Common_Name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -519,6 +531,8 @@ namespace vaalrusGUIPrototype {
                 base.Columns.Add(this.columnNumber_Of_Occupants);
                 this.columnAccommodation_Price = new global::System.Data.DataColumn("Accommodation_Price", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAccommodation_Price);
+                this.columnCommon_Name = new global::System.Data.DataColumn("Common_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCommon_Name);
                 this.columnBooking_ID.AllowDBNull = false;
                 this.columnCustomer_ID.AllowDBNull = false;
                 this.columnCustomer_FirstName.AllowDBNull = false;
@@ -530,6 +544,7 @@ namespace vaalrusGUIPrototype {
                 this.columnAccommodationType.MaxLength = 20;
                 this.columnNumber_Of_Occupants.AllowDBNull = false;
                 this.columnAccommodation_Price.AllowDBNull = false;
+                this.columnCommon_Name.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -794,6 +809,22 @@ namespace vaalrusGUIPrototype {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Common_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableviewBookingReport1.Common_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Common_Name\' in table \'viewBookingReport1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableviewBookingReport1.Common_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsCustomer_LastNameNull() {
                 return this.IsNull(this.tableviewBookingReport1.Customer_LastNameColumn);
             }
@@ -814,6 +845,18 @@ namespace vaalrusGUIPrototype {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetAccommodationTypeNull() {
                 this[this.tableviewBookingReport1.AccommodationTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCommon_NameNull() {
+                return this.IsNull(this.tableviewBookingReport1.Common_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCommon_NameNull() {
+                this[this.tableviewBookingReport1.Common_NameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -986,6 +1029,7 @@ namespace vaalrusGUIPrototype.VaalrusDataSet5TableAdapters {
             tableMapping.ColumnMappings.Add("AccommodationType", "AccommodationType");
             tableMapping.ColumnMappings.Add("Number_Of_Occupants", "Number_Of_Occupants");
             tableMapping.ColumnMappings.Add("Accommodation_Price", "Accommodation_Price");
+            tableMapping.ColumnMappings.Add("Common_Name", "Common_Name");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1002,9 +1046,16 @@ namespace vaalrusGUIPrototype.VaalrusDataSet5TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Booking_ID, Customer_ID, Customer_FirstName, Customer_LastName, startDate," +
-                " endDate, Accommodation_ID, AccommodationType, Number_Of_Occupants, Accommodatio" +
-                "n_Price FROM dbo.viewBookingReport1";
+            this._commandCollection[0].CommandText = @"SELECT        dbo.Booking.Booking_ID, dbo.Customer.Customer_ID, dbo.Customer.Customer_FirstName, dbo.Customer.Customer_LastName, dbo.Accommodationset.startDate, dbo.Accommodationset.endDate, 
+                         dbo.Accommodationset.Accommodation_ID, dbo.Accommodationtype.AccommodationType, dbo.Accommodation.Number_Of_Occupants, dbo.Accommodation.Accommodation_Price, Accommodation_1.Common_Name
+FROM            dbo.Customer INNER JOIN
+                         dbo.Booking ON dbo.Customer.Customer_ID = dbo.Booking.Customer_ID INNER JOIN
+                         dbo.Quotation ON dbo.Customer.Customer_ID = dbo.Quotation.Customer_ID AND dbo.Booking.Quotation_ID = dbo.Quotation.Quotation_ID INNER JOIN
+                         dbo.Accommodation INNER JOIN
+                         dbo.Accommodationset ON dbo.Accommodation.Accommodation_ID = dbo.Accommodationset.Accommodation_ID INNER JOIN
+                         dbo.Accommodationtype ON dbo.Accommodation.Accommodation_TypeID = dbo.Accommodationtype.Accommodation_TypeID ON dbo.Quotation.Quotation_ID = dbo.Accommodationset.Quotation_ID INNER JOIN
+                         dbo.Accommodation AS Accommodation_1 ON dbo.Accommodationset.Accommodation_ID = Accommodation_1.Accommodation_ID AND 
+                         dbo.Accommodationtype.Accommodation_TypeID = Accommodation_1.Accommodation_TypeID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

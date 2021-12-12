@@ -360,12 +360,12 @@ namespace vaalrusGUIPrototype.Forms
                 //sql = $"select * from Booking where StartDate >@stdate and EndDate < @edate ";
                 if (rb_booking.Checked)
                 {
-                    sql = $"SELECT Booking.Booking_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Booking.StartDate, Booking.EndDate FROM Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID where Booking.StartDate > @stdate {strto}";
+                    sql = $"SELECT Booking.Booking_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Booking.StartDate, Booking.EndDate FROM Booking INNER JOIN Customer ON Booking.Customer_ID = Customer.Customer_ID where Booking.StartDate >= @stdate {strto}";
                 }
                    
                 if (rb_quote.Checked)
                 {
-                    sql = $"SELECT Quotation.Quotation_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Quotation.Reservation_Date AS [Reservation Date], Quotation.Duration, Quotation.TotalPrice, Quotationstatus.Status_Type AS Status FROM Quotation INNER JOIN Customer ON dbo.Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.QuoteStatus = Quotationstatus.Status_ID WHERE Quotation.Reservation_Date > @stdate {strduration}";
+                    sql = $"SELECT Quotation.Quotation_ID, Customer.Customer_FirstName AS [First Name], Customer.Customer_LastName AS [Last Name], Quotation.Reservation_Date AS [Reservation Date], Quotation.Duration, Quotation.TotalPrice, Quotationstatus.Status_Type AS Status FROM Quotation INNER JOIN Customer ON dbo.Quotation.Customer_ID = Customer.Customer_ID INNER JOIN Quotationstatus ON Quotation.QuoteStatus = Quotationstatus.Status_ID WHERE Quotation.Reservation_Date >= @stdate {strduration}";
                 }
                    
                 command = new SqlCommand(sql, con);
@@ -494,12 +494,14 @@ namespace vaalrusGUIPrototype.Forms
                 string typeValue = cmbFilter.SelectedItem.ToString();
                 if (cmbFilter.SelectedIndex == 0)
                 {
-                    sql = $"SELECT Accommodation.Accommodation_ID, cast(Accommodation.Accommodation_ID as varchar) + '-' + Accommodationtype.AccommodationType As accmerge FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID;";
+                    // sql = $"SELECT Accommodation.Accommodation_ID, cast(Accommodation.Accommodation_ID as varchar) + '-' + Accommodationtype.AccommodationType As accmerge FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID;";
+                    sql = $"SELECT Accommodation.Accommodation_ID,Accommodation.Common_Name FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID;";
                 }
                 else
                 {
-                    sql = $"SELECT Accommodation.Accommodation_ID, cast(Accommodation.Accommodation_ID as varchar) + '-' + Accommodationtype.AccommodationType As accmerge FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID WHERE (dbo.Accommodationtype.AccommodationType = '{typeValue}');";
-                }                
+                    // sql = $"SELECT Accommodation.Accommodation_ID, cast(Accommodation.Accommodation_ID as varchar) + '-' + Accommodationtype.AccommodationType As accmerge FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID WHERE (dbo.Accommodationtype.AccommodationType = '{typeValue}');";
+                    sql = $"SELECT Accommodation.Accommodation_ID,Accommodation.Common_Name FROM Accommodation INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID WHERE (dbo.Accommodationtype.AccommodationType = '{typeValue}');";
+                }        
  
                 command = new SqlCommand(sql,con);
                 adapter = new SqlDataAdapter();
@@ -529,7 +531,7 @@ namespace vaalrusGUIPrototype.Forms
                   
                 }                
                 ds1.AcceptChanges();
-                cmbAccommodation.DisplayMember = "accmerge";
+                cmbAccommodation.DisplayMember = "Common_Name";
                 cmbAccommodation.ValueMember = "Accommodation_ID";
                 cmbAccommodation.DataSource = ds1.Tables[0];
                 cmbAccommodation.SelectedIndex = -1;
@@ -579,7 +581,7 @@ namespace vaalrusGUIPrototype.Forms
             {
                 if (selectFirst)
                 {
-                    string s = row["accmerge"].ToString();
+                    string s = row["Common_Name"].ToString();
                     lstAccommodation.Items.Add(s);
                     //string substring = st.Substring(0,st.IndexOf(' '));
                     string t = cmbAccommodation.SelectedValue.ToString();
@@ -812,7 +814,7 @@ namespace vaalrusGUIPrototype.Forms
        
 
      
-                sql = $"SELECT Accommodationset.Quotation_ID AS [Quote Number], Accommodationset.Accommodation_ID AS [Acc Number], Accommodationtype.AccommodationType AS Type, Accommodationset.startDate, Quotation.Duration AS[Duration / days] FROM Accommodationset INNER JOIN Accommodation ON Accommodationset.Accommodation_ID = Accommodation.Accommodation_ID INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID INNER JOIN Quotation ON Accommodationset.Quotation_ID = Quotation.Quotation_ID WHERE Quotation.Quotation_ID = @idd";
+                sql = $"SELECT Accommodationset.Quotation_ID AS [Quote Number], Accommodation.Common_Name AS [Acc Name], Accommodationtype.AccommodationType AS Type, Accommodationset.startDate, Quotation.Duration AS[Duration / days] FROM Accommodationset INNER JOIN Accommodation ON Accommodationset.Accommodation_ID = Accommodation.Accommodation_ID INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID INNER JOIN Quotation ON Accommodationset.Quotation_ID = Quotation.Quotation_ID WHERE Quotation.Quotation_ID = @idd";
    
                 command = new SqlCommand(sql, con);
                 command.Parameters.AddWithValue("@idd", Quot);
@@ -912,7 +914,7 @@ namespace vaalrusGUIPrototype.Forms
             List<accListReport> list = new List<accListReport>();
             if (conDB())
             {
-                sql = $"SELECT Accommodationset.Quotation_ID, Accommodationset.Accommodation_ID, Accommodationtype.AccommodationType, Accommodationset.startDate, Accommodationset.endDate, Accommodation.Accommodation_Price FROM Accommodationset INNER JOIN Accommodation ON Accommodationset.Accommodation_ID = Accommodation.Accommodation_ID INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID WHERE Quotation_ID = @qID";
+                sql = $"SELECT Accommodationset.Quotation_ID, Accommodationset.Accommodation_ID,Accommodation.Common_Name, Accommodationtype.AccommodationType, Accommodationset.startDate, Accommodationset.endDate, Accommodation.Accommodation_Price FROM Accommodationset INNER JOIN Accommodation ON Accommodationset.Accommodation_ID = Accommodation.Accommodation_ID INNER JOIN Accommodationtype ON Accommodation.Accommodation_TypeID = Accommodationtype.Accommodation_TypeID WHERE Quotation_ID = @qID";
                 command = new SqlCommand(sql, con);
                 command.Parameters.AddWithValue("@qID", selectedQuoteID);
                 //command.Parameters.AddWithValue("@edate", eDate);
@@ -928,10 +930,11 @@ namespace vaalrusGUIPrototype.Forms
                     accListReport ls = new accListReport();
                     ls.QuoteID = row.ItemArray[0].ToString();
                     ls.AccommodationID = row.ItemArray[1].ToString();
-                    ls.Type = row.ItemArray[2].ToString();
-                    ls.StartDate = row.ItemArray[3].ToString().Substring(0, row.ItemArray[3].ToString().LastIndexOf(" "));
-                    ls.EndDate = row.ItemArray[4].ToString().Substring(0, row.ItemArray[4].ToString().IndexOf(" "));
-                    ls.Price = row.ItemArray[5].ToString();
+                    ls.Common_Name = row.ItemArray[2].ToString();
+                    ls.Type = row.ItemArray[3].ToString();
+                    ls.StartDate = row.ItemArray[4].ToString().Substring(0, row.ItemArray[4].ToString().LastIndexOf(" "));
+                    ls.EndDate = row.ItemArray[5].ToString().Substring(0, row.ItemArray[5].ToString().IndexOf(" "));
+                    ls.Price = row.ItemArray[6].ToString();
                     list.Add(ls);
                 }
 

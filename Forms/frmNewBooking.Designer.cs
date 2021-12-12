@@ -268,7 +268,7 @@ namespace vaalrusGUIPrototype.Forms
             this.lsAcc.FormattingEnabled = true;
             this.lsAcc.Location = new System.Drawing.Point(3, 133);
             this.lsAcc.Name = "lsAcc";
-            this.lsAcc.Size = new System.Drawing.Size(312, 17);
+            this.lsAcc.Size = new System.Drawing.Size(312, 43);
             this.lsAcc.TabIndex = 3;
             // 
             // label11

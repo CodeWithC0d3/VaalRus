@@ -477,7 +477,7 @@ BR 251255</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Accommodation ID</Value>
+                              <Value>Accommodation</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -625,21 +625,21 @@ BR 251255</Value>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="AccommodationID">
+                    <Textbox Name="Common_Name">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!AccommodationID.Value</Value>
+                              <Value>=Fields!Common_Name.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>AccommodationID</rd:DefaultName>
+                      <rd:DefaultName>Common_Name</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -651,6 +651,7 @@ BR 251255</Value>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -980,6 +981,10 @@ BR 251255</Value>
           <DataField>AccommodationID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Common_Name">
+          <DataField>Common_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="EndDate">
           <DataField>EndDate</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -1004,7 +1009,7 @@ BR 251255</Value>
       <rd:DataSetInfo>
         <rd:DataSetName>vaalrusGUIPrototype</rd:DataSetName>
         <rd:TableName>accListReport</rd:TableName>
-        <rd:ObjectDataSourceType>vaalrusGUIPrototype.accListReport, vaalrusGUIPrototype, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:ObjectDataSourceType>vaalrusGUIPrototype.accListReport, Vaalrus, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

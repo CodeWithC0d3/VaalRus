@@ -414,7 +414,7 @@ namespace vaalrusGUIPrototype.Forms
                 endDate = txtEndDate.Text = sdate.Date.AddDays(duration).ToString();
                 txtAmount.Text = ds.Tables[0].Rows[0].ItemArray[8].ToString();
                 amount = decimal.Parse(ds.Tables[0].Rows[0].ItemArray[8].ToString());
-                sql = $"SELECT Accommodation_ID from Accommodationset WHERE Quotation_ID = @qid ";
+                sql = $"SELECT Accommodation.Common_Name FROM Accommodation INNER JOIN Accommodationset ON Accommodation.Accommodation_ID = Accommodationset.Accommodation_ID WHERE (Accommodationset.Quotation_ID = @qid)";
                 command = new SqlCommand(sql, con);
                 command.Parameters.AddWithValue("@qid", qid);
                 //command.Parameters.AddWithValue("@edate", eDate);

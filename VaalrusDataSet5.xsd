@@ -9,10 +9,19 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewBookingReport1TableAdapter" GeneratorDataComponentClassName="viewBookingReport1TableAdapter" Name="viewBookingReport1" UserDataComponentName="viewBookingReport1TableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="VaalrusConnectionString (Settings)" DbObjectName="Vaalrus.dbo.viewBookingReport1" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="VaalrusConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Booking_ID, Customer_ID, Customer_FirstName, Customer_LastName, startDate, endDate, Accommodation_ID, AccommodationType, Number_Of_Occupants, Accommodation_Price FROM dbo.viewBookingReport1</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        dbo.Booking.Booking_ID, dbo.Customer.Customer_ID, dbo.Customer.Customer_FirstName, dbo.Customer.Customer_LastName, dbo.Accommodationset.startDate, dbo.Accommodationset.endDate, 
+                         dbo.Accommodationset.Accommodation_ID, dbo.Accommodationtype.AccommodationType, dbo.Accommodation.Number_Of_Occupants, dbo.Accommodation.Accommodation_Price, Accommodation_1.Common_Name
+FROM            dbo.Customer INNER JOIN
+                         dbo.Booking ON dbo.Customer.Customer_ID = dbo.Booking.Customer_ID INNER JOIN
+                         dbo.Quotation ON dbo.Customer.Customer_ID = dbo.Quotation.Customer_ID AND dbo.Booking.Quotation_ID = dbo.Quotation.Quotation_ID INNER JOIN
+                         dbo.Accommodation INNER JOIN
+                         dbo.Accommodationset ON dbo.Accommodation.Accommodation_ID = dbo.Accommodationset.Accommodation_ID INNER JOIN
+                         dbo.Accommodationtype ON dbo.Accommodation.Accommodation_TypeID = dbo.Accommodationtype.Accommodation_TypeID ON dbo.Quotation.Quotation_ID = dbo.Accommodationset.Quotation_ID INNER JOIN
+                         dbo.Accommodation AS Accommodation_1 ON dbo.Accommodationset.Accommodation_ID = Accommodation_1.Accommodation_ID AND 
+                         dbo.Accommodationtype.Accommodation_TypeID = Accommodation_1.Accommodation_TypeID</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -29,6 +38,7 @@
               <Mapping SourceColumn="AccommodationType" DataSetColumn="AccommodationType" />
               <Mapping SourceColumn="Number_Of_Occupants" DataSetColumn="Number_Of_Occupants" />
               <Mapping SourceColumn="Accommodation_Price" DataSetColumn="Accommodation_Price" />
+              <Mapping SourceColumn="Common_Name" DataSetColumn="Common_Name" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -40,7 +50,7 @@
   <xs:element name="VaalrusDataSet5" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="VaalrusDataSet5" msprop:Generator_UserDSName="VaalrusDataSet5">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="viewBookingReport1" msprop:Generator_TableClassName="viewBookingReport1DataTable" msprop:Generator_TableVarName="tableviewBookingReport1" msprop:Generator_TablePropName="viewBookingReport1" msprop:Generator_RowDeletingName="viewBookingReport1RowDeleting" msprop:Generator_RowChangingName="viewBookingReport1RowChanging" msprop:Generator_RowEvHandlerName="viewBookingReport1RowChangeEventHandler" msprop:Generator_RowDeletedName="viewBookingReport1RowDeleted" msprop:Generator_UserTableName="viewBookingReport1" msprop:Generator_RowChangedName="viewBookingReport1RowChanged" msprop:Generator_RowEvArgName="viewBookingReport1RowChangeEvent" msprop:Generator_RowClassName="viewBookingReport1Row">
+        <xs:element name="viewBookingReport1" msprop:Generator_TableClassName="viewBookingReport1DataTable" msprop:Generator_TableVarName="tableviewBookingReport1" msprop:Generator_RowChangedName="viewBookingReport1RowChanged" msprop:Generator_TablePropName="viewBookingReport1" msprop:Generator_RowDeletingName="viewBookingReport1RowDeleting" msprop:Generator_RowChangingName="viewBookingReport1RowChanging" msprop:Generator_RowEvHandlerName="viewBookingReport1RowChangeEventHandler" msprop:Generator_RowDeletedName="viewBookingReport1RowDeleted" msprop:Generator_RowClassName="viewBookingReport1Row" msprop:Generator_UserTableName="viewBookingReport1" msprop:Generator_RowEvArgName="viewBookingReport1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Booking_ID" msprop:Generator_ColumnVarNameInTable="columnBooking_ID" msprop:Generator_ColumnPropNameInRow="Booking_ID" msprop:Generator_ColumnPropNameInTable="Booking_IDColumn" msprop:Generator_UserColumnName="Booking_ID" type="xs:int" />
@@ -71,6 +81,13 @@
               </xs:element>
               <xs:element name="Number_Of_Occupants" msprop:Generator_ColumnVarNameInTable="columnNumber_Of_Occupants" msprop:Generator_ColumnPropNameInRow="Number_Of_Occupants" msprop:Generator_ColumnPropNameInTable="Number_Of_OccupantsColumn" msprop:Generator_UserColumnName="Number_Of_Occupants" type="xs:int" />
               <xs:element name="Accommodation_Price" msprop:Generator_ColumnVarNameInTable="columnAccommodation_Price" msprop:Generator_ColumnPropNameInRow="Accommodation_Price" msprop:Generator_ColumnPropNameInTable="Accommodation_PriceColumn" msprop:Generator_UserColumnName="Accommodation_Price" type="xs:decimal" />
+              <xs:element name="Common_Name" msprop:Generator_ColumnVarNameInTable="columnCommon_Name" msprop:Generator_ColumnPropNameInRow="Common_Name" msprop:Generator_ColumnPropNameInTable="Common_NameColumn" msprop:Generator_UserColumnName="Common_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

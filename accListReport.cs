@@ -9,11 +9,12 @@ namespace vaalrusGUIPrototype
     public class accListReport
     {
         public string QuoteID { get; set; }
-        public string AccommodationID { get; set; }       
+        public string AccommodationID { get; set; }            
         public string StartDate { get; set; }
         public string Type { get; set; }
         public string EndDate { get; set; }
         public string Price { get; set; }
+        public string Common_Name { get; set; }
 
     }
 }

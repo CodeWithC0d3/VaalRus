@@ -297,6 +297,7 @@ namespace vaalrusGUIPrototype.Forms
                         sqlConnection = new SqlConnection(connString);
                         sqlConnection.Open();
                         sqlCmd = new SqlCommand($"Insert Into Accommodation (Accommodation_TypeID,Number_Of_Occupants,Accommodation_Price,Active) Values (@type,@noo,@price,@act)", sqlConnection);
+                        //sqlCmd.Parameters.AddWithValue("@id", cbAccomType.SelectedIndex + 1);
                         sqlCmd.Parameters.AddWithValue("@type", cbAccomType.SelectedIndex + 1);
                         sqlCmd.Parameters.AddWithValue("@noo", numOfOccupants.Value);
                         sqlCmd.Parameters.AddWithValue("@price", Convert.ToInt32(txtAccomPrice.Text));
