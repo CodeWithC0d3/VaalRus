@@ -373,7 +373,16 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Accommodation ID</Value>
+                                  <Value>Accommodation</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Name</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -463,21 +472,21 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Accommodation_ID">
+                        <Textbox Name="Common_Name">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Accommodation_ID.Value</Value>
+                                  <Value>=Fields!Common_Name.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Accommodation_ID</rd:DefaultName>
+                          <rd:DefaultName>Common_Name</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -489,7 +498,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -619,17 +627,17 @@
             <ChartCategoryHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Group Name="Chart1_CategoryGroup">
+                  <Group Name="Chart1_CategoryGroup1">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Accommodation_ID.Value</GroupExpression>
+                      <GroupExpression>=Fields!Common_Name.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Accommodation_ID.Value</Value>
+                      <Value>=Fields!Common_Name.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!Accommodation_ID.Value</Label>
+                  <Label>=Fields!Common_Name.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
@@ -910,25 +918,6 @@
                 </Style>
               </ChartArea>
             </ChartAreas>
-            <ChartLegends>
-              <ChartLegend Name="Default">
-                <Style>
-                  <BackgroundGradientType>None</BackgroundGradientType>
-                  <FontSize>8pt</FontSize>
-                </Style>
-                <Position>TopLeft</Position>
-                <ChartLegendTitle>
-                  <Caption />
-                  <Style>
-                    <FontSize>8pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </ChartLegendTitle>
-                <HeaderSeparatorColor>Black</HeaderSeparatorColor>
-                <ColumnSeparatorColor>Black</ColumnSeparatorColor>
-              </ChartLegend>
-            </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
                 <Caption>Top 10 Accommodations</Caption>
@@ -960,7 +949,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>DataSet1</DataSetName>
+            <DataSetName>DataSet3</DataSetName>
             <Top>5.47179cm</Top>
             <Left>9.60255cm</Left>
             <Height>6.79979cm</Height>
@@ -981,15 +970,15 @@
                 <ChartMember>
                   <Group Name="Chart2_CategoryGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Accommodation_ID.Value</GroupExpression>
+                      <GroupExpression>=Fields!Common_Name.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Accommodation_ID.Value</Value>
+                      <Value>=Fields!Common_Name.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!Accommodation_ID.Value</Label>
+                  <Label>=Fields!Common_Name.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
@@ -1319,7 +1308,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>DataSet1</DataSetName>
+            <DataSetName>DataSet3</DataSetName>
             <Top>7.29797cm</Top>
             <Left>0.26458cm</Left>
             <Height>5cm</Height>
