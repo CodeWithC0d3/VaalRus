@@ -629,15 +629,15 @@
                 <ChartMember>
                   <Group Name="Chart1_CategoryGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Accommodation_ID.Value</GroupExpression>
+                      <GroupExpression>=Fields!Common_Name.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Accommodation_ID.Value</Value>
+                      <Value>=Fields!Common_Name.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!Accommodation_ID.Value</Label>
+                  <Label>=Fields!Common_Name.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
@@ -918,25 +918,6 @@
                 </Style>
               </ChartArea>
             </ChartAreas>
-            <ChartLegends>
-              <ChartLegend Name="Default">
-                <Style>
-                  <BackgroundGradientType>None</BackgroundGradientType>
-                  <FontSize>8pt</FontSize>
-                </Style>
-                <Position>TopLeft</Position>
-                <ChartLegendTitle>
-                  <Caption />
-                  <Style>
-                    <FontSize>8pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </ChartLegendTitle>
-                <HeaderSeparatorColor>Black</HeaderSeparatorColor>
-                <ColumnSeparatorColor>Black</ColumnSeparatorColor>
-              </ChartLegend>
-            </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
                 <Caption>Top 10 Accommodations</Caption>
@@ -968,8 +949,8 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>DataSet1</DataSetName>
-            <Top>5.47179cm</Top>
+            <DataSetName>DataSet3</DataSetName>
+            <Top>5.49818cm</Top>
             <Left>9.60255cm</Left>
             <Height>6.79979cm</Height>
             <Width>7.07679cm</Width>
@@ -989,15 +970,15 @@
                 <ChartMember>
                   <Group Name="Chart2_CategoryGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Accommodation_ID.Value</GroupExpression>
+                      <GroupExpression>=Fields!Common_Name.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Accommodation_ID.Value</Value>
+                      <Value>=Fields!Common_Name.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!Accommodation_ID.Value</Label>
+                  <Label>=Fields!Common_Name.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
@@ -1327,7 +1308,7 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>DataSet1</DataSetName>
+            <DataSetName>DataSet3</DataSetName>
             <Top>7.29797cm</Top>
             <Left>0.26458cm</Left>
             <Height>5cm</Height>
