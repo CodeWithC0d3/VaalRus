@@ -4,7 +4,7 @@ CREATE VIEW viewBookingReport1
 AS
 
 SELECT        dbo.Booking.Booking_ID, dbo.Customer.Customer_ID, dbo.Customer.Customer_FirstName, dbo.Customer.Customer_LastName, dbo.Accommodationset.startDate, dbo.Accommodationset.endDate, 
-                         dbo.Accommodationset.Accommodation_ID, dbo.Accommodationtype.AccommodationType, dbo.Accommodation.Number_Of_Occupants, dbo.Accommodation.Accommodation_Price
+                         dbo.Accommodationset.Accommodation_ID, dbo.Accommodationtype.AccommodationType, dbo.Accommodation.Common_Name, dbo.Accommodation.Number_Of_Occupants, dbo.Accommodation.Accommodation_Price
 FROM            dbo.Customer INNER JOIN
                          dbo.Booking ON dbo.Customer.Customer_ID = dbo.Booking.Customer_ID INNER JOIN
                          dbo.Quotation ON dbo.Customer.Customer_ID = dbo.Quotation.Customer_ID AND dbo.Booking.Quotation_ID = dbo.Quotation.Quotation_ID INNER JOIN
